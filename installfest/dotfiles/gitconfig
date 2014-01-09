@@ -1,0 +1,11 @@
+# http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup
+[user]
+  name = My Name
+  email = myemail@example.com
+[color]
+  ui = true
+[alias]
+  st = status -sb -uall
+[core]
+  editor = subl
+  excludesfile = ~/.gitignore_global
