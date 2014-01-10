@@ -22,7 +22,7 @@
     3. Preferences.sublime-settings
 * [Spectacle Screen Manager][spectacle]
 
-[brew]:     http://mxcl.github.io/homebrew/
+[brew]:     http://brew.sh/
 [chrome]:   https://www.google.com/intl/en/chrome/browser/
 [dotfiles]: ../installfest/dotfiles
 [gconfig]:  http://git-scm.com/book/en/Customizing-Git-Git-Configuration
