@@ -1,0 +1,30 @@
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+
+
+# OS specific
+.DS_Store
+thumbs.db
+
+
+# Ignore bundler config
+.bundle
+.rvm*
+
+# Ignore the default SQLite database.
+*.sqlite3
+
+# Ignore all logfiles and tempfiles.
+*.log
+/tmp
