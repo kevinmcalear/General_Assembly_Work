@@ -22,11 +22,11 @@
 ### ActiveRecord
 
 # Back-end Development with Ruby on Rails
-### General Rails
+### Rails Basics
 ### Models, Views and Controllers
 ### Authentication & Authorization
 ### Asset Pipeline
-### Agile workflow & tools
+### Agile Workflow & Tools
 ### Individual Project
 ### Capybara
 ### Rspec & Rails
