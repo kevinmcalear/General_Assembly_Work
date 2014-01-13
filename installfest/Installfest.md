@@ -4,7 +4,8 @@
 * [Upgrade to OS X Mavericks][osx]
 * [Google Chrome][chrome]
 * [Install Homebrew][brew]
-	* Then: `brew install git rbenv ruby-build rbenv-gem-rehash postgres`
+	* Then: `brew doctor` 
+	* Make sure there are no errors, then: `brew install git rbenv ruby-build rbenv-gem-rehash postgres`
 * [Install Ruby + Rails]
 	* `rbenv install 2.1.0`
 	* `rbenv global 2.1.0`
@@ -22,7 +23,7 @@
     3. Preferences.sublime-settings
 * [Spectacle Screen Manager][spectacle]
 
-[brew]:     http://mxcl.github.io/homebrew/
+[brew]:     http://brew.sh/
 [chrome]:   https://www.google.com/intl/en/chrome/browser/
 [dotfiles]: ../installfest/dotfiles
 [gconfig]:  http://git-scm.com/book/en/Customizing-Git-Git-Configuration
