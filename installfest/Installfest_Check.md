@@ -4,7 +4,7 @@ Most necessary:
 
 * When you type `brew doctor` into your terminal, you get no warnings
 * When you type `ruby -v` into your terminal, you get `ruby  2.1.0`
-* When you type `pry` into your terminal, it changes the prompt to `pry(main)`
+* When you type `pry` into your terminal, it changes the prompt to `[1] pry(main)>`
 
 Sublime:
 
