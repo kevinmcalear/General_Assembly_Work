@@ -19,4 +19,17 @@ def ac_action(current, functional, desired)
   end
 end
 
-  
+def is_prime?(num)
+  if num <= 1
+    return false
+  end
+    div = 2
+    while (num % div != 0)
+      div += 1
+      if div == num 
+        return true
+      end
+    end
+    return false
+end
+
