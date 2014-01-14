@@ -7,7 +7,7 @@
 
 puts "What is the current temperature?"
 
-temperature = gets.chomp
+temperature = gets.chomp.to_i
 
 puts "Is the A/C functional (yes or no)?"
 
@@ -15,16 +15,14 @@ functional = gets.chomp.downcase
 
 puts "What temperature do you wish it was?"
 
-temperature_wish = gets.chomp
+temperature_wish = gets.chomp.to_i
 
 if (functional == "yes") && (temperature > temperature_wish)
   puts "Turn on the A/C Please"
 elsif (functional == "no") && (temperature > temperature_wish)
   puts "Fix the A/C now!  It's hot!"
-elsif (functional == "no") && (temperature < temperature_wish)
+else 
   puts "Fix the A/C whenever you have the chance...  It's cool..."
-else
-  puts "error"
 end
 
 
