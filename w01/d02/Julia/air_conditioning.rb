@@ -24,6 +24,7 @@ elsif
 	ac_functioning = false
 else
 	puts "Please enter your answer as yes or no."
+	ac_functioning = gets.chomp
 end
 
 puts "What temperature do you wish it was?"
