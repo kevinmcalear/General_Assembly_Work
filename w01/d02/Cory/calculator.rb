@@ -30,7 +30,9 @@
 # #####Commit 4 (Bonus)
 # - Add functionality for trigonometric functions (sin, cos, tan)
 # - Add functionality to include a factorial option
+choice = nil
 
+while choice != "q"
 puts "Please enter a command: (b)asic, (a)dvanced, (t)rig or (q)uit"
 choice = gets.chomp
 
@@ -61,6 +63,8 @@ if choice == "b"
       puts "Enter second number to divide:"
       div2 = gets.chomp.to_i
       puts div1 / div2
+    else
+      puts "error"
     end
 elsif choice == "a"
   puts "Select from one of the following: (e)xponents, (s)quare roots"
@@ -75,6 +79,8 @@ elsif choice == "a"
       puts "Enter a number to get the square root:"
       square = gets.chomp.to_i
       puts Math.sqrt(square)
+    else
+      puts "error"
     end
 elsif choice == "t"
   puts "Select from one of the following: (s)in, (c)os or (t)an"
@@ -91,12 +97,14 @@ elsif choice == "t"
       puts "Enter a number to get the tan:"
       tan = gets.chomp.to_i
       puts Math.tan(tan)
+    else
+      puts "error"
   end
 
 elsif choice == "q"
   puts "GOODBYE!!!!!!!!!"
 end
-  
+end
 
 
 
