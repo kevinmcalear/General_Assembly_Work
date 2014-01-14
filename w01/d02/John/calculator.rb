@@ -8,40 +8,104 @@ def second_input
   return gets.chomp.to_i
 end
 
-def add(num1, num2)
+def add
+  puts "Please enter the first number:"
+  num1 = gets.chomp.to_i  
+  puts "Please enter the second number:"
+  num2 = gets.chomp.to_i
+  puts
   puts "#{num1} + #{num2} = #{num1 + num2}"
 end
 
-def subtract(num1, num2)
+def subtract
+  puts "Please enter the first number:"
+  num1 = gets.chomp.to_i  
+  puts "Please enter the second number:"
+  num2 = gets.chomp.to_i
+  puts
   puts "#{num1} - #{num2} = #{num1 - num2}"
 end
 
-def multiply(num1, num2)
+def multiply
+  puts "Please enter the first number:"
+  num1 = gets.chomp.to_i  
+  puts "Please enter the second number:"
+  num2 = gets.chomp.to_i
+  puts
   puts "#{num1} * #{num2} = #{num1 * num2}"
 end
 
-def divide(num1, num2)
+def divide
+  puts "Please enter the first number:"
+  num1 = gets.chomp.to_i  
+  puts "Please enter the second number:"
+  num2 = gets.chomp.to_i
+  puts
   puts "#{num1} / #{num2} = #{num1.to_f / num2.to_f}"
 end
 
-def exponent(num, exp)
+def exponent
+  puts "Please enter a number:"
+  num = gets.chomp.to_i  
+  puts "Please enter an exponent:"
+  exp = gets.chomp.to_i
+  puts
   puts "#{num}^#{exp} = #{num ** exp}"
 end
 
-def square_root(num)
+def square_root
+  puts "Please enter a number:"
+  num = gets.chomp.to_i  
+  puts
   puts "The square root of #{num} is #{num ** 0.5}"
 end
 
-def menu_basic
+def calculator_basic
+  puts "What operation would you like to perform?"
   puts "{a} Addition"
   puts "{s} Subtraction"
   puts "{m} Multiplication"
   puts "{d} Division"
+  operation = gets.chomp.downcase
+  puts
+
+  case operation
+  when "a"
+    add
+  when "s"
+    subtract
+  when "m"
+    multiply
+  when "d"
+    divide
+  end
 end
 
-def menu_advanced
+def calculator_advanced
+  puts "What operation would you like to perform?"
+  puts "{a} Addition"
+  puts "{s} Subtraction"
+  puts "{m} Multiplication"
+  puts "{d} Division"
   puts "{e} Exponents"
   puts "{r} Square Roots"
+  operation = gets.chomp.downcase
+  puts
+
+  case operation
+  when "a"
+    add
+  when "s"
+    subtract
+  when "m"
+    multiply
+  when "d"
+    divide
+  when "e"
+    exponent
+  when "r"
+    square_root
+  end
 end
 
 
@@ -54,50 +118,15 @@ while menu_selection != "q"
   menu_selection = gets.chomp.downcase
   puts
 
-  if menu_selection == "a" || menu_selection == "b"
-    puts "What operation would you like to perform?"
-    menu_basic
-    menu_advanced if menu_selection == "b"
-    operation = gets.chomp.downcase
+  if menu_selection == "a" 
+    calculator_basic
     puts
   end
 
-  if operation == "a" || operation == "s" || operation == "m" || operation == "d"
-    puts "Please enter the first number:"
-    number1 = gets.chomp.to_i
-    
-    puts "Please enter the second number:"
-    number2 = gets.chomp.to_i
+  if menu_selection == "b"
+    calculator_advanced
     puts
-
-  elsif operation == "e" && menu_selection != "a"
-    puts "Please enter a number:"
-    number = gets.chomp.to_i
-    
-    puts "Please enter an exponent:"
-    exponent = gets.chomp.to_f
-    puts
-
-  elsif operation == "r" && menu_selection != "a"
-    puts "Please enter a number:"
-    number = gets.chomp.to_i
   end
-  
-  case operation
-  when "a"
-    add(number1, number2)
-  when "s"
-    subtract(number1, number2)
-  when "m"
-    multiply(number1, number2)
-  when "d"
-    divide(number1, number2)
-  when "e"
-    exponent(number, exponent)
-  when "r"
-    square_root(number)
-  end
-  puts
 
 end
 
