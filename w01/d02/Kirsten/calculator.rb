@@ -1,3 +1,25 @@
+
+# Defining functions
+def add(first, second)
+  puts "#{first + second}"
+end
+def subtract(first, second)
+  puts "#{first - second}"
+end
+def multiply(first, second)
+  puts "#{first * second}"
+end
+def divide(first, second)
+  puts "#{first / second}"
+end
+def exponent(first, second)
+  puts "#{first ** second}"
+ end
+def square_root(number)
+  puts "#{Math.sqrt(number)}"
+end
+
+#Start calculator!
 puts "What type of calculator do you need?"
 puts "basic, advanced, or none?"
 choice = gets.chomp
@@ -15,25 +37,25 @@ while choice != "none"
       first_a = gets.chomp.to_i
       puts "second number?"
       second_a = gets.chomp.to_i
-      puts "#{first_a + second_a}"
+      add(first_a, second_a)
     when "subtract"
       puts "first number?"
       first_s = gets.chomp.to_i
       puts "second number?"
       second_s = gets.chomp.to_i
-      puts "#{first_s - second_s}"
+      subtract(first_s, second_s)
     when "multiply"
       puts "first number?"
       first_m = gets.chomp.to_i
       puts "second number?"
       second_m = gets.chomp.to_i
-      puts "#{first_m * second_m}"
+      multiply(first_m, second_m)
     when "divide"
       puts "first number?"
       first_d = gets.chomp.to_i
       puts "second number?"
       second_d = gets.chomp.to_i
-      puts "#{first_d / second_d}"
+      divide(first_d, second_d)
     else
       puts "I didn't understand that"
     end
@@ -52,12 +74,12 @@ while choice != "none"
       puts "base number?"
       base = gets.chomp.to_i
       puts "exponent?"
-      exponent = gets.chomp. to_i
-      puts "#{base ** exponent}"
+      power = gets.chomp. to_i
+      exponent(base, power)
     elsif function == "square root"
       puts "number?"
       number = gets.chomp.to_i
-      puts "#{Math.sqrt(number)}"
+      square_root(number)
     else
       puts "I didn't understand that"
     end
@@ -68,5 +90,10 @@ while choice != "none"
 
   end
 end
+
+def add(first, second)
+  return first + second
+end
+
 
 
