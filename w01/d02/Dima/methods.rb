@@ -20,6 +20,7 @@ def ac_action(temp, mode, desire)
   end
 end
     puts ac_action(14, "yes", 50)
+    
 
   def is_prime?(num)
     i = 2
