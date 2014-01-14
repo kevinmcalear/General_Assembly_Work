@@ -27,39 +27,74 @@ end
 def exponent (first_num, second_num)
 	print "The exponent of Base:#{base} and Power:#{power} is #{base ** power}"
 	return base ** power
+end
 
+def sin (first_num)
+	print "The sin of #{first_num} is #{Math.sin(first_num)}"
+	return Math.sin(first_num)
+end
+
+def tan (first_num)
+	print "The tan of #{first_num} is #{Math.tan(first_num)}"
+	return Math.tan(first_num)
+end
+
+def cos (first_num)
+	print "The cos of #{first_num} is #{Math.cos(first_num)}"
+	return Math.cos(first_num)
 end
 
 
+program = 1
+
+while program ==1
+puts
+puts
 puts "Welcome to the Ruby Calculator.  What would you like to do?", 
 	"(A)ddition",
 	"(S)ubtraction",
 	"(M)ultiplication",
-	"(D)ivision"
+	"(D)ivision",
 	"Square (R)oot", 
 	"(E)xponent", 
+	"(sin)",
+	"(tan)",
+	"(cos)",
 	"(Q)uit"
 ans = gets.chomp.downcase
 
-puts "What is the first number?"
-first_num = gets.chomp.to_i
-puts "What is the second number?"
-second_num = gets.chomp.to_i
+	if ans == "q"
+		puts "Thank you for using Ruby Calculator"
+		program = 0
+	
 
-CASE ans
-	when "a"	
-		add(first_num, second_num)
-	when "s"
-		subtract(first_num, second_num)
-	when "m"
-		multiplication(first_num, second_num)
-	when "d"
-		division(first_num, second_num)
-	when "r"
-		sqrt(first_num, second_num)
-	when "e"
-		exponent(first_num, second_num)
-	else puts "Thank you for using Ruby Calculator"
+	elsif program == 1
+		puts "What is the first number?"
+		first_num = gets.chomp.to_i
+		puts "What is the second number? (if required)"
+		second_num = gets.chomp.to_i
+
+		case ans
+		when "a"	
+			add(first_num, second_num)
+		when "s"
+			subtract(first_num, second_num)
+		when "m"
+			multiplication(first_num, second_num)
+		when "d"
+			division(first_num, second_num)
+		when "r"
+			sqrt(first_num)
+		when "e"
+			exponent(first_num, second_num) 	
+		when "sin"
+			sin(first_num)
+		when "tan"
+			tan(first_num)
+		when "cos"
+			cos(first_num)
+		end
+	end	
 end
 
 	
