@@ -31,7 +31,7 @@
 # - Add functionality for trigonometric functions (sin, cos, tan)
 # - Add functionality to include a factorial option
 
-puts "Please enter a command: (b)asic, (a)dvanced or (t)rig"
+puts "Please enter a command: (b)asic, (a)dvanced, (t)rig or (q)uit"
 choice = gets.chomp
 
 if choice == "b"
@@ -76,7 +76,25 @@ elsif choice == "a"
       square = gets.chomp.to_i
       puts Math.sqrt(square)
     end
+elsif choice == "t"
+  puts "Select from one of the following: (s)in, (c)os or (t)an"
+  trig = gets.chomp
+    if trig == "s"
+      puts "Enter a number to get the sin:"
+      sin = gets.chomp.to_i
+      puts Math.sin(sin)
+    elsif trig == "c"
+      puts "Enter a number to get the cos:"
+      cos = gets.chomp.to_i
+      puts Math.cos(cos)
+    elsif trig == "t"
+      puts "Enter a number to get the tan:"
+      tan = gets.chomp.to_i
+      puts Math.tan(tan)
+  end
 
+elsif choice == "q"
+  puts "GOODBYE!!!!!!!!!"
 end
   
 
