@@ -27,8 +27,28 @@ def exponent(x, y)
   return a
 end
 
-def sqrt(x)
-  a = x ** 0.5
+def cos(x)
+  a = Math.cos(x)
+  return a
+end
+
+def sin(x)
+  a = Math.sin(x)
+  return a
+end
+
+def tan(x)
+  a = Math.tan(x)
+  return a
+end
+
+def factorial(x)
+  counter = x-1.to_f
+  while counter > 1
+    x = x * counter
+    counter -=1
+  end
+  a = x
   return a
 end
 
@@ -74,7 +94,7 @@ action = gets.chomp
   end
 
 elsif calc == "a"
-    puts "do you want to find the (e)xponent or the (s)quare root?"
+    puts "do you want to find the (e)xponent, the (s)quare root, (f)actorial, the si(n)e, the (c)osine, or the (t)angent?"
     action = gets.chomp
     if action == "e"
       puts "what is the base number?"
@@ -86,7 +106,25 @@ elsif calc == "a"
     elsif action == "s"
       puts "what is the base number?"
       x = gets.chomp.to_f
-      ans = sqrt(x)
+      ans = exponent(x, 0.5)
+      puts ans
+    elsif action == "n"
+      puts "Enter a number to get the sine"
+      x = gets.chomp.to_f
+      ans = sin(x)
+      puts ans
+    elsif action == "c"
+      puts "Enter a number to get the cosine"
+      x = gets.chomp.to_f
+      ans = cos(x)
+      puts ans
+    elsif action == "t"
+      x = gets.chomp.to_f
+      ans = tan(x)
+      puts ans
+    elsif action == "f"
+      x = gets.chomp.to_f
+      ans = factorial(x)
       puts ans
     else
       puts "ERROR: Invalid entry, please make another"
