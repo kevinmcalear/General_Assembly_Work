@@ -1,3 +1,8 @@
+puts "What type of calculator do you need?"
+puts "basic or advanced?"
+choice = gets.chomp
+
+if choice == "basic"
 puts "What would you like to do?"
 puts "add, subtract, multiply, divide"
 function = gets.chomp
@@ -30,4 +35,26 @@ when "divide"
 else
   puts "I didn't understand that"
 end
+end
 
+if choice == "advanced"
+  puts "What would you like to do?"
+  puts "exponent, square root"
+  function = gets.chomp
+
+  if function == "exponent"
+    puts "base number?"
+    base = gets.chomp.to_i
+    puts "exponent?"
+    exponent = gets.chomp. to_i
+    puts "#{base ** exponent}"
+  elsif function == "square root"
+    puts "number?"
+    number = gets.chomp.to_i
+    puts "#{Math.sqrt(number)}"
+  else
+  puts "I didn't understand that"
+end
+
+else puts "I didn't understand that"
+end
