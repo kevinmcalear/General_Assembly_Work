@@ -30,18 +30,24 @@ end
 
 def is_prime?(number)
  x = number.to_i
- counter = 2
- while counter < x
+ counter = 2.upto(x-1)
+ while x % counter  != 0
   if (x % counter) == 0
-    counter = x
-    n = false
+    return false
   else
-    counter +=1
-    n = true
+    return true
   end
  end
- return n
 end
 q = gets.chomp
 b = is_prime?(q)
 puts b
+
+
+def is_prime?(number)
+ x = number.to_i
+ counter = 2.upto(x-1)
+ while 
+ end
+ return n
+end
