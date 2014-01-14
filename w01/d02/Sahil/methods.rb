@@ -22,6 +22,9 @@ def is_prime?(num)
 	if num <= 1
 		return false
 	end
+	if num == 2
+		return true
+	end
 
 	divisor = 2
 	while (num%divisor != 0)
