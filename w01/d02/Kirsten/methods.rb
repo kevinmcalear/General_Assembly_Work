@@ -11,9 +11,9 @@ end
 
 # Air Conditioning
 def ac_action(current, function, desired)
-  if function = "yes" && current.to_i > desired.to_i
+  if function = "yes" && current > desired
     return "Turn on the A/C Please"
-  elsif function != "yes" && current.to_i > desired.to_i
+  elsif function != "yes" && current > desired
     return "Fix the A/C now!  It's hot!"
   else
     return "Fix the A/C whenever you have the chance...  It's cool..."
@@ -35,3 +35,26 @@ def is_prime?(n)
   end
   return true
 end
+
+def is_prime?(n)
+  if n < 1
+    return false
+  end
+  divisor = 2
+  while n % divisor != 0
+    divisor += 1
+    if n == divisor
+      return true
+    end
+  end
+  return false
+end
+
+
+
+
+# Twisted fizzbuzz
+def twisted_fizzbuzz(number)
+ range = (0..number.to_i).to_a
+
+
