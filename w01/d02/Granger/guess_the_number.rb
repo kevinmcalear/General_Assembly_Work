@@ -1,4 +1,4 @@
-answer =  rand(10)
+answer =  rand(11)
 guess = -1
 counter = 0
 
