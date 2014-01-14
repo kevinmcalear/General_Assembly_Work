@@ -3,12 +3,12 @@ r = Random.new
 comp = r.rand(11)
 
 tries = 0
-user = nil
+guess = nil
 
-#Get user guesses and check against computer's value
-while user != comp do
+#Get guess guesses and check against computer's value
+while guess != comp do
 	if tries >  0
-		if user > comp
+		if guess > comp
 			puts "You guessed too high!"
 		else
 			puts "You guessed too low!"
@@ -16,7 +16,7 @@ while user != comp do
 		puts "Try again!"
 	end
 	puts "Guess a number from 0 to (and including) 10!"
-	user = gets.chomp.to_i
+	guess = gets.chomp.to_i
 	tries += 1
 end	
 
