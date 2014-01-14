@@ -63,7 +63,19 @@ if choice == "b"
       puts div1 / div2
     end
 elsif choice == "a"
-  puts "Select from one of the following: "
+  puts "Select from one of the following: (e)xponents, (s)quare roots"
+  adv = gets.chomp
+    if adv == "e"
+      puts "Enter first number:"
+      exp1 = gets.chomp.to_i
+      puts "Enter second number:"
+      exp2 = gets.chomp.to_i
+      puts exp1 ** exp2
+    elsif adv == "s"
+      puts "Enter a number to get the square root:"
+      square = gets.chomp.to_i
+      puts Math.sqrt(square)
+    end
 
 end
   
