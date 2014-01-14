@@ -21,7 +21,7 @@ if (functional == "yes") && (temperature > temperature_wish)
   puts "Turn on the A/C Please"
 elsif (functional == "no") && (temperature > temperature_wish)
   puts "Fix the A/C now!  It's hot!"
-else 
+else (functional == "no") && (temperature < temperature_wish)
   puts "Fix the A/C whenever you have the chance...  It's cool..."
 end
 
