@@ -34,7 +34,7 @@ elsif choice == "subtract"
 elsif choice == "multiply"
 	multiply(first_number)
 elsif choice == "divide"
-	divide(first_number
+	divide(first_number)
 else
 	puts "You done goofed!"
 end
