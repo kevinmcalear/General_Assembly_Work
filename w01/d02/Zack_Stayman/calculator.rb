@@ -56,10 +56,10 @@ while calc != "q"
   puts "Do you want to use the (b)asic or (a)dvanced calculator or do you want to (q)uit?"
   calc = gets.chomp
 
-
 if calc == "b"
 puts "do you want to (a)dd, (s)ubtract, (m)ultiply, or (d)ivide?"
 action = gets.chomp
+
   if action == "a"
     puts "what is the first number you wish to add?"
     x = gets.chomp.to_f
@@ -67,6 +67,7 @@ action = gets.chomp
     y = gets.chomp.to_f
     ans = addition(x, y)
     puts ans
+
   elsif action == "s"
     puts "what is the number you wish to subtract from?"
     x = gets.chomp.to_f
@@ -74,6 +75,7 @@ action = gets.chomp
     y = gets.chomp.to_f
     ans = subtraction(x, y)
     puts ans
+
   elsif action == "m"
     puts "what is the first number you wish to multiply?"
     x = gets.chomp.to_f
@@ -81,6 +83,7 @@ action = gets.chomp
     y = gets.chomp.to_f
     ans = multiplication(x, y)
     puts ans
+
   elsif action == "d"
     puts "what is the number you wish to divide from?"
     x = gets.chomp.to_f
@@ -88,6 +91,7 @@ action = gets.chomp
     y = gets.chomp.to_f
     ans = division(x, y)
     puts ans
+
   else
     puts "ERROR: Invalid entry please make another"
     action=gets.chomp
@@ -96,6 +100,7 @@ action = gets.chomp
 elsif calc == "a"
     puts "do you want to find the (e)xponent, the (s)quare root, (f)actorial, the si(n)e, the (c)osine, or the (t)angent?"
     action = gets.chomp
+
     if action == "e"
       puts "what is the base number?"
       x = gets.chomp.to_i
@@ -103,35 +108,44 @@ elsif calc == "a"
       y = gets.chomp.to_i
       ans = exponent(x, y)
       puts ans
+
     elsif action == "s"
       puts "what is the base number?"
       x = gets.chomp.to_f
       ans = exponent(x, 0.5)
       puts ans
+
     elsif action == "n"
       puts "Enter a number to get the sine"
       x = gets.chomp.to_f
       ans = sin(x)
       puts ans
+
     elsif action == "c"
       puts "Enter a number to get the cosine"
       x = gets.chomp.to_f
       ans = cos(x)
       puts ans
+
     elsif action == "t"
       x = gets.chomp.to_f
       ans = tan(x)
       puts ans
+
     elsif action == "f"
+      puts "Please put the number that you wish to find the factorial of"
       x = gets.chomp.to_f
       ans = factorial(x)
       puts ans
+
     else
       puts "ERROR: Invalid entry, please make another"
       action = gets.chomp
     end
+
 elsif calc == "q"
     puts "goodbye"
+
 else
     puts "ERROR"
   end
