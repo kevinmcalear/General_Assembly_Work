@@ -1,7 +1,7 @@
 print "Current temp: "
 temp = gets.chomp.to_i
 print "Is the A/C working? (y/n) "
-working = gets.chomp
+working = gets.chomp.downcase
 
 if working == "y" || working == "yes"
   ac_working = true
