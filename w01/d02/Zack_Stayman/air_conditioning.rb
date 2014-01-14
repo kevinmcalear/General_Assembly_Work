@@ -22,8 +22,6 @@ if functional && (temp > comfort)
   puts "Turn the ac on please"
 elsif (!functional) && (temp > comfort)
   puts "Fix the AC now"
-elsif (!functional) && (temp < comfort)
-  puts "Fix the AC when you can"
 else
-  puts "You're doing fine"
+  puts "Fix the AC when you can"
 end
