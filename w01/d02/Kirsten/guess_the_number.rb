@@ -1,5 +1,4 @@
 number = rand(1..10)
-
 puts "Guess a number between 0 and 10"
 guess = gets.chomp.to_i
 try = 1
