@@ -1,7 +1,9 @@
 puts "Guess my number."
 guess = gets.chomp.to_i
 
-random = rand(11)
+#This was my old Random # random = rand(11)
+prng = Random.new
+random = prng.rand(11)
 counter = 0
 
 while guess != random
