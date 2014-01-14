@@ -14,6 +14,7 @@ acwork = gets.chomp
   elsif acwork == "no" && (ctemp < dtemp)
     puts "Fix the A/C whenever you have the chance... It's cool..."
   else
-    puts "Sorry didnt understand that. Please rerun this program."
+    puts "Sorry didnt understand that. Please try again."
+    loop
   end
     
