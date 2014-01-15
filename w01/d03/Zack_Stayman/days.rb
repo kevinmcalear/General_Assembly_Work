@@ -20,3 +20,5 @@ when "Sunday"
 else
   puts "Error!!!"
 end
+
+# did it perfectly

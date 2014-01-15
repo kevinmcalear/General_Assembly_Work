@@ -1,18 +1,18 @@
 
-def from_fahrenheit(x)
-return ((x - 32) * (5/9)).round
+def from_fahrenheit(temp)
+return ((temp - 32) * (5/9)).round
 end
 
-def from_kelvin(x)
-return (x + 273.15).round
+def from_kelvin(temp)
+return (temp + 273.15).round
 end
 
-def to_kelvin(x)
-  return (x - 273.15).round
+def to_kelvin(temp)
+  return (temp - 273.15).round
 end
 
-def to_fahrenheit(x)
-  return ((x * (9/5)) + 32).round
+def to_fahrenheit(temp)
+  return ((temp * (9/5)) + 32).round
 end
 
 puts "What is the Temperature?"
@@ -20,11 +20,12 @@ temp = gets.chomp.to_f
 
 puts "Is this temperature in Fahrenheit, Celsius, or Kelvin?"
 base = gets.chomp
+puts "Do you want to convert to Celsius, Fahrenheit or Kelvin?"
+convert = gets.chomp
+
 
 case base
 when "Fahrenheit"
-  puts "Do you want to convert to Celsius or Kelvin?"
-  convert = gets.chomp
   case convert
   when "Celsius"
     x = from_fahrenheit(temp)
@@ -37,8 +38,6 @@ when "Fahrenheit"
     puts "ERROR"
   end
 when "Kelvin"
-  puts "Do you want to convert to Celsius or Fahrenheit"
-  convert = gets.chomp
   case convert
   when "Fahrenheit"
     x = from_kelvin(temp)
@@ -51,8 +50,6 @@ when "Kelvin"
     puts "ERROR"
   end
 when "Celsius"
-  puts "Do you want to convert to Kelvin or Fahrenheit?"
-  convert = gets.chomp
   case convert
   when "Kelvin"
     x = to_kelvin(temp)
