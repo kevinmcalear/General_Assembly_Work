@@ -76,13 +76,35 @@ case line
 when :n
 puts "What stop do you want to get on at (ts, 34th, 28th-n, 23rd-n, us)?"
 get_on = gets.chomp.downcase
-puts "What stop do you want to get off at (ts, 34th, 28th-n, 23rd-n, us)?"
-get_off = gets.chomp.downcase
-stops_traveled = (mta[:n].index(get_on) - mta[:n].index(get_off)).abs
+puts "What line do you want to get off at (n, l, s)?"
+line_off = gets.chomp.downcase.to_sym
+  if line_off == :n
+    puts "Which stop do you want to get off at? (ts, 34th, 28th-n, 23rd-n, us)"
+    get_off_n = gets.chomp
+    stops_traveled = (mta[:n].index(get_on) - mta[:n].index(get_off_n)).abs
+    puts "You traveled #{stops_traveled} stops."
+  else
+    puts "Which stop do you want to get off at? (8th, 6th, us, 3rd, 1st)"
+    get_off_l = gets.chomp
+    stops_traveled = ((mta[:n].index(get_on) - mta[:n].index("us")).abs) + ((mta[:l].index("us") - mta[:l].index(get_off_l)).abs)
+    puts "You traveled #{stops_traveled} stops."
+  end
+
+when :l
+puts "What stop do you want to get on at (8th, 6th, us, 3rd, 1st)?"
+get_on_l = gets.chomp.downcase
+puts "What stop do you want to get off at (8th, 6th, us, 3rd, 1st)?"
+get_off_l = gets.chomp.downcase
+stops_traveled = (mta[:l].index(get_on) - mta[:l].index(get_off)).abs
 puts "You traveled #{stops_traveled} stops."
 else
   puts "error"
 end
 
-
+# if line == :n
+#   puts "What stop do you want to get off at (ts, 34th, 28th-n, 23rd-n, us)?"
+#   get_off_n = gets.chomp.downcase
+# else
+#   puts "What stop do you want to get off at (8th, 6th, us, 3rd, 1st)?"
+# end
 
