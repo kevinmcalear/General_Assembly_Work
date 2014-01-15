@@ -36,10 +36,10 @@ operation_type = "A"
 #Main menu loop
 while (operation_type.upcase != "Q")
   puts "What type of operation would you like to perform?"
-  puts "Basic (B), Advanced (A), Trigonometric (T), Factorial (F) or Quit (Q):"
+  puts "Basic (B), Advanced (A), Trigonometric (T), Factorial (F), or Quit (Q):"
   operation_type = gets.chomp.upcase
   while !(operation_type == "B" || operation_type == "A" || operation_type == "T" || operation_type == "F" || operation_type == "Q")
-    puts "Please enter a valid operation type. Basic (B), Advanced (A), Trigonometric (T), Factorial (F) or Quit (Q):"
+    puts "Please enter a valid operation type. Basic (B), Advanced (A), Trigonometric (T), Factorial (F), or Quit (Q):"
     operation_type = gets.chomp.upcase
   end
 
@@ -63,7 +63,7 @@ while (operation_type.upcase != "Q")
     puts "What operation would you like to do? Exponent (EX), Root (RT):"
       advanced_type = gets.chomp.upcase
     while !(advanced_type == "EX" || advanced_type == "RT")
-      puts "Please enter a valid operation. Exponent (EX), Square root (RT):"
+      puts "Please enter a valid operation. Exponent (EX), Root (RT):"
       advanced_type = gets.chomp.upcase
     end
       puts "Enter number:"
