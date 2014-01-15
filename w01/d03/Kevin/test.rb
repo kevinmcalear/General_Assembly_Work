@@ -50,20 +50,29 @@ countries = {
 #   }
 # }
 
-# puts countries[:france][:paris].sample
+# # puts countries[:france][:paris].sample
 
-def discuss_trip(countries, country)
-  food = countries[country.to_sym][:food].sample
-  city = countries[country.to_sym][:cities].sample
-  return "I was just in #{city}, #{country.capitalize} and I really enjoyed the #{food}."
+# def discuss_trip(countries, country)
+#   food = countries[country.to_sym][:food].sample
+#   city = countries[country.to_sym][:cities].sample
+#   return "I was just in #{city}, #{country.capitalize} and I really enjoyed the #{food}."
+# end
+
+# puts "What country did you go to?"
+# input = gets.chomp.downcase
+
+
+# if input == "usa" || input == "italy"
+#   puts discuss_trip(countries, input)
+# else
+#   puts "You've never been there.. Liar."
+# end
+
+candies = ["mars bar", "twix", "100 grand"]
+
+counter = candies.count
+while counter >= 0 
+  puts "#{candies[counter]}"
+  counter  -= 1
 end
 
-puts "What country did you go to?"
-input = gets.chomp.downcase
-
-
-if input == "usa" || input == "italy"
-  puts discuss_trip(countries, input)
-else
-  puts "You've never been there.. Liar."
-end
