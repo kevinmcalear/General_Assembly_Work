@@ -10,15 +10,15 @@
 
 choice = nil
 while choice != "Quit"
-puts "What would you like to do?"
-puts "Basic Advanced Quit"
-choice = gets.chomp
+  puts "What would you like to do?"
+  puts "Basic Advanced Quit"
+  choice = gets.chomp
 
-if choice == "Basic"
-  puts "Addition Subtraction Multiplication Division?"
-  basic_choice = gets.chomp
+  if choice == "Basic"
+    puts "Addition Subtraction Multiplication Division?"
+    basic_choice = gets.chomp
 
-  case basic_choice
+    case basic_choice
     when basic_choice = "Addition"
       puts "What is your first number?"
       add_1 = gets.chomp.to_i
@@ -43,13 +43,46 @@ if choice == "Basic"
       puts "What number would you like to divide #{division_1} by?"
       division_2 = gets.chomp.to_i
       puts "#{division_1} / #{division_2} = #{division_1 / division_2}"
+    end
+
+    puts "Great! What would you like to do now?"
+    puts "Basic Advanced Quit?"
+    choice = gets.chomp
   end
 
-  puts "Great! What would you like to do now?"
-  puts "Basic Advanced Quit?"
-  choice = gets.chomp
+  if choice == "Advanced"
+    puts "Exponent Square Root?"
+    advanced_choice = gets.chomp
+
+    case advanced_choice
+    when "Exponent"
+      def exponent(x, y)
+        return x ** y
+      end
+      puts "What is your first number?"
+      a = gets.chomp.to_i
+      puts "#{a} to what power?"
+      b = gets.chomp.to_i
+      ans = exponent(a, b)
+      puts "#{a} to the power of #{b}  = #{a ** b}  "  
+    when "Square Root"  
+
+      puts "What number do you want the square root of?"
+      a = gets.chomp.to_i
+      ans = Math.sqrt(a)
+      puts "The square root of #{a} is #{ans.to_i}"
+    end
+    puts "Great! What would you like to do now?"
+    puts "Basic Advanced Quit?"
+    choice = gets.chomp
+
+  end
+
+
 end
-end
+
+
+
 
 
 
