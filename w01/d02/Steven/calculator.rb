@@ -73,8 +73,8 @@ while choice != "Quit"
       puts "The square root of #{a} is #{ans.to_i}"
     end
     puts "Great! What would you like to do now?"
-    puts "Basic Advanced Quit?"
-    choice = gets.chomp
+    # puts "Basic Advanced Quit?"
+    # choice = gets.chomp
 
   end
 
