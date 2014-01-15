@@ -50,6 +50,7 @@ op = gets.chomp.downcase
     puts "Enter the number to find the square root:"
     number = gets.chomp.to_i
   end
+  
 case op
 when "add"
   puts add(num1, num2)
