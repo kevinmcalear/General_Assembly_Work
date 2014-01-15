@@ -34,11 +34,25 @@ countries = {
 def discuss_trip(countries, country)
   city = countries[country][:cities].sample 
   food = countries[country][:food].sample
+  if country == :france
+    puts "You have never been to France, You liar!"
+  else
   puts "I was just in #{city}, #{countries.key(countries[country])} and I really enjoyed the #{food}."
+  end
 end
 
-puts discuss_trip(countries, :italy)
+puts discuss_trip(countries, :france)
 
+ #puts "What country did you go to?"
+ #answer = gets.chomp.downcase.to_sym
+ #if answer != :france
+ #puts discuss_trip(countries, answer)
+ #else
+ # puts "You have never been to France, you liar!"
+ #end
+
+# have only been to italy and usa
+# if they try to say france it will say you have never been to france
 
 #countries_two = {
 #  :usa => {
