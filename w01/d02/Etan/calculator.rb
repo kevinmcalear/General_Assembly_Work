@@ -1,6 +1,6 @@
 puts "What number would you like to start with?"
 first_number = gets.chomp.to_i
-puts "Let's calculate. Please type either add, subtract, multiply or divide to continue."
+puts "Let's calculate! What would you like to do? | add | subtract | multiply | divide | exponent | square_root |."
 choice = gets.chomp
 
 def add(number)
@@ -27,6 +27,16 @@ def divide(number)
 	puts "#{number / new_num}. Keep calculating by typing: | add | subtract | multiply | divide |."
 end
 
+def exponent(number)
+	puts "How much would you like to raise #{number} to?"
+	new_num = gets.chomp.to_i
+	puts "#{number ** new_num}. Keep calculating by typing: | add | subtract | multiply | divide | exponent | square_root |."
+end
+
+def square_root(number)
+	puts "#{Math.sqrt(number)}. Keep calculating by typing: | add | subtract | multiply | divide | exponent | square_root |."
+end
+
 if choice == "add"
 	add(first_number)
 elsif choice == "subtract"
@@ -35,6 +45,10 @@ elsif choice == "multiply"
 	multiply(first_number)
 elsif choice == "divide"
 	divide(first_number)
+elsif choice == "exponent"
+	exponent(first_number)
+elsif choice == "square_root"
+	square_root(first_number)
 else
 	puts "You done goofed!"
 end
