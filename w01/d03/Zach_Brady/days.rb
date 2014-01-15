@@ -1,7 +1,7 @@
 puts "What day is it? "
 day = gets.chomp
 
-case object
+case day
 when "Sunday"
   print "Amen." 
 when "Monday"

@@ -13,7 +13,7 @@ end
 
 def convert_to_kelvin(t)
   original_t = t.to_f
-  t = t.to_f + 273.1
+  t = t.to_f + 273.15
   puts "#{original_t} degrees Celsius is about #{t.round(1)} Kelvins. "
   return t
 end
