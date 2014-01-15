@@ -22,6 +22,29 @@ def square_root(first)
   Math.sqrt(first)
 end
 
+def sin(first)
+  Math.sin(first)
+end
+
+def cos(first)
+  Math.cos(first)
+end
+
+def tan(first)
+  Math.tan(first)
+end
+
+def fac(first)
+  fac = 1
+  (1..first).to_a.each do |el|
+    fac *= el
+  end
+
+  fac
+end
+
+
+
 
 off = false
 
@@ -29,10 +52,16 @@ off = false
 while !off
   print "Enter your first number: "
   first = gets.chomp.to_i
-  print "Enter your operation (+,-,/,*,^,sqrt) "
+  print "Enter your operation (+,-,/,*,^,sqrt, sin, cos, tan, !) "
   operation = gets.chomp
-  print "Enter your second number: " unless operation == "sqrt"
-  second = gets.chomp.to_i unless operation == "sqrt"
+
+  single_operation = false
+  if operation == "sqrt" || operation == "sin" || operation == "cos" || operation == "tan" || operation == "!"
+    single_operation = true
+  end
+
+  print "Enter your second number: " unless single_operation
+  second = gets.chomp.to_i unless single_operation
   result = nil
  
   case operation
@@ -48,6 +77,14 @@ while !off
     result = exponent(first, second)
   when "sqrt"
     result = square_root(first)
+  when "sin"
+    result = sin(first)
+  when "cos"
+    result = cos(first)
+  when "tan"
+    result = tan(first)
+  when "!"
+    result = fac(first)
   else
     puts "Error"
     break
