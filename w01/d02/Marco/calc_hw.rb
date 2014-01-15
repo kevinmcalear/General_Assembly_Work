@@ -1,3 +1,4 @@
+puts "-------------------------"
 puts "Welcome to the Calculator"
 puts "Would you like (B)asic or (A)dvanced functionality?"
 
@@ -34,6 +35,7 @@ num2 = gets.chomp.to_i
       
   end
 
+puts "-------------------------"
 puts "Welcome to the Calculator"
 puts "Please choose a function below you would like to run:"
 puts "(A)ddition, (S)ubtraction, (M)ultiplication, (D)ivision, or (Q)uit"
@@ -63,6 +65,7 @@ num1 = gets.chomp.to_i
       
   end
 
+puts "-------------------------"
 puts "Welcome to the Calculator"
 puts "Please choose a function below you would like to run:"
 puts "(E)xponents, (S)quare Root, or (Q)uit"
