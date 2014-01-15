@@ -11,7 +11,7 @@ input = menu
 while input != "q"
 
   case input
-  
+
   when "b"
     puts "Please tell me if you want to:"
     puts "(a)dd (s)ubtract (m)ultiply (d)ivide or anything else to go back"
@@ -19,7 +19,7 @@ while input != "q"
 
   when "a"
     puts "Please tell me if you want to:"
-    puts "(e)xponents (s)quare roots or anything else to go back"
+    puts "(e)xponents (s)quare (t)rig (f)actorial roots or anything else to go back"
     advanced_input = gets.chomp
   end
 
@@ -73,11 +73,37 @@ while input != "q"
     num = gets.chomp.to_i
     squarert_num = Math.sqrt(num) 
     puts "Your Answer Was: #{squarert_num.to_i}"
-  end
 
-  if input == "q"
-    puts "Thanks for using me!"
-  end
+  when "t"
+    puts "Tell me number you want to do trig on."
+    trig_num = gets.chomp.to_i
+    puts "Tell me if you want to do (s)in, (c)osin, or (t)an on this."
+    trig_function = gets.chomp
+    case trig_function
+    when "s"
+      puts "Your Answer: #{sin(Math.trig_num)}"
+    when "c"
+      puts "Your Answer: #{Math.cos(trig_num)}"
+    when "t"
+      puts "Your Answer: #{Math.tan(trig_num)}"
+    else
+      puts "Sorry, that wasn't a valid input!"
+    end 
 
-  input = menu
+  when "f"
+    puts "Tell me the factorial you want to do."
+    factorial = gets.chomp.to_i
+    counter = factorial - 1
+    while counter > 1
+      factorial = factorial * counter
+      counter -= 1
+    end
+    puts factorial
+
+    if input == "q"
+      puts "Thanks for using me!"
+    end
+
+    input = menu
+  end
 end
