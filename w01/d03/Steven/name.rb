@@ -2,19 +2,23 @@ firstnamelist = ["Bumblebee", "Bandersnatch", "Broccoli", "Rinkydink", "Bombadil
 
 lastnamelist = ["Coddleswort", "Curdlesnoot", "Calldispatch", "Humperdinck", "Rivendell", "Cuttlefish", "Lingerie", "Vegemite", "Ampersand", "Cumberbund", "Candycrush", "Clombyclomp", "Cragglethatch", "Nottinghill", "Cabbagepatch", "Camouflage","Creamsicle", "Curdlemilk", "Upperclass", "Frumblesnatch", "Crumplehorn", "Talisman", "Candlestick", "Chesterfield", "Bumbersplat", "Scratchnsniff", "Snugglesnatch", "Charizard", "Ballsacksnip", "Carrotstick", "Cumbercooch", "Crackerjack", "Crucifix", "Cuckatoo", "Cockletit", "Collywog", "Gigglesnort", "Capncrunch", "Covergirl", "Cumbersnatch", "Countryside","Coggleswort", "Splishnsplash", "Copperwire", "Animorph", "Curdledmilk", "Cheddarcheese", "Cottagecheese", "Crumplehorn", "Snickersbar", "Banglesnatch", "Stinkyrash", "Cameltoe", "Chickenbroth", "Concubine", "Candygram", "Moldyspore", "Chuckecheese", "Cankersore", "Crimpysnitch", "Wafflesmack", "Chowderpants", "Toodlesnoot", "Clavichord", "Cuckooclock", "Oxfordshire", "Cumbersome", "Chickenstrips", "Battleship", "Commonwealth", "Cunningsnatch", "Custardbath", "Kryptonite"]
 
-#firstnamelist("Bumblebee")
-firstnamelist.push("Jeff")
-firstnamelist.delete("Muffintop")
+# puts firstnamelist[0]
+#firstnamelist.push("Jeff")
+#firstnamelist.delete("Muffintop")
 #4. Find out the index of "Gigglesnort" in lastnamelist
-lastnamelist.index("Gigglesnort")
+#lastnamelist.index("Gigglesnort")
 #5. Combine 1 randomly selected name from `firstnamelist` and 1 randomly selected name from `lastnamelist` to form a name.
-# new_name = firstnamelist.sample + lastnamelist.sample
+#new_name = firstnamelist.sample + lastnamelist.sample
 # puts "#{new_name}"
+
+def generate_name(firsts, lasts)
+  return "#{firsts.sample} #{lasts.sample}"
+end
 
 puts "Would you like to generate a random name?(Yes or No)"
 answer = gets.chomp
 while answer == "Yes"
-  puts "#{firstnamelist.sample} #{lastnamelist.sample}"
+  puts generate_name(firstnamelist, lastnamelist)
   puts "Want to try again?"
   answer = gets.chomp
 end
