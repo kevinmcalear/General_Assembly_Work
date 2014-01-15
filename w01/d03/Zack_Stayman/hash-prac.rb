@@ -18,7 +18,8 @@ countries =
 
 
   def discuss_trip(countries, country)
-    x = countries[country]
+    city = countries[country][:city].sample
+    food = countries[country][:food].sample
     case country
     when :france
       return "You haven't been to France"
@@ -28,7 +29,7 @@ countries =
       else
         place = country.capitalize
       end
-    return "I was just in #{x[:city].sample}, #{place} and I really enjoyed the #{x[:food].sample}."
+    return "I was just in #{city}, #{place} and I really enjoyed the #{food}."
   end
   end
 
