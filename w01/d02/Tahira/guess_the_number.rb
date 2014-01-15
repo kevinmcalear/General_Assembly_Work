@@ -1,9 +1,14 @@
 number = rand(0..10)
+
+
 puts "Guess a number between 0-10:"
 guess = gets.chomp.to_i
+
+
 counter = 1
 
-while (number != guess) 
+
+while number != guess
   if guess < number
     puts "Your guess is too low. Please guess again."
     guess = gets.chomp.to_i
@@ -14,7 +19,9 @@ while (number != guess)
   counter = counter + 1
 end
 
+
 puts "You're right!!"
+
 
 if counter == 1
   puts "It took you #{counter} try to guess correctly!"
