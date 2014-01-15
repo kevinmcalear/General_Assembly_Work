@@ -30,3 +30,4 @@
 #####Commit 4 (Bonus)
 - Add functionality for trigonometric functions (sin, cos, tan)
 - Add functionality to include a factorial option
+
