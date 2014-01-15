@@ -42,7 +42,7 @@ def exponent()
   print "Exponent: "
   exp = gets.chomp.to_i
 
-  return base**power
+  return base**exp
 end
 
 def square_root()
@@ -56,21 +56,21 @@ def sine()
   print "Number (radians): "
   n = gets.chomp.to_i
 
-  return sin(x)
+  return Math::sin(n)
 end
 
 def cosine()
   print "Number (radians): "
   n = gets.chomp.to_i
 
-  return cos(x)
+  return Math::cos(n)
 end
 
 def tangent()
   print "Number (radians): "
   n = gets.chomp.to_i
 
-  return tan(x)
+  return Math::tan(n)
 end
 
 def factorial()
@@ -90,12 +90,12 @@ def main_menu()
 
   while choice == nil
     puts "\e[H\e[2J"
-    puts "***************************************"
+    puts "******************************************"
     puts "Welcome to Pierre Gergis' Ruby Calculator!"
-    puts "***************************************\n\n"
+    puts "******************************************\n\n"
     puts "Select from the following:"
-    puts "(b)asic    |     (a)dvanced    |     (q)uit"
-    puts "***************************************"
+    puts "(b)asic    |     (a)dvanced    |     (q)uit\n\n"
+
     choice = gets.chomp
 
     if choice == "q"
@@ -105,7 +105,7 @@ def main_menu()
     elsif choice == "a"
       advanced_menu()
     end
-    
+
     choice = nil
   end
 end
@@ -116,8 +116,7 @@ def basic_menu()
   while choice == nil
     puts "\e[H\e[2J"
     puts "What do you want to do?"
-    puts "(a)dd   |   (s)ubtract    |   (m)ultiply    |   (d)ivide    |   (b)ack"
-    puts "***************************************"
+    puts "(a)dd   |   (s)ubtract    |   (m)ultiply    |   (d)ivide    |   (b)ack\n\n"
 
     choice = gets.chomp
 
@@ -135,6 +134,7 @@ def basic_menu()
       choice = nil
     end
   end
+  gets()
   return nil
 end
 
@@ -144,8 +144,7 @@ def advanced_menu()
   while choice == nil
     puts "\e[H\e[2J"
     puts "What do you want to do?"
-    puts "(e)xponent   |   (s)quare root    |   (t)rig    |   (f)actorial    |   (b)ack"
-    puts "***************************************"
+    puts "(e)xponent   |   (s)quare root    |   (t)rig    |   (f)actorial    |   (b)ack\n\n"
 
     choice = gets.chomp
 
@@ -163,6 +162,7 @@ def advanced_menu()
       choice = nil
     end
   end
+  gets()
   return nil
 end
 
@@ -172,13 +172,12 @@ def trig_menu()
   while choice == nil
     puts "\e[H\e[2J"
     puts "What do you want to do?"
-    puts "(s)in   |   (c)os    |   (t)an    |   (b)ack"
-    puts "***************************************"
+    puts "(s)in   |   (c)os    |   (t)an    |   (b)ack\n\n"
 
     choice = gets.chomp
 
     if choice == "b"
-      basic_menu()
+      advanced_menu()
     elsif choice == "s"
       puts "Result: #{sine()}"
     elsif choice == "c"
