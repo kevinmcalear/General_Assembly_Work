@@ -1,25 +1,25 @@
 def celsius_to_kelvin(temp)
-  return temp + 273.15
+  return (temp + 273.15).round(2)
 end
 
 def celsius_to_fahrenheit(temp)
-  return temp * (9/5) + 32
+  return (temp * (9.0/5.0) + 32.0).round(2)
 end
 
 def fahrenheit_to_celsius(temp)
-  return (temp - 32) * (5/9)
+  return ((temp - 32.0) * (5.0/9.0)).round(2)
 end
 
 def fahrenheit_to_kelvin(temp)
-  return (temp + 459.67) * (5/9)
+  return ((temp + 459.67) * (5.0/9.0)).round(2)
 end
 
 def kelvin_to_celsius(temp)
-  return temp - 273.15
+  return (temp - 273.15).round(2)
 end
 
 def kelvin_to_fahrenheit
-  return temp * (9/5) - 459.67
+  return (temp * (9.0/5.0) - 459.67).round(2)
 end
 
 def main()
