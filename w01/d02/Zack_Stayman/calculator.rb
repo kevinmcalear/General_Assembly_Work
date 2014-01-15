@@ -43,7 +43,7 @@ def tan(x)
 end
 
 def factorial(x)
-  counter = x-1.to_f
+  counter = x-1.to_i
   while counter > 1
     x = x * counter
     counter -=1
@@ -56,48 +56,48 @@ while calc != "q"
   puts "Do you want to use the (b)asic or (a)dvanced calculator or do you want to (q)uit?"
   calc = gets.chomp
 
-if calc == "b"
-puts "do you want to (a)dd, (s)ubtract, (m)ultiply, or (d)ivide?"
-action = gets.chomp
+  if calc == "b"
+    puts "do you want to (a)dd, (s)ubtract, (m)ultiply, or (d)ivide?"
+    action = gets.chomp
 
-  if action == "a"
-    puts "what is the first number you wish to add?"
-    x = gets.chomp.to_f
-    puts "what is the second number you wish to add?"
-    y = gets.chomp.to_f
-    ans = addition(x, y)
-    puts ans
+    if action == "a"
+      puts "what is the first number you wish to add?"
+      x = gets.chomp.to_f
+      puts "what is the second number you wish to add?"
+      y = gets.chomp.to_f
+      ans = addition(x, y)
+      puts ans
 
-  elsif action == "s"
-    puts "what is the number you wish to subtract from?"
-    x = gets.chomp.to_f
-    puts "what is the number you wish to subtract?"
-    y = gets.chomp.to_f
-    ans = subtraction(x, y)
-    puts ans
+    elsif action == "s"
+      puts "what is the number you wish to subtract from?"
+      x = gets.chomp.to_f
+      puts "what is the number you wish to subtract?"
+      y = gets.chomp.to_f
+      ans = subtraction(x, y)
+      puts ans
 
-  elsif action == "m"
-    puts "what is the first number you wish to multiply?"
-    x = gets.chomp.to_f
-    puts "what is the second number you wish to multiply?"
-    y = gets.chomp.to_f
-    ans = multiplication(x, y)
-    puts ans
+    elsif action == "m"
+      puts "what is the first number you wish to multiply?"
+      x = gets.chomp.to_f
+      puts "what is the second number you wish to multiply?"
+      y = gets.chomp.to_f
+      ans = multiplication(x, y)
+      puts ans
 
-  elsif action == "d"
-    puts "what is the number you wish to divide from?"
-    x = gets.chomp.to_f
-    puts "what is the number you wish to divide by?"
-    y = gets.chomp.to_f
-    ans = division(x, y)
-    puts ans
+    elsif action == "d"
+      puts "what is the number you wish to divide from?"
+      x = gets.chomp.to_f
+      puts "what is the number you wish to divide by?"
+      y = gets.chomp.to_f
+      ans = division(x, y)
+      puts ans
 
-  else
-    puts "ERROR: Invalid entry please make another"
-    action=gets.chomp
-  end
+    else
+      puts "ERROR: Invalid entry please make another"
+      action=gets.chomp
+    end
 
-elsif calc == "a"
+  elsif calc == "a"
     puts "do you want to find the (e)xponent, the (s)quare root, (f)actorial, the si(n)e, the (c)osine, or the (t)angent?"
     action = gets.chomp
 
@@ -143,10 +143,10 @@ elsif calc == "a"
       action = gets.chomp
     end
 
-elsif calc == "q"
+  elsif calc == "q"
     puts "goodbye"
 
-else
+  else
     puts "ERROR"
   end
 end

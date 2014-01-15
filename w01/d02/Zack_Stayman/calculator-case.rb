@@ -6,42 +6,34 @@ def addition(x, y)
   a = x + y
   return a
 end
-
 def subtraction(x, y)
   a = x - y
   return a
 end
-
 def multiplication(x, y)
   a = x * y
   return a
 end
-
 def division(x, y)
   a = x/y
   return a
 end
-
 def exponent(x, y)
   a = (x ** y)
   return a
 end
-
 def cos(x)
   a = Math.cos(x)
   return a
 end
-
 def sin(x)
   a = Math.sin(x)
   return a
 end
-
 def tan(x)
   a = Math.tan(x)
   return a
 end
-
 def factorial(x)
   counter = x-1.to_f
   while counter > 1
@@ -51,7 +43,6 @@ def factorial(x)
   a = x
   return a
 end
-
 while calc != "q"
   puts "Do you want to use the (b)asic or (a)dvanced calculator or do you want to (q)uit?"
   calc = gets.chomp
