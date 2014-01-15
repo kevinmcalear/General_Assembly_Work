@@ -4,7 +4,7 @@ while (pick != "q")
 	pick = gets.chomp
 
 if pick == "b"
-puts "Pick an operation: add(a) subtract(s) multiply(*) divide(d)"
+puts "Pick an operation: add(a) subtract(s) multiply(m) divide(d)"
  operator = gets.chomp
 puts "First number?"
  num1 = gets.chomp.to_i
