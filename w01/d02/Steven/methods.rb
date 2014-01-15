@@ -30,27 +30,31 @@
 def is_prime?(value)
   x = 2
   while x < value
-  if value % x == 0
-    return "Not Prime!"
+    if value % x == 0
+      return false
+    end
+    x = x + 1
   end
+  return true 
 end
 
-is_prime?(3)
+puts "#{is_prime?(6)}"
+
 
 #if (value / value == 1 ) && (value /1 == value)
 # Prime.prime?(2)   
 # prime?(value, generator = Prime::Generator23.new) 
 
-def is_prime?(number)
-  if number < 1
-    return false
-  end
-  divisor = 2
-  while number % != 0
-    divisor += 1
-    if number == divisor
-      return true
-    end
-  end
-  return false
-end
+# def is_prime?(number)
+#   if number < 1
+#     return false
+#   end
+#   divisor = 2
+#   while number % != 0
+#     divisor += 1
+#     if number == divisor
+#       return true
+#     end
+#   end
+#   return false
+# end
