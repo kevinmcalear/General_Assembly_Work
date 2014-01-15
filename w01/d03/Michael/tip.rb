@@ -10,11 +10,11 @@ tip_percentage = gets.chomp.to_f / 100
 tip_multiplier = tip_percentage + 1
 
 total = meal_price * tax_multiplier * tip_multiplier
-puts meal_price
-puts tax_percentage
-puts tip_percentage
-puts tax_multiplier
-puts tip_multiplier
+# puts meal_price
+# puts tax_percentage
+# puts tip_percentage
+# puts tax_multiplier
+# puts tip_multiplier
 
 
-puts "Your total is #{total}."
+puts "Your total is $#{total.round(2)}."
