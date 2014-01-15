@@ -49,6 +49,12 @@ case advanced
 		puts "Pleae enter your second number"
 		exp2 = gets.chomp.to_i
 		puts "#{exp1} ** #{exp2} = #{exp1 ** exp2}"	
-end
+
+	when "sq"
+		puts "Please the number you would like to square root?"
+		a = gets.chomp.to_i
+		ans = Math.sqrt(a)
+		puts "The square root of #{a} is #{ans.to_i}"
+	end
 end
 end
