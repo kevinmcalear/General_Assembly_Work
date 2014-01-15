@@ -1,4 +1,5 @@
-def Basic(type, num1, num2)
+#calculator method
+def Calculator(type, num1, num2)
   case type
   when "A"
     return num1 + num2
@@ -18,6 +19,7 @@ end
 
 puts "**CALCULATOR**"
 operation_type = "A"
+#Main menu loop
 while (operation_type.upcase != "Q")
   puts "What type of operation would you like to perform?"
   puts "Basic (B), Advanced (A), Trigonometric (T), or Quit (Q)"
@@ -26,6 +28,7 @@ while (operation_type.upcase != "Q")
 
   case operation_type
 
+#Basic calculator functions
   when "B"
     puts "What operation would you like to do? Add (A), Subtract (S), Multiply (M), or Divide (D):"
       basic_type = gets.chomp.upcase
@@ -38,8 +41,9 @@ while (operation_type.upcase != "Q")
       puts "Enter second number:"
       n2 = gets.chomp.to_f
       puts "The answer is:"
-      puts Basic(basic_type, n1, n2)
+      puts Calculator(basic_type, n1, n2)
 
+#Advanced calculator functions
   when "A"
     puts "What operation would you like to do? Exponent (EX), Root (RT):"
       advanced_type = gets.chomp.upcase
@@ -58,8 +62,10 @@ while (operation_type.upcase != "Q")
       n2 = gets.chomp.to_f
       end
       puts "The answer is:"
-      puts Basic(advanced_type, n1, n2)
+      puts Calculator(advanced_type, n1, n2)
   end
+
+
 end
 
   
