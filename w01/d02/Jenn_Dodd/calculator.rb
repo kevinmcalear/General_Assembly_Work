@@ -1,4 +1,4 @@
-calc = "basic"
+calc = "non"
 
 if calc == "basic" 
 	puts "Choose one: (A)dd, (S)ubtract, (M)ultiply, (D)ivide"
@@ -28,5 +28,20 @@ if calc == "basic"
 		puts "Number to divide by:"
 		second = gets.chomp.to_f
 		puts "Your result: #{first / second}"
+	end
+else 
+	puts "Choose one: (E)xponent, (S)quare root"
+	adv_choice = gets.chomp.upcase
+	if adv_choice == "E"
+		puts "Base number:"
+		first = gets.chomp.to_f
+		puts "Power to raise to:"
+		second = gets.chomp.to_f
+		puts "Your result: #{first**second}"
+	else
+		puts "Number to square root:"
+		num = gets.chomp.to_f
+		numsqrt = Math.sqrt(num)
+		puts "Your result is: #{numsqrt}"
 	end
 end
