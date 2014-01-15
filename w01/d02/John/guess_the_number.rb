@@ -1,11 +1,10 @@
-puts "I'm thinking of a number between 1 and 10...guess what it is:"
+puts "I'm thinking of a number between 0 and 10...guess what it is:"
 guess = gets.chomp.to_i
-number = rand(0..10)
-# puts number
 count = 1
 
+number = rand(0..10)
+
 while guess != number
-  print "Incorrect! "
   if guess > number
     puts "Too high."
   else
