@@ -44,6 +44,14 @@ def cos (first_num)
 	return Math.cos(first_num)
 end
 
+##http://www.rodrigoalvesvieira.com/the-most-beautiful-factorial-method/
+def factorial(first_num)
+	print "The factorial of #{first_num} is #{1 if first_num.zero?
+	1.upto(first_num).inject(:*)}"
+	return 1 if first_num.zero?
+	1.upto(first_num).inject(:*)
+end
+
 
 program = 1
 
@@ -60,6 +68,7 @@ puts "Welcome to the Ruby Calculator.  What would you like to do?",
 	"(sin)",
 	"(tan)",
 	"(cos)",
+	"(F)actorial"
 	"(Q)uit"
 ans = gets.chomp.downcase
 
@@ -93,6 +102,8 @@ ans = gets.chomp.downcase
 			tan(first_num)
 		when "cos"
 			cos(first_num)
+		when "f"
+			factorial(first_num)
 		end
 	end	
 end
