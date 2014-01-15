@@ -1,19 +1,3 @@
-off = false
-
-
-# while !off
-#   print "Enter your first number: "
-#   print "Enter your operation (+,-,/,*,^,sqr,  "
-#   print "Enter your second number: "
-
-#   puts "Turn off (N)? "
-#    if gets.chomp == "N" 
-#     || gets.chomp == "(N)"
-#     || gets.chomp == "n" 
-#     || gets.chomp.downcase == "no"
-#     off = true
-# end
-
 def add(first, second) 
   first + second
 end
@@ -31,9 +15,49 @@ def divide(first, second)
 end
 
 def exponent(first, second)
-  first^second
+  first**second
 end
 
-def square root(first)
+def square_root(first)
   Math.sqrt(first)
 end
+
+
+off = false
+
+
+while !off
+  print "Enter your first number: "
+  first = gets.chomp.to_i
+  print "Enter your operation (+,-,/,*,^,sqrt) "
+  operation = gets.chomp
+  print "Enter your second number: " unless operation == "sqrt"
+  second = gets.chomp.to_i unless operation == "sqrt"
+  result = nil
+ 
+  case operation
+  when "+"
+    result = add(first, second)
+  when "-"
+    result = subtract(first, second)  
+  when "*"
+    result = multiply(first, second)
+  when "/"
+    result = divide(first, second)
+  when "^"
+    result = exponent(first, second)
+  when "sqrt"
+    result = square_root(first)
+  else
+    puts "Error"
+    break
+  end
+    puts result
+
+  puts "Turn off (y/n)? "
+   if gets.chomp != "n" 
+      off = true
+  end
+end
+
+
