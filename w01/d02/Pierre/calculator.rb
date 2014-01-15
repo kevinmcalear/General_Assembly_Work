@@ -121,7 +121,7 @@ def basic_menu()
     choice = gets.chomp
 
     if choice == "b"
-      main_menu()
+      return nil
     elsif choice == "a"
       puts "Result: #{add()}"
     elsif choice == "s"
@@ -149,13 +149,14 @@ def advanced_menu()
     choice = gets.chomp
 
     if choice == "b"
-      main_menu()
+      return nil
     elsif choice == "e"
       puts "Result: #{exponent()}"
     elsif choice == "s"
       puts "Result: #{square_root()}"
     elsif choice == "t"
       trig_menu()
+      return nil
     elsif choice == "f"
       puts "Result: #{factorial()}"
     else
@@ -177,7 +178,7 @@ def trig_menu()
     choice = gets.chomp
 
     if choice == "b"
-      advanced_menu()
+      return nil
     elsif choice == "s"
       puts "Result: #{sine()}"
     elsif choice == "c"
