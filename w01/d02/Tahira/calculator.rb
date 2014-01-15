@@ -13,6 +13,20 @@ def Calculator(type, num1, num2)
     return num1 ** num2
   when "RT"
     return num1 ** (1/num2)
+  when "COS"
+    return Math.cos(num1)
+  when "SIN"
+    return Math.sin(num1)
+  when "TAN"
+    return Math.tan(num1)
+  when "F"
+    x = num1
+    factorial = num1
+    while (x > 2)
+      x=x-1
+      factorial = factorial * x
+    end
+    return factorial
   end
 end
 
@@ -48,7 +62,7 @@ while (operation_type.upcase != "Q")
   when "A"
     puts "What operation would you like to do? Exponent (EX), Root (RT):"
       advanced_type = gets.chomp.upcase
-    while !(advanced_type == "EX" || advanced_type =="RT")
+    while !(advanced_type == "EX" || advanced_type == "RT")
       puts "Please enter a valid operation. Exponent (EX), Square root (RT):"
       advanced_type = gets.chomp.upcase
     end
@@ -64,9 +78,25 @@ while (operation_type.upcase != "Q")
       end
       puts "The answer is:"
       puts Calculator(advanced_type, n1, n2)
-  end
 #Trig functions
-
+  when "T"
+    puts "What operation would you like to do? Sin (SIN), Cos (COS), Tan (TAN):"
+        trig_type = gets.chomp.upcase
+      while !(trig_type == "SIN" || trig_type =="COS" || trig_type == "TAN")
+        puts "Please enter a valid operation. Sin (SIN), Cos (COS), Tan (TAN):"
+        trig_type = gets.chomp.upcase
+      end
+      puts "Enter number:"
+      n1 = gets.chomp.to_f
+      puts "The answer is:"
+      puts Calculator(trig_type, n1, 0)
+#Factorial
+  when "F"
+    puts "What number do you want the factorial of?"
+    n1 = gets.chomp.to_f
+    puts "The answer is:"
+    puts Calculator(operation_type, n1, 0)
+  end
 end
 
   
