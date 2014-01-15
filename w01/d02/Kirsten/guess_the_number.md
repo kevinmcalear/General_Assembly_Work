@@ -13,3 +13,4 @@
 ###Bonuses
 - When the user guesses incorrectly, tell them whether they guess too high or too low
 - When the user guesses the number correctly, tell them how many guesses it took them.
+  
