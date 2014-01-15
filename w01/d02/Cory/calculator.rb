@@ -33,6 +33,7 @@
 choice = nil
 
 while choice != "q"
+puts "**************** Welcome to my awesome calculator *******************"
 puts "Please enter a command: (b)asic, (a)dvanced, (t)rig or (q)uit"
 choice = gets.chomp
 
