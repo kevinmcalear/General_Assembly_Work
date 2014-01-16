@@ -6,6 +6,7 @@ mta[:n] = n
 mta[:l] = l
 mta[:s] = s
 
+# KEEPING IT DRY, LIST OF ALL STOPS FOR EACH LINE
 l_stops = "8th Ave (8th), 6th Ave (6th), Union Square (us), 3rd Ave (3rd), and 1st Ave (1st)"
 n_stops = "Times Square (ts), 34th St. (34th), 28th St, (28th-n), 23rd (23rd-n), Union Square (us), 8th Street (8th-n)"
 s_stops = "Grand Central (gc), 33rd (33rd), 28th (28th-s), 23rd (23rd-s), Union Square (us), and Astor Place (ap)."
