@@ -6,18 +6,52 @@ mta[:n] = n
 mta[:l] = l
 mta[:s] = s
 
+result = 0
+
 puts "What line are you getting on? Choose N, L, or S"
 initial_line = gets.chomp.downcase
 
 if initial_line == "n"
-  puts "What stop are you getting on at? Choose:"
+  puts "N line Choose your stop:"
   n.each_with_index { |stop, idx| puts idx.to_s + " " +  stop }
-  initial_stop = gets.chomp.to_i
-  puts "What stop are you getting off at? Choose:"
-  n.each_with_index { |stop, idx| puts idx.to_s + " " +  stop }
-  end_stop = gets.chomp.to_i
-  stops_number = end_stop - initial_stop
-  puts "Get off in #{ stops_number.abs } stops "
+  stop = gets.chomp.to_i
+elsif initial_line == "l"
+  l.each_with_index { |stop, idx| puts idx.to_s + " " +  stop }
+  stop = gets.chomp.to_i
+end
 
 
+puts "What line are you getting off on"
+final_line = gets.chomp.downcase
+
+if final_line == "n"
+  puts "N line Choose your stop:"
+  n.each_with_index { |stop, idx| puts idx.to_s + " " +  stop }
+  final_stop = gets.chomp.to_i
+elsif final_line == "l"
+  puts "L line Choose your stop:"
+  l.each_with_index { |stop, idx| puts idx.to_s + " " +  stop }
+  final_stop = gets.chomp.to_i
+end
+
+if initial_line == "n" && final_line == "n"
+  result = final_stop - stop 
+  puts "Get off in #{result.abs} stops"
+elsif  initial_line == "l" && final_line == "l"
+  result = final_stop - stop 
+  puts "Get off in #{result.abs} stops"
+elsif initial_line == "n" && final_line == "l"
+  result = 4 - stop
+  result = result.abs
+  result2 = 2 - final_stop
+  result2 = result2.abs
+  final_result = result + result2
+  puts final_result
+elsif initial_line == "l" && final_line == "n"
+  result = 2 - stop
+  result = result.abs
+  result2 = 4 - final_stop
+  result2 = result2.abs
+  final_result = result + result2
+  puts final_result
 end
