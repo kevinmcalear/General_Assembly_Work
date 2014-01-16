@@ -1,0 +1,9 @@
+USA : NYC, LA | burgers, hot dogs
+France : Paris, Nice | baguettes, croissants
+Italy: Rome, Pisa | pizza, pasta
+
+
+world = {:USA => USA=[cities=["NYC", "LA"], food=["burgers", "hot dogs"]], :France => France=[cities=["Paris", "Nice"], food=["baguettes", "croissants"]], :Italy => Italy=[cities=["Rome", "Pisa"], food=["pizza", "pasta"]]}
+
+
+world = {:USA => [cities={:NYC => "NYC", :LA => "LA"}, food={:burgers => "burgers", :hotdogs => "hotdogs"}], :France => France=[cities={:Paris=> "Paris", :Nice => "Nice"}, food={:baguettes => "baguettes", :croissants => "croissants"}], :Italy => Italy=[cities={:Rome => "Rome", :Pisa => "Pisa"}, food={:pizza => "pizza", :pasta => "pasta"}]}
