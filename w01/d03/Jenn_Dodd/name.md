@@ -1,4 +1,4 @@
-# Name Generator
+ # Name Generator
 
 Create a file called `name.rb`
 
