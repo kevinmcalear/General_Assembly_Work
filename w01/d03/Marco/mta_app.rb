@@ -25,28 +25,25 @@ puts "(L), (N), or (S)ix"
 subway_line2 = gets.chomp.downcase.to_sym
 
 puts "Please enter your destination station on the #{subway_line2.upcase} Line."
-  puts mta[subway_line2].join(", ").upcase
+puts mta[subway_line2].join(", ").upcase
 
 subway_end = gets.chomp.to_s
 
 case 
-  when subway_line1 == subway_line2
+when subway_line1 == subway_line2
 
   destination = mta[subway_line1].index(subway_end)
 
-  puts "You have #{(origin - destination).abs} stops before your destination station."
+  puts "You have #{($origin - destination).abs} stops before your destination station."
 
-  else subway_line2 == :n || subway_line2 == :l
+else subway_line2 == :n || subway_line2 == :l
 
   $destination = mta[subway_line2].index(subway_end)
-
-  # puts mta[subway_line2].index(subway_end)
-  # puts mta[subway_line2].index("us")
 
   pre_switch = ($origin - mta[subway_line1].index("us")).abs
   post_switch = ($destination - mta[subway_line2].index("us")).abs
 
-  travel = (pre_switch + post_switch).abs - 1
+  travel = (pre_switch + post_switch).abs
 
   puts "You have #{travel} stops before your destination station."
 
