@@ -1,4 +1,6 @@
 # This is our train line data
+puts `clear`
+
 $mta = {
   :n => ["ts", "34th-n", "28th-n", "23rd-n", "us", "8th-n"], 
   :l => ["8th-l","6th", "us", "3rd", "1st"],
@@ -59,19 +61,19 @@ if (line_start != line_finish) && ((line_start != :o)  && (line_finish != :o))
   from_us = dist(line_finish, "us", stop_finish)
   puts (to_us + from_us)
 elsif (line_start != line_finish) && ((line_start == :o) || (line_finish == :o))
-if line_start == :o && ((line_start != :n) || (line_finish != :n))
-  to_ts = to_ts(line_start, stop_start)
-  from_us = dist(line_finish, "us", stop_finish)
-  puts to_ts + from_us + 4
-elsif ((line_start == :n) || (line_finish == :n))
-  to_ts = to_ts(line_start, stop_start)
-  from_ts = dist(line_finish, "ts", stop_finish)
-  puts to_ts + from_ts
-else
-  to_us = dist(line_start, stop_start, "us")
-  from_ts = dist(line_finish, "ts", stop_finish)
-  puts to_us + from_ts + 4
-end
+  if line_start == :o && ((line_start != :n) || (line_finish != :n))
+    to_ts = to_ts(line_start, stop_start)
+    from_us = dist(line_finish, "us", stop_finish)
+    puts to_ts + from_us + 4
+  elsif ((line_start == :n) || (line_finish == :n))
+    to_ts = to_ts(line_start, stop_start)
+    from_ts = dist(line_finish, "ts", stop_finish)
+    puts to_ts + from_ts
+  else
+    to_us = dist(line_start, stop_start, "us")
+    from_ts = dist(line_finish, "ts", stop_finish)
+    puts to_us + from_ts + 4
+  end
 else
   puts dist(line_start, stop_start, stop_finish)
 end
