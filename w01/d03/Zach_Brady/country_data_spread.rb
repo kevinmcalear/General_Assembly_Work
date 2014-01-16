@@ -17,7 +17,7 @@ def discuss_trip(countries, country)
     city = countries[country_key][:cities].sample
     food = countries[country_key][:food].sample
     countries_been_to = ["USA"]
-    if country_key != countries_been_to[0, countries_been_to.length]
+    if country_key != countries_been_to.each 
         return "You haven't been to that country!"
     else
         return "I was just in #{city}, #{country} and I really enjoyed the #{food}."
@@ -25,3 +25,5 @@ def discuss_trip(countries, country)
 end
 
 puts discuss_trip(countries, "USA")
+
+## ACCIDENTALLY DELETED SOMETHING
