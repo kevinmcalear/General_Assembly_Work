@@ -1,58 +1,74 @@
-mta = {:n => ['ts', '34th', '28th-n', '23rd-n', 'us', "8th-n"],
-		:l => ['8th-l', '6th', 'us', '3rd', '1st'],
-		:s => ['gc', '33rd', '28th-s', '23rd-s', 'us', "astor"]
-	}
-#mta = {}
-#mta[:n] = n
-#mta[:l] = l
-#mta[:s] = s
+#LINE HASH
 
+n = ['ts', '34th', '28th-n', '23rd-n', 'us']
+l = ['8th', '6th', 'us', '3rd', '1st']
+s = ['gc', '33rd', '28th-s', '23rd-s', 'us']
+mta = {}
+mta[:n] = n
+mta[:l] = l
+mta[:s] = s
+
+#LINE STOPS FOR USER TO PICK FROM
 n_stops = "Times Square(ts), 34th(34th), 28th(28th-n), 23rd(23rd-n), Union Square(us), 8th(8th-n)"
 l_stops = "8th(8th-l), 6th(6th), Union Square(us), 3rd(3rd), 1st(1st)"
 s_stops = "Grand Central(gc), 33rd(33rd), 28th(28th-s), 23rd(23rd-s), Union Square(us), Astor(astor)"
 
-#BEGIN 
+#WELCOME AND CHOOSE ORIGIN LINE
 
 puts "Welcome to the subway!"
 puts "Which line would you like to start on?"
-puts "(n), 6(s), or (l)"
+puts "(N), (L), 6(S)"
+origin_line = gets.chomp.downcase.to_sym
 
-origin_line = gets.chomp.downcase
+#CHOOSE ORIGIN STATION
 
-puts "Which stop do you want to start at?"
-case origin_line 
-when  "n"
+puts "Which station are you starting at?"
+case origin_line
+when :n
 	puts n_stops
-when  "l"
+when :l
 	puts l_stops
-when  "s"
+when :s
 	puts s_stops
-end 
+else
+	puts "That's not a line!"
+end
 
-first_stop = gets.chomp.to_s
+first_stop = gets.chomp
 
-puts "Which line do you want to end at?"
-puts "(n), 6(s), or (l)"
+#SET ORIGIN AND GET INDEX
 
-destination_line = gets.chomp.downcase
+origin = mta[origin_line].index(first_stop)
 
-puts "Which stop do you want to end at?"
-case destination_line 
-when  "n"
+
+#CHOOSE DESTINATION LINE
+
+puts "Which line would you like to end on?"
+puts "(N), (L), 6(S)"
+destination_line = gets.chomp.downcase.to_sym
+
+#CHOOSE DESTINATION STATION
+
+puts "Which station are you ending at?"
+case destination_line
+when :n
 	puts n_stops
-when  "l"
+when :l
 	puts l_stops
-when  "s"
+when :s
 	puts s_stops
-end 
+else
+	puts "That's not a line!"
+end
 
 second_stop = gets.chomp
 
+#SET DESTINATION AND GET INDEX
 
-index_1 = mta[:n].index(first_stop)
-index_2 = mta[:n].index(second_stop)
+destination = mta[destination_line].index(second_stop)
 
-result = (index_2 - index_1).abs
+#FIND NUMBER OF STOPS (FOR ONE LINE)
+
+puts "It will take #{ (origin - destination).abs} stops."
 
 
-puts "That will take #{result} stops."
