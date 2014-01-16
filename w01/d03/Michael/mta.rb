@@ -7,7 +7,7 @@ mta =
 
 
 
-puts "What line would you like to get on? Select from the N or the L"
+puts "What line would you like to get on? Select from the N, the L, or the S"
 line_start = gets.chomp.downcase
 line_start_sym = line_start.to_sym
 
@@ -16,7 +16,7 @@ puts "What station would you like to start at?  Select one of the stations #{mta
 station_start = gets.chomp.downcase
 station_start_index = mta[line_start_sym].index station_start
 
-puts "What line would you like to get off on? Select from the N or the L"
+puts "What line would you like to get off on? Select from the N, the L, or the S"
 line_end = gets.chomp.downcase
 line_end_sym = line_end.to_sym
 
@@ -28,14 +28,16 @@ station_end_index = mta[line_end_sym].index station_end
 
 if line_start == line_end 
 	distance = (station_start_index - station_end_index).abs
-elsif line_start == 'n'
-	n_distance = (station_start_index - 4).abs
-	l_distance = (station_end_index - 2).abs
-	distance = n_distance + l_distance
-elsif line_start == 'l'
-else 
+elsif line_start == 'l' 
+	a_distance = (station_start_index - 2).abs
+	b_distance = (station_end_index - 4).abs
+	distance = a_distance + b_distance
+elsif line_start != 'l' 
+	a_distance = (station_start_index - 4).abs
+	b_distance = (station_end_index - 4).abs
+	distance = a_distance + b_distance
 end
 
 	
 
-puts "You will travel #{distance} stops to go from #{station_start} to #{station_end}"
+puts "You will travel #{distance} stops to go from #{station_start} on the #{line_start} to #{station_end} on the #{line_end}"
