@@ -81,7 +81,7 @@ finish_station = gets.chomp
 ride_length = 0
 
 if start_line == finish_line
-  ride_length = navigate_line(start_station, finish_station)
+  ride_length = navigate_line(start_line, start_station, finish_station)
 
 else
   if intersects?(start_line, finish_line)
