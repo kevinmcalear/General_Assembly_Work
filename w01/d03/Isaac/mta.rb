@@ -18,8 +18,10 @@ if initial_line == "n"
 elsif initial_line == "l"
   l.each_with_index { |stop, idx| puts idx.to_s + " " +  stop }
   stop = gets.chomp.to_i
+elsif initial_line == "s"
+  s.each_with_index { |stop, idx| puts idx.to_s + " " +  stop }
+  stop = gets.chomp.to_i
 end
-
 
 puts "What line are you getting off on"
 final_line = gets.chomp.downcase
@@ -32,26 +34,52 @@ elsif final_line == "l"
   puts "L line Choose your stop:"
   l.each_with_index { |stop, idx| puts idx.to_s + " " +  stop }
   final_stop = gets.chomp.to_i
+elsif initial_line == "s"
+  s.each_with_index { |stop, idx| puts idx.to_s + " " +  stop }
+  final_stop = gets.chomp.to_i
 end
 
-if initial_line == "n" && final_line == "n"
+def same_line(stop, final_stop)
   result = final_stop - stop 
   puts "Get off in #{result.abs} stops"
-elsif  initial_line == "l" && final_line == "l"
-  result = final_stop - stop 
-  puts "Get off in #{result.abs} stops"
-elsif initial_line == "n" && final_line == "l"
+end
+
+def ns_method(stop)
   result = 4 - stop
   result = result.abs
-  result2 = 2 - final_stop
-  result2 = result2.abs
-  final_result = result + result2
-  puts final_result
-elsif initial_line == "l" && final_line == "n"
+  return result
+end
+
+def l_method(stop)
   result = 2 - stop
   result = result.abs
-  result2 = 4 - final_stop
-  result2 = result2.abs
-  final_result = result + result2
-  puts final_result
+  return result
 end
+
+if initial_line == final_line
+  same_line(stop, final_stop)
+elsif initial_line == "n" && final_line == "s"
+  puts "Get off in #{ns_method(stop) + ns_method(final_stop)} stops"
+elsif initial_line == "s" && final_line == "n"
+  puts "Get off in #{ns_method(stop) + ns_method(final_stop)} stops"
+elsif initial_line == "n" && final_line == "l"
+  puts "Get off in #{ns_method(stop) + l_method(final_stop)} stops"
+elsif initial_line == "l" && final_line == "n"
+  puts "Get off in #{l_method(stop) + ns_method(final_stop)} stops"
+elsif initial_line == "s" && final_line == "l"
+  puts "Get off in #{ns_method(stop) + l_method(final_stop)} stops"
+elsif initial_line == "l" && final_line == "s"
+  puts "Get off in #{l_method(stop) + ns_method(final_stop)} stops"
+end
+
+
+
+
+
+
+
+
+
+
+
+
