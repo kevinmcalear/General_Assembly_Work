@@ -18,7 +18,7 @@ def stop_counter(line1, line2, start, finish, mta)
   y = (mta[line2].index("ts") - mta[line2].index(finish)).abs
   dist = (x + y)
   puts "You'll have to go #{dist} stops"
-elsif line1 != :n && line2 != :n
+  elsif line1 != :n && line2 != :n
     #change train on Times Square and Union Square (3 trains besides N train)
     if line1 == :s || line1 == :l # going to 1 line
       x = (mta[line1].index(start) - mta[line1].index("us")).abs
