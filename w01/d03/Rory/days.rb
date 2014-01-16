@@ -1,4 +1,5 @@
 puts "Enter what day of the week it is (Monday - Friday)."
+day = gets.chomp
 case day
 	when "Monday"
 		puts "Sorry :("
