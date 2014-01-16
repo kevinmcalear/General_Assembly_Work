@@ -4,6 +4,10 @@ f = File.open("receipt.txt", "r")
 
 string_version_of_receipt = f.read
 
-puts string_version_of_receipt
+array = string_version_of_receipt.split("\n")
+
+selector = array.select{|line| line.length>0}.select{ |line| line.include?("$")}
+
+puts selector
 
 f.close
