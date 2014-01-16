@@ -39,9 +39,9 @@ last_stop = gets.chomp
 
 if startline != endline
   first = (mta[startline]).index(first_stop)
-  second = (mta[startline]).index("Union Square")
+  second = (mta[startline]).index("union square")
   first_trip_count = (second - first).abs
-  third = (mta[endline]).index("Union Square")
+  third = (mta[endline]).index("union square")
   fourth = (mta[endline]).index(last_stop)
   second_trip_count = (fourth - third).abs
   final = first_trip_count + second_trip_count
