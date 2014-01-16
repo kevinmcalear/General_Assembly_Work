@@ -69,37 +69,92 @@ mta = {
   }
 
 
-puts "Which train do you want to get on (n, l, s)"
-line = gets.chomp.downcase.to_sym
+puts "Which train do you want to get on (n, l, 6)"
+line = gets.chomp.downcase
+if line == "6"
+  line = :s
+else
+ line = line.to_sym
+end
 
 case line
 when :n
 puts "What stop do you want to get on at (ts, 34th, 28th-n, 23rd-n, us)?"
 get_on = gets.chomp.downcase
-puts "What line do you want to get off at (n, l, s)?"
+puts "What line do you want to get off at (n, l, 6)?"
 line_off = gets.chomp.downcase.to_sym
   if line_off == :n
     puts "Which stop do you want to get off at? (ts, 34th, 28th-n, 23rd-n, us)"
     get_off_n = gets.chomp
     stops_traveled = (mta[:n].index(get_on) - mta[:n].index(get_off_n)).abs
     puts "You traveled #{stops_traveled} stops."
-  else
+  elsif line_off == :l
     puts "Which stop do you want to get off at? (8th, 6th, us, 3rd, 1st)"
     get_off_l = gets.chomp
     stops_traveled = ((mta[:n].index(get_on) - mta[:n].index("us")).abs) + ((mta[:l].index("us") - mta[:l].index(get_off_l)).abs)
     puts "You traveled #{stops_traveled} stops."
+  else
+    puts "Which stop do you want to get off at? (gc, 33rd, 28th-s, 23rd-s, us)"
+    get_off_s = gets.chomp
+    stops_traveled = ((mta[:n].index(get_on) - mta[:n].index("us")).abs) + ((mta[:s].index(get_off_s) - mta[:s].index("us")).abs)
+    puts "You traveled #{stops_traveled} stops."
   end
-
 when :l
 puts "What stop do you want to get on at (8th, 6th, us, 3rd, 1st)?"
-get_on_l = gets.chomp.downcase
-puts "What stop do you want to get off at (8th, 6th, us, 3rd, 1st)?"
-get_off_l = gets.chomp.downcase
-stops_traveled = (mta[:l].index(get_on) - mta[:l].index(get_off)).abs
-puts "You traveled #{stops_traveled} stops."
-else
-  puts "error"
+get_on = gets.chomp.downcase
+puts "What line do you want to get off at (n, l, 6)?"
+line_off = gets.chomp.downcase.to_sym
+  if line_off == :n
+    puts "Which stop do you want to get off at? (ts, 34th, 28th-n, 23rd-n, us)"
+    get_off_n = gets.chomp
+    stops_traveled = ((mta[:l].index(get_on) - mta[:l].index("us")).abs) + ((mta[:n].index("us") - mta[:n].index(get_off_n)).abs)
+    puts "You traveled #{stops_traveled} stops."
+  elsif line_off == :l
+    puts "Which stop do you want to get off at? (8th, 6th, us, 3rd, 1st)"
+    get_off_l = gets.chomp
+    stops_traveled = (mta[:l].index(get_on) - mta[:l].index(get_off_l)).abs
+    puts "You traveled #{stops_traveled} stops."
+  else
+    puts "Which stop do you want to get off at? (gc, 33rd, 28th-s, 23rd-s, us)"
+    get_off_s = gets.chomp
+    stops_traveled = ((mta[:l].index(get_on) - mta[:l].index("us")).abs) + ((mta[:s].index("us") - mta[:s].index(get_off_s)).abs)
+    puts "You traveled #{stops_traveled} stops."
+  end
+when :s
+puts "What stop do you want to get on at (gc, 33rd, 28th-s, 23rd-s, us)?"
+get_on = gets.chomp.downcase
+puts "What line do you want to get off at (n, l, 6)?"
+line_off = gets.chomp.downcase.to_sym
+  if line_off == :n
+    puts "Which stop do you want to get off at? (ts, 34th, 28th-n, 23rd-n, us)"
+    get_off_n = gets.chomp
+    stops_traveled = ((mta[:s].index(get_on) - mta[:s].index("us")).abs) + ((mta[:n].index("us") - mta[:n].index(get_off_n)).abs)
+    puts "You traveled #{stops_traveled} stops."
+  elsif line_off == :l
+    puts "Which stop do you want to get off at? (8th, 6th, us, 3rd, 1st)"
+    get_off_l = gets.chomp
+    stops_traveled = ((mta[:s].index(get_on) - mta[:s].index("us")).abs) + ((mta[:l].index("us") - mta[:l].index(get_off_l)).abs)
+    puts "You traveled #{stops_traveled} stops."
+  else
+    puts "Which stop do you want to get off at? (gc, 33rd, 28th-s, 23rd-s, us)"
+    get_off_s = gets.chomp
+    stops_traveled = (mta[:s].index(get_on) - mta[:s].index(get_off_s)).abs
+    puts "You traveled #{stops_traveled} stops."
+  end
 end
+
+
+
+# when :l
+# puts "What stop do you want to get on at (8th, 6th, us, 3rd, 1st)?"
+# get_on_l = gets.chomp.downcase
+# puts "What stop do you want to get off at (8th, 6th, us, 3rd, 1st)?"
+# get_off_l = gets.chomp.downcase
+# stops_traveled = (mta[:l].index(get_on) - mta[:l].index(get_off)).abs
+# puts "You traveled #{stops_traveled} stops."
+# else
+#   puts "error"
+# end
 
 # if line == :n
 #   puts "What stop do you want to get off at (ts, 34th, 28th-n, 23rd-n, us)?"
