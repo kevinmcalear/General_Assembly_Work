@@ -19,25 +19,25 @@ while choice != "Quit"
     basic_choice = gets.chomp
 
     case basic_choice
-    when basic_choice = "Addition"
+    when "Addition"
       puts "What is your first number?"
       add_1 = gets.chomp.to_i
       puts "What number would you like to add this to?"
       add_2 = gets.chomp.to_i
       puts " #{add_1} + #{add_2} = #{add_1 + add_2}"
-    when basic_choice = "Subtraction"
+    when "Subtraction"
       puts "What is your first number?"
       subtract_1 = gets.chomp.to_i
       puts "What would you like to subtract from #{subtract_1} ?"
       subtract_2 = gets.chomp.to_i
       puts " #{subtract_1} - #{subtract_2} = #{subtract_1 - subtract_2}"
-    when basic_choice = "Multiplication"
+    when "Multiplication"
       puts "What is your first number?"
       multiply_1 = gets.chomp.to_i
       puts "What would you like to multiply #{multiply_1} by?"
       multiply_2 = gets.chomp.to_i
       puts "#{multiply_1} * #{multiply_2} = #{multiply_1 * multiply_2}"
-    when basic_choice = "Division"
+    when "Division"
       puts "What is your first number?"
       division_1 = gets.chomp.to_i
       puts "What number would you like to divide #{division_1} by?"
@@ -64,9 +64,9 @@ while choice != "Quit"
       puts "#{a} to what power?"
       b = gets.chomp.to_i
       ans = exponent(a, b)
-      puts "#{a} to the power of #{b}  = #{a ** b}  "  
+      puts "#{a} to the power of #{b}  = #{ans}  "  
     when "Square Root"  
-
+#a ** b
       puts "What number do you want the square root of?"
       a = gets.chomp.to_i
       ans = Math.sqrt(a)

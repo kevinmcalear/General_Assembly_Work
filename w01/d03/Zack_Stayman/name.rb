@@ -9,7 +9,7 @@ puts "Gigglesnort is at index " + lastnamelist.index("Gigglesnort").to_s
 question = nil
 
 
-while question != "no"
+while question == "yes"
 
 
 puts firstnamelist.sample + " " + lastnamelist.sample
