@@ -20,3 +20,15 @@
 4. How would you add {3 => "Three"} to the hash?
 5. How would you add {:four => 4} to the hash?
 6. How would you remove {1 => "One"} from the hash?
+
+**C. Given the following data structure:**
+
+`is = {true => "It's true!", false => "It's false"}`
+
+1. What is the return value of is[2 + 2 == 4]?
+2. What is the return value of is["Peter" == "Jeff"]?
+3. What is the return value of is[9 > 10]?
+4. What is the return value of is[0]?
+5. What is the return value of is["PJ"]?
+6. What is the return value of is[false||true]?
+6. What is the return value of is[false||"Jeff"]?
