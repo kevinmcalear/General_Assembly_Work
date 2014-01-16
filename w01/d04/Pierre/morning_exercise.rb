@@ -28,10 +28,12 @@ is["Peter" == "Jeff"] #should return "It's false!"
 #3. What is the return value of is[9>10]?
 is[9>10] #shoud return "It's false!"
 #4. What is the return value of is[0]
-is[0] #should return "It's true!"
+is[0] #should return "It's true!" -- ACTUAL: Returns nil
 #5. What is the return value of is["PJ"]?
-is["PJ"] #should return "It's true!"
+is["PJ"] #should return "It's true!"  -- ACTUAL: Returns nil
 #6. What is the return value of is[false||true]
 is[false||true] #should return "It's true!"
 #7. What is the return value of is[false||"Jeff"]?
-is[false||"Jeff"] #should return "It's true!"
+is[false||"Jeff"] #should return "It's true!"  -- ACTUAL: Returns nil
+
+##|| returns the first truthy operand, && returns the second truthy operand
