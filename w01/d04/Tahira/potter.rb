@@ -14,14 +14,12 @@ f.close
 
 #Method that returns array with the names of all the characters
 def names(characters)
-  names_list = characters.map {|h| h[:name]}
-  return names_list
+  return characters.map {|h| h[:name]}
 end
 
 #Method that returns all information (array of hashes) about characters mentioned more than 500 times
 def multiple_mentions(characters)
-  multiple_mentions_list = characters.select { |h| h[:mentions].to_i > 500 } 
-  return multiple_mentions_list
+  return characters.select { |h| h[:mentions].to_i > 500 } 
 end
 
 #Method that returns array with the names of all houses
@@ -91,7 +89,6 @@ def unique_last(residence, characters)
     return last_name_list
 end
   
-  
 ## Test that code is working
 puts characters
 puts characters.count
@@ -106,16 +103,8 @@ puts reverse_slytherin(characters)
 puts ""
 puts unique_last("Gryffindor", characters)
 
-
-# * Return an array with the unique last names of all the characters from Gryffindor (ie, print Weasley only 1 one time)
-
-
 # ### Bonus
 
 # * Return an array with all of the characters' names whose name contains "ll" somewhere
 # * Return an array with all of the characters' names whose name contains multiple k's
 # * Return an array with all of the characters whose first name begins with the same letter as their last name, sorted alphabetically (ie "Bathilda Bagshot". Note: "Nearly Headless Nick" counts here!)
-
-# ### Tips:
-# * Try to minimize your use of ".each". In most of these cases, there will be another enumerable method that will be a better tool for the job!
-# * Ruby Docs for Array, String, and Enumerable are your friend!
