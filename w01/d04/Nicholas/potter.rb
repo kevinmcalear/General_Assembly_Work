@@ -60,6 +60,7 @@ end
 return griffnames.uniq!
 end
 
+puts weasley(potter)
 f.close
 
 
