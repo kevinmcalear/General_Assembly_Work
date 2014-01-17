@@ -1,0 +1,14 @@
+-------------------------------------------
+Company Name: Zara
+Good/Service Provided: Clothing
+Cost: $50.00
+
+Thank you for your patronage!
+-------------------------------------------
+-------------------------------------------
+Company Name: Little Caesar's Pizza
+Good/Service Provided: Cheesy Bread
+Cost: $5.00
+
+Thank you for your patronage!
+-------------------------------------------
