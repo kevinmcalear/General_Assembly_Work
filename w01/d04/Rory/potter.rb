@@ -41,6 +41,37 @@ end
 
 puts just_houses.compact.uniq
 
+########### 4 ###########
+puts potter_hash.select{|position| !position[:name].include?(" ")}
+
+########### 5 ###########
+hufflepuffs = potter_hash.select{|position| position[:house] == "Hufflepuff"}
+puts hufflepuffs.count
+
+########### 6 ###########
+
+slytherins = potter_hash.select{|position| position[:house] == "Slytherin"}
+slytherins.map!{|x|x[:name].reverse}
+
+gryffindors = potter_hash.select{|position| position[:house] == "Gryffindor"}
+gryffindors.map!{|x|x[:name]}
+
+ravenclaws = potter_hash.select{|position| position[:house] == "Ravenclaw"}
+ravenclaws.map!{|x|x[:name]}
+
+no_house = potter_hash.select{|position| position[:house] == nil}
+no_house.map!{|x|x[:name]}
+
+puts all_names_syltherins_reversed = slytherins + gryffindors + ravenclaws + no_house
+
+############# 7 ###########
+
+gryff_first_last = gryffindors.map{|name|name.split(" ")}
+gryff_last_names = Array.new
+gryff_first_last.each do |key, value| 
+  gryff_last_names << value 
+end
+
 
 
 
