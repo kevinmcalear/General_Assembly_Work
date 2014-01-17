@@ -13,89 +13,89 @@ end
 
 # NUMBER ONE
 def method_one( my_hash )
-puts "THIS IS THE NEXT PROBLEM"
-puts "-----------------------"
-puts my_hash.map { | position | position[:name] }
-puts
+  puts "THIS IS THE NEXT PROBLEM"
+  puts "-----------------------"
+  puts my_hash.map { | position | position[:name] }
+  puts
 end
 
 # NUMBER TWO
 def method_two( my_hash )
-puts "THIS IS THE NEXT PROBLEM"
-puts "-----------------------"
-puts my_hash.select { |position| (position[:mentions] > 500) && position[:name] }
-puts
+  puts "THIS IS THE NEXT PROBLEM"
+  puts "-----------------------"
+  puts my_hash.select { |position| (position[:mentions] > 500) && position[:name] }
+  puts
 end
 
  # NUMBER THREE 
  def method_three( my_hash )
- puts "THIS IS THE NEXT PROBLEM"
- puts "-----------------------"
-puts my_hash.map { |position| position[:house] }.compact
-puts
-end
+   puts "THIS IS THE NEXT PROBLEM"
+   puts "-----------------------"
+   puts my_hash.map { |position| position[:house] }.compact
+   puts
+ end
 
 # NUMBER FOUR
 def method_four( my_hash )
-puts "THIS IS THE NEXT PROBLEM"
-puts "-----------------------"
-puts my_hash.select { |position| !position[:name].include? " " }
-puts
+  puts "THIS IS THE NEXT PROBLEM"
+  puts "-----------------------"
+  puts my_hash.select { |position| !position[:name].include? " " }
+  puts
 end
 
 # NUMBER FIVE
 def method_five( my_hash )
-puts "THIS IS THE NEXT PROBLEM"
-puts "-----------------------"
-five = my_hash.select { |position| position[:house] == "Hufflepuff" }
-puts five.count
-puts
+  puts "THIS IS THE NEXT PROBLEM"
+  puts "-----------------------"
+  five = my_hash.select { |position| position[:house] == "Hufflepuff" }
+  puts five.count
+  puts
 end
 
 # NUMBER SIX
 def method_six( my_hash )
-puts "THIS IS THE NEXT PROBLEM"
-puts "-----------------------"
-six = my_hash.map do |position| 
-  if  position[:house] == "Slytherin" 
-    puts position[:name].reverse
-else
-    puts position[:name] 
+  puts "THIS IS THE NEXT PROBLEM"
+  puts "-----------------------"
+  six = my_hash.map do |position| 
+    if  position[:house] == "Slytherin" 
+      puts position[:name].reverse
+    else
+      puts position[:name] 
+    end
   end
-end
-puts
+  puts
 end
 
 # NUMBER SEVEN
 def method_seven( my_hash )
-puts "THIS IS THE NEXT PROBLEM"
-puts "-----------------------"
-seven = my_hash.select { |position| position[:house] == "Gryffindor" }
-seven_two = seven.map {|position| position[:name].split(" ") }
-seven_three = seven_two.uniq {|position| position[1]}
-puts seven_three.map {|position| position[1]}.compact
-puts
+  puts "THIS IS THE NEXT PROBLEM"
+  puts "-----------------------"
+  seven = my_hash.select { |position| position[:house] == "Gryffindor" }
+  seven_two = seven.map {|position| position[:name].split(" ") }
+  seven_three = seven_two.uniq {|position| position[1]}
+  puts seven_three.map {|position| position[1]}.compact
+  puts
 end
 
 # NUMBER EIGHT
 def method_eight( my_hash )
-puts "THIS IS THE NEXT PROBLEM"
-puts "-----------------------"
-eight = my_hash.select { |position| position[:name].include? "Weasley" }
-puts eight.map {|position| position[:name].gsub(" ", " Badger ")}
-puts
+  puts "THIS IS THE NEXT PROBLEM"
+  puts "-----------------------"
+  eight = my_hash.select { |position| position[:name].include? "Weasley" }
+  puts eight.map {|position| position[:name].gsub(" ", " Badger ")}
+  puts
 end
 
 # NUMBER NINE
 def method_nine( my_hash )
-puts "THIS IS THE NEXT PROBLEM"
-puts "-----------------------"
-nine = my_hash.map {|position| position[:name].split(" ") }
-nine_two = nine.map {|position| position[0].split("")}
-nine_three = nine_two.select {|position| position.pop == "y"}
-nine_four = nine_three.each {|position| position.push("y")}
-puts nine_four.map {|position| position.join}
-puts
+  puts "THIS IS THE NEXT PROBLEM"
+  puts "-----------------------"
+  nine = my_hash.map {|position| position[:name].split(" ") }
+  nine_two = nine.map {|position| position[0].split("")}
+  nine_three = nine_two.select {|position| position.pop == "y"}
+  nine_four = nine_three.each {|position| position.push("y")}
+  puts nine_four.map {|position| position.join}
+  puts
 end
 
 
