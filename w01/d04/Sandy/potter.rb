@@ -1,21 +1,10 @@
+f = File.new("potter.csv", "r+") 
 
-
-
-f = File.new("potter.csv", "r+") do |f| 
-
-columns = f.readline.chomp.split(',')
-
-content = File.readlines("potter.rb")
-  potter_list = []
-   until f.eof?
-    row = f.readline.chomp.split(',')
-    row = columns.zip(row).flatten
-    table <<Hash[90]
-   end
-
-   return potter_list
- end
+potter_name = []
+File.read(f).each_line do |line|
+  potter_name << line.chomp
 end
+potter_name.each {|name| puts potter_name[1]}
 
 f.close
 
