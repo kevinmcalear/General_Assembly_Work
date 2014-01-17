@@ -51,6 +51,22 @@ def first_names_y(array_of_hashes)
   puts first_names_y.map {|array| array.join(" ")}
 end
 
+def names_ll(array_of_hashes)
+  names = array_of_hashes.map {|position| position[:name]}
+  puts names_w_ll = names.select {|item| item.index("ll")}
+end
+
+def names_many_ks(array_of_hashes)
+  names = array_of_hashes.map {|position| position[:name]}
+  puts names_w_many_ks = names.select {|item| item.count("k") > 1}
+end 
+
+def first_last_same(array_of_hashes)
+  names = array_of_hashes.map {|position| position[:name].split}
+  names_last_first = names.select {|position| position.first[0] == position.last[0]}
+  puts names_last_first.map {|array| array.join(" ")}.sort
+end
+
 puts "ARRAY OF HOUSES"
 array_of_houses(array_of_hashes)
 puts ""
@@ -77,3 +93,12 @@ weasleys_plus_badger(array_of_hashes)
 puts ""
 puts "FIRST NAMES WITH Y"
 first_names_y(array_of_hashes)
+puts ""
+puts "NAMES WITH LL IN IT"
+names_ll(array_of_hashes)
+puts ""
+puts "NAMES WITH MULTIPLE K'S"
+names_many_ks(array_of_hashes)
+puts ""
+puts "NAMES WITH FIRST NAME LETTER SAME AS LAST"
+first_last_same(array_of_hashes)
