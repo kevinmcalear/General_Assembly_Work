@@ -1,87 +1,108 @@
 f = File.open("potter.csv", "r")
 
 values = f.read
-#values.each {|line| line.split(",")}
-#puts values.class
+
 values = values.gsub("\n", "~")
 values = values.split("~")
 
 
 values = values.map {|line| line.split(",")}
 
+#print values
 #return all names method
 def all_names(values)
-values.each do |name|
-	puts name[1]
-end
+  values.each do |name|
+    puts name[1]
+  end
 end
 
-#all_names(values)
+all_names(values)
 
-#return an arrayr with all the characthers with > 500
+#return an array with all the characthers with > 500
 def greater_than_500_appearances(values) 
-values.each do |appearances|
-	if appearances[0].to_i > 500
-		puts appearances[0]
-	end
+  values.each do |appearances|
+    if appearances[0].to_i > 500
+      puts appearances[0]
+    end
+  end
 end
-end
+greater_than_500_appearances(values)
 
-#greater_than_500_appearances(values)
-
-#* Return an array with the names of all the houses.
-# `["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]`
-#if house[2].to_s.length > 0
-
+#return an array with the names of all houses
 def unique_houses(values)
-houses = values.map {|house| house[2]}
-houses.compact!
-puts houses.uniq
+  houses = values.map {|house| house[2]}
+  houses.compact!
+  puts houses.uniq
 end
+unique_houses(values)
 
+#return an array  of all the characters with one word names
+#each entry in the array should also contain all the infomation
+#about that character
 def one_word_names(values)
-one_word_names = values.map {|names| names[1]}
-puts one_word_names.delete_if{|names| names.include?" "}
-puts one_word_names.class
+  one_word_names = values.map {|names| names}
+  one_word_names.delete_if{|names| names[1].include?" "}
+  one_word_names.each {|info| puts info.to_s}
+end
+one_word_names(values)
+
+#return the number of characters from hufflepuff
+def count_of_hufflepuff(values)
+  count = 0
+  values.each do |house| 
+    if house[2] == "Hufflepuff"
+      count += 1
+    end
+  end
+  puts "There are #{count} Hufflepuffs!"
+end
+count_of_hufflepuff(values)
+
+#print all character names
+#reverse the names of characters in slytherin
+def reversed_slytherin(values)
+  slytherin_reverse = values.each do |info|
+    if info[2] == "Slytherin"
+      info[1] = info[1].reverse
+    end
+  end
+  slytherin_reverse.each {|info| puts info[1]}
+end
+reversed_slytherin(values)
+
+
+#unique last names
+def unique_last_names(values)
+  new_array = values.map do |entry| 
+    entry[1].split.last
+  end
+    puts new_array.uniq.sort
+end
+unique_last_names(values)
+
+
+#give each Weasley a middle name of badger
+def weasley(values)
+weasley = values.map do |entry|
+  last_names_only = entry[1].split.last
+  if last_names_only == "Weasley"
+    first_names = entry[1].split.first
+    last_names = entry[1].split.last
+    puts "#{first_names.to_s} Badger #{last_names.to_s.chomp}"
+  end
+end
 end
 
+weasley(values)
 
-=begin
-values.each do |houses|
-	if houses[2].to_s.length > 0
-	houses_array = Array.new
-	values.map {|house| houses_array << house[2]}
-	puts houses_array
-	end
+def first_names_y(values)
+first_names_y = values.map do |entry|
+  first_names_only = entry[1].split.first
+  last_letter = first_names_only[-1,1]
+    if last_letter == "y"
+      puts entry[1]
+    end
+end
 end
 
-#puts values[1]
-
-#puts values[0][1]
-
-
-=begin
-i = 0
-while i < values.size
-	appearances_hash = {values[i][1].to_sym => values[i][0]}
-	i += 1
-end
-
-puts appearances_hash[:"harry potter"]
-#attempt to do it in hashes
-#appearances_hash = {values[0][1].to_s => values[0][0]}
-#puts new_hash_appearances
-f.close
-
-
-
-
-  # * films.map {|film| puts “Fav film: #{film}}
-=begin
-
-   * map {|obj| block} returns an array
-   * Returns a new array with the result of running block once for every element
-   * perform an action on each item in a collection, saving the result to a new collection
-   * the item’s are “mapped” from one collection to another
-   * films.map {|film| puts “Fav film: #{film}}
-=end
+first_names_y(values)
