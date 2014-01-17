@@ -39,6 +39,14 @@ end
 # Return an array with characters that have one word names
 one_word = separate_info.delete_if {|x| x[1].include?(" ")}
 
+# Return all character names but reverse Slytherin's names
+potter.each do |x| 
+  if x[:school] == "Slytherin"
+    puts x[:name].reverse
+  else
+  puts x[:name]
+  end
+end
 
 f.close
 
