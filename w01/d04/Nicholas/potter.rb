@@ -50,6 +50,18 @@ potter.each do |x|
 end
 end
 
+#Return the count of how many characters are in Hufflepull
+def huff_puff(potter)
+  huffnames = []
+  potter.each do |x|
+    if x[:school] == "Hufflepuff"
+      huffnames << x
+    end
+  end
+  return huffnames.length
+end
+
+#Return the unique (nice hint) names of the gryffindor house
 def gryff(potter)
   griffnames = []
 potter.each do |x|
@@ -60,7 +72,14 @@ end
 return griffnames.uniq!
 end
 
+def weasley(potter)
+  weasley_list = potter.select {|x| x[:name].include?("Weasley")}
+  weasley_list[:name].split(" ")
+end
+
 puts weasley(potter)
+
+
 f.close
 
 
