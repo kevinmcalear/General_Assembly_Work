@@ -26,13 +26,13 @@ def houses(arr)
 end
 
 def one_word_names(arr)
-  arr = arr.map {|char| char.name}
-  arr.select {|name| !name.include?(" ") }
+  names = arr.map {|char| char.name}
+  names.select {|name| !name.include?(" ") }
 end
 
 def huff(arr)
-  arr = arr.select {|char| char.house == "Hufflepuff"}
-  arr.size
+  huff_chars = arr.select {|char| char.house == "Hufflepuff"}
+  huff_chars.size
 end
 
 def sly_name(arr)
@@ -40,36 +40,36 @@ def sly_name(arr)
 end
 
 def gr_names(arr)
-  arr = arr.select {|char| char.house == "Gryffindor"}
-  arr = arr.map {|char| char.name.split(" ").last }
+  gryf_characters = arr.select {|char| char.house == "Gryffindor"}
+  gryf_last_names = gryf_characters.map {|char| char.name.split(" ").last }
   results = []
   arr.each {|name| results << name unless results.include?(name)}
   results
 end
 
 def weasleys(arr)
-  arr = arr.select {|char| char.name.split(" ").last  == "Weasley"}
-  arr = arr.map {|char| char.name.gsub(" ", " Badger ")}
+  weaselys = arr.select {|char| char.name.split(" ").last  == "Weasley"}
+  weaselys.map {|char| char.name.gsub(" ", " Badger ")}
 end
 
 def first_names_y(arr)
-  arr = arr.map {|char| char.name.split(" ")[0]}
-  arr = arr.select {|name| name.end_with?("y")}
+  first_names = arr.map {|char| char.name.split(" ")[0]}
+  first_names.select {|name| name.end_with?("y")}
 end
 
 def ll(arr)
-  arr = arr.select {|char| char.name.include?("ll")}
-  arr.map {|char| char.name}
+  ll_names = arr.select {|char| char.name.include?("ll")}
+  ll_names.map {|char| char.name}
 end
 
 def kks(arr)
-  arr = arr.select {|char| char.name.count("k") > 1 }
-  arr.map {|char| char.name}
+  two_or_more_ks = arr.select {|char| char.name.count("k") > 1 }
+  two_or_more_ks.map {|char| char.name}
 end
 
 def alliteration(arr)
-  arr = arr.select {|char| char.name.split.first[0,1] == char.name.split.last[0,1] && char.name.split.count > 1}
-  arr.map {|char| char.name}
+  qualifying_names = arr.select {|char| char.name.split.first[0,1] == char.name.split.last[0,1] && char.name.split.count > 1}
+  qualifying_names.map {|char| char.name}
 end
 
 f= File.open("potter.csv", "r")
