@@ -40,12 +40,24 @@ end
 one_word = separate_info.delete_if {|x| x[1].include?(" ")}
 
 # Return all character names but reverse Slytherin's names
+def reverse_names(potter)
 potter.each do |x| 
   if x[:school] == "Slytherin"
-    puts x[:name].reverse
+    print x[:name].reverse
   else
-  puts x[:name]
+  print x[:name]
   end
+end
+end
+
+def gryff(potter)
+  griffnames = []
+potter.each do |x|
+  if x[:school] == "Gryffindor"
+  griffnames << x[:name].split(" ").last
+  end
+end
+return griffnames.uniq!
 end
 
 f.close
