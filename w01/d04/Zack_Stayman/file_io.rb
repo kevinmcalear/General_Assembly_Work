@@ -3,7 +3,6 @@ f = File.new("README.md", "r")
 f.each_line do |line|
   puts "Hello #{line.chomp}!"
 end
-
 f.close
 
 f = File.new("README.md", "a+")
