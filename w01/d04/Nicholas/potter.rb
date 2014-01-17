@@ -74,7 +74,7 @@ end
 
 def weasley(potter)
   weasley_list = potter.select {|x| x[:name].include?("Weasley")}
-  weasley_list[:name].split(" ")
+  weasley_list.each {|x| x[:name].gsub(" ", " Badger ")}
 end
 
 puts weasley(potter)
