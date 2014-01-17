@@ -126,9 +126,16 @@ end
 
 
 ############# 9 ############
+def first_names_end_with_y
+  names = potter_hash.map{|all_three| all_three[:name]}
+  indiv_names = names.map{|full_name|full_name.split(" ")}
+  first_names = indiv_names.map{|name_as_two|name_as_two[0]}
+  letters_of_first_names = first_names.map{|name|name.split(//)}
+  last_letter = letters_of_first_names.map{|letters|letters[(letters.count) -1]}
+end
 
-indiv_names = names.map{|full_name|full_name.split(" ")}
-first_names = indiv_names.map{|name_as_two|name_as_two[0]}
+
+
 
 
 
