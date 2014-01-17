@@ -1,11 +1,13 @@
 n_line = ["times square", "34th", "28th-n", "23rd-n", "union square", "8th"]
 l_line = ["8th", "6th", "union square", "3rd", "1st"]
 s_line = ["grand central", "33rd", "28th-s", "23rd-s", "astor"]
+#one_line = ["59th", "50th", "times square", "34th", "28th"]
 
 mta = {}
 mta[:l] = l_line
 mta[:n] = n_line
 mta[:six] = s_line
+#mta[:one] = one_line
 
 puts "What line do you want to get on?"
 startline = gets.chomp.to_sym
@@ -17,6 +19,8 @@ case startline
     puts n_line
   when :six
     puts s_line
+  #when :one
+  # puts one_line
 end
 
 puts "What stop do you want to get on?"
