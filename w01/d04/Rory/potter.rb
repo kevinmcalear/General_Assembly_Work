@@ -19,8 +19,15 @@ end
 
 puts just_names
 
-########## 
+########## Make into a big hash #########
 
-char_array
+potter_hash = char_array.map do |info| 
+  {:mentions => info[0].to_i, :name => info[1], :house => info[2]} 
+end
 
-potter_hash = char_array.map{ |info| :mentions => info[0].to_i, :name => info[1], :house => info[2]}
+print potter_hash
+
+########### 2 ###########
+puts potter_hash.select{|position| position[:mentions] > 500}
+
+
