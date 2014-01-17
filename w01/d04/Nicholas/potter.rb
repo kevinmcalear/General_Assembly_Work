@@ -25,6 +25,15 @@ end
    contact[0].to_i > 500
  end
  
+def school_names(potter)
+  houses = []
+  potter.each {|spot| houses << spot[:school]}
+  return houses.uniq!.compact!
+end
+
+# potter_houses = school_names(potter).uniq!
+# potter_houses.compact!
+puts school_names(potter)
 
 f.close
 
