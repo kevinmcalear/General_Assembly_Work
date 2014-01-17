@@ -1,0 +1,4 @@
+Company Name: target
+Good/Service Provided: food
+Cost: 45
+Thank you for your patronage!
