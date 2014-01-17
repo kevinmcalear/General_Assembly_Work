@@ -30,4 +30,18 @@ print potter_hash
 ########### 2 ###########
 puts potter_hash.select{|position| position[:mentions] > 500}
 
+########### 3 ###########
+just_houses = Array.new
+
+i = 0
+while i < char_array.count
+  just_houses.push(char_array[i][2])
+  i +=1
+end
+
+puts just_houses.compact.uniq
+
+
+
+
 
