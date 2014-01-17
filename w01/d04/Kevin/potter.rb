@@ -98,7 +98,6 @@ puts nine_four.map {|position| position.join}
 puts
 end
 
-# puts my_hash.select { |position| position[:name].include? "ll" }
 
 # THIS IS MY DATA 
 my_hash = my_hash_maker(the_data)
