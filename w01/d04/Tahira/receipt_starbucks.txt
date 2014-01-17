@@ -1,0 +1,7 @@
+---
+Company Name: starbucks
+Good/Service Provided: starbucks
+Cost: starbucks
+
+Thanks you for your patronage!
+---
