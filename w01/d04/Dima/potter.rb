@@ -1,5 +1,6 @@
 f = File.open("potter.csv", "r")
 data = f.read
+f.close
 data_array = data.split("\n")
 new_array = data_array.map {|line| line.split(",")}
  #big array of arrays
@@ -34,7 +35,8 @@ def slytherin_reverse(array_of_hashes)
   puts reversed_names
 end
 
-def unique_last_names
+def unique_last_names(array_of_hashes)
+  puts array_of_hashes.map {|position| position[:name].split.last}.uniq.sort
 end
 
 puts "ARRAY OF HOUSES"
@@ -54,4 +56,6 @@ hufflepuff(array_of_hashes)
 puts ""
 puts "NAMES FROM SLYTHERIN REVERSED"
 slytherin_reverse(array_of_hashes)
-f.close
+puts ""
+puts "UNIQUE LAST NAMES"
+unique_last_names(array_of_hashes)
