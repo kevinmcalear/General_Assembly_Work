@@ -35,13 +35,14 @@ def slytherin_reverse(array_of_hashes)
   puts reversed_names
 end
 
-def unique_last_names(array_of_hashes)
-  puts array_of_hashes.map {|position| position[:name].split.last}.uniq.sort
+def unique_last_names_gr(array_of_hashes)
+  gryffindor_houses = array_of_hashes.select {|position| position[:house] == "Gryffindor"}
+  puts gryffindor_houses.map {|position| position[:name].split.last}.uniq.sort
 end
 
 def weasleys_plus_badger(array_of_hashes)
-  last_names = array_of_hashes.map {|position| position[:name].split}
-  weasley_lasts = last_names.select {|position| position[1] == "Weasley"}
+  names = array_of_hashes.map {|position| position[:name].split}
+  weasley_lasts = names.select {|position| position[1] == "Weasley"}
   puts weasley_lasts.map {|array| array.insert(1, "Badger").join(" ")}
 end
 
@@ -53,7 +54,7 @@ end
 
 def names_ll(array_of_hashes)
   names = array_of_hashes.map {|position| position[:name]}
-  puts names_w_ll = names.select {|item| item.index("ll")}
+  puts names_w_ll = names.select {|item| item.include?("ll")}
 end
 
 def names_many_ks(array_of_hashes)
@@ -85,8 +86,8 @@ puts ""
 puts "NAMES FROM SLYTHERIN REVERSED"
 slytherin_reverse(array_of_hashes)
 puts ""
-puts "UNIQUE LAST NAMES"
-unique_last_names(array_of_hashes)
+puts "UNIQUE LAST NAMES FROM GRYFFINDOR"
+unique_last_names_gr(array_of_hashes)
 puts ""
 puts "WEASLEYS MIDDLE NAME BADGER"
 weasleys_plus_badger(array_of_hashes)
