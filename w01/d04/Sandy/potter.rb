@@ -1,11 +1,7 @@
-f = File.new("potter.csv", "r+") 
+require 'csv'
+csv = CSV.read('potter.csv', :headers => true, :header_converters => :symbol)
 
-potter_name = []
-File.read(f).each_line do |line|
-  potter_name << line.chomp
-end
-potter_name.each {|name| puts potter_name[1]}
+print csv[:names]
 
 f.close
-
 
