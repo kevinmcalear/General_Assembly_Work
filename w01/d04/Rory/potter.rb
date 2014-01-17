@@ -1,3 +1,4 @@
+############ Open file and turn into array ############
 f = File.open("potter.csv", "r")
 
 char = f.read
@@ -8,17 +9,6 @@ char_array = line_split.map{|line|line.split(",")}
 
 f.close
 
-########## 1 #############
-just_names = Array.new
-
-i = 0
-while i < char_array.count
-	just_names.push(char_array[i][1])
-	i += 1
-end
-
-puts just_names
-
 ########## Make into a big hash #########
 
 potter_hash = char_array.map do |info| 
@@ -27,50 +17,122 @@ end
 
 print potter_hash
 
-########### 2 ###########
-puts potter_hash.select{|position| position[:mentions] > 500}
+########## 1 #############
 
-########### 3 ###########
-just_houses = Array.new
+#names = potter_hash.map{|all_three| all_three[:name]}
 
-i = 0
-while i < char_array.count
-  just_houses.push(char_array[i][2])
-  i +=1
+def names
+  potter_hash.map{|all_three| all_three[:name]}
 end
 
-puts just_houses.compact.uniq
+########### 2 ###########
+#puts potter_hash.select{|position| position[:mentions] > 500}
+
+def over_500_mentions
+  potter_hash.select{|position| position[:mentions] > 500}
+end
+
+########### 3 ###########
+#just_houses = potter_hash.map{|all_three| all_three[:house]}
+#puts just_houses.compact.uniq
+
+def houses
+  just_houses = potter_hash.map{|all_three| all_three[:house]}
+  just_houses.compact.uniq
+end
 
 ########### 4 ###########
-puts potter_hash.select{|position| !position[:name].include?(" ")}
+#puts potter_hash.select{|position| !position[:name].include?(" ")}
+
+def one_word_names
+  potter_hash.select{|position| !position[:name].include?(" ")}
+end
 
 ########### 5 ###########
-hufflepuffs = potter_hash.select{|position| position[:house] == "Hufflepuff"}
-puts hufflepuffs.count
+#hufflepuffs = potter_hash.select{|position| position[:house] == "Hufflepuff"}
+#puts hufflepuffs.count
+
+def hufflepuff_counter
+  hufflepuffs = potter_hash.select{|position| position[:house] == "Hufflepuff"}
+  hufflepuffs.count
+end
 
 ########### 6 ###########
 
-slytherins = potter_hash.select{|position| position[:house] == "Slytherin"}
-slytherins.map!{|x|x[:name].reverse}
+#slytherins = potter_hash.select{|position| position[:house] == "Slytherin"}
+#slytherins.map!{|x|x[:name].reverse}
 
-gryffindors = potter_hash.select{|position| position[:house] == "Gryffindor"}
-gryffindors.map!{|x|x[:name]}
+#gryffindors = potter_hash.select{|position| position[:house] == "Gryffindor"}
+#gryffindors.map!{|x|x[:name]}
 
-ravenclaws = potter_hash.select{|position| position[:house] == "Ravenclaw"}
-ravenclaws.map!{|x|x[:name]}
+#ravenclaws = potter_hash.select{|position| position[:house] == "Ravenclaw"}
+#ravenclaws.map!{|x|x[:name]}
 
-no_house = potter_hash.select{|position| position[:house] == nil}
-no_house.map!{|x|x[:name]}
+#no_house = potter_hash.select{|position| position[:house] == nil}
+#no_house.map!{|x|x[:name]}
 
-puts all_names_syltherins_reversed = slytherins + gryffindors + ravenclaws + no_house
+#hufflepuffs.map!{|x|x[:name]}
+
+#puts all_names_syltherins_reversed = slytherins + gryffindors + ravenclaws + no_house + hufflepuffs
+
+def character_names_slytherin_rev
+  slytherins = potter_hash.select{|position| position[:house] == "Slytherin"}
+  slytherins.map!{|x|x[:name].reverse}
+
+  gryffindors = potter_hash.select{|position| position[:house] == "Gryffindor"}
+  gryffindors.map!{|x|x[:name]}
+
+  ravenclaws = potter_hash.select{|position| position[:house] == "Ravenclaw"}
+  ravenclaws.map!{|x|x[:name]}
+
+  no_house = potter_hash.select{|position| position[:house] == nil}
+  no_house.map!{|x|x[:name]}
+
+  hufflepuffs = potter_hash.select{|position| position[:house] == "Hufflepuff"}
+  hufflepuffs.map!{|x|x[:name]}
+
+  all_names_syltherins_reversed = slytherins + gryffindors + ravenclaws + no_house + hufflepuffs
+end
+
+
 
 ############# 7 ###########
 
-gryff_first_last = gryffindors.map{|name|name.split(" ")}
-gryff_last_names = Array.new
-gryff_first_last.each do |key, value| 
-  gryff_last_names << value 
+#gryff_first_last = gryffindors.map{|name|name.split(" ")}
+#gryff_last_names = Array.new
+#gryff_first_last.each {|combination|gryff_last_names << combination[1]}
+
+def unique_gryff_last_names
+  gryffindors = potter_hash.select{|position| position[:house] == "Gryffindor"}
+  gryffindors.map!{|x|x[:name]}
+  gryff_first_last = gryffindors.map{|name|name.split(" ")}
+  gryff_last_names = Array.new
+  gryff_first_last.each {|combination|gryff_last_names << combination[1]}
+  gryff_last_names.compact.uniq
 end
+
+############# 8 ###########
+#gryff_first_last = gryffindors.map{|name|name.split(" ")}
+#Weasleys = gryff_first_last.select{|combination| combination[1] == "Weasley"}
+#Weasleys.map{|weas| weas.join(" Badger ")}
+
+def weasley_middle_name_add
+  gryffindors = potter_hash.select{|position| position[:house] == "Gryffindor"}
+  gryffindors.map!{|x|x[:name]}
+  gryff_first_last = gryffindors.map{|name|name.split(" ")}
+  Weasleys = gryff_first_last.select{|combination| combination[1] == "Weasley"}
+  Weasleys.map{|weas| weas.join(" Badger ")}
+end
+
+
+############# 9 ############
+
+indiv_names = names.map{|full_name|full_name.split(" ")}
+first_names = indiv_names.map{|name_as_two|name_as_two[0]}
+
+
+
+
 
 
 
