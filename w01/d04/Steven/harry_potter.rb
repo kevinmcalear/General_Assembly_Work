@@ -8,7 +8,7 @@ f=File.open("potter.csv","r")
 
 
 #print out all the names
-#my_array_everything.each{|item| puts item[:name]}
+my_array_everything.each{|item| puts item[:name]}
 
 # for item in my_array_everything do
 #   puts item[:name]
@@ -16,12 +16,12 @@ f=File.open("potter.csv","r")
 
 
 #>500 mentions
-#my_array_everything.select{|position| position[:name] && position[:mentions] > 500}
+my_array_everything.select{|position| position[:name] && position[:mentions] > 500}
 
 
 #Print names of the houses
-# houses = my_array_everything.map {|item|item[:house]}
-# houses.uniq!.compact!
+houses = my_array_everything.map {|item|item[:house]}
+houses.uniq!.compact!
 # puts houses
 
 #one word names
@@ -45,7 +45,7 @@ else hash[:name]
  end
 end
 
-puts slytherin_names
+#puts slytherin_names
 
 #slytherin_names = my_array_everything.map{|item| puts item[:name] if [:house] == "Slytherin"}
 #puts slytherin_names
