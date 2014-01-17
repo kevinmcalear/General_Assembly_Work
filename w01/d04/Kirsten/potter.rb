@@ -3,17 +3,21 @@ f = File.open("potter.csv", "r")
 info = f.read
 second = info.split("\n")
 # individual = info
-# now have an array. 
-def split_array_one(info)
-  i=0
-  while i < info.length
-    yield info[i]
-    i += 1
-  end
-end
-# piece is the arrray of arrays. 
-piece = []
-split_array_one(second) {|info| piece.push(info.split(","))}
+# now have an array.
+
+# def split_array_one(info)
+#   i=0
+#   while i < info.length
+#     yield info[i]
+#     i += 1
+#   end
+# end
+# # piece is the array of arrays. 
+# piece = []
+# split_array_one(second) {|info| piece.push(info.split(","))}
+
+# This is a better way:
+piece = second.map {|x| x.split(",")}
 
 potter = piece.map { |info| {:mentions => info[0].to_i, :name => info[1], :house => info[2]} }
 
@@ -33,12 +37,6 @@ one_name = potter.select{|hash| !hash[:name].include?" "}
 # number of hufflepuffs
 hufflepuff = potter.select{|hash| hash[:house] == "Hufflepuff"}
 hufflepuff.count
-
-# names_list = potter.map {|hash| hash[:name]}
-# slytherin = potter.select {|hash| hash[:house] == "Slytherin"}
-# slytherin_names = slytherin.map {|hash| hash[:name]}
-# slytherin_names.each {|name| name.reverse}
-
 
 #slytherin names reversed 
 names = potter.map do |names|
@@ -80,6 +78,13 @@ y_names = y_names_split.map do |names|
 end
 y_names.compact
 
+#bonus one
+ll_names = all_names.map do |names|
+  if names.include? "ll"
+    names
+  end
+end
+ll_names.compact!
 
 f.close
 
