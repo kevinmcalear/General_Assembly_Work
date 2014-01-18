@@ -90,8 +90,9 @@ end
 
 
 class Apartment
-  def initialize(name, price, sqft, beds, baths, renter)
-    @name = name
+  def initialize(apt_num, price, sqft, beds, baths, renter)
+    @details = []
+    @apt_num = apt_num
     @price = price
     @sqft = sqft
     @beds = beds
@@ -115,6 +116,12 @@ class Apartment
   end
   def renter
     return @renter
+  end
+  def details
+    return @details
+  end
+  def add_apt(a, b, c, d, e, f)
+    self.details().push(a, b, c, d, e, f)
   end
 end
 
@@ -142,7 +149,6 @@ end
 
 
 
-
 menu = nil
 while menu != "q"
 puts "Select: (V)iew building detials, (A)dd an apt to the building, (N)ew Tenant, (L)ist directory or (Q)uit"
@@ -151,8 +157,8 @@ case menu
   when "v"
     puts "needs to do something"
   when "a"
-    puts "Enter Apt number name:"
-    name = gets.chomp
+    puts "Enter Apt number:"
+    apt_num = gets.chomp
     puts "Price:"
     price = gets.chomp.to_f
     puts "Enter sqft:"
@@ -161,9 +167,13 @@ case menu
     beds = gets.chomp.to_i
     puts "Enter number of baths:"
     baths = gets.chomp.to_i
+    puts "Renter name:"
+    renter = gets.chomp
+    apt = Apartment.new(@apt_num, @price, @sqft, @beds, @baths, @renter)
+    apt.add_apt(apt_num, price, sqft, beds, baths, renter)
+    puts apt.details
 
-    #puts "Renter name:"
-    #renter = gets.chomp
+
   when "n"
     puts "What is your name?"
     r_name = gets.chomp
@@ -175,7 +185,11 @@ case menu
     r_apt = gets.chomp
 
   when "l"
-    puts "needs to do something"
+    one = Building.new("Liberty Green", "300 North End Avenue", 20, 100,)
+    puts "Welcome to #{one.name} located at #{one.address}. 
+    This building has #{one.num_floors} floors and #{one.apartments} apts!"
+ 
+    
     # * List all of the apartments
     # * If the apartment is unoccupied(no renters) you should say something like:
     #   `Apt 1A is 750 sqft and has 1 bed and 1 bath. It costs $2500 a month`
