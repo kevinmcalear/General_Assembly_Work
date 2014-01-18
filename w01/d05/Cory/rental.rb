@@ -70,7 +70,7 @@
 
 class Person
   def initialize(name, age, gender)
-    @person = {}
+    @person = []
     @name = name
     @age = age
     @gender = gender
@@ -84,7 +84,11 @@ class Person
   def gender
     return @gender
   end
+  def person
+    return @person
+  end
   def add_tenant(a, b, c)
+    self.person().push(a, b, c)
     #self.person().push{:name => @name, :age => @age, :gender => @gender}
   end
 end
@@ -159,18 +163,20 @@ one = Building.new("Liberty Green", "300 North End Avenue", 20, 100,)
 
 menu = nil
 while menu != "q"
-puts "Select: (V)iew building detials, (A)dd an apt to the building, \n(N)ew Tenant, (L)ist directory or (Q)uit"
+puts "Select: (V)iew building details, (A)dd an apt to the building, \n(N)ew Tenant, (L)ist directory or (Q)uit"
 menu = gets.chomp.downcase
 case menu
   when "v"
+    puts
     puts "*********************************************************"
     puts "Welcome to #{one.name} located at #{one.address}. \nThis building has #{one.num_floors} floors and #{one.apartments} apts!"
     puts "*********************************************************" 
+    puts 
   when "a"
     puts "Enter Apt number:"
     apt_num = gets.chomp
     puts "Price:"
-    price = gets.chomp.to_f
+    price = gets.chomp.to_i
     puts "Enter sqft:"
     sqft = gets.chomp
     puts "Enter number of bed:"
@@ -194,9 +200,23 @@ case menu
     r_gender = gets.chomp
     puts "What apartment do you want to live in?"
     r_apt = gets.chomp
+    n_tenant = Person.new(@name, @age, @gender)
+    n_tenant.add_tenant(@name, @age, @gender)
 
   when "l" 
-    puts one.b_apts
+    if one.b_apts == []
+      puts
+      puts "Nothing yet entered"
+      puts
+    elsif one.b_apts[0][5] == ""
+      puts
+      puts "Apt #{one.b_apts[0][0]} is #{one.b_apts[0][2]} sqft and has #{one.b_apts[0][3]} bed(s) and #{one.b_apts[0][4]} bath(s). It costs $#{one.b_apts[0][1]} a month."
+      puts
+    else
+      puts
+      puts "#{one.b_apts[0][5]} lives in Apt #{one.b_apts[0][0]}."
+      puts
+    end
     # * List all of the apartments
     # * If the apartment is unoccupied(no renters) you should say something like:
     #   `Apt 1A is 750 sqft and has 1 bed and 1 bath. It costs $2500 a month`
