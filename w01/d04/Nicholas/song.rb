@@ -93,6 +93,7 @@ nicklist.add(wf)
 
 
 nicklist.start
+nicklist.current
 nicklist.skip
 nicklist.current
 nicklist.skip
