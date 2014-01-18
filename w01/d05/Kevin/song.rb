@@ -74,16 +74,11 @@ class Playlist
   end
 
   def start
-    @current_song = @playlist.sample
-    puts @current_song.play
-  end
-
-  def current_song
-    return @current_song
+    @current_song
   end
 
   def skip
-    self.start()
+    @playlist.sample
   end
 
   def add_songs(song)
@@ -102,4 +97,6 @@ end
 
 kevins_playlist = Playlist.new
 kevins_playlist.add_songs(my_new_song)
+kevins_playlist.add_songs(my_new_song.artist)
+kevins_playlist.add_songs(my_new_song.genre)
 puts kevins_playlist.mysongs()
