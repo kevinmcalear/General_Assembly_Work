@@ -70,6 +70,7 @@
 
 class Person
   def initialize(name, age, gender)
+    @person = {}
     @name = name
     @age = age
     @gender = gender
@@ -83,15 +84,15 @@ class Person
   def gender
     return @gender
   end
-  def add_tenant
-    return  {:name => @name, :age => @age, :gender => @gender}
+  def add_tenant(a, b, c)
+    #self.person().push{:name => @name, :age => @age, :gender => @gender}
   end
 end
 
 
 class Apartment
   def initialize(apt_num, price, sqft, beds, baths, renter)
-    @details = []
+    $details = []
     @apt_num = apt_num
     @price = price
     @sqft = sqft
@@ -118,7 +119,7 @@ class Apartment
     return @renter
   end
   def details
-    return @details
+    return $details
   end
   def add_apt(a, b, c, d, e, f)
     self.details().push(a, b, c, d, e, f)
@@ -128,6 +129,7 @@ end
 
 class Building
   def initialize(name, address, num_floors, apartments)
+      @b_apts = []
       @name = name
       @address = address
       @num_floors = num_floors
@@ -145,17 +147,25 @@ class Building
   def apartments
     return @apartments
   end
+  def b_apts
+    return @b_apts
+  end
+  def add_apt_to_build(a)
+    self.b_apts().push(a)
+  end
 end
 
-
+one = Building.new("Liberty Green", "300 North End Avenue", 20, 100,)
 
 menu = nil
 while menu != "q"
-puts "Select: (V)iew building detials, (A)dd an apt to the building, (N)ew Tenant, (L)ist directory or (Q)uit"
+puts "Select: (V)iew building detials, (A)dd an apt to the building, \n(N)ew Tenant, (L)ist directory or (Q)uit"
 menu = gets.chomp.downcase
 case menu
   when "v"
-    puts "needs to do something"
+    puts "*********************************************************"
+    puts "Welcome to #{one.name} located at #{one.address}. \nThis building has #{one.num_floors} floors and #{one.apartments} apts!"
+    puts "*********************************************************" 
   when "a"
     puts "Enter Apt number:"
     apt_num = gets.chomp
@@ -171,7 +181,8 @@ case menu
     renter = gets.chomp
     apt = Apartment.new(@apt_num, @price, @sqft, @beds, @baths, @renter)
     apt.add_apt(apt_num, price, sqft, beds, baths, renter)
-    puts apt.details
+    one.add_apt_to_build($details)
+    #puts apt.details
 
 
   when "n"
@@ -184,12 +195,8 @@ case menu
     puts "What apartment do you want to live in?"
     r_apt = gets.chomp
 
-  when "l"
-    one = Building.new("Liberty Green", "300 North End Avenue", 20, 100,)
-    puts "Welcome to #{one.name} located at #{one.address}. 
-    This building has #{one.num_floors} floors and #{one.apartments} apts!"
- 
-    
+  when "l" 
+    puts one.b_apts
     # * List all of the apartments
     # * If the apartment is unoccupied(no renters) you should say something like:
     #   `Apt 1A is 750 sqft and has 1 bed and 1 bath. It costs $2500 a month`
