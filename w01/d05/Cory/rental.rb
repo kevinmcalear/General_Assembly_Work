@@ -69,7 +69,7 @@
 
 
 class Person
-  def initialize()
+  def initialize(name, age, gender)
     @name = name
     @age = age
     @gender = gender
@@ -84,85 +84,64 @@ class Person
     return @gender
   end
   def add_tenant
-    return person_hash = {:name => @name, :age => @age, :gender => @gender}
+    return  {:name => @name, :age => @age, :gender => @gender}
   end
 end
 
-#cory = Person.new
-#cory.name ="Cory"
-#puts cory.name
-
-# * name
-# * price
-# * sqft
-# * num_beds
-# * num_baths
-# * renter (the person living in the apartment)
 
 class Apartment
-  def initialize()
-    @apartment = []
-  end
-  #def add_apt(apt)
-    #self.apartment().push(apartment)
-  #end
-  def name=(name)
+  def initialize(name, price, sqft, beds, baths, renter)
     @name = name
+    @price = price
+    @sqft = sqft
+    @beds = beds
+    @baths = baths
+    @renter = renter
   end
   def name
     return @name
   end
-  def price=(price)
-    @price = price
-  end
   def price
     return @price
-  end
-  def sqft=(sqft)
-    @sqft = sqft
   end
   def sqft
     return @sqft
   end
+  def beds
+    return @beds
+  end
+  def baths
+    return @baths
+  end
+  def renter
+    return @renter
+  end
 end
 
-# * name
-# * address
-# * num_floors
-# * apartments
 
 class Building
-def initialize()
-    @building = []
+  def initialize(name, address, num_floors, apartments)
+      @name = name
+      @address = address
+      @num_floors = num_floors
+      @apartments = apartments
+  end
+  def name
+    return @name
+  end
+  def address
+    return @address
+  end
+  def num_floors
+    return @num_floors
+  end
+  def apartments
+    return @apartments
+  end
 end
-def add_building(build)
-  self.building().push(build)
-end
-def name=(name)
-  @name = name
-end
-def name
-  return @name
-end
-def address=(address)
-  @address = address
-end
-def address
-  return @address
-end
-def num_floors=(num_floors)
-  @num_floors = num_floors
-end
-def num_floors
-  return @num_floors
-end
-def apartments=(apartments)
-  @apartments = apartments
-end
-def apartments
-  return @apartments
-end
-end
+
+
+
 
 menu = nil
 while menu != "q"
@@ -170,9 +149,8 @@ puts "Select: (V)iew building detials, (A)dd an apt to the building, (N)ew Tenan
 menu = gets.chomp.downcase
 case menu
   when "v"
-    puts "something"
+    puts "needs to do something"
   when "a"
-    build = Building.new
     puts "Enter Apt number name:"
     name = gets.chomp
     puts "Price:"
@@ -183,12 +161,10 @@ case menu
     beds = gets.chomp.to_i
     puts "Enter number of baths:"
     baths = gets.chomp.to_i
-    build.add_building(build)
 
     #puts "Renter name:"
     #renter = gets.chomp
   when "n"
-    tenant = Person.new
     puts "What is your name?"
     r_name = gets.chomp
     puts "What is your age?"
@@ -197,9 +173,9 @@ case menu
     r_gender = gets.chomp
     puts "What apartment do you want to live in?"
     r_apt = gets.chomp
-    tenant.add_tenant()
 
   when "l"
+    puts "needs to do something"
     # * List all of the apartments
     # * If the apartment is unoccupied(no renters) you should say something like:
     #   `Apt 1A is 750 sqft and has 1 bed and 1 bath. It costs $2500 a month`
@@ -212,8 +188,6 @@ case menu
 end
 end
 
-puts tenant.name
-puts tenant.add_tenant
 
 
 
