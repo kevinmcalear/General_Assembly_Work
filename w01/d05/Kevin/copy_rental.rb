@@ -30,6 +30,11 @@ class Apartment
     @sqft = sqft
     @beds = beds
     @baths = baths
+    @renters = []
+  end
+
+  def addTenant(person)
+    @renters.push(person)
   end
 
   def name
@@ -53,7 +58,12 @@ class Apartment
   end
 
   def stats
-    return { :name => @name, :price => @price, :sqft => @sqft, :beds => @beds, :baths => @baths } #, :renter => person }
+    x = { :name => @name, :price => @price, :sqft => @sqft, :beds => @beds, :baths => @baths}
+    x[:renters] = []
+    for renter in @renters
+      x[:renters].push(renter.stats)
+    end
+    return x
   end
 
 end
@@ -65,6 +75,11 @@ class Building
     @name = name
     @address = address
     @floors = floors
+    @apartments = []
+  end
+
+  def addApartment(apartment)
+    @apartments.push(apartment)
   end
 
   def name
@@ -72,14 +87,19 @@ class Building
   end
 
   def address
-    return @address
+    return @name
   end
   def floors
     return @floors
   end
 
   def stats 
-    return { :name => @name, :address =>@address, :floors =>@floors, :apartment => apartment=[ ] }
+    x = { :name => @name, :address =>@address, :floors =>@floors }
+    x[:apartments] = []
+    for apartment in @apartments
+      x[:apartments].push(apartment.stats)
+    end
+    return x
   end
 end
 
@@ -90,16 +110,6 @@ frank = Person.new("Frank", 16, "yes")
 pat = Person.new("Pat", 18, "man")
 jim = Person.new("Jat", 31, "woman")
 gladus = Person.new("Gladus", 73, "old")
-kevin = Person.new(nil,nil,nil)
-
-
-puts kevin
-
-
-
-
-
-
 
 one = Apartment.new( 1, "$1,000.00", 200, 3, 1)
 two = Apartment.new( 2, "$300.00", 1900, 4, 2)
@@ -117,12 +127,22 @@ puts "How many floors is this building?"
 floors = gets.chomp
 
 our_building = Building.new(building, address, floors)
+one.addTenant(joe)
+one.addTenant(bobby)
+our_building.addApartment(one)
+two.addTenant(frank)
+our_building.addApartment(two)
+three.addTenant(pat)
+our_building.addApartment(three)
+four.addTenant(jim)
+our_building.addApartment(four)
+five.addTenant(gladus)
+our_building.addApartment(five)
+our_building.addApartment(six)
 
-puts `clear`
-puts "Your building, #{our_building.name}, is located at #{our_building.address}."
-puts
-puts "THE MENU"
-puts "------------------------------"
+puts our_building.stats
+
+puts "your building is #{our_building.name} located at #{our_building.address}."
 puts "To view the building's detials press ( B )"
 puts "To add an appartment press ( A )"
 puts "To add a tenant press ( T )"
@@ -133,18 +153,9 @@ menu_option = gets.chomp.upcase
 
 case menu_option
 
-
-
 when "B"
-  
-  puts `clear`
   puts "The building's name is #{our_building.name}, it's adress is #{our_building.address} and has #{our_building.floors} floors."
-
-
-
 when "A"
-
-  puts `clear`
   puts "Please tell me the apartment number."
   a_number = gets.chomp
   puts "How much does the apartment cost per month?"
@@ -163,11 +174,7 @@ when "A"
 
   puts "you just made #{new_apartment.stats}"
 
-
-
 when "T"
-
-  puts `clear`
   puts "What is the tenant's name?"
   t_name = gets.chomp
   puts "What is the tenant's age?"
@@ -175,33 +182,13 @@ when "T"
   puts "What is the tenant's gender?"
   t_gender = gets.chomp
 
-  new_tenant = Person.new(t_name, t_age, t_gender)
+  new_ten = Person.new(t_name, t_age, t_gender)
 
-  puts `clear`
-  puts "Your new #{new_tenant.age} year old #{new_tenant.gender} tenant,  #{new_tenant.name}, has been added to the database."
-  puts
-  puts "Now, where do you want this person to live?"
-
-  tenant_location = gets.chomp
-
-  # I STILL NEED TO FIGURE OUT HOW TO ADD THAT PERSON TO THAT SPECIFIC APPARTMENT.....
-  # ALSO, ONLY ONE TENANT CAN LIVE IN AN APARTMENT
-
-
+  puts "The tenant is named #{new_ten.name} is #{new_ten.age} years old and is #{new_ten.gender}."
 
 when "D"
-  puts `clear`
-  puts "Here is a list of all appartments in the facility"
-
-  puts "#{}"
-
-
-
-
 
 when "Q"
-
-
 
 else
   puts "Sorry That isn't a valid option!"
