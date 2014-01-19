@@ -89,13 +89,6 @@ class Building
   end
 end
 
-## Apartment List.  Used in Step 3 to assign an apartment to a user. 
-def apartment_name_list (building)
-  apartment_name_array = []
-  building.building_apartment_array.each {|hash| apartment_name_array.push(hash[:name])}
-  puts apartment_name_array
-end 
-
 ##Building Details.  Used in Step 1. 
 def view_building_details(building)
     puts "The #{building.name} is located at #{building.address}."  
@@ -125,9 +118,22 @@ def create_apartment_form(building)
   puts "How many baths are there?"
     apartment_name.num_baths= gets.chomp
     apartment_hash[:num_baths]=apartment_name.num_baths
+    apartment_hash[:renter] = []
   #Add Apartment to the Building Array
   building.create_building_apartment_array(apartment_hash)  
 end
+
+## Apartment List.  Used in Step 3 to assign an apartment to a user. 
+## Only shows available rooms
+def apartment_name_list (building)
+  apartment_name_array = []
+  building.building_apartment_array.each {|hash| 
+      if hash[:renter].count < hash[:num_beds]
+        apartment_name_array.push(hash[:name])
+      end 
+    }
+  puts apartment_name_array
+end 
 
 ## Create a tenant.  Used in Step 3. 
 def create_tenant(building)
@@ -144,21 +150,34 @@ def create_tenant(building)
     apartment_for_tenant = gets.chomp
   ##Add Tenant to apartment
   ##Step 1:  Create an array with the hash of the exact apartment
-  apartment_hash_to_modify = building.building_apartment_array.select {|hash| hash[:name] = apartment_for_tenant}
+  apartment_hash_to_modify = building.building_apartment_array.select {|hash| hash[:name] == apartment_for_tenant}
   ##Step 2:  Using the array from step 1:, determine the array index. 
   index = building.building_apartment_array.index(apartment_hash_to_modify[0])
   ##Step 3:  Using the array index, insert a new hash. 
-  building.building_apartment_array[index][:renter] = person_name.name
+  building.building_apartment_array[index.to_i][:renter].push = [person_name.name]
 end
 
-## Apartment_directory.  Used in Step 4. 
+## Remove a tenant from the building. Used in Step 4. 
+def remove_tenant(building)
+  view_apartment_detail(building)
+  puts "Which tenant would you like to remove?"
+  tenant_to_remove = gets.chomp
+  ##Step 1:  Create an array with the hash of the exact apartment
+  apartment_hash_to_modify = building.building_apartment_array.select {|hash| hash[:renter] == tenant_to_remove}
+  ##Step 2:  Using the array from step 1:, determine the array index. 
+  index = building.building_apartment_array.index(apartment_hash_to_modify[0])
+  ##Step 3:  Remove the tenant
+  building.building_apartment_array[index.to_i][:renter].delete(tenant_to_remove)
+end
+
+## Apartment_directory.  Used in Step 5. 
 def view_apartment_detail(building)
   i = 0
   while i < building.building_apartment_array.length 
-    if building.building_apartment_array[i][:renter] == nil 
-      puts "#{building.building_apartment_array[i][:name]} is #{building.building_apartment_array[i][:sqft]} sqft has #{building.building_apartment_array[i][:num_beds]} rooms and #{building.building_apartment_array[i][:num_baths]} bathrooms"
+    if building.building_apartment_array[i][:renter].length == 0 
+      puts "VACANT:  #{building.building_apartment_array[i][:name]} is #{building.building_apartment_array[i][:sqft]} sqft has #{building.building_apartment_array[i][:num_beds]} rooms and #{building.building_apartment_array[i][:num_baths]} bathrooms"
     else
-      puts "#{building.building_apartment_array[i][:renter]} lives in #{building.building_apartment_array[i][:name]}"
+      puts "#{building.building_apartment_array[i][:renter].join("/")} live(s) in #{building.building_apartment_array[i][:name]}"
     end
     i += 1
   end 
@@ -177,12 +196,12 @@ tom.age= 20
 tom.gender= "M"
 
 penthouse = Apartment.new
-penthouse.apartment_name= "Penthouse"
-penthouse.price= 100
+penthouse.apartment_name= "Apt 1A"
+penthouse.price= 1000
 penthouse.sqft= 800
 penthouse.num_beds= 1
 penthouse.num_baths= 1
-penthouse.renter= "Tom"
+penthouse.renter= ["Tom"]
 
 apartment_hash = Hash.new
 apartment_hash[:name]= penthouse.apartment_name
@@ -190,38 +209,82 @@ apartment_hash[:price]= penthouse.price
 apartment_hash[:sqft]= penthouse.sqft
 apartment_hash[:num_beds]= penthouse.num_beds
 apartment_hash[:num_baths]=penthouse.num_baths
-apartment_hash[:renter]=tom.name
+apartment_hash[:renter]=[tom.name]
 arcadian.create_building_apartment_array(apartment_hash)  
 
 apartment_hash = Hash.new
-apartment_hash[:name]= "Basement"
-apartment_hash[:price]= 300
-apartment_hash[:sqft]= 400
+apartment_hash[:name]= "Apt 1B"
+apartment_hash[:price]= 1000
+apartment_hash[:sqft]= 750
 apartment_hash[:num_beds]= 2
 apartment_hash[:num_baths]= 1
+apartment_hash[:renter]= ["John","Sarah"]
+arcadian.create_building_apartment_array(apartment_hash)  
+
+apartment_hash = Hash.new
+apartment_hash[:name]= "Apt 2A"
+apartment_hash[:price]= 1000
+apartment_hash[:sqft]= 750
+apartment_hash[:num_beds]= 1
+apartment_hash[:num_baths]= 1
+apartment_hash[:renter]= []
+arcadian.create_building_apartment_array(apartment_hash)  
+
+apartment_hash = Hash.new
+apartment_hash[:name]= "Apt 2B"
+apartment_hash[:price]= 1000
+apartment_hash[:sqft]= 750
+apartment_hash[:num_beds]= 1
+apartment_hash[:num_baths]= 1
+apartment_hash[:renter]= []
+arcadian.create_building_apartment_array(apartment_hash)  
+
+apartment_hash = Hash.new
+apartment_hash[:name]= "Apt 3A"
+apartment_hash[:price]= 1000
+apartment_hash[:sqft]= 750
+apartment_hash[:num_beds]= 1
+apartment_hash[:num_baths]= 1
+apartment_hash[:renter]= []
+arcadian.create_building_apartment_array(apartment_hash)  
+
+apartment_hash = Hash.new
+apartment_hash[:name]= "Apt 3B"
+apartment_hash[:price]= 1000
+apartment_hash[:sqft]= 750
+apartment_hash[:num_beds]= 1
+apartment_hash[:num_baths]= 1
+apartment_hash[:renter]= []
 arcadian.create_building_apartment_array(apartment_hash)  
 
 ##Program Start
 program = 1
 while program > 0
-  puts "Welcome to 'The Arcadian' Building Manager.  What would you like to do?"
-  puts "(1): View Building Details"
-  puts "(2): Add an apartment to the building"
-  puts "(3): Add a tenant to the building"
-  puts "(4): List the apartment directory for the building"
-  puts "(5): Quit"
-  option = gets.chomp
-    case option
-    when "1"
-      view_building_details(arcadian)
-    when "2"
-      create_apartment_form(arcadian)
-    when "3" 
-      create_tenant(arcadian) 
-    when "4"
-      view_apartment_detail(arcadian)
-    when "5"
-      puts "Thank you for using 'The Arcadian Building Manager'"
-      program = 0
-    end
-  end 
+puts "*********************"
+puts
+puts
+puts "Welcome to 'The Arcadian' Building Manager.  What would you like to do?"
+puts "(1): View Building Details"
+puts "(2): Add an apartment to the building"
+puts "(3): Add a tenant to the building"
+puts "(4): Remove a tenant from the building"
+puts "(5): List the apartment directory for the building"
+puts "(6): Quit"
+puts "*********************"
+option = gets.chomp
+  case option
+  when "1"
+    view_building_details(arcadian)
+  when "2"
+    create_apartment_form(arcadian)
+  when "3" 
+    create_tenant(arcadian) 
+  when "4"
+    remove_tenant(arcadian)
+  when "5"
+    view_apartment_detail(arcadian)
+  when "6"
+    puts "Thank you for using 'The Arcadian Building Manager'"
+    program = 0
+  end
+end 
