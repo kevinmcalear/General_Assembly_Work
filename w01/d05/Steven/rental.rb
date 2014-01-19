@@ -1,24 +1,12 @@
 
 
-class Building
-  def initialize
+class Building 
+  def initialize(name, address, num_floors, num_apts)
     @apts = []
-  end
-
-  def b_name=(b_name)
-    @b_name = b_name
-  end
-
-  def address=(address)
+    @b_name = name
     @address = address
-  end
-
-  def num_floors=(floors)
-    @num_floors = floors
-  end
-
-  def num_apartments=(num_apartments)
-    @num_apartments = num_apartments
+    @num_floors = num_floors
+    @num_apartments = num_apts
   end
 
     def b_name
@@ -45,16 +33,10 @@ end
 
 
 class Person
-  def name=(name)
+  def initialize(name, age, gender)
     @name = name
-  end
-   def age=(age)
     @age = age
-  end
-
-   def gender=(gender)
     @gender = gender
-  end
 
   def name
     return @name
@@ -73,32 +55,37 @@ end
 
 
 class Apartment
-   def initialize
+   def initialize (apt_price, apt_sqft, num_beds, num_baths, renter)
+    @apt_price = apt_price
+    @apt_sqft = apt_sqft
+    @num_beds = num_beds
+    @num_baths = num_baths
+    @renter = renter
    end
 
   # def apt_name=(apt_name)
   #   @apt_name = apt_name
   # end
 
-  def apt_price=(apt_price)
-    @apt_price = apt_price
-  end
+  # def apt_price=(apt_price)
+  #   @apt_price = apt_price
+  # end
 
-  def apt_sqft=(apt_sqft)
-    @apt_sqft = (apt_sqft)
-  end
+  # def apt_sqft=(apt_sqft)
+  #   @apt_sqft = (apt_sqft)
+  # end
 
-  def num_beds=(num_beds)
-    @num_beds = (num_beds)
-  end
+  # def num_beds=(num_beds)
+  #   @num_beds = (num_beds)
+  # end
 
-  def num_baths=(num_baths)
-    @num_baths = (num_baths)
-  end
+  # def num_baths=(num_baths)
+  #   @num_baths = (num_baths)
+  # end
 
-  def renter=(renter)
-    @renter = renter
-  end
+  # def renter=(renter)
+  #   @renter = renter
+  # end
 
   # def apt_name
   #   return @apt_name
@@ -124,14 +111,22 @@ class Apartment
     return @renter
   end
 
+  def apt_directory
+    return "#{apt_name} is #{apt_sqft} sq ft, has #{num_beds}, #{num_baths}, and costs #{apt_price}."
+  end
+
+  def apt_occupied
+    return "#{renter} lives in #{apt_name}. #{renter} is lovely."
+  end
+
 end
 
 
-bldg_1 = Building.new
-bldg_1.b_name= "Big Tower 1"
-bldg_1.address= "545 Main st"
-bldg_1.num_floors= (10)
-bldg_1.num_apartments= (20)
+bldg_1 = Building.new("Super Huge Tower", "545 Main st", 10, 20)
+# bldg_1.b_name= "Big Tower 1"
+# bldg_1.address= "545 Main st"
+# bldg_1.num_floors= (10)
+# bldg_1.num_apartments= (20)
 
 
 
@@ -149,26 +144,38 @@ bldg_1.num_apartments= (20)
     when 2
       puts "What is the apt name?"
       name = gets.chomp
-      name = Apartment.new
       puts "How much does this sweet pad cost?"
       price = gets.chomp.to_i
-      price = name.apt_price
       puts "What is the square footage?"
       sqft = gets.chomp.to_i
-      sqft = name.apt_sqft
       puts "How many beds?"
-      beds = gets.chomp.to_i
-      beds = name.num_beds
+      num_beds = gets.chomp.to_i
       puts "How many baths?"
-      baths = gets.chomp.to_i
-      baths = name.num_baths
+      num_baths = gets.chomp.to_i
       puts "Who do you think you are?"
-      person = gets.chomp
-      person = name.renter
+      renter = gets.chomp
+      name = Apartment.new(price, sqft, num_beds, num_baths, renter)
+      # @apt_price = price 
+      # @apt_sqft = sqft 
+      # @num_beds = num_beds 
+      # @num_baths = num_baths
+      # @renter = renter
+    when 3
+
+    when 4
+      puts apt_directory
+
+
+
     end
-    puts "What now?"
-    answer = gets.chomp
+
+    puts "Great! What now?"
+    puts "[1]-View building details [2]-Add an apartment to the building"
+    puts "[3]-add a tenant [4]-apartment directory [5]-quit"
+    answer = gets.chomp.to_i
   end
+end
+
 
 
 
