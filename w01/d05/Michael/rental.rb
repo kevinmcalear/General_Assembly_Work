@@ -147,8 +147,7 @@ def create_tenant(building)
   ##Display list of apartments and select one
   puts "Which apartment do they live in?" 
   puts "#{apartment_name_list(building)}"
-    apartment_for_tenant = gets.chomp
-  ##Add Tenant to apartment
+  apartment_for_tenant = gets.chomp
   ##Step 1:  Create an array with the hash of the exact apartment
   apartment_hash_to_modify = building.building_apartment_array.select {|hash| hash[:name] == apartment_for_tenant}
   ##Step 2:  Using the array from step 1:, determine the array index. 
@@ -163,7 +162,7 @@ def remove_tenant(building)
   puts "Which tenant would you like to remove?"
   tenant_to_remove = gets.chomp
   ##Step 1:  Create an array with the hash of the exact apartment
-  apartment_hash_to_modify = building.building_apartment_array.select {|hash| hash[:renter] == tenant_to_remove}
+  apartment_hash_to_modify = building.building_apartment_array.select {|hash| hash[:renter].include? tenant_to_remove}
   ##Step 2:  Using the array from step 1:, determine the array index. 
   index = building.building_apartment_array.index(apartment_hash_to_modify[0])
   ##Step 3:  Remove the tenant
