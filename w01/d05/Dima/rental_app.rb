@@ -94,13 +94,14 @@ class Building
   end
 
   def bld_info
-    "The building name is: #{self.bld_name}.
+    puts "The building name is: #{self.bld_name}.
     The building address is #{self.bld_address}.
     The building has #{self.bld_floors} floors."
     if @apts.length > 0
-    "The building has #{@apts.length} apartments \n \n"
-  else
-    puts self.empty_array
+      "The building has #{@apts.length} apartments \n \n"
+    else
+      puts self.empty_array
+    end
   end
 
   def add_apt(apt)
@@ -110,10 +111,12 @@ class Building
   def apt_list
     if @apts.length > 0
       puts "There are #{@apts.length} now"
-      @apts.each {|apt| puts apt.apt_name}
-      puts "\n"
+      @apts.each {|i| puts "#{i.apt_name}, it's area is #{i.sqft} sq.ft., it has #{i.num_baths} bathrooms, it has #{i.num_beds}
+      bedrooms and it costs $#{i.price} per month. \n \n"}
+# Have to make another method def avail_apt, to be able to show them for new tenant, and in here.
+# Separate empty apt and occupied
     else
-      puts self.empty_array
+  puts self.empty_array
     end
   end
 
@@ -163,15 +166,19 @@ class Building
       gender = gets.chomp
       person1 = Person.new(renter_name, age, gender)
       puts person1.person_details
-    when "l"
+      puts "Where would you like to live Mr/Ms #{person1.renter_name}?"
+      puts "Right now we have these apartments available"
       self.apt_list
-    when "q"
-      self.quit
-    else
-      puts ""
-      puts "Please enter letters: d, a, t, l or q \n \n"
+      # Have to create something like that apt => [name, price, sqft, bedrms, bathrms, renter => [name, age, gender]]
+      # Let the person choose apt and add him there.
+      when "l"
+        self.apt_list
+      when "q"
+        self.quit
+      else
+        puts ""
+        puts "Please enter letters: d, a, t, l or q \n \n"
     end
-
     return option
   end
 end
@@ -197,16 +204,4 @@ while option != "q"
   option = building.menu
 end
 
-
-
-
-
-# building = Building.new(bld_name, bld_address, bld_floors)
-# puts building.bld_info
-
-# puts "\n"
-# person = Person.new("Dima", 26, "male")
-# puts person.person_details
-
-# apt = Apartment.new("5A", 4000, 245, 5, 6, "James")
-# puts apt.apt_info
+####### ASSOCIATION OF PEOPLE AND APTS LEFT and Bonus !!!! #######
