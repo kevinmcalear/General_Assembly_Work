@@ -178,7 +178,7 @@ when "T"
   new_tenant = Person.new(t_name, t_age, t_gender)
 
   puts `clear`
-  puts "Your new #{new_tenant.age} year old #{new_tenant.gender} tenant,  #{new_tenant.name}, has been added to the database."
+  puts "Your new #{new_tenant.age} year old #{new_tenant.gender} tenant, #{new_tenant.name}, has been added to the database."
   puts
   puts "Now, where do you want this person to live?"
 
@@ -191,9 +191,11 @@ when "T"
 
 when "D"
   puts `clear`
-  puts "Here is a list of all appartments in the facility"
-
-  puts "#{}"
+  puts "Here is a list of all appartments in the facility:"
+  puts "--------------------------------------"
+  print 
+  puts "Apt 1A is 750 sqft and has 1 bed and 1 bath. It costs $2500 a month"
+  puts "#{new_tenant.name} lives in Apt ##{new_apartment.name}."
 
 
 
