@@ -96,7 +96,11 @@ class Building
   def bld_info
     "The building name is: #{self.bld_name}.
     The building address is #{self.bld_address}.
-    The building has #{self.bld_floors} floors.\n \n"
+    The building has #{self.bld_floors} floors."
+    if @apts.length > 0
+    "The building has #{@apts.length} apartments \n \n"
+  else
+    puts self.empty_array
   end
 
   def add_apt(apt)
@@ -109,8 +113,12 @@ class Building
       @apts.each {|apt| puts apt.apt_name}
       puts "\n"
     else
-      puts "Your building doesn't have apartments yet, please build add one \n \n"
+      puts self.empty_array
     end
+  end
+
+  def empty_array
+    "Your building doesn't have apartments yet, please build add one \n \n"
   end
 
   def quit
