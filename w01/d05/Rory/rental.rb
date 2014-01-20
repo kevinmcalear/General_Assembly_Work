@@ -1,12 +1,12 @@
 ##### Rental App ########
 ###### making classes ########
 
+
 class Person
 
   def initialize()
     @person_hash = Hash.new
   end
-
   
   def name=(input)
     @name=input
@@ -32,8 +32,18 @@ class Person
     return @gender
   end
 
-  def add_person_to_hash(x)
-    @person_hash[x] = {:age => @age, :gender => @gender}
+  def apt=(input)
+    @apt=input
+  end
+
+  def apt
+    return @apt
+  end
+
+  def add_person_to_hash
+    person_hash[@name] = {
+      :age => @age, :gender => @gender, :apt => @apt
+    }
   end
 
   def person_hash
@@ -45,15 +55,15 @@ end
 class Apartment
 
   def initialize()
-    @apartments = []
+    @apt_hash = Hash.new
   end
 
-  def name=(input)
-      @name=input
+  def apt_name=(input)
+      @apt_name=input
     end
 
-  def name
-    return @name
+  def apt_name
+    return @apt_name
   end
 
   def price=(input)
@@ -88,6 +98,24 @@ class Apartment
     return @num_baths
   end
 
+  def name=(input)
+    @name=input
+  end
+
+  def name
+    return @name
+  end
+
+  def add_apt_to_hash
+    apt_hash[@name] = {
+      :apt_name => @apt_name, :price => @price, :sqft => @sqft, :num_beds => @num_beds, :num_baths => @num_baths
+    }
+  end
+
+  def apt_hash
+    return @apt_hash
+  end
+
 end
 
 class Building
@@ -106,7 +134,7 @@ class Building
 
   def address=(input)
       @address=input
-    end
+  end
 
   def address
     return @address
@@ -114,7 +142,7 @@ class Building
 
   def num_floors=(input)
       @num_floors=input
-    end
+  end
 
   def num_floors
     return @num_floors
@@ -138,33 +166,48 @@ building = Building.new
 def menu
   puts "Menu"
   puts "(v)iew apartment details, add an (a)partment to the building, add a (t)enant, (l)ist the apartment directory, or (q)uit?"
-  user_input = gets.chomp.downcase 
 end
 
-while menu != "q"
+menu
+user_input = gets.chomp
+
+while user_input != "q"
   case user_input
   when "v"
-
-
+      puts "v"
   when "a"
-
-
+      new_apt = Apartment.new
+      puts "What is the apartment name?"
+      new_apt.apt_name = gets.chomp
+      puts "What is the apartment price?"
+      new_apt.price = gets.chomp
+      puts "What is the apartment square footage?"
+      new_apt.sqft = gets.chomp
+      puts "What is the number of beds?"
+      new_apt.num_beds = gets.chomp
+      puts "What is the number of baths?"
+      new_apt.num_baths = gets.chomp
+      puts "What is the renter name?"
+      new_apt.name = gets.chomp
+      new_apt.add_apt_to_hash
 
   when "t"
-    add_tenant = Person.new
-    puts "What is your name?"
-    add_tenant.name = gets.chomp
-    puts "What is your age?"
-    add_tenant.age = gets.chomp
-    puts "What is your gender?"
-    add_tenant.gender = gets.chomp
-    add_tenant.add_person_to_hash(add_tenant.name)
-
-    puts @person_hash
+      new_tenant = Person.new
+      puts "What is your name?"
+      new_tenant.name = gets.chomp
+      puts "What is your age?"
+      new_tenant.age = gets.chomp
+      puts "What is your gender?"
+      new_tenant.gender = gets.chomp
+      puts "What apartment do you want to live in?"
+      new_tenant.apt = gets.chomp
+      new_tenant.add_person_to_hash
 
   when "l"
-
+      puts "l"
   end
-  user_input = menu
-end
 
+  menu
+  user_input = gets.chomp
+
+end
