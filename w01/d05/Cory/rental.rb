@@ -69,27 +69,26 @@
 
 
 class Person
-  def initialize(name, age, gender)
+  def initialize(r_name, r_age, r_gender)
     @person = []
-    @name = name
-    @age = age
-    @gender = gender
+    @r_name = r_name
+    @r_age = r_age
+    @r_gender = r_gender
   end
-  def name
-    return @name
+  def r_name
+    return @r_name
   end
-  def age
-    return @age
+  def r_age
+    return @r_age
   end
-  def gender
-    return @gender
+  def r_gender
+    return @r_gender
   end
   def person
     return @person
   end
   def add_tenant(a, b, c)
     self.person().push(a, b, c)
-    #self.person().push{:name => @name, :age => @age, :gender => @gender}
   end
 end
 
@@ -97,6 +96,7 @@ end
 class Apartment
   def initialize(apt_num, price, sqft, beds, baths, renter)
     $details = []
+    h_details = {}
     @apt_num = apt_num
     @price = price
     @sqft = sqft
@@ -128,6 +128,9 @@ class Apartment
   def add_apt(a, b, c, d, e, f)
     self.details().push(a, b, c, d, e, f)
   end
+  def add_to_hash(a, b, c, d, e, f)
+    self.h_details()
+  end
 end
 
 
@@ -157,29 +160,47 @@ class Building
   def add_apt_to_build(a)
     self.b_apts().push(a)
   end
+ def add_person_to_apt(a)
+    self.b_apts().push(a)
+  end
+  def lists_b_apts()
+    counter = 0
+    while counter < b_apts.length
+      b_apts.each {|(apt, price, sqft, bed, bath, renter)| 
+        puts  "Apt #{apt} is #{sqft} sqft and has #{bed} bed(s) and #{bath} bath(s). It costs $#{price} a month."
+       }
+     counter += 1
+    end
+   end
 end
 
-one = Building.new("Liberty Green", "300 North End Avenue", 20, 100,)
+
+
+one = Building.new("Liberty Green", "300 North End Avenue", 20, 100)
 
 menu = nil
 while menu != "q"
 puts "Select: (V)iew building details, (A)dd an apt to the building, \n(N)ew Tenant, (L)ist directory or (Q)uit"
 menu = gets.chomp.downcase
 case menu
+ 
+ #************Building Info**************
   when "v"
     puts
     puts "*********************************************************"
     puts "Welcome to #{one.name} located at #{one.address}. \nThis building has #{one.num_floors} floors and #{one.apartments} apts!"
     puts "*********************************************************" 
     puts 
+  
+#****************New Apartment***************
   when "a"
     puts "Enter Apt number:"
     apt_num = gets.chomp
     puts "Price:"
     price = gets.chomp.to_i
     puts "Enter sqft:"
-    sqft = gets.chomp
-    puts "Enter number of bed:"
+    sqft = gets.chomp.to_i
+    puts "Enter number of beds:"
     beds = gets.chomp.to_i
     puts "Enter number of baths:"
     baths = gets.chomp.to_i
@@ -188,9 +209,8 @@ case menu
     apt = Apartment.new(@apt_num, @price, @sqft, @beds, @baths, @renter)
     apt.add_apt(apt_num, price, sqft, beds, baths, renter)
     one.add_apt_to_build($details)
-    #puts apt.details
 
-
+#****************New Tenant****************
   when "n"
     puts "What is your name?"
     r_name = gets.chomp
@@ -200,34 +220,31 @@ case menu
     r_gender = gets.chomp
     puts "What apartment do you want to live in?"
     r_apt = gets.chomp
-    n_tenant = Person.new(@name, @age, @gender)
-    n_tenant.add_tenant(@name, @age, @gender)
+    n_tenant = Person.new(@r_name, @r_age, @r_gender)
+    n_tenant.add_tenant(r_name, r_age, r_gender)
+    one.add_person_to_apt(r_name)
 
+  #**************List Apartments*************
   when "l" 
     if one.b_apts == []
       puts
       puts "Nothing yet entered"
       puts
-    elsif one.b_apts[0][5] == ""
-      puts
-      puts "Apt #{one.b_apts[0][0]} is #{one.b_apts[0][2]} sqft and has #{one.b_apts[0][3]} bed(s) and #{one.b_apts[0][4]} bath(s). It costs $#{one.b_apts[0][1]} a month."
-      puts
     else
-      puts
-      puts "#{one.b_apts[0][5]} lives in Apt #{one.b_apts[0][0]}."
-      puts
+     one.lists_b_apts
+     puts
+     print one.b_apts
     end
-    # * List all of the apartments
-    # * If the apartment is unoccupied(no renters) you should say something like:
-    #   `Apt 1A is 750 sqft and has 1 bed and 1 bath. It costs $2500 a month`
-    # * If the apartment is occupied by a tenant, you should say something like:
-    #   `Jeff lives in Apt 1A`    
+
+#****************Quit Program*****************        
   when "q"
     # quit
   else
     puts "ERROR!!!!! TRY AGAIN"
+    puts
+  end
 end
-end
+
 
 
 
