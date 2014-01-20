@@ -56,7 +56,7 @@ class Apartment
     return @baths
   end
   def stats 
-    return {:number => @number, :price => @price, :sqft => @sqft, :beds => @beds, :baths => @baths, :ten => []}
+    return {:number => @number, :price => @price, :sqft => @sqft, :beds => @beds, :baths => @baths, :tenant => []}
   end
 
 end
@@ -106,10 +106,10 @@ class Building
   end
   def add_person(apartment, tenant)
     @find_apt = @building.index {|x| x[:number] == apartment}
-    @building[@find_apt][:ten].push(tenant)
+    @building[@find_apt][:tenant].push(tenant)
   end
   def is_avail?
-    @avail_apts = @building.select {|x| x[:ten] == [] || x[:ten].length < x[:beds]}
+    @avail_apts = @building.select {|x| x[:tenant].empty? || x[:tenant].length < x[:beds]}
     if @avail_apts.length > 0
       return true
     else
@@ -117,25 +117,28 @@ class Building
     end
   end
   def avail_apts
-    @avail_apts = @building.select {|x| x[:ten] == [] || x[:ten].length < x[:beds]}
+    @avail_apts = @building.select {|x| x[:tenant].empty? || x[:tenant].length < x[:beds]}
     @avail_apts.each do |apt|
-      puts "Apt #{apt[:number]} is #{apt[:sqft]} square feet and has #{apt[:beds]} beds (#{(apt[:beds] - apt[:ten].length).abs} beds free) and #{apt[:baths]} baths. It costs $#{apt[:price]} a month."
+      puts "Apt #{apt[:number]} is #{apt[:sqft]} square feet and has #{apt[:beds]} beds (#{(apt[:beds] - apt[:tenant].length).abs} beds free) and #{apt[:baths]} baths. It costs $#{apt[:price]} a month."
     end
   end
   def directory
     @building.each do |apt|
-      if apt[:ten] == [] || apt[:ten].length < apt[:beds]
-        puts "Apt #{apt[:number]} is #{apt[:sqft]} square feet and has #{apt[:beds]} beds (#{(apt[:beds] - apt[:ten].length).abs} beds free) and #{apt[:baths]} baths. It costs $#{apt[:price]} a month."
-      elsif (apt[:ten].length == apt[:beds]) && (apt[:beds] == 1)
-        puts "#{apt[:ten][0][:name]} lives in Apt #{apt[:number]}"
+      if apt[:tenant].empty? || apt[:tenant].length < apt[:beds]
+        puts "Apt #{apt[:number]} is #{apt[:sqft]} square feet and has #{apt[:beds]} beds (#{(apt[:beds] - apt[:tenant].length).abs} beds free) and #{apt[:baths]} baths. It costs $#{apt[:price]} a month."
+      elsif (apt[:tenant].length == apt[:beds]) && (apt[:beds] == 1)
+        puts "#{apt[:tenant][0][:name]} lives in Apt #{apt[:number]}."
       else
-        @roomies = apt[:ten].map {|x| x[:name]}
+        @roomies = apt[:tenant].map {|x| x[:name]}
         puts "#{@roomies.join(", ")} live in Apt #{apt[:number]}."
       end
     end
   end
   def move_out(tenant)
-    
+    @building.each do |apartment|
+      apartment[:tenant].delete_if {|apartment_tenant| apartment_tenant[:name] == tenant }
+    end
+  end
 end
 
 #START APP-------------------------
@@ -152,7 +155,7 @@ building1 = Building.new
 
 building1.setup(name, address, floors)
 
-puts "Your building name is #{building1.name} and you are located at #{building1.address} and has #{building1.floors} floors."
+puts "Your building name is #{building1.name}. It is located at #{building1.address} and has #{building1.floors} floors."
 
 #POPULATE BUILDING WITH SOME APARTMENTS
 building1.add_apartment(one.stats)
@@ -179,6 +182,7 @@ while menu_option != "q"
   puts "(V)iew #{building1.name}'s details"
   puts "Add an (A)partment"
   puts "Add a (T)enant"
+  puts "(M)ove out"
   puts "List the building (D)irectory"
   puts "(Q)uit"
   menu_option = gets.chomp.downcase
@@ -212,20 +216,24 @@ while menu_option != "q"
       t_age = gets.chomp
       puts "What is the tenant's gender?"
       t_gender = gets.chomp
-      new_ten = Person.new(t_name, t_age, t_gender)
-      puts "Welcome #{new_ten.name}!"
+      new_tenant = Person.new(t_name, t_age, t_gender)
+      puts "Welcome #{new_tenant.name}!"
       puts "Which apartment would you like to rent?"
       building1.avail_apts
       print "Apt "
       apt_choice = gets.chomp.to_i
-      building1.add_person(apt_choice, new_ten.stats)
-      puts "It's all yours, #{new_ten.name}!"
+      building1.add_person(apt_choice, new_tenant.stats)
+      puts "It's all yours, #{new_tenant.name}!"
     else
       puts "Sorry, there aren't any available apartments to rent!"
     end
-
   when "d"
     building1.directory
+  when "m"
+    puts "Who is moving out? (Name must match the lease!)"
+    mover = gets.chomp
+    building1.move_out(mover)
+    puts "Sorry to see you go!"
   end
 end    
 
