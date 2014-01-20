@@ -45,6 +45,7 @@ class Person
     person_details [:age] = @age
     person_details[:gender] = @gender
     person_details[:apt] = @apt
+    name = person_details
   end
 
   def person_hash
@@ -202,8 +203,9 @@ while user_input != "q"
       new_tenant.gender = gets.chomp
       puts "What apartment do you want to live in?"
       new_tenant.apt = gets.chomp
-      name = new_tenant.person_details
-      
+      new_tenant.person_details
+      puts new_tenant.person_details
+      person_hash
 
   when "l"
       puts "l"
