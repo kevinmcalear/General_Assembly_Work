@@ -96,7 +96,7 @@ class Playlist
 end
 
 kevins_playlist = Playlist.new
-kevins_playlist.add_songs(my_new_song)
+kevins_playlist.add_songs(my_new_song.add_hash)
 kevins_playlist.add_songs(my_new_song.artist)
 kevins_playlist.add_songs(my_new_song.genre)
 puts kevins_playlist.mysongs()
