@@ -73,8 +73,11 @@ return griffnames.uniq!
 end
 
 def weasley(potter)
-  weasley_list = potter.select {|x| x[:name].include?("Weasley")}
-  weasley_list.each {|x| x[:name].gsub(" ", " Badger ")}
+  weasley_list = potter.select {|x| x[:name].split.last == "Weasley"}
+  weasley_badger = weasley_list.map do |weasley|
+    weasley[:name].gsub(" ", " Badger ")
+  end
+  return weasley(potter)
 end
 
 puts weasley(potter)
