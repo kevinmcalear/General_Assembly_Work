@@ -55,24 +55,18 @@ class Apartment
   def baths
     return @baths
   end
-  def tenant=(tenant)
-    @tenant = tenant
-  end
-  def tenant
-    return @tenant
-  end
   def stats 
-    return {:number => @number, :price => @price, :sqft => @sqft, :beds => @beds, :baths => @baths, :ten => @ten}
+    return {:number => @number, :price => @price, :sqft => @sqft, :beds => @beds, :baths => @baths, :ten => []}
   end
 
 end
 
 #APT DATA
 
-one = Apartment.new(1, "2340", 1500, 3, 2)
+one = Apartment.new(1, "2340", 1500, 2, 2)
 two = Apartment.new(2, "1440", 900, 1, 1.5)
 three = Apartment.new(3, "1100", 621, 1, 1)
-four = Apartment.new(4, "3233", 2000, 5, 3)
+four = Apartment.new(4, "3233", 2000, 3, 3)
 five = Apartment.new(5, "2140", 1200, 3, 1)
 six = Apartment.new(6, "2240", 1200, 2, 1)
 
@@ -112,22 +106,36 @@ class Building
   end
   def add_person(apartment, tenant)
     @find_apt = @building.index {|x| x[:number] == apartment}
-    @building[@find_apt][:ten] = tenant
+    @building[@find_apt][:ten].push(tenant)
+  end
+  def is_avail?
+    @avail_apts = @building.select {|x| x[:ten] == [] || x[:ten].length < x[:beds]}
+    if @avail_apts.length > 0
+      return true
+    else
+      return false
+    end
   end
   def avail_apts
-    @get_apts = @building.select {|x| x[:ten] == nil}
-    @avail_apts = @get_apts.map {|x| x[:number]}
-    return @avail_apts.join(", ")
+    @avail_apts = @building.select {|x| x[:ten] == [] || x[:ten].length < x[:beds]}
+    @avail_apts.each do |apt|
+      puts "Apt #{apt[:number]} is #{apt[:sqft]} square feet and has #{apt[:beds]} beds (#{(apt[:beds] - apt[:ten].length).abs} beds free) and #{apt[:baths]} baths. It costs $#{apt[:price]} a month."
+    end
   end
   def directory
     @building.each do |apt|
-      if apt[:ten] == nil
-        puts "Apt #{apt[:number]} is #{apt[:sqft]} square feet and has #{apt[:beds]} beds and #{apt[:baths]} baths. It costs $#{apt[:price]} a month."
+      if apt[:ten] == [] || apt[:ten].length < apt[:beds]
+        puts "Apt #{apt[:number]} is #{apt[:sqft]} square feet and has #{apt[:beds]} beds (#{(apt[:beds] - apt[:ten].length).abs} beds free) and #{apt[:baths]} baths. It costs $#{apt[:price]} a month."
+      elsif (apt[:ten].length == apt[:beds]) && (apt[:beds] == 1)
+        puts "#{apt[:ten][0][:name]} lives in Apt #{apt[:number]}"
       else
-        puts "#{apt[:ten][:name]} lives in Apt #{apt[:number]}."
+        @roomies = apt[:ten].map {|x| x[:name]}
+        puts "#{@roomies.join(", ")} live in Apt #{apt[:number]}."
       end
     end
   end
+  def move_out(tenant)
+    
 end
 
 #START APP-------------------------
@@ -157,6 +165,7 @@ building1.add_apartment(six.stats)
 #SHOVE SOME PEOPLE IN OUR NEW APARTMENTS
 building1.add_person(3, joe.stats)
 building1.add_person(4, joann.stats)
+building1.add_person(4, jill.stats)
 building1.add_person(1, james.stats)
 
 
@@ -188,7 +197,7 @@ while menu_option != "q"
     puts "How many square feet is the apartment?"
     a_sqft = gets.chomp
     puts  "How many bedrooms does it have?"
-    a_beds = gets.chomp
+    a_beds = gets.chomp.to_i
     puts "How many bathrooms does the apartment have?"
     a_baths = gets.chomp
     new_apt = Apartment.new(a_number, a_price, a_sqft, a_beds, a_baths)
@@ -196,7 +205,7 @@ while menu_option != "q"
     puts "Apartment #{new_apt.number} has been added to #{building1.name}!"
 
   when "t"
-    if building1.avail_apts != ""
+    if building1.is_avail? == true
       puts "What is the tenant's name?"
       t_name = gets.chomp
       puts "What is the tenant's age?"
@@ -205,9 +214,9 @@ while menu_option != "q"
       t_gender = gets.chomp
       new_ten = Person.new(t_name, t_age, t_gender)
       puts "Welcome #{new_ten.name}!"
-      puts "Here is a list of available apartments:"
       puts "Which apartment would you like to rent?"
-      puts "#{building1.avail_apts}"
+      building1.avail_apts
+      print "Apt "
       apt_choice = gets.chomp.to_i
       building1.add_person(apt_choice, new_ten.stats)
       puts "It's all yours, #{new_ten.name}!"
