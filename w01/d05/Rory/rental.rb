@@ -5,7 +5,7 @@
 class Person
 
   def initialize()
-    @person_hash = Hash.new
+    person_hash = Hash.new
   end
   
   def name=(input)
@@ -41,9 +41,7 @@ class Person
   end
 
   def add_person_to_hash
-    person_hash[@name] = {
-      :age => @age, :gender => @gender, :apt => @apt
-    }
+    person_hash = {self.name => {:age => self.age, :gender => self.gender, :apt => self.apt}}
   end
 
   def person_hash
@@ -202,6 +200,7 @@ while user_input != "q"
       puts "What apartment do you want to live in?"
       new_tenant.apt = gets.chomp
       new_tenant.add_person_to_hash
+      puts person_hash
 
   when "l"
       puts "l"
