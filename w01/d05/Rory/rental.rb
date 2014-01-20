@@ -40,8 +40,11 @@ class Person
     return @apt
   end
 
-  def add_person_to_hash
-    person_hash = {self.name => {:age => self.age, :gender => self.gender, :apt => self.apt}}
+  def person_details
+    person_details = {}
+    person_details [:age] = @age
+    person_details[:gender] = @gender
+    person_details[:apt] = @apt
   end
 
   def person_hash
@@ -199,8 +202,8 @@ while user_input != "q"
       new_tenant.gender = gets.chomp
       puts "What apartment do you want to live in?"
       new_tenant.apt = gets.chomp
-      new_tenant.add_person_to_hash
-      puts person_hash
+      name = new_tenant.person_details
+      
 
   when "l"
       puts "l"
