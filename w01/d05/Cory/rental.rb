@@ -164,13 +164,9 @@ class Building
     self.b_apts().push(a)
   end
   def lists_b_apts()
-    counter = 0
-    while counter < b_apts.length
       b_apts.each {|(apt, price, sqft, bed, bath, renter)| 
         puts  "Apt #{apt} is #{sqft} sqft and has #{bed} bed(s) and #{bath} bath(s). It costs $#{price} a month."
        }
-     counter += 1
-    end
    end
 end
 
