@@ -22,13 +22,13 @@ end
 
 #PERSON DATA
 
-joe = Person.new("Joe", 33, "dude")
+joe = Person.new("Joe", 33, "male")
 jan = Person.new("Jan", 24, "female")
-jill = Person.new("Jill", 30, "girl")
+jill = Person.new("Jill", 30, "female")
 james = Person.new("James", 19, "man-child")
-jack = Person.new("Jack", 23, "man")
-jess = Person.new("Jess", 45, "dude")
-john = Person.new("John", 52, "male")
+jack = Person.new("Jack", 23, "male")
+jess = Person.new("Jess", 45, "male")
+joann = Person.new("Joann", 52, "female")
 
 #APARTMENT CLASS
 
@@ -69,19 +69,12 @@ end
 
 #APT DATA
 
-one = Apartment.new(1, "$1,340", 900, 3, 2)
-two = Apartment.new(2, "$2,340", 900, 1, 1)
-three = Apartment.new(3, "$1,500", 900, 1, 6)
-four = Apartment.new(4, "$3,233", 900, 5, 2)
-five = Apartment.new(5, "$1,340", 900, 3, 1)
-six = Apartment.new(6, "$1,340", 900, 2, 1)
-
-puts one.stats
-puts two.stats
-puts three.stats
-puts four.stats
-puts five.stats
-puts six.stats
+one = Apartment.new(1, "2340", 1500, 3, 2)
+two = Apartment.new(2, "1440", 900, 1, 1.5)
+three = Apartment.new(3, "1100", 621, 1, 1)
+four = Apartment.new(4, "3233", 2000, 5, 3)
+five = Apartment.new(5, "2140", 1200, 3, 1)
+six = Apartment.new(6, "2240", 1200, 2, 1)
 
 
 #BUILDING CLASS
@@ -117,6 +110,24 @@ class Building
   def count
     return @building.count
   end
+  def add_person(apartment, tenant)
+    @find_apt = @building.index {|x| x[:number] == apartment}
+    @building[@find_apt][:ten] = tenant
+  end
+  def avail_apts
+    @get_apts = @building.select {|x| x[:ten] == nil}
+    @avail_apts = @get_apts.map {|x| x[:number]}
+    return @avail_apts.join(", ")
+  end
+  def directory
+    @building.each do |apt|
+      if apt[:ten] == nil
+        puts "Apt #{apt[:number]} is #{apt[:sqft]} square feet and has #{apt[:beds]} beds and #{apt[:baths]} baths. It costs $#{apt[:price]} a month."
+      else
+        puts "#{apt[:ten][:name]} lives in Apt #{apt[:number]}."
+      end
+    end
+  end
 end
 
 #START APP-------------------------
@@ -143,7 +154,11 @@ building1.add_apartment(four.stats)
 building1.add_apartment(five.stats)
 building1.add_apartment(six.stats)
 
-puts "This is your building status: #{building1.stats}"
+#SHOVE SOME PEOPLE IN OUR NEW APARTMENTS
+building1.add_person(3, joe.stats)
+building1.add_person(4, joann.stats)
+building1.add_person(1, james.stats)
+
 
 #INTERACT WITH BUILDING
 
@@ -162,11 +177,13 @@ while menu_option != "q"
   case menu_option
   when "v"
     puts "The building's name is #{building1.name} and it is located at #{building1.address}. It has #{building1.floors} floors and #{building1.count} apartments."
+
   when "a"
     puts "What is the apartment number?" 
     puts "(Apartments #{building1.apt_list} already exist.)"
     a_number = gets.chomp.to_i
     puts "What is the monthly rent?"
+    print "$"
     a_price = gets.chomp
     puts "How many square feet is the apartment?"
     a_sqft = gets.chomp
@@ -179,18 +196,27 @@ while menu_option != "q"
     puts "Apartment #{new_apt.number} has been added to #{building1.name}!"
 
   when "t"
-    puts "What is the tenant's name?"
-    t_name = gets.chomp
-    puts "What is the tenant's age?"
-    t_age = gets.chomp
-    puts "What is the tenant's gender?"
-    t_gender = gets.chomp
-    new_ten = Person.new(t_name, t_age, t_gender)
-    puts "You just made #{new_ten.name}!"
-    puts "Here is a list of available apartments:"
+    if building1.avail_apts != ""
+      puts "What is the tenant's name?"
+      t_name = gets.chomp
+      puts "What is the tenant's age?"
+      t_age = gets.chomp
+      puts "What is the tenant's gender?"
+      t_gender = gets.chomp
+      new_ten = Person.new(t_name, t_age, t_gender)
+      puts "Welcome #{new_ten.name}!"
+      puts "Here is a list of available apartments:"
+      puts "Which apartment would you like to rent?"
+      puts "#{building1.avail_apts}"
+      apt_choice = gets.chomp.to_i
+      building1.add_person(apt_choice, new_ten.stats)
+      puts "It's all yours, #{new_ten.name}!"
+    else
+      puts "Sorry, there aren't any available apartments to rent!"
+    end
 
   when "d"
-    #code
+    building1.directory
   end
 end    
 
