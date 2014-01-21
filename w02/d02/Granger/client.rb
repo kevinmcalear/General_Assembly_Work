@@ -15,18 +15,18 @@ class Client
 
   def display_pets
     puts "Pets:"
-    self.pets.each_with_index {|pet, num| puts (num + 1) + " " + pet}
+    self.pets.each_with_index {|pet, num| puts "#{(num + 1)} #{pet.name}"}
   end
 
   def pick_pet
     puts "Pick a pet:"
     display_pets
-    pet_choice = gets.chomp.to_i -1 #re-adjust index
+    pet_choice = (gets.chomp.to_i) -1 #re-adjust index
   end
 
   def return_pet()
     pet = pets[pick_pet]
-    pets.delete[pet]
+    pets.delete(pet)
 
     pet 
   end

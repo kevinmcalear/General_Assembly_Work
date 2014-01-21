@@ -1,5 +1,6 @@
 require_relative "client"
 require_relative "animal"
+require 'pry'
 
 class Shelter
   attr_reader :name
@@ -33,19 +34,18 @@ class Shelter
   def pick_client_num
     puts "Select a client"
     display_clients
-    client_choice = gets.chomp.to_i -1 #re-adjust index
+    client_choice = (gets.chomp.to_i) -1 #re-adjust index
   end
 
   def pick_animal_num
     puts "Select an animal"
     display_animals
-    animal_choice = gets.chomp.to_i -1 #re-adjust index
+    animal_choice = (gets.chomp.to_i) -1 #re-adjust index
   end
 
   def arrange_adoption
-    client_animal_hash = pick_adoption_pair
     client = clients[pick_client_num]
-    animal = clients[pick_animal_num]
+    animal = animals[pick_animal_num]
     client.adopt(animal)
     animals.delete(animal)
   end

@@ -9,7 +9,9 @@ def display_menu
   puts "2) Create a client"
   puts "3) Display Animals"
   puts "4) Display Clients"
-  puts "5) Quit"
+  puts "5) Arrange Adoption"
+  puts "6) Return Pet"
+  puts "7) Quit"
 end
 
 def execute_choice(choice, shelter)
@@ -23,6 +25,10 @@ def execute_choice(choice, shelter)
   when "4"
     shelter.display_clients
   when "5"
+    shelter.arrange_adoption
+  when "6"
+    shelter.arrange_return
+  else
     return :done
   end
 
@@ -52,7 +58,10 @@ def create_client(shelter)
 end
 
 
+
 shelter = Shelter.new("HappiTails")
+
+
 
 4.times {puts}
 puts "Welcome to #{shelter.name}!"
