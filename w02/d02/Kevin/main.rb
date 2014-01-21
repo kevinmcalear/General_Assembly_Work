@@ -3,45 +3,58 @@ require_relative 'models/animal'
 require_relative 'models/client'
 require_relative 'models/shelter'
 
+
+
+puts `clear`
+puts "To start off, what would you like to call your shelter?"
+shelter_name = gets.chomp
+$my_shelter = Shelter.new(shelter_name)
+
+user_input = nil
+
+require_relative 'models/seeds'
 # fluffy = Animal.new("Fluffy", "Dog")
 # jeffery = Animal.new("Jeffery", "Cat")
 # petie = Animal.new("Petie", "Parrot")
+# kermit = Animal.new("Kermit", "Frog")
+# scooby = Animal.new("Scooby", "Dog")
 
-# puts fluffy.name
-# puts fluffy.species
 
 # bob = Client.new("Bob", 23)
+# sam = Client.new("Sam", 26)
+# jim = Client.new("Jim", 54)
+# frank = Client.new("Frank", 34)
 
-# puts bob.name
-# puts bob.age
-
-# the_shelter = Shelter.new("The Shelter, Yo.")
-
-# puts the_shelter.name
 
 # fluffy.add_toys("Bone")
 # fluffy.add_toys("Sock")
 # fluffy.add_toys("Worm")
 
-# puts fluffy.toys
+# jeffery.add_toys("Catnip")
+# jeffery.add_toys("Furball")
+
+# kermit.add_toys("A Toy Pig")
+
+# scooby.add_toys("Scooby Snack")
+# scooby.add_toys("A Squirtgun")
+
 
 # bob.add_pets(fluffy)
+# jim.add_pets(kermit)
+# jim.add_pets(scooby)
 
-# the_shelter.add_animals(jeffery)
-# the_shelter.add_animals(petie)
-# the_shelter.add_clients(bob)
+# my_shelter.add_animals(jeffery)
+# my_shelter.add_animals(petie)
 
-# puts the_shelter
-puts `clear`
-puts "To start off, what would you like to call your shelter?"
-shelter_name = gets.chomp
-my_shelter = Shelter.new(shelter_name)
+# my_shelter.add_clients(bob)
+# my_shelter.add_clients(sam)
+# my_shelter.add_clients(jim)
+# my_shelter.add_clients(frank)
 
-user_input = nil
 while user_input != "Q"
 
 puts `clear`
-puts "Welcome to the #{my_shelter.name} Shelter App!"
+puts "Welcome to the #{$my_shelter.name} Shelter App!"
 puts "-------------------------------------"
 puts "please select from the following:"
 puts 
@@ -55,8 +68,6 @@ puts "( Q ) to quit the app."
 
 user_input = gets.chomp.upcase
 
-
-
 case user_input
 
 when "A"
@@ -67,7 +78,7 @@ when "A"
   animal_species = gets.chomp
   puts "Last thing, does #{animal_name} own any toys"
   new_animal = Animal.new(animal_name, animal_species)
-  my_shelter.add_animals(new_animal)
+  $my_shelter.add_animals(new_animal)
 
 when "C"
   puts `clear`
@@ -76,13 +87,13 @@ when "C"
   puts "How old is your client?"
   client_age = gets.chomp
   new_client = Client.new(client_name, client_age)
-  my_shelter.add_clients(new_client)
+  $my_shelter.add_clients(new_client)
 
 when "DA"
   puts `clear`
   puts "Here is a list of the current animals in our shelter:"
   puts "-----------------------------------------"
-  my_shelter.list_animals
+  $my_shelter.list_animals
   puts
   puts "------------------------------"
   puts "Press Anything To Go Back Or ( Q ) To Quit."
@@ -92,7 +103,7 @@ when "DC"
   puts `clear`  
   puts "Here is a list of the current clients in our shelter:"
   puts "-----------------------------------------"
-  my_shelter.list_clients
+  $my_shelter.list_clients
   puts
   puts "------------------------------"
   puts "Press Anything To Go Back Or ( Q ) To Quit."
@@ -102,24 +113,23 @@ when "DC"
   puts `clear`  
   puts "Here is a list of the current animals in our shelter:"
   puts "-----------------------------------------"
-  my_shelter.list_animals
+  $my_shelter.list_animals
   puts
   puts "------------------------------"
   puts "Please Tell me what animal you want to adopt."
   desired_animal = gets.chomp
-  my_shelter.list_clients
+  $my_shelter.list_clients
   puts "Now please tell me what client wants to adopt that animal."
   desired_client = gets.chomp
 
-  specific_animal = my_shelter.animals.find do |animal|
+  specific_animal = $my_shelter.animals.find do |animal|
       animal.name == desired_animal
     end
-  specific_client = my_shelter.clients.find do |client|
+  specific_client = $my_shelter.clients.find do |client|
       client.name == desired_client
     end
     specific_client.pets << specific_animal
-    my_shelter.animals.delete(specific_animal)
-  # my_shelter.give_animal(deisred_animal, desired_client)
+    $my_shelter.animals.delete(specific_animal)
   puts
   puts "------------------------------"
   puts "Press Anything To Go Back Or ( Q ) To Quit."
@@ -129,7 +139,7 @@ when "DC"
   puts `clear`  
   puts "Here is a list of the current animals in our shelter:"
   puts "-----------------------------------------"
-  my_shelter.list_clients
+  $my_shelter.list_clients
   puts
   puts "------------------------------"
   puts "Please Tell me what client wants to return an animal."
@@ -137,17 +147,14 @@ when "DC"
   puts "Now please tell me what animal they want to return."
   desired_animal = gets.chomp
 
-  # specific_animal = my_shelter.animals.find do |animal|
-  #     animal.name == desired_animal
-  #   end
-  specific_client = my_shelter.clients.find do |client|
+  specific_client = $my_shelter.clients.find do |client|
       client.name == desired_client
     end
   specific_animal = specific_client.pets.find do |animal| 
     animal.name == desired_animal
   end
     
-    my_shelter.animals << specific_animal
+    $my_shelter.animals << specific_animal
     specific_client.pets.delete(specific_animal)
   puts
   puts "------------------------------"
@@ -166,7 +173,7 @@ else
 end
 end
 
-binding.pry
+# binding.pry
 
 puts `clear`
   puts "**********************************"
