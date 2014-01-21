@@ -6,5 +6,3 @@ puts apartment
 
 building = Building.new("GA")
 puts building
-
-
