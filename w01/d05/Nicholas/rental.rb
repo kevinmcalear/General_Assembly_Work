@@ -281,7 +281,7 @@ when 4
   found = newbuilding.apts.select do |spaces|
     spaces.apt_name == apt_to_occupy
   end
-   found[0].apt_number.add_p(new_tenant.name)
+   found[0].apt_name.add_p(new_tenant.name)
 
   end
   end_program = "no"
