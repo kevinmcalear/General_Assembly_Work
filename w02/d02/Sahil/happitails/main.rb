@@ -1,8 +1,8 @@
 require_relative 'models/animal'
 require_relative 'models/client'
 require_relative 'models/shelter'
+require_relative 'seeds'
 
-s = Shelter.new
 choice = nil
 while choice != "8"
 puts ""
@@ -18,20 +18,19 @@ puts "   8. Quit"
 choice = gets.chomp
 	case choice
 	when "1"
-		s.animals=(Animal.new)
+		$shelter.animals=(Animal.new)
 	when "2"
-		s.clients=(Client.new)
+		$shelter.clients=(Client.new)
 	when "3"
-		old_shelter = s
-		s = Shelter.new
+		$shelter = Shelter.new
 	when "4"
-		s.display_animals
+		$shelter.display_animals
 	when "5"
-		s.display_clients
+		$shelter.display_clients
 	when "6"
-		s.adopt()
+		$shelter.adopt()
 	when "7"
-		s.return
+		$shelter.return
 	when "8"
 		puts "Goodbye!"
 	else

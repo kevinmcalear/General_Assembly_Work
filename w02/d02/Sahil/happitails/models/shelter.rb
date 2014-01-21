@@ -1,9 +1,7 @@
-require 'pry'
-
 class Shelter
-	def initialize()
-		@animals = []
-		@clients = []
+	def initialize(animals=[],clients=[])
+		@animals = animals
+		@clients = clients
 	end
 	def animals
 		return @animals
@@ -66,11 +64,9 @@ class Shelter
 		picked_client.pets.each do |pet|
 			if pet.name == input
 				picked_animal = picked_client.pets.delete(pet)
-				#self.animals=(picked_animal)
-				binding.pry
 			end
 		end
-	self.animals=(picked_animal)
+		self.animals=(picked_animal)
 
 	end
 end
