@@ -80,7 +80,7 @@ def weasley(potter)
   return weasley(potter)
 end
 
-puts weasley(potter)
+
 
 
 f.close

@@ -141,9 +141,6 @@ end
 
 # Method for creating new apartment
 def add_apt(number)
-  store_apt_name = number
-  number = Apartment.new
-  number.apt_name= "#{store_apt_name}"
   print "Enter the square footage for the apt:"
   square_footage = gets.chomp
   number.sqft= "#{square_footage}"
@@ -162,9 +159,6 @@ end
 
 # Method for adding a new tenant
 def add_tenant(new_person)
-  store_person_name = new_person
-  new_person = Person.new
-  new_person.name= "#{store_person_name}"
   print "What is the age of the new tenant?"
   tenant_age = gets.chomp
   print "What is the gender of the new tenant?"
@@ -259,7 +253,11 @@ when 3
   # Create a new apartment
   print "Please enter a name for the apartment(ex: 1a, 2b):"
   apt_number = gets.chomp
-  newbuilding.add(add_apt(apt_number))
+  store_apt_name = apt_number
+  apt_number = Apartment.new
+  apt_number.apt_name = "#{store_apt_name}"
+  add_apt(apt_number)
+  newbuilding.add(apt_number)
   end_program = "no"
 
 when 4
@@ -269,6 +267,10 @@ when 4
   else
   print "Enter the name of the new tenant:"
   new_tenant = gets.chomp
+  store_person_name = new_tenant
+  new_tenant = Person.new
+  new_tenant.name= "#{store_person_name}"
+  add_tenant(new_tenant)
   puts "Where would you like this tenant to live?"
   puts "Choose from the list below"
   newbuilding.apts.each {|x| print x.apt_name + "|"}
@@ -279,9 +281,8 @@ when 4
   found = newbuilding.apts.select do |spaces|
     spaces.apt_name == apt_to_occupy
   end
+   found[0].apt_number.add_p(new_tenant.name)
 
-  #push the person into their selected apartment
-  # ...
   end
   end_program = "no"
 
