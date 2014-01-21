@@ -3,13 +3,13 @@
 ##################
 
 class Animal
-  def initialize(name, species)
-    @name = name
+  def initialize(animal_name, species)
+    @animal_name = animal_name
     @species = species
     @toys = []
   end
-  def name
-    return @name
+  def animal_name
+    return @animal_name
   end
   def species
     return @species
@@ -18,7 +18,10 @@ class Animal
     return @toys
   end
   def stats
-    return @name, @species, @toys
+    return @animal_name, @species, @toys
+  end
+  def to_s
+    return "#{animal_name} the #{species}"
   end
 end
 
@@ -28,13 +31,13 @@ end
 ##################
 
 class Client
-  def initialize(name, age)
-    @name = name
+  def initialize(client_name, age)
+    @client_name = client_name
     @age = age
     @pets = []
   end
-  def name
-    return @name
+  def client_name
+    return @client_name
   end
   def age
     return @age
@@ -43,7 +46,10 @@ class Client
     return @pets
   end
   def stats
-    return @name, @age, @pets
+    return @client_name, @age, @pets
+  end
+  def to_s
+    return "#{client_name}"
   end
 end
 
@@ -53,13 +59,13 @@ end
 ##################
 
 class Shelter
-  def initialize(name)
-    @name = name
+  def initialize(shelter_name)
+    @shelter_name = shelter_name
     @animals = []
     @clients = []
   end
-  def name
-    return @name
+  def shelter_name
+    return @shelter_name
   end
   def animals
     return @animals
@@ -67,8 +73,26 @@ class Shelter
   def clients
     return @clients
   end
+  def add_animal
+    puts "What is the animal's name?"
+    name = gets.chomp
+    puts "What kind of animal is #{name}?"
+    species = gets.chomp
+    new_animal = Animal.new(name, species)
+    self.animals().push(new_animal)
+    puts "#{name} the #{species} has joined the shelter!"
+  end
+  def add_client
+    puts "What is the client's name?"
+    name = gets.chomp
+    puts "How old is #{name}?"
+    age = gets.chomp
+    new_client = Client.new(name, age)
+    self.clients().push(new_client)
+    puts "#{name} is now a client!"
+  end
   def stats
-    return @name, @animals, @clients
+    return @shelter_name, @animals, @clients
   end
 end
 
@@ -78,15 +102,27 @@ end
 ##################
 
 
-happitails = Shelter.new("Happitails")
-puts happitails.stats
+# happitails = Shelter.new("Happitails")
+# puts happitails.stats
 
-nora = Client.new("Nora", 26)
-puts nora.stats
+# nora = Client.new("Nora", 26)
+# puts nora.stats
 
-horace = Animal.new("Horace", "horse")
-puts horace.stats
+# horace = Animal.new("Horace", "horse")
+# puts horace.stats
 
+
+# happitails.add_animal
+# puts happitails.stats
+
+# happitails.add_client
+# puts happitails.stats
+
+# happitails.add_animal
+# puts happitails.stats
+
+# happitails.add_client
+# puts happitails.stats
 
 
 
