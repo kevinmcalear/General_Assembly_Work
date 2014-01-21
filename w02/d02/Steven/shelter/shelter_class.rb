@@ -28,14 +28,6 @@ class Shelter
     self.animals << (animal)
   end
 
-  def display_clients
-    if pets
-      return "#{clients.name} is #{clients.age} years old, and #{pets.name} is their #{pets.species}"
-    else
-      return "#{clients.name} is #{clients.age} years old."
-    end
-  end
-
   def animals
     return @animals
   end
@@ -43,16 +35,6 @@ class Shelter
   def clients
     return @clients
   end
-
-
-  def display_animals
-    if owner
-      return "#{animals.name} is a #{animals.species}"
-    else
-      return "#{animals.name}, the #{animals.species} is owned by #{clients.name}"
-    end
-  end
-
 
   def facilitate_adoption
 
@@ -80,6 +62,23 @@ end
     # puts big_shelter
 
     # puts add_client
+
+      # def display_animals
+  #   if owner
+  #     return "#{animals.name} is a #{animals.species}"
+  #   else
+  #     return "#{animals.name}, the #{animals.species} is owned by #{clients.name}"
+  #   end
+  # end
+
+  # def display_clients
+  #   if pets
+  #     return "#{clients.name} is #{clients.age} years old, and #{pets.name} is their #{pets.species}"
+  #   else
+  #     return "#{clients.name} is #{clients.age} years old."
+  #   end
+  # end
+
 
 
 

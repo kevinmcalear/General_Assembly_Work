@@ -30,9 +30,9 @@ class Animal
     self.owner().push(owner)
   end
 
-  def to_s
-    puts "#{name} is a #{species}"
-  end
+  # def to_s
+  #   puts "#{name} is a #{species}"
+  # end
 
 
 end
