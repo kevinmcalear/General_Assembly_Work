@@ -1,4 +1,5 @@
 require_relative 'happitails.rb'
+require_relative 'seed.rb'
 
 shelter = Shelter.new("The Bowery Shelter")
 
@@ -13,14 +14,16 @@ def menu
   puts "  2: Create a client"
   puts "  3: Display all animals"
   puts "  4: Display all clients"
-  puts "  5: Quit"
+  puts "  5: Adopt an animal!"
+  puts "  6: Put an animal up for adoption"
+  puts "  7: Quit"
   response = gets.chomp
   return response
 end
 
 menu_choice = menu
 
-while menu_choice != "5"
+while menu_choice != "7"
   case menu_choice
   when "1"
     shelter.create_animal
@@ -34,6 +37,14 @@ while menu_choice != "5"
     shelter.client.each do |client|
       puts client
     end
+  when "5"
+    shelter.animals.each do |animals| 
+      puts animals
+    end
+    shelter.adopt_animal
+    ## unsure on adopt method!! ##
+    ## how to delete the species from the index ##
+  when "6"
   else
     puts "That wasn't an option!"
   end

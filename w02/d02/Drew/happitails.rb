@@ -89,6 +89,11 @@ class Shelter
     @client.push(new_client)
   end
 
+  def adopt_animal
+    puts "What is the name of the animal you would like to adopt?"
+    name = gets.chomp.downcase
+    
+  end
 
 end
 
