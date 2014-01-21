@@ -32,7 +32,7 @@ require_relative 'models/shelter'
 # the_shelter.add_clients(bob.make_hash)
 
 # puts the_shelter.make_hash
-
+puts `clear`
 puts "To start off, what would you like to call your shelter?"
 shelter_name = gets.chomp
 my_shelter = Shelter.new(shelter_name)
@@ -47,6 +47,8 @@ puts "please select from the following:"
 puts 
 puts "( A ) to create an animal."
 puts "( C ) to create a client."
+puts "( DA ) to display all animals in the shelter."
+puts "( DC ) to display all clients in the shelter."
 puts "( Q ) to quit the app."
 
 user_input = gets.chomp.upcase
@@ -61,6 +63,7 @@ when "A"
   animal_name = gets.chomp
   puts "What type of animal is it?"
   animal_species = gets.chomp
+  puts "Last thing, does #{animal_name} own any toys"
   new_animal = Animal.new(animal_name, animal_species)
   my_shelter.add_animals(new_animal.make_hash)
 
@@ -73,10 +76,26 @@ when "C"
   new_client = Client.new(client_name, client_age)
   my_shelter.add_clients(new_client.make_hash)
 
-when "S"
+when "DA"
   puts `clear`
-  
+  puts "Here is a list of the current animals in our shelter:"
+  puts "-----------------------------------------"
+  my_shelter.list_animals
+  puts
+  puts "------------------------------"
+  puts "Press Anything To Go Back Or ( Q ) To Quit."
+  user_input = gets.chomp.upcase
 
+when "DC"
+  puts `clear`  
+  puts "Here is a list of the current clients in our shelter:"
+  puts "-----------------------------------------"
+  my_shelter.list_clients
+  puts
+  puts "------------------------------"
+  puts "Press Anything To Go Back Or ( Q ) To Quit."
+  user_input = gets.chomp.upcase
+  
 when "Q"
 
 else 

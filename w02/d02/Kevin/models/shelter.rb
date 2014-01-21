@@ -27,6 +27,14 @@ class Shelter
     @clients << @client
   end
 
+  def list_animals
+    @animals.each {|animal| puts "#{animal[:name]} the #{animal[:species]}." }
+  end
+
+  def list_clients
+    @clients.each {|client| puts "#{client[:name]} who is #{client[:age]} years old."}
+  end
+
   def make_hash
     return {:name => @name, :animals => @animals, :clients => @clients}
   end
