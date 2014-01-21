@@ -17,6 +17,9 @@ class Animal
   def toys
     return @toys
   end
+  def to_s
+    return "#{name} is a #{species}"
+  end
 end
 
 ####################
@@ -37,6 +40,9 @@ class Client
   end
   def animals
     return @animals
+  end
+  def to_s
+    return "#{name} is #{age} years old"
   end
 end
 

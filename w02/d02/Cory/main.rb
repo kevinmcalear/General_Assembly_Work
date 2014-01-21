@@ -18,7 +18,9 @@ def menu
   puts "  1: Create a new animal"
   puts "  2: Create a new client"
   puts "  3: Create a new shelter"
-  puts "  4: Quit"
+  puts "  4: Display all animals"
+  puts "  5: Display all clients"
+  puts "  6: Quit"
 
   answer = gets.chomp
   return answer
@@ -31,15 +33,23 @@ end
 
 choice = menu
 
-while choice != "4"
+while choice != "6"
   case choice
   when "1"
     shelter.add_animals
   when "2"
     shelter.add_clients
   when "3"
-    something
+    puts "You don't really need to create a shelter!"
   when "4"
+     shelter.animals.each do |animals|
+        puts animals
+      end
+  when "5"
+     shelter.clients.each do |clients|
+        puts clients
+      end
+  when "6"
     #quit
   else
     puts "Error!!!"
@@ -47,8 +57,6 @@ while choice != "4"
   choice = menu
 end
 
-puts shelter.animals
-puts shelter.clients
 
 
 
