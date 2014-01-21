@@ -19,6 +19,10 @@ class Animal
     return @toys
   end
 
+  def to_s
+    return "#{@name} the #{@species}"
+  end
+
 end
 
 class Client 
@@ -40,6 +44,10 @@ class Client
     return @pets
   end
 
+  def to_s
+    return "#{@name} is #{@age}"
+  end
+
 end
 
 class Shelter
@@ -59,6 +67,10 @@ class Shelter
     return @animals
   end
 
+  def client
+    return @client
+  end
+
   def create_animal
     puts "What is the name of the animal?"
     name = gets.chomp
@@ -76,6 +88,7 @@ class Shelter
     new_client = Client.new(name, age)
     @client.push(new_client)
   end
+
 
 end
 
