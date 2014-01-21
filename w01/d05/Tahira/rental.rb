@@ -58,7 +58,7 @@ class Apartment
     return @sqft
   end
 
-#number of bed
+#number of beds
   def beds=(beds)
     @beds = beds
   end
@@ -77,14 +77,30 @@ class Apartment
   end
 
 #renter
-  def renter=(renter)
-    @renter = renter
+  def initialize()
+    @renters=Array.new
   end
 
-  def renter
-    return @renter
+  def add_renter(renter)
+    if(@renters.count < @beds.to_i)
+      @renters.push(renter)
+    else
+      puts "The apartment is full."
+    end
   end
-end  
+
+  def renters
+    return @renters
+  end
+
+  def retrieve_renter(human)
+    @renters.each {|renter| 
+      if renter.name = human
+        return renter
+      end
+    }
+  end  
+end
  
 ### CLASS BUILDING ### 
 class Building
@@ -107,7 +123,6 @@ class Building
   def add_apartment(apartment)
     if(@apartments.count < @building_apartments)
       @apartments.push(apartment)
-      puts @apartments.index(apartment)
     else
       puts "The building is full."
     end
@@ -123,13 +138,17 @@ class Building
 
   def list_apartments
     @apartments.each{ |apartment|
-      if apartment.renter == nil
+      tenants = apartment.renters
+      if tenants.count == 0
         puts "Apt #{apartment.name} is #{apartment.sqft} and has #{apartment.beds} bed and #{apartment.baths} baths. It cost $#{apartment.price} / month."
       else 
-        puts "#{apartment.renter} lives in #{apartment.name}."
+        tenants = apartment.renters
+        tenants.each {|tenant|
+          puts "#{tenant.name} lives in #{apartment.name}."
+        }
       end
     }
-  end 
+  end
 end    
 
 building = Building.new
@@ -142,8 +161,9 @@ while(answer != "Q")
   puts "View building details (V)"
   puts "Add an apartment to the building (A)"
   puts "Add a tenant (T)"
+  puts "Remove a tenant (R)"
   puts "View directory (D)"
-  puts "Quit"
+  puts "Quit (Q)"
   answer = gets.chomp
   case answer
   when "V"
@@ -172,10 +192,17 @@ while(answer != "Q")
     puts "What apartment do you want to live in?"
     apartment_number = gets.chomp
     apartment = building.retrieve_apartment(apartment_number)
-    apartment.renter = human
+    apartment.add_renter(human)
   when "D"
     building.list_apartments()
-  when "Q"
+  when "R"
+    puts "What apartment do you live?"
+    apartment_number = gets.chomp
+    put "What is your name?"
+    name = gets.chomp
+    apartment = building.retrieve_apartment(apartment_number)
+    human = apartment.retrieve_human(name)
+    human = nil
   end
 
 end
