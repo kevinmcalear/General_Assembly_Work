@@ -1,7 +1,3 @@
-require_relative 'clients_class'
-require_relative 'shelter_class'
-require_relative 'main'
-
 
 class Animal
   def initialize(name, species)
@@ -41,7 +37,7 @@ class Animal
 
 end
 
-lil_dog = Animal.new("frank","Bulldog")
-puts lil_dog
+# lil_dog = Animal.new("frank","Bulldog")
+# puts lil_dog
 
 

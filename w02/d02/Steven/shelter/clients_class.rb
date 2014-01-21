@@ -1,7 +1,3 @@
-# require_relative 'animal_class'
-# require_relative 'shelter_class'
-# require_relative 'main'
-
 
 class Client
   def initialize(name, age)
@@ -18,6 +14,11 @@ class Client
     return @age
   end
 
+  def pets
+    return @pets
+  end
+  
+
   def add_animal
     puts "What is the animal's name?"
     name = gets.chomp
@@ -33,8 +34,8 @@ class Client
 end
 
 
-steve = Client.new("Steve", "30")
-puts steve
+# steve = Client.new("Steve", "30")
+# puts steve
 
 
 

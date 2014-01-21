@@ -1,6 +1,3 @@
-require_relative 'animal_class'
-require_relative 'clients_class'
-require_relative 'main'
 
 class Shelter
   def initialize(name)
@@ -16,10 +13,10 @@ class Shelter
   def add_client
     puts "What is the client's name?"
     name = gets.chomp
-    puts "What is the owner's age?"
+    puts "What is the client's age?"
     age = gets.chomp.to_i
-    owner = Client.new(name, age)
-    self.owner().push(owner)
+    client = Client.new(name, age)
+    self.clients << (client)
   end
 
   def add_animal
@@ -28,10 +25,8 @@ class Shelter
     puts "What is the animal's species?"
     species = gets.chomp
     animal = Animal.new(name, species)
-    self.pets().push(animal)
+    self.animals << (animal)
   end
-
-
 
   def display_clients
     if pets
@@ -41,24 +36,31 @@ class Shelter
     end
   end
 
-    def display_animals
-      if owner
-        return "#{animals.name} is a #{animals.species}"
-      else
-        return "#{animals.name}, the #{animals.species} is owned by #{clients.name}"
-      end
+  def animals
+    return @animals
+  end
+
+  def clients
+    return @clients
+  end
+
+
+  def display_animals
+    if owner
+      return "#{animals.name} is a #{animals.species}"
+    else
+      return "#{animals.name}, the #{animals.species} is owned by #{clients.name}"
     end
+  end
 
 
+  def facilitate_adoption
 
+  end
 
-    def facilitate_adoption
+  def facilitate_return
 
-    end
-
-    def facilitate_return
-
-    end
+  end
 
   def to_s
     puts "Welcome to #{name}"
@@ -66,7 +68,7 @@ class Shelter
 
 
 
-    end
+end
 
 
 
@@ -74,8 +76,10 @@ class Shelter
 
 
 
-    big_shelter = Shelter.new("happy shelter")
-    puts big_shelter
+    # big_shelter = Shelter.new("happy shelter")
+    # puts big_shelter
+
+    # puts add_client
 
 
 
