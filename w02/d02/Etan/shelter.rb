@@ -22,6 +22,9 @@ class Animal
   def to_user
     return "You've just created a #{animal_species} with the name of #{animal_name}."
   end
+  def to_s
+    return "#{animal_name}, who is a(n) #{animal_species}."
+  end
 end
 
 ##Client Class
@@ -45,6 +48,9 @@ class Client
     return "You've just created client #{name} who is #{age} years old."
   end
 
+  def to_s
+    return "#{name} who is #{age} years old."
+  end
 end
 
 ##Shelter Class
@@ -115,6 +121,9 @@ def menu
   puts "1: Create an animal"
   puts "2: Create a client"
   puts "3: Create a shelter"
+  puts "4: List animals"
+  puts "5: List clients"
+  puts " "
   puts "9: Quit program and be a jerk!"
   puts " "
   puts "******"
@@ -139,6 +148,14 @@ while menu_choice != 9
     sample_shelter.add_client
   when 3
     puts
+  when 4
+    sample_shelter.animal_list.each do |animal|
+      puts animal
+    end
+  when 5
+   sample_shelter.client_list.each do |client|
+      puts client
+    end
   else
     puts "You're typing things that don't make sense. Get your head checked."
   end
