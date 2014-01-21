@@ -59,6 +59,22 @@ class Shelter
   def clients
     return @clients
   end
+  def add_animals
+    puts "What is the animals name?"
+    name = gets.chomp
+    puts "What is the animals species?"
+    species = gets.chomp
+    animal = Animal.new(name, species)
+    self.animals().push(animal)
+  end
+    def add_clients
+    puts "What is your name?"
+    name = gets.chomp
+    puts "What is your age?"
+    age = gets.chomp
+    client = Client.new(name, age)
+    self.clients().push(client)
+  end
 end
 
 
