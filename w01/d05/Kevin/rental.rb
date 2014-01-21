@@ -227,7 +227,7 @@ while menu_option != "Q"
 
       # THIS IS THE USERFEEDBACK
       puts `clear`
-      puts "you just made #{new_apartment.stats}"
+      puts "Thanks for adding Apartment Number #{a_number} to the complex!"
       puts
       puts "------------------------------"
       puts "Press Anything To Go Back Or ( Q ) To Quit."
@@ -253,7 +253,7 @@ while menu_option != "Q"
       
       # THIS IS THE USER FEEDBACK
       puts `clear`
-      puts "Your new #{new_tenant.age} year old #{new_tenant.gender} tenant, #{new_tenant.name}, has been added to the database. and to your Apartment ##{tenant_location}."
+      puts "Your new #{new_tenant.age} year old #{new_tenant.gender} tenant, #{new_tenant.name}, has been added to the database. and to your Apartment Number #{tenant_location}."
       puts
       puts
       puts "------------------------------"
