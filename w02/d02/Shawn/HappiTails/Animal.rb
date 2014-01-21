@@ -21,7 +21,13 @@ class Animal
   def toys
     return @toys
   end
+
+  def to_s
+    return "#{name} (#{species})"
+  end
 end
+
+
 
 
 

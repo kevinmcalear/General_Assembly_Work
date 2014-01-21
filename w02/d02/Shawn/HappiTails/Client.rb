@@ -20,5 +20,8 @@ class Client
   def pets
     return @pets
   end
-  
+
+  def to_s
+    return "#{name} (#{age})"
+  end
 end
