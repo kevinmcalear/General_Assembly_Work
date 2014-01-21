@@ -58,3 +58,15 @@ random_animals = ["porpoise", "camel", "lobster", "kangaroo", "wombat", "chamele
 * Return an array of the animals with each individual string reversed
 * Return an array of the animals sorted by word length (low to high)
 * Return an array of the animals sorted alphabetically by the last character in the string
+
+random_animals.each {|animal| puts "#{animal}s"}
+
+random_animals.sort
+random_animals.sort.reverse
+random_animals.map {|animal| animal.reverse}
+
+random_animals.sort_by {|animal| animal.length}
+
+random_animals.sort_by {|animal| animal[-1]}
+
+
