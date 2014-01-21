@@ -5,7 +5,7 @@ require 'pry'
 class Shelter
   attr_reader :name
   attr_accessor :animals, :clients
-  #harden 
+  
 
   def initialize(name)
     @name = name

@@ -1,7 +1,7 @@
 class Client
   attr_reader :name, :age
   attr_accessor :pets
-  #harden
+
 
   def initialize(name, age)
     @name = name
