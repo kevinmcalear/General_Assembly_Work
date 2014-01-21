@@ -23,12 +23,12 @@ class Shelter
     self.animals.each_with_index {|animal, num| puts "#{(num + 1)} #{animal.name} the #{animal.species}"}
   end
 
-  def add_animal(animal)
-    self.animals << animal
+  def add_animal(*animal)
+    self.animals += animal
   end
 
-  def add_client(client)
-    self.clients << client
+  def add_client(*client)
+    self.clients += client
   end
 
   def pick_client_num
@@ -46,8 +46,8 @@ class Shelter
   def arrange_adoption
     client = clients[pick_client_num]
     animal = animals[pick_animal_num]
-    client.adopt(animal)
-    animals.delete(animal)
+    ok = client.adopt(animal)
+    animals.delete(animal) if ok
   end
 
   def arrange_return

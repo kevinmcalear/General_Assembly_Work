@@ -1,6 +1,7 @@
 require_relative "shelter"
 require_relative "client"
 require_relative "animal"
+require_relative "seeds"
 
 def display_menu
   3.times {puts}
@@ -59,8 +60,7 @@ end
 
 
 
-shelter = Shelter.new("HappiTails")
-
+shelter = $shelter
 
 
 4.times {puts}

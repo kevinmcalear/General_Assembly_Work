@@ -10,7 +10,13 @@ class Client
   end
 
   def adopt(animal)
-    self.pets.push(animal)
+    if self.pets.length < 2
+      self.pets.push(animal)
+      return true
+    else
+      puts "You already have two pets."
+      return false
+    end
   end
 
   def display_pets
