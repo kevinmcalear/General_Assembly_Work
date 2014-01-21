@@ -1,0 +1,28 @@
+How is your day?
+good
+Hmmm... That's nice.
+What's up?
+nada
+That's so interesting!
+Continue... please!
+nada mucho
+Fantastic!  Moving on...
+How do you feel?
+ok
+Hmmm... That's nice.
+What do you want to talk about?
+nothing
+That's so interesting!
+Continue... please!
+nothing
+Fantastic!  Moving on...
+How is your relationship with your mother?
+good
+Hmmm... That's nice.
+What are you thinking about?
+work
+That's so interesting!
+Continue... please!
+work is boring
+Fantastic!  Moving on...
+Goodbye
