@@ -64,7 +64,7 @@ def initialize(name)
   end
 
   def shelter_clients
-    return @shelter_animals
+    return @shelter_clients
   end
 
   def add_animal_to_shelter
@@ -77,7 +77,7 @@ def initialize(name)
     animal = Animal.new(name, species)
     
     self.shelter_animals().push(animal)
-
+    puts "-----------------------------"
     puts "#{name.capitalize} the #{species} has been added!"
   end
 
@@ -91,7 +91,7 @@ def initialize(name)
     client = Client.new(name, age)
 
     self.shelter_clients().push(client)
-    
+    puts "-----------------------------"
     puts "#{name.capitalize}, aged #{age} years has been added!."
   end
 
@@ -103,9 +103,12 @@ new_shelter = Shelter.new("HappiTails")
 def menu
   puts "-----------------------------"
   puts "Animal Shelter Management App"
-  puts "1. Create a new (A)nimal"
-  puts "2. Create a new (C)lient"
-  puts "3. Create a new (S)helter"
+  puts "(1). New Animal"
+  puts "(2). New Client"
+  puts "(3). New Shelter"
+  puts "(4). Display all Animals"
+  puts "(5). Display all Clients"
+  puts "(Q). to Quit"
 end
 
 menu
@@ -115,21 +118,48 @@ response = gets.chomp.downcase
 until response == "q"
 
   case response
-  when "a"
+  when "1"
     new_shelter.add_animal_to_shelter
     menu 
 
     response = gets.chomp.downcase
 
-  when "c"
+  when "2"
     new_shelter.add_client_to_shelter
     menu
     response = gets.chomp.downcase
 
 
-  when "s"
-    puts "s"
+  when "3"
+    puts "What is the name of this shelter?"
+
+    name = gets.chomp.downcase
+
+    user_shelter = Shelter.new(name)
+    puts "A new shelter named #{user_shelter.name.capitalize} has been created!"
+    menu
     response = gets.chomp.downcase
+
+  when "4"
+    counter = 1
+    new_shelter.shelter_animals.each do |animal|
+      puts "#{counter}. #{animal.name.capitalize} the #{animal.species}"
+      counter += 1
+    end
+
+    menu
+    response = gets.chomp.downcase
+
+  when "5"
+    counter = 1
+    new_shelter.shelter_clients.each do |client|
+      puts "#{counter}. #{client.name.capitalize} - #{client.age} years old"
+      counter += 1
+    end
+
+    menu
+    response = gets.chomp.downcase
+
   else 
     puts "That is not a valid option! Please try again."
     response = gets.chomp.downcase
