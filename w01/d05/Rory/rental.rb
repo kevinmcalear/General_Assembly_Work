@@ -1,5 +1,4 @@
-##### Rental App ########
-###### making classes ########
+### Part 1 - Creating the classes
 
 
 class Person
@@ -45,7 +44,7 @@ class Person
     person_details [:age] = @age
     person_details[:gender] = @gender
     person_details[:apt] = @apt
-    name = person_details
+    person_hash[name] = person_details
   end
 
   def person_hash
@@ -109,9 +108,14 @@ class Apartment
   end
 
   def add_apt_to_hash
-    apt_hash[@name] = {
-      :apt_name => @apt_name, :price => @price, :sqft => @sqft, :num_beds => @num_beds, :num_baths => @num_baths
-    }
+    apt_details = {}
+    apt_details [:apt_name] = @apt_name
+    apt_details[:price] = @price
+    apt_details[:sqft] = @sqft
+    apt_details[:num_beds] = @num_beds
+    apt_details[:num_baths] = @num_baths
+    apt_hash[name] = apt_details
+
   end
 
   def apt_hash
@@ -160,7 +164,7 @@ class Building
 
 end
 
-###### Rental Program #########
+### Part 2 - Creating the program functionality & menu display
 puts "***Rental Program***"
 
 building = Building.new
@@ -176,7 +180,10 @@ user_input = gets.chomp
 while user_input != "q"
   case user_input
   when "v"
-      puts "v"
+      puts "The building name is #{building.name}"
+      puts "The building address is #{building.address}"
+      puts "The number of floors is #{building.num_floors}"
+      puts "The number of apartments is #{building.num_baths}"
   when "a"
       new_apt = Apartment.new
       puts "What is the apartment name?"
@@ -191,7 +198,8 @@ while user_input != "q"
       new_apt.num_baths = gets.chomp
       puts "What is the renter name?"
       new_apt.name = gets.chomp
-      new_apt.add_apt_to_hash
+      apt_hash
+      
 
   when "t"
       new_tenant = Person.new
@@ -208,7 +216,13 @@ while user_input != "q"
       person_hash
 
   when "l"
-      puts "l"
+      apt_hash.keys.each do |apt|
+      if !new_apt.name
+        puts "#{apt.apt_name} is #{apt.sqft} and has #{apt.num_beds} bed(s) and #{apt.num_baths} bath(s).  It cost #{apt.price} per month."
+      else
+        puts "#{apt.name} lives in #{apt.apt_name}"
+      end
+      end
   end
 
   menu
