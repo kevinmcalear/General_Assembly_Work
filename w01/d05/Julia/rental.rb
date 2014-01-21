@@ -145,8 +145,12 @@ class Building
   end
 
   #add an apartment – view all apartments
-  def all_apartments(apartment)
+  def add_apartment(apartment)
     self.all_apartments().push(apartment)
+  end
+
+  def all_apartments
+    return @all_apartments
   end
 
   #all tenants
@@ -183,7 +187,6 @@ def create_tenant
   new_tenant = Person.new(tenant_name, tenant_age, tenant_gender)
 end
 
-p Building
 the_post = Building.new("The Post", "1449 Massachusetts Ave. NW", 9, 200)
 puts "Welcome to #{the_post.name}"
 puts "What would you like to do?"
@@ -222,7 +225,7 @@ while choice != "QUIT"
     puts main_menu
     choice = gets.chomp.upcase
   elsif choice == "DIR"
-   #puts the_post.all_apartments()
+   the_post.all_apartments().each {|obj| puts obj.name}
   elsif choice == "QUIT"
     puts "See ya later!"
   else
