@@ -10,7 +10,9 @@ def menu
   puts "*******Menu*******"
   puts "1. Create an animal"
   puts "2. Create a client"
-  puts "3. Quit"
+  puts "3. Display all animals"
+  puts "4. Display all clients"
+  puts "5. Quit"
   choice = gets.chomp
   return choice
 end
@@ -25,7 +27,7 @@ shelter = Shelter.new(shelter_name)
 puts "Congrats! #{shelter.name} shelter has been created"
 
 menu_choice = menu
-while menu_choice != "3"
+while menu_choice != "5"
   case menu_choice
   when "1"
     puts "What species is the animal?"
@@ -34,8 +36,6 @@ while menu_choice != "3"
     name_animal = gets.chomp
     fst_animal = Animal.new(name_animal, species_animal)
     shelter.animals << fst_animal
-    puts "We have these animals in shelter now: "
-    shelter.animals.each {|i| puts "#{i.name} the #{i.species}"}
   when "2"
     puts "What is client's name?"
     client_name = gets.chomp
@@ -43,10 +43,12 @@ while menu_choice != "3"
     client_age = gets.chomp
     fst_client = Client.new(client_name, client_age)
     shelter.clients << fst_client
-    puts "Whe have thses clients in our shelter database: "
-    shelter.clients.each {|i| puts "#{i.name} and he is #{i.age} old."}
+  when "3"
+    shelter.display_animals
+  when "4"
+    shelter.display_clients
   else
-    puts "Please either 3 or press 1 or 2"
+    puts "Please enter numbers from the menu"
   end
   menu_choice = menu
 end
