@@ -6,6 +6,10 @@ class Shelter
     @clients = Array.new
   end
 
+  def name
+    return @name
+  end
+
   def animals
     return @animals
   end
