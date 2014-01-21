@@ -21,13 +21,13 @@ def menu(shelter)
   when '2'
     shelter.add_client
   when '3'
-    shelter.print_animals_list
+    puts shelter.print_animals_list
   when '4'
     puts shelter.print_clients_list
   when '5'
-    shelter.facilitate_adoption
+    puts shelter.facilitate_adoption
   when '6'
-    shelter.facilitate_return
+    puts shelter.facilitate_return
   end
   puts
   return menu_choice

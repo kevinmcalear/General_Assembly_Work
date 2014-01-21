@@ -22,6 +22,7 @@ class Client
 
   def adopt_animal(animal)
     self.pets << animal
+    return "#{self.name}'s pets now are: #{self.print_pets_list}"
   end
 
   def return_pet(pet)
@@ -41,3 +42,18 @@ class Client
   end
   
 end
+
+
+class CatLady < Client
+  def adopt_animal(animal)
+
+
+  end
+
+  def cat_lady?
+    return true
+  end
+end
+
+
+

@@ -34,7 +34,13 @@ class Shelter
     name = gets.chomp
     puts "What is the client's age?"
     age = gets.chomp
-    client = Client.new name, age
+    puts "Is this client a cat lady? (yes or no)"
+    cat_lady = gets.chomp.downcase
+    if cat_lady == "yes"
+      client = CatLady.new name, age
+    else
+      client = Client.new name, age
+    end
     self.add_to_clients_list(client)
   end
 
@@ -48,13 +54,13 @@ class Shelter
 
   def print_animals_list
     #print the list of shelter's animals
-    a = self.animals_list.map {|animal| animal.name}
-    puts "{#{a.join(", ")}}"
+    a = self.animals_list.map {|animal| "#{animal.species.capitalize}: #{animal.name}"}
+    return "#{self.name}'s current animals are: {#{a.join(", ")}}"
   end
 
   def print_clients_list
     #print the list of shelter's clients
-    a = self.clients_list.map {|client| client.name}
+    a = self.clients_list.map {|client| "#{client.name}: Age #{client.age}"}
     return "{#{a.join(", ")}}"
   end
 
@@ -67,7 +73,7 @@ class Shelter
 
   def get_which_animal
     puts "Please select which animal:"
-    self.print_animals_list
+    puts self.print_animals_list
     animal_name = gets.chomp
     return self.animals_list.find {|anim| anim.name == animal_name}
   end
@@ -77,18 +83,18 @@ class Shelter
     print "For adopting, "
     client = self.get_which_client
     if client.pets.length > 1
-      puts
+      return "That client has too many pets!"
     end
 
     # get animal
     animal = self.get_which_animal
 
-    # add animal to client's pets
-    client.adopt_animal(animal)
-    puts "#{client.name}'s pets now are: #{client.print_pets_list}"
-
     # remove animal from shelter's list
     self.animals_list.delete(animal)
+
+    # add animal to client's pets
+    client.adopt_animal(animal)
+    return "#{client.name}'s pets now are: #{client.print_pets_list}"
 
   end
 
@@ -103,10 +109,10 @@ class Shelter
     #remove animal from client's pet list
     client.return_pet(animal)
     
-    puts "#{client.name}'s pets now are #{client.print_pets_list}"
-
     #add animal to shelter's list
     self.animals_list << animal
+
+    return "#{client.name}'s pets now are #{client.print_pets_list}"
 
   end
   
