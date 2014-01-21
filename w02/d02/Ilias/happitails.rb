@@ -1,20 +1,22 @@
+require 'pry'
+require 'ap'
+
+##Methods##
 class Animal
-  
   def initialize(name, species)
+    animal_list = []
     @name = name
     @species = species
-    @animal_toys = []
+    @toys = []
   end
 
   def add_toy=(toy)
-    @animal_toys << toy
+    @toy << toy
   end
-
 end
 
 
 class Client
-
   def initialize(name, age)
     @name = name
     @age = age
@@ -29,8 +31,9 @@ class Client
     return @age
   end
 
-  def adopt=(pet)
-    pets << pet
+  def adopt(pet)
+    @pet = pet
+    pets << @pet
   end
 
   def show_pets()
@@ -38,14 +41,12 @@ class Client
   end
 
   def to_s
-    "This client, #{self.name}, is #{self.age} years old and has the following pets: #{self.pets}"
+    "This client, #{self.name}, is #{self.age} years old and has the following pets: #{self.show_pets}"
   end
-
 end
 
 
 class Shelter
-
   def initialize(name)
     @name = name
     @shelter_clients = []
@@ -56,107 +57,81 @@ class Shelter
     return @name
   end
 
-  def add_client(client)
-    @client = client
-    @shelter_clients << @client
-  end
-
-  def show_clients()
-    return @shelter_clients
-  end
-
-  def add_animal(animal)
-    @animal = animal
-    @shelter_animals << @animal
-  end
-
-  def show_pets()
-    return @shelter_animals
-  end
-
-  def adopt(client, pet)
-    @adopter = @shelter_clients.select { |name| name.eql?(client) }
-    @pet = @shelter_animals.select { |name| name.eql?(pet) }
-    puts "#{@adopter} just adopted #{@pet}!"
-    return [@adopter, @pet]
-  end
-
-  def to_s()
-    "This shelter is named #{self.name} with clients: #{self.show_clients}"
-  end
-
-end
-
-class Menu
-
-  def animal()
-    puts "Ok, let's register an animal. Please enter their name:"
+  def add_client()
+    puts "What is the client's name?"
     name = gets.chomp.capitalize
-    puts "And what kind of animal is #{name}?"
-    species = gets.chomp.to_sym
-    @new_animal = Animal.new(name, species)
-    puts "Nice! #{name} the #{species} has been registered."
-  end
-
-  def register_animal()
-    return @new_animal
-  end
-
-  def client()
-    puts "Ok, let's register a client. Please enter their name:"
-    name = gets.chomp.capitalize
-    puts "And how old is #{name}?"
+    puts "How old is #{name}?"
     age = gets.chomp.to_i
-    new_client = Client.new(name, age)
+    client = Client.new(name, age)
+    @shelter_clients << {:name => name, :age => age}
     puts "Good job! We've registered #{name} as a client."
   end
 
-  def register_client()
-    return @new_client
-  end
-
-  def shelter()
-    puts "Ok, let's register a new shelter"
+  def add_animal()
+    puts "What is your animal's name?"
     name = gets.chomp.capitalize
-    new_shelter = Shelter.new(name)
-    puts "Lovely. The #{name} shelter has been registered."
+    puts "What type of animal is #{name}?"
+    species = gets.chomp.downcase
+    animal = Animal.new(name, species)
+    @shelter_animals << {:name =>name, :species => species}
+    puts "Nice! we've registered #{name} the #{species}"
   end
 
+  def show_clients()
+    puts "Clients currently in #{self.name} shelter are:"
+    @shelter_clients.each { |client| puts "#{client[:name]}" }
+  end
+
+  def show_animals()
+    puts "Animals currently in #{self.name} shelter are:"
+    @shelter_animals.each { |animal| puts "#{animal[:name]} the #{animal[:species]}" }
+  end
+
+  def to_s()
+    "Welcome to #{self.name} shelter!"
+  end
 end
 
+#-------------------------------------#
 
-# -------------------------------------
+##Start##
+puts "Hi, let's start by naming your shelter:"
+user_input = gets.chomp.upcase
+shelter = Shelter.new(user_input)
 
-# shelter = Shelter.new("GA")
-# human1 = Client.new("Ilias", "23")
-# pet1 = Animal.new("Simba", "cat")
-
-
-# shelter.add_client(human1)
-# shelter.show_clients
-# shelter.add_animal(pet1)
-# shelter.adopt(human1, pet1)
-
-#-------------------------------------
-##Menu##
-menu = Menu.new
-shelter = Shelter.new("GA")
-
-puts "****Hi, Welcome to your Virtual Adoption Center!****\n"
+while user_input != "Q"
+puts `clear`
+puts "#{shelter} \n"
 puts "Please choose from the following options:"
-puts "create an (A)nimal, create a (C)lient, create a (S)helter, or (Q)"
+puts "create an animal (CA), create a client (CC), create a shelter(CS)\n"
+puts "display animals (DA), display clients (DC)"
+puts "or (Q)uit"
 user_input = gets.chomp.upcase
 
-case user_input
-when "A"
-  menu.animal
-  shelter.add_animal(menu.register_animal)
-when "C"
-  menu.client
-  shelter.add_client(menu.register_client)
-when "S"
-  menu.shelter
-when "Q"
-  exit
+  case user_input
+  when "CA"
+    puts `clear`
+    shelter.add_animal
+  when "CC"
+    puts `clear`
+    shelter.add_client
+  when "CS"
+    puts `clear`
+    puts "What would you like your new shelter to be called?"
+    user_input = gets.chomp.upcase
+    new_shelter = Shelter.new(user_input)
+    puts "Lovely! We've created #{shelter} shelter"
+  when "DA"
+    shelter.show_animals
+    puts "Press anything to go back or (Q)uit"
+    user_input = gets.chomp.upcase
+  when "DC"
+    shelter.show_clients
+    puts "Press anything to go back or (Q)uit"
+    user_input = gets.chomp.upcase
+  end
 end
+exit
+
+#binding.pry
 
