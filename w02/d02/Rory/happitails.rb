@@ -1,6 +1,5 @@
 ###HappiTails
 
-require_relative("main")
 #################
 ### Animal Class
 #################
@@ -15,12 +14,16 @@ class Animal
     return @name
   end
 
-  def age
-    return @age
+  def species
+    return @species
   end
 
   def toys
     return @toys
+  end
+
+  def to_s
+    return "#{name} is a #{species} with the following toys: #{toys}"
   end
 
 end
@@ -30,10 +33,10 @@ end
 #################
 
 class Client
-  def initialize(name, age, pets)
+  def initialize(name, age)
     @name = name
     @age = age
-    @pets = pets
+    @pets = []
   end
 
   def name
@@ -46,6 +49,14 @@ class Client
 
   def pets
     return @pets
+  end
+
+  def to_s
+    return "#{name} is #{age} years old with the following pets: #{pets}"
+  end
+
+  def add_pets(animal)
+    self.pets().push(animal)
   end
 
 end
@@ -73,16 +84,6 @@ class Shelter
     return @clients
   end
 
-  def give_back
-    puts "What is your name?"
-    name = gets.chomp
-    puts "What is your age?"
-    age = gets.chomp.to_i
-    puts "Which pet do you want to return?"
-    pets = gets.chomp
-    old_client = Client.new(name, age, pets)
-    self.clients().delete(old_client)
-  end
 #Menu option 1
   def create_animal
     puts "What is the animal's name?"
@@ -90,11 +91,10 @@ class Shelter
     puts "What is the animal's species?"
     species = gets.chomp
     puts "What toys does the animal have?"
-    toys = gets.chomp.split(",")
+    toys = gets.chomp
     new_animal = Animal.new(name, species, toys)
     self.animals().push(new_animal)
   end
-#Menu option 2
   def create_client
     puts "What is your name?"
     name = gets.chomp
@@ -105,37 +105,32 @@ class Shelter
     new_client = Client.new(name, age, pets)
     self.clients().push(new_client)
   end
-end
-
-#################
-### Main Program
-#################
-#create a new shelter
-shelter = Shelter.new("Best Animal Shelter")
-
-
-menu_choice = menu
-
-while menu_choice != "4"
-  case menu_choice
-  when "1"
-    shelter.create_animal
-  when "2"
-    shelter.create_client
-  when "3"
-    puts "What is your shelter name?"
+#adoption
+  def adoption
+    puts "What is your name?"
     name = gets.chomp
-    new_shelter = Shelter.new(name)
-    puts "What animals are there?"
-    animals = gets.chomp
-    puts "Who are your clients?"
-    clients = gets.chomp
-    new_shelter.animals = animals
-    new_shelter.clients = clients
-  else
-    puts "That wasn't an option"
+    current_client = self.clients().find do |client|
+      client.name == name
+      end
+    if !current_client
+      puts "Sorry, you're not an existing client.  Please create your client profile."
+    else
+      puts "What is the animal's name?"
+      name = gets.chomp
+      puts "What is the animal's species?"
+      species = gets.chomp
+      puts "What toys does the animal have?"
+      toys = gets.chomp
+      chosen_animal = Animal.new(name, species, toys)
+      animal_to_delete = self.animals().find do |animal| 
+        animal.name == chosen_animal.name 
+        end
+      self.animals().delete(animal_to_delete)
+      current_client.add_pets("#{name} the #{species}")
+    end
   end
-  puts "Press enter to continue"
-  gets
-  menu_choice = menu
+
+
+
 end
+
