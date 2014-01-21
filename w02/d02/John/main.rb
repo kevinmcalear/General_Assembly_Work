@@ -15,6 +15,24 @@ class Shelter
   def name
     return @name
   end
+
+  def add_animal
+    puts "What is the animal's name?"
+    name = gets.chomp
+    puts "What is the animal's species?"
+    species = gets.chomp
+    animal = Animal.new name, species
+    @animals_list << animal
+  end
+
+  def add_client
+    puts "What is the client's name?"
+    name = gets.chomp
+    puts "What is the client's age?"
+    age = gets.chomp
+    client = Client.new name, age
+    @clients_list << client
+  end
   
 end
 
@@ -66,3 +84,51 @@ class Animal
   end
 
 end
+
+
+def create_shelter
+  puts "What is the shelter's name?"
+  shelter = Shelter.new gets.chomp
+  return shelter
+end
+
+def menu(shelter)
+  puts "Welcome! Please choose an option:"
+  puts "1) Create an animal"
+  puts "2) Create a client"
+  puts "3) Quit"
+  menu_choice = gets.chomp
+
+  case menu_choice
+  when '1'
+    shelter.add_animal
+  when '2'
+    shelter.add_client
+  end
+  puts
+  return menu_choice
+
+end
+
+
+#initialize some seed data
+shelter1 = Shelter.new("Happy Pets")
+client1 = Client.new("Jeff", 33)
+animal1 = Animal.new("Buddy", 3)
+
+
+
+
+
+while menu(shelter1) != "3"
+end
+
+
+
+
+
+
+
+
+
+
