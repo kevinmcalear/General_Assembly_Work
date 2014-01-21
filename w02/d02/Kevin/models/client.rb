@@ -26,8 +26,8 @@ class Client
     @pets.each {|pet| puts pet}
   end
 
-  def make_hash
-    return {:name => @name, :age => @age, :pets => @pets}
-  end
+  # def make_hash
+  #   return {:name => @name, :age => @age, :pets => @pets}
+  # end
 
 end

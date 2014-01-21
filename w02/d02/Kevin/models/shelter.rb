@@ -28,25 +28,36 @@ class Shelter
   end
 
   def list_animals
-    @animals.each {|animal| puts "#{animal[:name]} the #{animal[:species]}." }
+    @animals.each {|animal| puts "#{animal.name} the #{animal.species}." }
   end
 
   def list_clients
-    @clients.each {|client| puts "#{client[:name]} who is #{client[:age]} years old."}
+    @clients.each {|client| puts "#{client.name} who is #{client.age} years old that has #{client.pets.map {|x| x.name}} animals."}
   end
 
-  def make_hash
-    return {:name => @name, :animals => @animals, :clients => @clients}
-  end
+  # def make_hash
+  #   return {:name => @name, :animals => @animals, :clients => @clients}
+  # end
 
-  def give_animal(animal, client)
+  # def give_animal(animal, client)
 
-    # @find_animal = @animals.index { | animal | animal[:name] == animal}
-    # @find_client = @clients.index { | client | clientl[:name] == client}
-    # @animals[@find_animal][:pets] << animal
+  #   specific_animal = my_shelter.animals.find do |animal|
+  #     animal.name == animal
+  #   end
+    
+  #   find_animal = @animals.find { | animal | animal.name == animal}
+  #   find_client = @clients.find { | client | clientl.name == client}
+  #   @clients[find_client].pets << animal
+  #   @animals.delete(animal)
 
-  end
+  # end
 
   def animal_return(animal, client)
+
+    @animals << animal
+    # @find_animal = @animals.index { | animal | animal[:name] == animal}
+    @find_client = @clients.index { | client | clientl[:name] == client}
+    @clients[@find_client][:pets].delete(animal) 
+
   end
 end

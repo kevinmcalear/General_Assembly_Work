@@ -22,7 +22,7 @@ class Animal
     @toys << @toy
   end
 
-  def make_hash
-    return {:name => @name, :species => @species, :toys => @toys}
-  end
+  # def make_hash
+  #   return {:name => @name, :species => @species, :toys => @toys}
+  # end
 end
