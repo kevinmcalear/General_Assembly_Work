@@ -17,8 +17,24 @@ class Animal
   def toys
     return @toys
   end
+  def client
+    return @client
+  end
+  def client=(client)
+    @client = client
+  end
   def to_s
-    return "#{name} is a #{species}"
+    if client
+      return "#{client.name} has adpoted #{name}"
+    else
+      return "#{name} is a #{species}"
+    end
+  end
+  def adopt_animal
+    puts "Great, enter the client name:"
+    name = gets.chomp
+    puts "Enter the animal you want to adopt:"
+    animal = gets.chomp
   end
 end
 
@@ -73,7 +89,7 @@ class Shelter
     animal = Animal.new(name, species)
     self.animals().push(animal)
   end
-    def add_clients
+  def add_clients
     puts "What is your name?"
     name = gets.chomp
     puts "What is your age?"
@@ -82,10 +98,5 @@ class Shelter
     self.clients().push(client)
   end
 end
-
-
-
-
-
 
 
