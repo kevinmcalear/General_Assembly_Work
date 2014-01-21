@@ -48,7 +48,7 @@ class Shelter
 
   def return (pet, client)
     animals = client.pets
-    animals.delete(pet)
+    pet = animals.delete(pet)
     @animals.push(pet)
   end
 
