@@ -1,7 +1,9 @@
 class Client
-	def initialize(name,age)
-		@name = name
-		@age = age
+	def initialize()
+		puts "What's their name?"
+		@name = gets.chomp
+		puts "What's their age?"
+		@age = gets.chomp
 		@pets = []
 	end
 	def name
