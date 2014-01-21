@@ -1,10 +1,10 @@
 class Song
   def title=(title)
-    @instance_variable = title
+    @title = title
   end
 
   def title
-    return @instance_variable
+    return @title
   end
 
     def artist=(artist)
@@ -24,7 +24,7 @@ class Song
       end
 
         def play 
-          return "\"#{@instance_variable}\" by #{@artist} is now playing."
+          return "\"#{@title}\" by #{@artist} is now playing."
           # you can call other instance methods from an instance method by typing @instance_method, in this case @title/@artist
           # 
         end
