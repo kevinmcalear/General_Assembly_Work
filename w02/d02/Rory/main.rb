@@ -43,7 +43,7 @@ while menu_choice != "7"
   when "5"
     $shelter.adoption
   when "6"
-    $shelter.create_animal
+    $shelter.puts_up_for_adoption
   else
     puts "That wasn't an option"
   end

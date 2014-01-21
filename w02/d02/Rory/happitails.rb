@@ -129,6 +129,18 @@ class Shelter
       current_client.add_pets("#{name} the #{species}")
     end
   end
+  #puts animal up for adoption
+  def puts_up_for_adoption
+    puts "What is your name?"
+    name = gets.chomp
+    current_client = self.clients().find do |client|
+      client.name == name
+    end
+    self.clients().delete(current_client)
+    puts "You've been deleted from our client roster."
+    puts "Can you give us the details about your former pet, so we can add him to the adoption list again?"
+    create_animal
+  end
 
 
 
