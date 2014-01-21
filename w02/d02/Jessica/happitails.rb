@@ -20,11 +20,8 @@ class Animal
  def add_toys
     toy = Toy.new
     self.toys().push(toy)
-  end
 end
-
-cat = Animal.new("cat", cat)
-puts cat.name
+end
 
 class Client
   def initialize(name, age)
@@ -41,7 +38,7 @@ class Client
     return @name
   end
 
-    def animals
+  def animals
     return @animals
   end
 
@@ -72,20 +69,30 @@ class Shelter
   end
 
   def add_animal
+    puts "What is the animal's name?"
+    name = gets.chomp
+    puts "What is the animal's spieces?"
+    species = gets.chomp
     animal = Animal.new(name, species)
     self.animals().push(animal)
   end
 
-  def add_clients
+  def add_client
+    puts "What is your name?"
+    name = gets.chomp
+    puts "What is your age?"
+    age = gets.chomp.to_i
   client = Client.new(name, age)
     self.clients().push(client)
   end
-
-  def to_s_animal
-    return "#{name} is a #{species}. There are #{animals.count} animals."
-  end
-
-   def to_s_client
-    return "#{name} is located at #{age} and has. There are #{clients.count} clients ."
-  end
 end
+
+
+  # def to_s_animal
+  #   return "#{name} is a #{species}. There are #{animals.count} animals."
+  # end
+
+  #  def to_s_client
+  #   return "#{name} is located at #{age} and has. There are #{clients.count} clients ."
+  # end
+
