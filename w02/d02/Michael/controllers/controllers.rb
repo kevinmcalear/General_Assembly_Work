@@ -1,5 +1,3 @@
-
-
 def create_animal(shelter)
   animal_hash = Hash.new
   puts "What is the animal's name?"
@@ -28,3 +26,12 @@ def create_client(shelter)
   age = gets.chomp
   person_hash[:age] = age
 end 
+
+def display(shelter,type)
+  if type == "animals"
+    shelter.animals.each {|name| puts name [:name]}       
+  else type == "clients"
+    shelter.animal.each {|client| puts client [:name]}
+  end 
+end
+
