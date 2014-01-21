@@ -1,6 +1,5 @@
-# class Animal < Shelter
 class Animal
-  def initialize (name, species)
+  def initialize(name, species)
     @name = name
     @species = species
     @toys = []
@@ -17,8 +16,17 @@ class Animal
   def toys
     return @toys
   end
+
+  # def add_animal
+    
+  #   self.animal=animal
+  # end
 end
 
 ## add animals ##
-lassie=Animal.new("Lassie", "Dog", "Ball")
-benji=Animal.new("benji", "Dog")
+# lassie=Animal.new("Lassie", "Dog", "Ball")
+# benji=Animal.new("benji", "Dog")
+
+# puts lassie.name
+# puts lassie.species
+# puts lassie.toys

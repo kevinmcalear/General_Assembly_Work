@@ -1,9 +1,8 @@
 class Shelter
-  def initialize (name)
-    @name = name
-    @animal = []
-    @client =[]
-    @adopt = adopt
+  def initialize (shelter_name)
+    @shelter_name = shelter_name
+    @animals = []
+    @clients =[]
   end
 
   def name
@@ -18,8 +17,13 @@ class Shelter
     return @animal
   end
 
-  def adopt
-    return @adopt
+  # def adopt(an_animal)
+    
+  # end
+
+  def add(an_animal)
+    @animals.push an_animal
   end
+
 end
 
