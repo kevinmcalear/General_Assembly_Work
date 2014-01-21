@@ -51,6 +51,10 @@ class Client
   def to_s
     return "#{client_name}"
   end
+  def add_pet(adoptee_pet)
+    self.pets().push(adoptee_pet)
+    puts "#{client_name} has adopted #{adoptee_pet}!"
+  end
 end
 
 
@@ -82,6 +86,15 @@ class Shelter
     self.animals().push(new_animal)
     puts "#{name} the #{species} has joined the shelter!"
   end
+  def list_animals
+    if self.animals != []
+      self.animals.each do |animal|
+        puts animal
+      end
+    else
+      puts "No animals to adopt yet!"
+    end
+  end
   def add_client
     puts "What is the client's name?"
     name = gets.chomp
@@ -90,6 +103,18 @@ class Shelter
     new_client = Client.new(name, age)
     self.clients().push(new_client)
     puts "#{name} is now a client!"
+  end
+  def list_clients
+    if self.clients != []
+      self.clients.each do |client|
+        puts client
+      end
+    else
+      puts "No clients on file yet!"
+    end
+  end
+  def delete_pet(adoptee_pet)
+    self.animals().delete(adoptee_pet)
   end
   def stats
     return @shelter_name, @animals, @clients
