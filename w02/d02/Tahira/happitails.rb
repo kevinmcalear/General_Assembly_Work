@@ -26,6 +26,7 @@ def get_client()
   puts "Please enter the clients's age: "
   age = gets.chomp
   client = Client.new(name, age)
+  puts client.name
   puts "How many pets does the client have?"
   pets_count = gets.chomp.to_i
   i = 1
@@ -34,6 +35,7 @@ def get_client()
     client.add_pet(animal)
     i += 1 
   end
+  return client
 end
 
 ## MAIN
@@ -42,13 +44,15 @@ shelter = Shelter.new("Happy Shelter")
 
 answer = 1
 
-while (answer != 4)
+while (answer != 6)
   puts "*** Welcome to #{shelter.name.upcase} ***"
   puts "Please select an option: "
   puts "1 - Create an animal profile"
   puts "2 - Create a client profile"
   puts "3 - Create a shelter"
-  puts "4 - Quit"
+  puts "4 - Show all animals in the shelter"
+  puts "5 - Show all shelter clients"
+  puts "6 - Quit"
   answer = gets.chomp.to_i
 
   case answer
@@ -56,13 +60,17 @@ while (answer != 4)
     animal = get_pet()
     shelter.add_animal(animal)
   when 2
-    client = get_client
+    client = get_client()
     shelter.add_client(client)
   when 3
     puts "Please enter the name of the shelter:"
     new_shelter = gets.chomp
     Shelter.new("#{new_shelter}")
   when 4
+    shelter.print_animals
+  when 5
+    shelter.print_clients
+  when 6
     puts "Thanks for visiting #{shelter.name.upcase}!!"
   else
     puts "Please select a valid choice"

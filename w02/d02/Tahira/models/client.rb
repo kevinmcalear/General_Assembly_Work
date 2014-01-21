@@ -18,7 +18,7 @@ class Client
   end
 
   def add_pet(pet)
-    @pet.push(pet)
+    @pets.push(pet)
   end
 
   def print_pets
