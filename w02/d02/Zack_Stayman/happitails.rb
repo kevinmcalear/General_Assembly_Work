@@ -12,16 +12,18 @@ shelter = Shelter.new(input)
 all_shelters.push(shelter)
 # Menu
 choice = nil
-while choice != "4"
+while choice != "6"
   puts `clear`
-  puts "Welcome! Please select an option from below"
+  puts "Please select an option from below"
   puts "Press 1 to add an animal to a shelter"
   puts "Press 2 to add a client to a shelter"
   puts "Press 3 to create a new shelter"
-  puts "Press 4 to exit the program"
+  puts "Press 4 to display all animals"
+  puts "Press 5 to display all clients"
+  puts "Press 6 to exit the program"
   choice = gets.chomp
   case choice
-    
+
 # Create an animal and add it to a building
 when "1"
   puts "What shelter does the animal live in? Please select from the list below."
@@ -69,14 +71,37 @@ when "2"
 
   client = Client.new(client_name, client_age)
   shelter_used.add_client=(client)
+
 # Create a shelter
 when "3"
   puts "What is your new shelter called?"
   input = gets.chomp
   shelter = Shelter.new(input)
   all_shelters.push(shelter)
-# Quit
+
+# Print all clients
 when "4"
+  puts "Clients:"
+  all_shelters.each do |shelter|
+    shelter.clients.each do |person|
+      puts person.name
+    end
+    puts "Press Enter to continue"
+    gets
+  end
+
+# Print all animals
+when "5"
+  all_shelters.each do |shelter|
+    shelter.animals.each do |animal|
+      puts animal.name
+    end
+    puts "Press Enter to continue"
+    gets
+  end
+
+# Quit
+when "6"
   puts "Goodbye"
 else
   puts "That isn't a valid option, please try again."
