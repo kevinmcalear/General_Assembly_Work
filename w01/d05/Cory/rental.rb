@@ -164,9 +164,13 @@ class Building
     self.b_apts().push(a)
   end
   def lists_b_apts()
+    if b_apts.each {|(apt, price, sqft, bed, bath, renter)| "#{renter}" == "" }
       b_apts.each {|(apt, price, sqft, bed, bath, renter)| 
-        puts  "Apt #{apt} is #{sqft} sqft and has #{bed} bed(s) and #{bath} bath(s). It costs $#{price} a month."
-       }
+        puts  "Apt #{apt} is #{sqft} sqft and has #{bed} bed(s) and #{bath} bath(s). It costs $#{price} a month."}
+     else
+       b_apts.each {|(apt, price, sqft, bed, bath, renter)| 
+        puts  "#{renter} lives in Apt #{apt}"}
+      end
    end
 end
 
