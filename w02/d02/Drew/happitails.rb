@@ -19,12 +19,7 @@ class Animal
     return @toys
   end
 
-
 end
-
-# animal = Animal.new("rosie", "dog")
-
-# puts animal.name 
 
 class Client 
   def initialize(name, age)
@@ -64,7 +59,6 @@ class Shelter
     return @animals
   end
 
-
   def create_animal
     puts "What is the name of the animal?"
     name = gets.chomp
@@ -76,7 +70,7 @@ class Shelter
 
  def create_client
     puts "What is the clients name?"
-    name = get.chomp
+    name = gets.chomp
     puts "What is the clients age?"
     age = gets.chomp.to_i
     new_client = Client.new(name, age)
