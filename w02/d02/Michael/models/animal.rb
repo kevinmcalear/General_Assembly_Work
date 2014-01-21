@@ -19,8 +19,8 @@ class Animal
 end 
 
 ##TEST###
-rover = Animal.new("Rover", "beagle")
-rover.create_toy_array(["Ball","Frisbee"])
-puts rover.name
-puts rover.species
-puts rover.toys
+# rover = Animal.new("Rover", "beagle")
+# rover.create_toy_array(["Ball","Frisbee"])
+# puts rover.name
+# puts rover.species
+# puts rover.toys

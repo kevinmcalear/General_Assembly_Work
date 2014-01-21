@@ -23,11 +23,11 @@ end
 
 
 ##TEST###
-happitails = Shelter.new("Happitails")
-happitails.create_animals_array(["Rover"])
-happitails.create_clients_array(["Tom"])
-puts happitails.name
-puts happitails.animals
-puts happitails.clients
+# happitails = Shelter.new("Happitails")
+# happitails.create_animals_array(["Rover"])
+# happitails.create_clients_array(["Tom"])
+# puts happitails.name
+# puts happitails.animals
+# puts happitails.clients
 
 
