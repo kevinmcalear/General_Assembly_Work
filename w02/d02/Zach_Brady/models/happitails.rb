@@ -17,6 +17,11 @@ class Shelter
     return @clients
   end
 
+  def to_s
+    return name
+  end
+
+
   def adoption(animal_name, client_name)
     # finds and removes animal object from Shelter's array, popping it into a variable
     #puts self.get_clients.index(client_name).get_pets
@@ -45,6 +50,9 @@ class Client
     return @pets
   end
 
+  def to_s
+    return name
+  end
 end
 
 class Animal
@@ -65,16 +73,8 @@ class Animal
   def get_toys
     return @toys
   end
+
+  def to_s
+    return name
+  end
 end
-
-happitails = Shelter.new("Happitails", ["Miss Kitty", "Tuxedo Cat", "Henry Miller"], ["Valerie Brady"])
-vb = Client.new("Valerie Brady", 59, ["Lucy Liu", "Bettina", "Jimmy", "Lily"])
-miss_kitty = Animal.new("Miss Kitty", "cat", [])
-tg = Animal.new("Tuxedo Cat", "cat", [])
-henry = Animal.new("Henry Miller", "cat", [])
-lucy = Animal.new("Lucy Liu", "cat", [])
-jimmy = Animal.new("Jimmy", "cat", [])
-lily = Animal.new("Lily", "cat", [])
-
-puts happitails.adoption("Miss Kitty", "Valerie Brady")
-
