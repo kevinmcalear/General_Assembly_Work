@@ -9,12 +9,11 @@ guess = gets.chomp.to_i
 while secret != guess
   binding.pry
   if secret <  guess
-    puts "Too high!"
+    puts "Too high! Guess again:"
   else
-    puts "Too low!"
+    puts "Too low! Guess again:"
   end
   guess = gets.chomp
-  binding.pry
 end
 
 puts "Congrats! Do you want a cookie?!?!?!"
