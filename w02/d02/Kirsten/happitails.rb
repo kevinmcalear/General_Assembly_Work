@@ -27,6 +27,9 @@ class Client
     @name = name
     @client_pets = []
   end
+  def name
+    return @name
+  end
   def client_pets 
     return @client_pets
   end
@@ -61,6 +64,9 @@ class Shelter
     self.pets.push(pet)
     client.abandon_pet(pet)
   end
+  def add_pet(pet)
+    self.pets.push(pet)
+  end
   def adopt_out_pet(pet,client)
     self.pets.delete(pet)
     client.adopt_pet(pet)
@@ -89,7 +95,7 @@ end
 # A shelter should be able to facilitate a return (one of its clients returning his/her pet to the shelter)
 #   add pet to pets array
 
-Commit 1
+# Commit 1
 
 
 

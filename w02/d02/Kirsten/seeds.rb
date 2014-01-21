@@ -1,5 +1,5 @@
 #starting data, example data to work with
-require_relative "happitrails"
+require_relative "happitails"
 
 george = Animal.new("George")
 george.species=("dog")
@@ -25,6 +25,9 @@ agatha = Client.new("Agatha")
 agatha.age=(29)
 agatha.adopt_pet(millie)
 
-aspca = Shelter.new("ASPCA")
-aspca.receive_pet(charlie,alex)
-aspca.receive_pet(millie,agatha)
+$aspca = Shelter.new("ASPCA")
+$aspca.receive_pet(charlie,alex)
+$aspca.receive_pet(millie,agatha)
+$aspca.add_client(mike)
+$aspca.add_client(alex)
+$aspca.add_client(agatha)
