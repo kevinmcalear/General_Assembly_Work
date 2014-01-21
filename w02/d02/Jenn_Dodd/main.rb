@@ -24,15 +24,17 @@ def menu(shelter_name)
   return response
 end
 
-puts
+puts `clear`
 puts "Welcome to #{shelter_name}!"
 menu_response = menu(shelter_name)
 
 while menu_response != "8"
   case menu_response
   when "1"
+    puts `clear`
     happitails.add_animal 
   when "2"
+    puts `clear`
     happitails.add_client
   when "3"
     puts "What is the name of your shelter?"
@@ -40,6 +42,7 @@ while menu_response != "8"
     new_shelter = Shelter.new(shelter_name)
     puts "#{new_shelter_name} has been added, but we think #{shelter_name} is better!"
   when "4"
+    puts `clear`
     happitails.list_animals
   when "5"
     happitails.list_clients
@@ -48,6 +51,7 @@ while menu_response != "8"
     #List clients
     happitails.list_clients
     adopter = gets.chomp
+
     puts "What is the name of the pet #{adopter} would like to adopt?"
     #List each animal they can adopt
     happitails.list_animals
@@ -64,7 +68,24 @@ while menu_response != "8"
     adopter_client.add_pet(adoptee_pet)
     happitails.delete_pet(adoptee_pet)
   when "7"
-    #code
+    puts `clear`
+    puts "Which client is returning a pet?"
+    #List clients and find client
+    happitails.list_clients
+    returner = gets.chomp
+    returner_client = happitails.clients.find do |client|
+      client.client_name == returner
+    end
+
+    puts "What is the name of the pet #{returner} would like to give back?"
+    #List each animal they can adopt
+    returner_client.list_pets
+    returned = gets.chomp
+    returned_pet = returner_client.pets.find do |pet|
+      pet.animal_name == returned
+    end
+    returner_client.give_back_pet(returned_pet)
+    happitails.reclaim_pet(returned_pet)
   else
     puts "Sorry, that was not an option."
   end

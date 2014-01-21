@@ -51,9 +51,22 @@ class Client
   def to_s
     return "#{client_name}"
   end
+  def list_pets
+    if self.pets != []
+      self.pets.each do |pet|
+        puts pet
+      end
+    else
+      puts "No animals adopted yet!"
+    end
+  end
   def add_pet(adoptee_pet)
     self.pets().push(adoptee_pet)
     puts "#{client_name} has adopted #{adoptee_pet}!"
+  end
+  def give_back_pet(adoptee_pet)
+    self.pets().delete(adoptee_pet)
+    puts "You didn't deserve #{adoptee_pet} anyway, #{client_name}!"
   end
 end
 
@@ -112,6 +125,10 @@ class Shelter
     else
       puts "No clients on file yet!"
     end
+  end
+  def reclaim_pet(adoptee_pet)
+    self.animals().push(adoptee_pet)
+    puts "Welcome back, #{adoptee_pet}!"
   end
   def delete_pet(adoptee_pet)
     self.animals().delete(adoptee_pet)
