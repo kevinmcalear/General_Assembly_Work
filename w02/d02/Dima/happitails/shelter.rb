@@ -15,10 +15,5 @@ class Shelter
 
   def clients
     @clients
-  end
-
-  def add_animal
-    animal_in_shelt = Animal.new
-    self.animals << animal_in_shelt
   end 
 end
