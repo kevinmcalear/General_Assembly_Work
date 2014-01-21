@@ -24,12 +24,15 @@ end
 
 
 class Apartment
-  def initialize(apt_name, price, sqft, num_beds, num_baths, renter=nil)
+  def initialize(apt_name, price, sqft, num_beds, num_baths)
     @apt_name = apt_name
     @price = price
     @sqft = sqft
     @num_beds = num_beds
     @num_baths = num_baths
+  end
+
+  def renter=(renter)
     @renter = renter
   end
 
@@ -37,21 +40,17 @@ class Apartment
     @apt_name
   end
 
-
   def price
     @price
   end
-
 
   def sqft
     @sqft
   end
 
-
   def num_beds
     @num_beds
   end
-
 
   def num_baths
     @num_baths
@@ -111,17 +110,21 @@ class Building
   def apt_list
     if @apts.length > 0
       puts "There are #{@apts.length} now"
-      @apts.each {|i| puts "#{i.apt_name}, it's area is #{i.sqft} sq.ft., it has #{i.num_baths} bathrooms, it has #{i.num_beds}
-      bedrooms and it costs $#{i.price} per month. \n \n"}
-# Have to make another method def avail_apt, to be able to show them for new tenant, and in here.
-# Separate empty apt and occupied
+      @apts.each  do |i|
+        if i.renter == nil
+          puts "#{i.apt_name}, it's area is #{i.sqft} sq.ft., it has #{i.num_baths} bathrooms, it has #{i.num_beds}
+          bedrooms and it costs $#{i.price} per month. \n \n"
+        else
+          puts "The apt #{i.apt_name} is occupied, #{i.renter.renter_name} lives there"
+        end
+      end
     else
   puts self.empty_array
     end
   end
 
   def empty_array
-    "Your building doesn't have apartments yet, please build add one \n \n"
+    "Your building doesn't have apartments yet, please add one \n \n"
   end
 
   def quit
@@ -157,20 +160,31 @@ class Building
       self.add_apt(apt1)
       puts apt1.apt_info
     when "t"
-      puts "You're about to throw another inmate in your dirty cell. Yay!"
-      puts "Please add his/her bloody name: "
-      renter_name = gets.chomp
-      puts "Please tell me how many years she/he's been surviving on this planet?"
-      age = gets.chomp
-      puts "So and well, yes :) what is this creature's gender?"
-      gender = gets.chomp
-      person1 = Person.new(renter_name, age, gender)
-      puts person1.person_details
-      puts "Where would you like to live Mr/Ms #{person1.renter_name}?"
-      puts "Right now we have these apartments available"
-      self.apt_list
-      # Have to create something like that apt => [name, price, sqft, bedrms, bathrms, renter => [name, age, gender]]
-      # Let the person choose apt and add him there.
+      if self.apts.length > 0 
+        puts "You're about to throw another inmate in your dirty cell. Yay!"
+        puts "Please add his/her bloody name: "
+        renter_name = gets.chomp
+        puts "Please tell me how many years she/he's been surviving on this planet?"
+        age = gets.chomp
+        puts "So and well, yes :) what is this creature's gender?"
+        gender = gets.chomp
+        person1 = Person.new(renter_name, age, gender)
+        puts person1.person_details
+        puts "Where would you like to live Mr/Ms #{person1.renter_name}?"
+        puts "Right now we have these apartments available. Please enter apartment number that you like"
+        self.apt_list
+        apt_choice = gets.chomp
+        self.apts.each do |i|
+          if (i.apt_name == apt_choice) && (i.renter == nil)
+            i.renter=(person1)
+            puts "The #{person1.renter_name} started living in apartment #{i.apt_name}"
+          else
+            puts "Please choose unocupied apartment"
+          end
+        end
+      else
+        puts "There are no apartments in the building yet. Please add apartment first\n\n"
+      end
       when "l"
         self.apt_list
       when "q"
@@ -182,7 +196,6 @@ class Building
     return option
   end
 end
-
 
 # Initializes the building
 puts "Welcome to Rent-Fest 2014"
@@ -203,5 +216,3 @@ option = nil
 while option != "q"
   option = building.menu
 end
-
-####### ASSOCIATION OF PEOPLE AND APTS LEFT and Bonus !!!! #######
