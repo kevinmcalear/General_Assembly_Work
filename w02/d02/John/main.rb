@@ -1,6 +1,7 @@
 # require_relative "models/shelter"
 # require_relative "models/client"
 # require_relative "models/animal"
+require 'pry'
 
 class Shelter
   def initialize(name)
@@ -16,13 +17,21 @@ class Shelter
     return @name
   end
 
+  def animals_list
+    return @animals_list
+  end
+
+  def clients_list
+    return @clients_list
+  end
+
   def add_animal
     puts "What is the animal's name?"
     name = gets.chomp
     puts "What is the animal's species?"
     species = gets.chomp
     animal = Animal.new name, species
-    @animals_list << animal
+    self.add_to_animals_list(animal)
   end
 
   def add_client
@@ -31,25 +40,76 @@ class Shelter
     puts "What is the client's age?"
     age = gets.chomp
     client = Client.new name, age
-    @clients_list << client
+    self.add_to_clients_list(client)
   end
 
-  def update_animals_list(animal)
-    @animals_list << animal
+  def add_to_animals_list(animal)
+    self.animals_list << animal
   end
 
-  def update_clients_list(client)
-    @clients_list << client
+  def add_to_clients_list(client)
+    self.clients_list << client
   end
 
-  def list_animals
+  def print_animals_list
     #print the list of shelter's animals
-    @animals_list.each {|animal| puts animal.name}
+    a = self.animals_list.map {|animal| animal.name}
+    puts "{#{a.join(", ")}}"
   end
 
-  def list_clients
+  def print_clients_list
     #print the list of shelter's clients
-    @clients_list.each {|client| puts client.name}
+    a = self.clients_list.map {|client| client.name}
+    return "{#{a.join(", ")}}"
+  end
+
+  def get_which_client
+    puts "what is the name of the client?"
+    puts puts self.print_clients_list
+    client_name = gets.chomp
+    return self.clients_list.find {|client| client.name == client_name}
+  end
+
+  def get_which_animal
+    puts "Please select which animal:"
+    self.print_animals_list
+    animal_name = gets.chomp
+    return self.animals_list.find {|anim| anim.name == animal_name}
+  end
+
+  def facilitate_adoption
+    # get client
+    print "For adopting, "
+    client = self.get_which_client
+
+    # get animal
+    animal = self.get_which_animal
+
+    # add animal to client's pets
+    client.adopt_animal(animal)
+    puts "#{client.name}'s pets now are: #{client.print_pets_list}"
+
+    # remove animal from shelter's list
+    self.animals_list.delete(animal)
+
+  end
+
+  def facilitate_return
+    #get client
+    print "For returning, "
+    client = self.get_which_client
+
+    #get pet
+    animal = client.get_which_pet
+    
+    #remove animal from client's pet list
+    client.return_pet(animal)
+    
+    puts "#{client.name}'s pets now are #{client.print_pets_list}"
+
+    #add animal to shelter's list
+    self.animals_list << animal
+
   end
   
 end
@@ -74,6 +134,26 @@ class Client
 
   def pets
     return @pets
+  end
+
+  def adopt_animal(animal)
+    self.pets << animal
+  end
+
+  def return_pet(pet)
+    self.pets.delete(pet)
+  end
+
+  def print_pets_list
+    a = self.pets.map {|pet| pet.name}
+    return "{#{a.join(", ")}}"
+  end
+
+  def get_which_pet
+    puts "Please select which pet:"
+    puts self.print_pets_list
+    animal_name = gets.chomp
+    return self.pets.find {|anim| anim.name == animal_name}
   end
   
 end
@@ -116,7 +196,9 @@ def menu(shelter)
   puts "2) Create a client"
   puts "3) List all animals"
   puts "4) List all clients"
-  puts "5) Quit"
+  puts "5) Adopt a pet"
+  puts "6) Return a pet"
+  puts "7) Quit"
   menu_choice = gets.chomp
 
   case menu_choice
@@ -125,9 +207,13 @@ def menu(shelter)
   when '2'
     shelter.add_client
   when '3'
-    shelter.list_animals
+    shelter.print_animals_list
   when '4'
-    shelter.list_clients
+    puts shelter.print_clients_list
+  when '5'
+    shelter.facilitate_adoption
+  when '6'
+    shelter.facilitate_return
   end
   puts
   return menu_choice
@@ -140,14 +226,14 @@ shelter1 = Shelter.new("Happy Pets")
 client1 = Client.new("Jeff", 33)
 animal1 = Animal.new("Buddy", 3)
 
-shelter1.update_animals_list(animal1)
-shelter1.update_clients_list(client1)
+shelter1.add_to_animals_list(animal1)
+shelter1.add_to_clients_list(client1)
 
 
 
 
 
-while menu(shelter1) != "5"
+while menu(shelter1) != "7"
 end
 
 
