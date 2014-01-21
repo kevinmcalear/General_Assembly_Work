@@ -14,12 +14,12 @@ class Shelter
 
   def display_clients
     puts "Clients:"
-    self.clients.each_with_index {|client, num| puts (num + 1) + " " + client}
+    self.clients.each_with_index {|client, num| puts "#{num + 1} #{client.name} #{client.age}"}
   end
 
   def display_animals
     puts "Animals:"
-    self.animals.each_with_index {|animal, num| puts (num + 1) + " " + animal}
+    self.animals.each_with_index {|animal, num| puts "#{(num + 1)} #{animal.name} the #{animal.species}"}
   end
 
   def add_animal(animal)

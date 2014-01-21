@@ -3,10 +3,13 @@ require_relative "client"
 require_relative "animal"
 
 def display_menu
+  3.times {puts}
   puts "Pick an option from the menu:"
   puts "1) Create an animal"
   puts "2) Create a client"
-  puts "3) Quit"
+  puts "3) Display Animals"
+  puts "4) Display Clients"
+  puts "5) Quit"
 end
 
 def execute_choice(choice, shelter)
@@ -16,6 +19,10 @@ def execute_choice(choice, shelter)
   when "2"
     create_client(shelter)
   when "3"
+    shelter.display_animals
+  when "4"
+    shelter.display_clients
+  when "5"
     return :done
   end
 
@@ -47,7 +54,7 @@ end
 
 shelter = Shelter.new("HappiTails")
 
-10.times {puts}
+4.times {puts}
 puts "Welcome to #{shelter.name}!"
 
 done = false
