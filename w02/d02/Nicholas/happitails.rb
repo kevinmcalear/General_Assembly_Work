@@ -64,17 +64,25 @@ end
       return @clients
     end
 
+    def add_animal
+      puts "What is the name of the animal?"
+      name = gets.chomp
+      puts "What is the species?"
+      species = gets.chomp
+      animal = Animal.new(name, species)
+      self.animals().push(animal)
+    end
+
+    def add_client
+      puts "What is the name of the client?"
+      name = gets.chomp
+      puts "What is the age of the client?"
+      age = gets.chomp
+      client = Client.new(name, age)
+      self.clients().push(client)
+    end
+
   end
 
-rover = Animal.new("Rover", "dog")
-puts rover.name
-puts rover.species
-
-john = Client.new("John", 40)
-puts john.name
-puts john.age
-
-paws = Shelter.new("Paws4U")
-puts paws.name
 
 
