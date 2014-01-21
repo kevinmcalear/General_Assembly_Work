@@ -2,7 +2,7 @@ class Animal
   
   def initialize(name, species)
     @name = name
-    @species = species.to_sym
+    @species = species
     @animal_toys = []
   end
 
@@ -17,7 +17,7 @@ class Client
 
   def initialize(name, age)
     @name = name
-    @age = age.to_i
+    @age = age
     @pets = []
   end
 
@@ -52,7 +52,7 @@ class Shelter
     @shelter_animals = []
   end
 
-  def name
+  def name()
     return @name
   end
 
@@ -61,7 +61,7 @@ class Shelter
     @shelter_clients << @client
   end
 
-  def show_clients
+  def show_clients()
     return @shelter_clients
   end
 
@@ -70,7 +70,7 @@ class Shelter
     @shelter_animals << @animal
   end
 
-  def show_pets
+  def show_pets()
     return @shelter_animals
   end
 
@@ -81,25 +81,82 @@ class Shelter
     return [@adopter, @pet]
   end
 
-  def to_s
+  def to_s()
     "This shelter is named #{self.name} with clients: #{self.show_clients}"
   end
 
 end
 
+class Menu
+
+  def animal()
+    puts "Ok, let's register an animal. Please enter their name:"
+    name = gets.chomp.capitalize
+    puts "And what kind of animal is #{name}?"
+    species = gets.chomp.to_sym
+    @new_animal = Animal.new(name, species)
+    puts "Nice! #{name} the #{species} has been registered."
+  end
+
+  def register_animal()
+    return @new_animal
+  end
+
+  def client()
+    puts "Ok, let's register a client. Please enter their name:"
+    name = gets.chomp.capitalize
+    puts "And how old is #{name}?"
+    age = gets.chomp.to_i
+    new_client = Client.new(name, age)
+    puts "Good job! We've registered #{name} as a client."
+  end
+
+  def register_client()
+    return @new_client
+  end
+
+  def shelter()
+    puts "Ok, let's register a new shelter"
+    name = gets.chomp.capitalize
+    new_shelter = Shelter.new(name)
+    puts "Lovely. The #{name} shelter has been registered."
+  end
+
+end
+
+
 # -------------------------------------
 
+# shelter = Shelter.new("GA")
+# human1 = Client.new("Ilias", "23")
+# pet1 = Animal.new("Simba", "cat")
+
+
+# shelter.add_client(human1)
+# shelter.show_clients
+# shelter.add_animal(pet1)
+# shelter.adopt(human1, pet1)
+
+#-------------------------------------
+##Menu##
+menu = Menu.new
 shelter = Shelter.new("GA")
-human1 = Client.new("Ilias", "23")
-pet1 = Animal.new("Simba", "cat")
 
+puts "****Hi, Welcome to your Virtual Adoption Center!****\n"
+puts "Please choose from the following options:"
+puts "create an (A)nimal, create a (C)lient, create a (S)helter, or (Q)"
+user_input = gets.chomp.upcase
 
-shelter.add_client(human1)
-shelter.show_clients
-shelter.add_animal(pet1)
-shelter.adopt(human1, pet1)
+case user_input
+when "A"
+  menu.animal
+  shelter.add_animal(menu.register_animal)
+when "C"
+  menu.client
+  shelter.add_client(menu.register_client)
+when "S"
+  menu.shelter
+when "Q"
+  exit
+end
 
-
-
-
-puts shelter
