@@ -33,6 +33,24 @@ class Shelter
     client = Client.new name, age
     @clients_list << client
   end
+
+  def update_animals_list(animal)
+    @animals_list << animal
+  end
+
+  def update_clients_list(client)
+    @clients_list << client
+  end
+
+  def list_animals
+    #print the list of shelter's animals
+    @animals_list.each {|animal| puts animal.name}
+  end
+
+  def list_clients
+    #print the list of shelter's clients
+    @clients_list.each {|client| puts client.name}
+  end
   
 end
 
@@ -96,7 +114,9 @@ def menu(shelter)
   puts "Welcome! Please choose an option:"
   puts "1) Create an animal"
   puts "2) Create a client"
-  puts "3) Quit"
+  puts "3) List all animals"
+  puts "4) List all clients"
+  puts "5) Quit"
   menu_choice = gets.chomp
 
   case menu_choice
@@ -104,6 +124,10 @@ def menu(shelter)
     shelter.add_animal
   when '2'
     shelter.add_client
+  when '3'
+    shelter.list_animals
+  when '4'
+    shelter.list_clients
   end
   puts
   return menu_choice
@@ -116,11 +140,14 @@ shelter1 = Shelter.new("Happy Pets")
 client1 = Client.new("Jeff", 33)
 animal1 = Animal.new("Buddy", 3)
 
+shelter1.update_animals_list(animal1)
+shelter1.update_clients_list(client1)
 
 
 
 
-while menu(shelter1) != "3"
+
+while menu(shelter1) != "5"
 end
 
 
