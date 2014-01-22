@@ -63,14 +63,10 @@ describe "The Dream:" do
 
       it "allows all to sit down together" do
         expect(georgia.table_of_brotherhood).to be_kind_of(Array)
-        expect {georgia.sit_at_table(
-          @sons_of_former_slaves && @sons_of_former_slave_owners
-        )}.not_to raise_error
-
-        georgia.sit_at_table(
-          @sons_of_former_slaves && @sons_of_former_slave_owners
-        )
-
+        expect(georgia.table_of_brotherhood).not_to include(@sons_of_former_slaves.first)
+        expect { georgia.sit_at_table(
+          @sons_of_former_slaves + @sons_of_former_slave_owners
+        ) }.not_to raise_error
         expect(georgia.table_of_brotherhood).to include(@sons_of_former_slaves.first)
       end
     end
@@ -110,6 +106,11 @@ describe "The Dream:" do
       alabama.people.select do |person|
         person[:age] < 19
       end
+    end
+
+    it "has children" do
+      expect(alabama.people.find {|person| person[:age].nil?} ).to be nil
+      expect(boys_and_girls.count).to be >= 2
     end
 
     it "has white and black children" do
