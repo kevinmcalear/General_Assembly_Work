@@ -2,12 +2,10 @@ require_relative'happitails'
 require_relative'seeds'
 require 'pry'
 
-# create new shelter
-# display menu of options
 def menu
   puts "Welcome to the shelter menu"
   puts "What would you like to do?"
-  puts "1. Add an animal"
+  puts "1. Put an animal up for adoption"
   puts "2. Add a client"
   puts "3. List all the pets in the shelter"
   puts "4. List all the clients"
@@ -38,8 +36,6 @@ def create_animal
   $aspca.add_pet(name)
   menu
 end
-# Create an animal - ask for appropriate info
-#   add to pets array
 
 def create_client
   puts "What is the client's name?"
@@ -54,9 +50,7 @@ def create_client
   $aspca.add_client(client_name)
   menu
 end
-# Create a client - ask for appropriate info
-#   add to client array
-# Quit
+
 def adopt_animal
   puts "Which animal is being adopted?"
   response = gets.chomp
@@ -98,15 +92,4 @@ choice = gets.chomp
 
 end
 
-
-
-# Commit 2
-
-# add options to menu :Display all animals
-#                     :Display all clients
-
-# commit 3
-
-# add options: Adopt animal - remove animal from pets array
-#             Client puts animal up for adoption - add animal to pets array.
 

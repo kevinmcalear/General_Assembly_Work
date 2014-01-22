@@ -46,7 +46,6 @@ class Client
     self.client_pets.delete(pet)
   end
 end
-# A client can have multiple pets (animals), but it doesn't start with any.
 
 class Shelter 
   def initialize(name)
