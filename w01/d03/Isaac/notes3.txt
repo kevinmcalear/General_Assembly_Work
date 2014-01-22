@@ -1,0 +1,71 @@
+January 15 2014
+
+Data structures
+semantic
+efficient storage / access to information
+
+Array
+list of data
+ordered
+indexed from 0
+
+array[index]
+
+array pointing to objects:
+
+[6] pry(main)> deli_meats.push(roast_beef)
+=> ["roast beef"]
+[7] pry(main)> deli_meats
+=> ["roast beef"]
+[8] pry(main)> roast_beef.upcase!
+=> "ROAST BEEF"
+[9] pry(main)> deli_meats
+=> ["ROAST BEEF"]
+
+Arrays are ordered. .push adds things on to the end of the list. .pop removes things from the end of the list. .shift removes from the beginning of the list.
+
+array.delete(element) will remove all instances of that element
+array.index(element) will return the index of the element
+array[index] = element will set an element to that index
+
+An array is just a map of references. 
+.sample picks out a random element from an arrays
+
+local variable 
+global variable: $variable
+
+Methods should have a single purpose that you can explain concisely 
+
+Hashes
+associative array
+instead of indices we have keys
+symbol is similar to a string. they are used as keys - they refer to other things. 
+hash[key] = value     sets the value for said key
+
+ennumerables help us iterate through arrays
+blocks are similar to methods
+you can iterate over hashes too
+each returns itself
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
