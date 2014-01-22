@@ -59,7 +59,7 @@ while user_choice != 8
       animal_name.name == pet_to_assign
     end
 
-    if client.pets.length > 2
+    if client.pets.length > 1
       puts "You Can't adopt any more pets!!! GO HOME!"
     else
 
@@ -81,14 +81,9 @@ while user_choice != 8
     $shelter.animals().push(pet)
     client.pets.delete(pet)
   when  7
-  $shelter.clients.each do |client_name|
-      client_name.to_s 
+    client_list = $shelter.clients()
+    client_list.each.each {|c| puts c.to_s}
     end
 
-
-  else
-    puts "Please enter choice from the menu"
-    user_choice = gets.chomp.to_i
-  end
   user_choice = menu
 end

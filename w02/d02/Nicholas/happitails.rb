@@ -50,8 +50,12 @@ class Client
     self.pets().push(pet)
   end
 
+  def list_pets
+    self.pets
+  end
+
   def to_s
-    puts "#{name} owns #{pets}"
+    puts "#{name} owns #{list_pets}"
   end
 
 end
