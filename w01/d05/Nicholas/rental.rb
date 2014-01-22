@@ -278,10 +278,10 @@ when 4
   print ">"
   # push the occupant into the apartment
   apt_to_occupy = gets.chomp
-  found = newbuilding.apts.select do |spaces|
+  found = newbuilding.apts.find do |spaces|
     spaces.apt_name == apt_to_occupy
   end
-   found[0].apt_number.add_p(new_tenant.name)
+   found.add_p(new_tenant.name)
 
   end
   end_program = "no"

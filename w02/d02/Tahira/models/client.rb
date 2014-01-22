@@ -21,6 +21,13 @@ class Client
     @pets.push(pet)
   end
 
+  def get_pet(name_animal)
+    animal = @pets.find do |pet|
+      pet.name == name_animal
+    end
+    return animal
+  end
+
   def print_pets
     puts "***#{self.name}'s Pets***"
      @pets.each do |pet|
@@ -29,3 +36,4 @@ class Client
   end
 
 end
+
