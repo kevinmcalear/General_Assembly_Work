@@ -54,10 +54,11 @@ while menu_choice != "7"
     shelter.display_clients
 
   when "5"
+    #displays clients
     shelter.display_clients
     puts "Which client will be adopting an animal?"
     client_name_select = gets.chomp
-    
+    #finding client in database
     found_client = shelter.clients.find do |i|
       i.name == client_name_select
     end
@@ -70,9 +71,10 @@ while menu_choice != "7"
     end
 
     puts "Which pet does #{client_name_select} would like to adopt?"
+    #displaying animals in shelter
     shelter.display_animals
     animal_name_select = gets.chomp
-    
+    #finding selected animal in shelter
     found_animal = shelter.animals.find do |a|
       a.name == animal_name_select
     end
@@ -81,16 +83,17 @@ while menu_choice != "7"
       puts "Please enter animals' name correctly and start over"
       menu
     end
-
+    #giving animal to client and removing from shelter
     found_client.add_pet( found_animal )
     shelter.animals.delete( found_animal )
     puts "#{found_client.name} successfuly adopted #{found_animal.name}"
 
   when "6"
+    #displaying clients
     shelter.display_clients
     puts "Which client will be giving animal to shelter?"
     client_name_select = gets.chomp
-
+    #finding client in database
     found_client = shelter.clients.find do |i|
       i.name == client_name_select
     end
@@ -101,17 +104,19 @@ while menu_choice != "7"
       puts "Please add clients first"
       menu
     end
-
+    #checking if client has pes at all
     if found_client.pets.size == 0
       puts "This client doesn't have any pets, please start the menu over"
       menu
     else
+      #displaying pets to shelter from client
       puts "Which pet does #{found_client.name} would like to give for adoption?"
       found_client.pets.each {|i| puts i.name + " the " + i.species}
       puts "Please enter name of the animal you prefer"
       animal_name_select = gets.chomp
       puts "Please enter species of the animal you called"
       animal_species_select = gets.chomp
+      #finding pet in clients possesion
       found_animal = found_client.pets.find do |a|
         a.name == animal_name_select && a.species == animal_species_select
       end
@@ -120,6 +125,7 @@ while menu_choice != "7"
         puts "Please enter animal's name and species correctly and start over"
         menu
       end
+      #adding animal to shelter and removing from client
       shelter.add_animal(found_animal)
       found_client.pets.delete(found_animal)
       puts "#{found_client.name} has successfuly given his #{found_animal.name} the #{found_animal.species} to shelter." 
