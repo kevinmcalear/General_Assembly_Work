@@ -9,7 +9,7 @@ def print_out_your_choices_and_return_the_choice
   puts "Choose an option"
   puts "1. Create an Animal"
   puts "2. Create a Client"
-  # puts "3. Display all Animals"
+  puts "3. Display all Animals"
   # puts "4. Display all Clients"
   puts "5. Quit"
   menu_response = gets.chomp.to_i
@@ -22,7 +22,6 @@ happitails = Shelter.new("HappiTails")
 
 # - We should display a menu of options for the user to choose from:
 choice = print_out_your_choices_and_return_the_choice
-
 
 # - When creating an animal 
 if choice == 1
@@ -51,6 +50,10 @@ elsif choice == 2
 
   # clients should be added to the shelter
 happitails.add(new_client)
+
+# - Display all animals
+elsif choice == 3
+  puts animal_list ()
 
 # if the choice is 5 then quit!
 else choice == 5

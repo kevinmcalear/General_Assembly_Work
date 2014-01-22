@@ -1,20 +1,20 @@
 class Shelter
   def initialize (shelter_name)
     @shelter_name = shelter_name
-    @animals = []
-    @clients =[]
+    @animal_list = []
+    @client_list =[]
   end
 
   def name
     return @name
   end
 
-  def client
-    return @client
+  def client_list
+    return @client_list
   end
 
-  def animal
-    return @animal
+  def animal_list
+    return @animal_list
   end
 
   # def adopt(an_animal)
