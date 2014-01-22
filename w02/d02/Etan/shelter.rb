@@ -32,8 +32,15 @@ end
 class Client
 
   def initialize(name, age)
+    
+    @adopted_animals = []
+
     @name = name
     @age = age
+  end
+
+  def adopted_animals
+    return @adopted_animals
   end
 
   def name
@@ -49,7 +56,7 @@ class Client
   end
 
   def to_s
-    return "#{name} who is #{age} years old."
+    return "#{name} who is #{age} years old. Pets, if any: #{adopted_animals}."
   end
 end
 
@@ -123,6 +130,8 @@ def menu
   puts "3: Create a shelter"
   puts "4: List animals"
   puts "5: List clients"
+  puts "6: Adopt an animal!"
+  puts "7: :( Give your pet up for adoption."
   puts " "
   puts "9: Quit program and be a jerk!"
   puts " "
@@ -156,6 +165,41 @@ while menu_choice != 9
    sample_shelter.client_list.each do |client|
       puts client
     end
+  when 6
+    puts "Which animal would you like to adopt?"
+    sample_shelter.animal_list.each do |animal|
+      puts animal
+    end
+
+    animal_select_choice = gets.chomp
+
+    animal_selected = sample_shelter.animal_list.find do |animal| 
+      animal.animal_name == animal_select_choice
+    end
+
+
+    puts "You have selected #{animal_selected} for adoption. Congratulations! Now who is adopting #{animal_selected.animal_name}?"
+    sample_shelter.client_list.each do |client|
+      puts client
+    end
+
+    client_select_choice = gets.chomp
+
+    client_selected = sample_shelter.client_list.find do |client|
+      client.name == client_select_choice
+    end
+
+    client_selected.adopted_animals << animal_selected
+
+    puts "#{client_selected.name} is now the proud owner of #{animal_selected.animal_name}!"
+
+    sample_shelter.animal_list.delete(animal_selected)
+
+  when 7 
+    puts
+  when 8
+    puts 
+
   else
     puts "You're typing things that don't make sense. Get your head checked."
   end
