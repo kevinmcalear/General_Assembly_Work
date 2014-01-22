@@ -71,6 +71,9 @@ class Shelter
     self.pets.delete(pet)
     client.adopt_pet(pet)
   end
+  def remove_pet(pet)
+    self.pets.delete(pet)
+  end
   def add_client(client)
     self.clients.push(client)
   end

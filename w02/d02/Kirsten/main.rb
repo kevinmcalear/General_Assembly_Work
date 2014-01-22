@@ -1,5 +1,6 @@
 require_relative'happitails'
 require_relative'seeds'
+require 'pry'
 
 # create new shelter
 # display menu of options
@@ -24,14 +25,16 @@ def create_animal
   puts "What toys does it have? Put \"none\" for none"
   response = gets.chomp
   toys = response
-  puts "Who is bringing him in?"
+  puts "Who is bringing it in?"
   response = gets.chomp
   drop_off_client = response
+  drop_off_client = Client.new("#{drop_off_client}")
+  $aspca.add_client(drop_off_client)
 
   name = Animal.new("#{name}")
   name.species=(species)
   name.add_toy(toys)
-  puts "You have added #{name.name}, who is a #{species}, brought in by #{drop_off_client}."
+  puts "You have added #{name.name}, who is a #{species}, brought in by #{drop_off_client.name}."
   $aspca.add_pet(name)
   menu
 end
@@ -58,12 +61,17 @@ def adopt_animal
   puts "Which animal is being adopted?"
   response = gets.chomp
   adopted_animal = response
+  to_adopt = $aspca.pets.find do |pet|
+    pet.name == adopted_animal
+  end
   puts "Who is adopting the animal?"
   response = gets.chomp
   adopting_client = response
-  a_client = $aspca.@clients.select { |x| x.include?(adopting_client)} 
-
-  $aspca.adopt_out_pet(adopted_animal, a_client)
+  adopting = $aspca.clients.find do |client|
+    client.name == adopting_client
+  end
+  $aspca.adopt_out_pet(to_adopt, adopting)
+  menu
 end
 
 
