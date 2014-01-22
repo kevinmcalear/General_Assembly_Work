@@ -41,3 +41,6 @@
 7. How would you return an array of the favorite numbers common to all users?
 8. How would you return an array containing all users' favorite numbers, sorted, and excluding duplicates?
 9. How would you change Peter's favorite number 12 into the string "12"?
+
+
+
