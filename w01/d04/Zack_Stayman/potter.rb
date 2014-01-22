@@ -2,6 +2,7 @@ f = File.open("potter.csv", "r")
 values = f.read
 values = values.gsub("\n","~")
 values = values.split("~")
+values = 
 values = values.map {|line| line.split(",")}
 
 def all_names(values)
