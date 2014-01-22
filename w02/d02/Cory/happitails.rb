@@ -30,12 +30,6 @@ class Animal
       return "#{name} is a #{species}"
     end
   end
-  def adopt_animal
-    puts "Great, enter the client name:"
-    name = gets.chomp
-    puts "Enter the animal you want to adopt:"
-    animal = gets.chomp
-  end
 end
 
 ####################
@@ -59,6 +53,9 @@ class Client
   end
   def to_s
     return "#{name} is #{age} years old"
+  end
+  def add_animal(pet)
+    self.animals().push(pet)
   end
 end
 
@@ -96,6 +93,20 @@ class Shelter
     age = gets.chomp
     client = Client.new(name, age)
     self.clients().push(client)
+  end
+  def adopt_animal
+    puts "Great, enter the client name:"
+    adopt_name = gets.chomp
+    adopting_client = $shelter.clients.find do |client|
+    client.name == adopt_name
+      end
+    puts "Enter the animal you want to adopt:"
+    adopt_animal = gets.chomp
+    adopting_animal = $shelter.animals.find do |animal|
+    animal.name == adopt_animal
+      end
+    adopting_client.add_animal(adopting_animal)
+    $shelter.animals.delete(adopting_animal)
   end
 end
 

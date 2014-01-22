@@ -3,12 +3,6 @@ require_relative 'seeds'
 
 
 ####################
-#####Create new shelter
-####################
-
-#$shelter = Shelter.new("Alan Turing Animal Shelter")
-
-####################
 #####Menu
 ####################
 
@@ -22,8 +16,9 @@ def menu
   puts "  4: Display all animals"
   puts "  5: Display all clients"
   puts "  6: Adopt an animal"
-  puts "  7: Put an animal up for adoption"
-  puts "  8: Quit"
+  puts "  7: Display adopted animals/clients"
+  puts "  8: Put an animal up for adoption"
+  puts "  9: Quit"
 
   answer = gets.chomp
   return answer
@@ -36,7 +31,7 @@ end
 
 choice = menu
 
-while choice != "8"
+while choice != "9"
   case choice
   when "1"
     $shelter.add_animals
@@ -53,16 +48,21 @@ while choice != "8"
         puts clients
       end
   when "6"
-    animal.adopt_animal
+    $shelter.adopt_animal
   when "7"
-    something
+    $shelter.clients.animals.each do |animals|
+      puts $shelter.clients
+     end
   when "8"
+    something
+  when "9"
     #quit
   else
     puts "Error!!!"
   end
   choice = menu
 end
+
 
 
 
