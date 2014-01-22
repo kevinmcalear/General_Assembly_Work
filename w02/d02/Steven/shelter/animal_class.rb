@@ -1,4 +1,3 @@
-
 class Animal
   def initialize(name, species)
     @name = name
@@ -27,7 +26,7 @@ class Animal
     puts "What is the owner's age?"
     age = gets.chomp.to_i
     owner = Client.new(name, age)
-    self.owner().push(owner)
+    self.owner << (owner)
   end
 
   # def to_s

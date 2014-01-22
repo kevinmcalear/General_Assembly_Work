@@ -1,4 +1,3 @@
-
 class Client
   def initialize(name, age)
     @name = name
@@ -17,25 +16,25 @@ class Client
   def pets
     return @pets
   end
-  
 
-  def add_animal
-    puts "What is the animal's name?"
-    name = gets.chomp
-    puts "What is the animal's species?"
-    species = gets.chomp
-    animal = Animal.new(name, species)
-    self.pets().push(animal)
+  def add_pet(animal)
+    self.pets << (animal)
   end
 
-  def to_s
-    puts "#{name} is #{age}"
-  end
+  # def add_animal
+  #   puts "What is the animal's name?"
+  #   name = gets.chomp
+  #   puts "What is the animal's species?"
+  #   species = gets.chomp
+  #   animal = Animal.new(name, species)
+  #   self.pets().push(animal)
+  # end
+
+  # def to_s
+  #   #puts "#{name} is #{age}"
+  # end
 end
 
-
-# steve = Client.new("Steve", "30")
-# puts steve
 
 
 
