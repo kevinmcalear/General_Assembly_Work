@@ -182,7 +182,7 @@ while true
     when "add an apartment to the building"
       # Apartments are numbered so variable name should change based on present number of apartments 
       new_apt= Apartment.new("Apartment #{(the_building.apartments().length + 1).to_s}", 2800, 1500, 4, 2, [] )
-      puts "Puts #{new_apt.name} created. "
+      puts "#{new_apt.name} created. "
     when "add a tenant"
       print "Name: "
       new_name = gets.chomp
