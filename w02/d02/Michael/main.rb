@@ -3,37 +3,22 @@ require_relative 'models/animal'
 require_relative 'models/client'
 require_relative 'models/shelter'
 require_relative 'controllers/controllers.rb'
-
-##Instantiate a new shelter
-happitails = Shelter.new("Happitails")
-happitails.create_animals_array(
-    :name=>"Rover", :species=>"Beagle", :toy=>["ball"]
-    )
-happitails.create_animals_array(
-    :name=>"Pookie", :species=>"Retriever", :toy=>["ball, bone"]
-    )
-happitails.create_animals_array(
-    :name=>"Buster", :species=>"Cocker Spaniel", :toy=>["ball"]
-    )
-happitails.create_clients_array(
-    [:name=>"Tom", :age=>20]
-    )
-
-##TEST##
+require_relative 'seeds'
 
 ##Display the Menu of Options
+# puts "Which Shelter would you like to work with?"
+# puts Shelter.all_names
+# puts "***********"
+# shelter = gets.chomp.downcase
+
+
+
+## Run Program
 program = 1
 while program > 0
   #puts `clear`
   puts "***************"
-  
-  puts happitails.animals
-  puts happitails.animals.length
-  puts happitails.animals[0][:name]
-
-
   puts ""
-  
   puts "Welcome to the Happitails System Manager"
   puts "Please select your option:"
   puts "[1]: Create an Animal"
@@ -41,21 +26,27 @@ while program > 0
   puts "[3]: Create a Shelter"
   puts "[4]: Display the Animals"
   puts "[5]: Display the Clients"
-  puts "[6]: Quit"
+  puts "[6]: Adopt an Animal"
+  puts "[7]: Put an animal up for adoption"
+  puts "[8]: Quit"
   puts ""
   puts "***************"
   option = gets.chomp
   case option
   when "1"
-    create_animal(happitails)
+    create_animal($happitails)
   when "2"
-    create_client(happitails)
+    create_client($happitails)
   when "3"
   when "4"  
-    display(happitails,"animals")
+    display($happitails,"animals")
   when "5"
-    display(happitails,"clients")
+    display($happitails,"clients")
   when "6"
+    adopt_animal($happitails)
+  when "7"
+    provide_animal($happitails)
+  when "8"
     puts "Thank you for using the Happitails System Manager"
     program = 0
   end

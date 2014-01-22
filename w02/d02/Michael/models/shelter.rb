@@ -13,6 +13,11 @@ class Shelter
   def clients
     @clients
   end
+
+  def self.all_names
+    ObjectSpace.each_object(self).map(&:name)
+  end
+
   def create_animals_array(array)
     self.animals.push(array)
   end 

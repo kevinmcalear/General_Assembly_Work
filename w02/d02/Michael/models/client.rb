@@ -18,10 +18,9 @@ class Client
   end 
 end 
 
-
-##TEST###
-# tom = Client.new("Tom", 10)
-# tom.create_animals_array(["Rover"])
-# puts tom.name
-# puts tom.age
-# puts tom.animals
+class CatLady < Client  
+  def initialize (name, age)
+    super(name, age)
+    @cats = []
+  end 
+end 
