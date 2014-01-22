@@ -1,0 +1,138 @@
+January 14 2014
+
+Today:
+Git and Github
+Assignment 
+Loops
+Methods
+
+Pull assignments from class repo
+Submit assignments via pull request
+Github is the distributed part of git.. a web site that allows you to collaborate by using git.
+Class repo - each of us will create a fork, or a copy of the class repo
+Class repo is upstream
+My fork is called origin (remote)
+We grab directly from class repo, then push it up to fork afterward
+Pull = fetch + merge
+forking is a concept on github. you're creating your own version of someone else's repository.
+
+How Do I Get Files From GitHub?
+
+Periodically, we'll be posting new assignments and exercises. To get these files, pull (download) them from the main repository (upstream).
+
+From the terminal type: (make sure you are in the correct directory)
+
+git pull upstream master
+
+Homework submission process:
+https://github.com/ga-students/WDI_NYC_12/blob/master/homework_submission_process.md
+
+Use boolean logic && || ! to combine and manipulate ruby statements
+Use if else elsif to control logic flow
+Use ruby case statements
+
+Learning objectives:
+Explain the concept of abstraction and why its important to programmers especially
+Describes ways in which you can apply abstraction to the process of software development ie modeling or encapsulation
+
+1. a is 6
+2. a is 5
+3. b is 7
+4. c is 15
+5. a is 7
+6. c is 25
+7. c is 5. a is 10
+8. b is 10
+9. b is 20
+10. a is "B"
+11. a is "a". b is "A".
+12. c is "Bb"
+13. d is 10Bcc
+14. a is "b". c is "B"
+15. a is aA105. b is "110AA105". c is "105". d is 110
+
+memory does not mean storage. we refer to media in which we save information for a later date as STORAGE / STORE / PERSISTENT STORAGE 
+memory --RAM, motherboard, processor, chips. Memory is used to complete a task. you can do a bigger job with a bigger desk.
+main difference between memory and storage is that storage is very slow to access it. memory is quick.
+we load things into memory. anything we are working with goes into memory.
+the ruby interpreter is written in C. so we dont have to worry about dealing with virtual memory and the OS.
+memory has two aspects. 1. where it is where to get it 2. the value held at that spot itself. ADDRESS. value
+hexadecimal addresses for virtual memory.
+ruby gives us a way to refer to objects based on their address. this is called a reference or a pointer.
+everything we do on our computer has to be in memory. 
+in ruby variables are references
+assignment by value vs. assignment by reference
+ruby always uses assignment by reference
+javascript sometimes uses assignment by value.
+ruby has an internal table where it stores the names of all the variables 
+
+assignemnt by value. take your variable, x = 21, 21 gets put in memory
+assignment by reference. x = 21, now saying x is going to refer to the address of the object 21. relationship is its a pointer.
+y = x, instead of having two separate objects there is still only a single object referencing the same address in memory.
+a = "my generation"
+b = a
+a.upcase!
+when we change a we also change b. because our references are pointers.
+references are like name tags. 
+
+know the meaning of the terms: memory, storage, address, reference, pointer, mutable/immutable objects, mutator methods, setter methods
+
+We are talking about the while loop today.
+
+while some condition
+	your code
+end
+
+git commit -m "merge"
+git pull upstream master
+q
+Explain what a method is and why it is useful
+Define and use methods with arguments
+Return values from a method
+
+Methods and functions are very similar. methods are attached to objects.
+things that you stick in are arguments, things you get out are return values.
+Order is very important in methods
+
+[1] pry(main)> def area(length, width)
+[1] pry(main)*   puts "length: #{length}"
+[1] pry(main)*   puts "width: #{width}"
+[1] pry(main)*   puts "area: #{length * width}"
+[1] pry(main)*   return length * width
+[1] pry(main)* end  
+=> :area
+[2] pry(main)> area(2,3)
+length: 2
+width: 3
+area: 6
+=> 6
+
+How do we capture the return?
+[3] pry(main)> sqft = area(4,5)
+length: 4
+width: 5
+area: 20
+=> 20
+[4] pry(main)> sqft
+=> 20
+
+scope: the context in which certain data is available
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
