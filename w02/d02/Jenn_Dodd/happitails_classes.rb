@@ -120,7 +120,11 @@ class Shelter
   def list_clients
     if self.clients != []
       self.clients.each do |client|
-        puts client
+        if client.pets.count > 0
+          puts "#{client} owns #{client.pets.join(", ")}.8"
+        else 
+          puts "#{client} doesn't have any pets yet."
+        end
       end
     else
       puts "No clients on file yet!"
