@@ -62,7 +62,6 @@ while user_choice != 8
     if client.pets.length > 2
       puts "You Can't adopt any more pets!!! GO HOME!"
     else
-      binding.pry
 
     client.add_pet(pet)
     $shelter.animals.delete(pet)
