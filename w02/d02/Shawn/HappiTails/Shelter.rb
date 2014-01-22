@@ -27,49 +27,109 @@ class Shelter
   end
 
   def facilitate_adoption
-    puts "What's the new client name?"
+    puts "
+
+
+
+
+    What's the new client name?"
     new_client_name = gets.chomp
-    puts "What's the new client's age?"
+    puts "
+
+
+
+
+    What's the new client's age?"
     new_client_age = gets.chomp
     new_client = Client.new(new_client_name, new_client_age)
     self.clients.push(new_client)
-    puts "Which pet would you like to adopt?"
-    puts self.animals
+    puts "
+
+
+
+
+    Which pet would #{new_client_name} like to adopt?"
+    puts "
+
+
+
+
+    #{self.animals.join", \n"}
+    "
     animal_to_adopt = gets.chomp
-    new_client.pets.push(animal_to_adopt)
-    self.animals.delete(animal_to_adopt)
+    #new_client.pets.push(animal_to_adopt)
+    print self.animals
+  
+
+    puts "
+
+
+
+
+    #{animal_to_adopt} was adopted by #{new_client_name} !"
+    puts self.clients[-1]
     self.clients.delete(new_client)
-    puts "#{animal_to_adopt} was adopted by #{new_client_name} !"
   end
 
   def remove_client
-      puts "Which client would you like to remove from the adopter's list?"
+      puts "
+
+
+
+      Which client would you like to remove from the adopter's list?"
       name_to_remove = gets.chomp
       self.clients.delete(name_to_remove)
   end
 
   def put_up_for_adoption
-    puts "Please tell me the client's name :"
+    puts "
+
+
+
+
+    Please tell me the client's name :"
     client_name = gets.chomp
-    puts "How old is the client?"
+    puts "
+
+
+
+
+    How old is the client?"
     client_age = gets.chomp
-    puts "What's #{client_name}'s pet's name?"
+    puts "
+
+
+
+
+    What's #{client_name}'s pet's name?"
     new_pet_name = gets.chomp
-    puts "...and what species of animal is #{new_pet_name}?"
+    puts "
+
+
+
+
+    ...and what species of animal is #{new_pet_name}?"
     new_pet_species = gets.chomp
     new_client = Client.new(client_name, client_age)
     new_client.pets.push(new_pet_name)
-    puts "Okay...#{client_name}...
+    puts "
+
+
+
+
+    Okay...#{client_name}...
     Please give me a moment..."
 
     new_pet = Animal.new(new_pet_name, new_pet_species)
     self.animals.push(new_pet)
     self.clients.push(new_client)
-    print self.clients.to_s
+    puts "
 
-    puts "I successfully added #{new_pet_name} the #{new_pet_species} to the shelter's database!"
-    puts self.animals.to_s
-    
+
+
+
+    I successfully added #{new_pet_name} the #{new_pet_species} to the shelter's database!"
+    puts self.animals[-1]
   end
 
 
