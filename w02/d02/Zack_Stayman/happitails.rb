@@ -12,15 +12,17 @@ shelter = Shelter.new(input)
 all_shelters.push(shelter)
 # Menu
 choice = nil
-while choice != "6"
+while choice != "8"
   puts `clear`
   puts "Please select an option from below"
   puts "Press 1 to add an animal to a shelter"
   puts "Press 2 to add a client to a shelter"
   puts "Press 3 to create a new shelter"
-  puts "Press 4 to display all animals"
-  puts "Press 5 to display all clients"
-  puts "Press 6 to exit the program"
+  puts "Press 4 to display all clients"
+  puts "Press 5 to display all animals"
+  puts "Press 6 to adopt a pet"
+  puts "Press 7 to put a pet up for adoption"
+  puts "Press 8 to exit the program"
   choice = gets.chomp
   case choice
 
@@ -92,6 +94,7 @@ when "4"
 
 # Print all animals
 when "5"
+  puts "Animals:"
   all_shelters.each do |shelter|
     shelter.animals.each do |animal|
       puts animal.name
@@ -100,8 +103,67 @@ when "5"
     gets
   end
 
-# Quit
+# Adopt a pet
 when "6"
+  puts "Which shelter is will this adoption take place at?"
+   all_shelters.each do |shelter|
+    puts shelter.name
+  end
+
+  adopt_shelter = gets.chomp
+
+  shelter_used = all_shelters.find do |shelter|
+    shelter.name == adopt_shelter
+  end
+
+  puts "Which animal at this shelter will be adopted?"
+
+  shelter_used.animals.each do |animal|
+    puts animal.name
+  end
+  adopt_animal = gets.chomp
+
+  adopt_animal = shelter_used.animals.find do |animal|
+    animal.name == adopt_animal
+  end
+
+  shelter_used.animals.delete(adopt_animal)
+
+  puts "Who will adopt this animal?"
+  adopter = gets.chomp
+
+  adopter = shelter_used.clients.find do |person|
+    person.name == adopter
+  end
+
+  adopter.pets
+
+
+when "7"
+  puts "Which shelter is the animal being returned to?"
+
+  all_shelters.each do |shelter|
+    puts shelter.name
+  end
+
+  shelter_return = gets.chomp
+
+  shelter_return = all_shelters.find do |shelter|
+    shelter_return == shelter.name
+  end
+
+  puts "Which client is returning the pet?"
+
+  shelter_return.clients.each do |person|
+    puts person.name
+  end
+
+  returner = gets.chomp
+
+  
+
+# Quit
+when "8"
   puts "Goodbye"
 else
   puts "That isn't a valid option, please try again."

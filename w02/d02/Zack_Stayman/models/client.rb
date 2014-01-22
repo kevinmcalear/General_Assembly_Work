@@ -5,8 +5,12 @@ class Client
     @age = age
     @pets = []
   end
-  
+
   def name
     return @name
   end
+
+  def pets
+    return @pets
+  end 
 end
