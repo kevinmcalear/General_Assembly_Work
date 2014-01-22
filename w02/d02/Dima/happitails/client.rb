@@ -17,8 +17,7 @@ class Client
     @pets
   end
 
-  def add_pet
-    clients_pet = Animal.new
-    self.pets << clients_pet
+  def add_pet(shelter_animal)
+    self.pets << shelter_animal
   end
 end
