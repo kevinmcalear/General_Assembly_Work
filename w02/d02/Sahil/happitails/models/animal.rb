@@ -1,10 +1,15 @@
 class Animal
-	def initialize()
-		puts "What would you like to name your animal-child?"
-		@name = gets.chomp
-		puts "What species is it?"
-		@species = gets.chomp
+	def initialize(name=0,species=0)
+		@name = name
+		@species = species
 		@toys = []
+		
+		if @name == 0 && @species == 0
+			puts "What would you like to name your animal?"
+			@name = gets.chomp
+			puts "What species is it?"
+			@species = gets.chomp
+		end
 	end
 	def name
 		return @name
