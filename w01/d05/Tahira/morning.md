@@ -24,7 +24,7 @@
       },
       "PJ" => {
         :github => "h4w5",
-        :favorite_numbers => [8, 12, 24],
+        :favorite_numbers => [0, 8, 12, 24],
       },
       "Jeff" => {
         :github => "jkonowitch",
