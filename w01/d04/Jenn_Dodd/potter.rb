@@ -45,12 +45,6 @@ puts potter_names
 potter_popular = potter.select {|e| e[:mentions].to_i > 500}
 
 
-# potter.select do |e|
-#   if e[:mentions].to_i > 500
-#     potter_popular.push(e)
-#   end
-# end
-
 puts "-------VVVVVVV--- POTTER POPULAR ---VVVVVV-------"
 
 puts potter_popular
@@ -59,10 +53,7 @@ puts potter_popular
 #`["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]`
 
 
-
 potter_houses = potter.map {|e| e[:school] }.uniq.compact
-
-
 
 
 puts "-------VVVVVVV--- POTTER HOUSES ---VVVVVV-------"
@@ -175,8 +166,10 @@ puts y
 
 
 
+puts "-------VVVVVVV--- POTTER REFACTORY ---VVVVVV-------"
 
 
+potter_names = potter_at_commas.map {|e| {:mentions => e[0], :name => e[1], :school => e[2]}}
 
 
 
