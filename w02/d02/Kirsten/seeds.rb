@@ -1,4 +1,4 @@
-#starting data, example data to work with
+
 require_relative "happitails"
 
 george = Animal.new("George")
