@@ -1,6 +1,10 @@
 require_relative 'models/happitails'
 require_relative 'models/seeds'
 
+###################
+##### Begin menu loop
+###################
+
 while true
   puts
   puts "Welcome to the Happitails Animal Shelter Directory. "
@@ -13,6 +17,7 @@ while true
   puts
 
   answer = gets.chomp.downcase
+  puts
 
   case answer
 
@@ -77,7 +82,7 @@ when "add a client"
     animal = gets.chomp
     puts "Are they adopting or putting up for adoption?"
     status = gets.chomp
-    
+    $happitails.adoption(animal, client)
     
   when "quit"
     exit
