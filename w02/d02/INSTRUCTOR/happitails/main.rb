@@ -47,12 +47,20 @@ end
 response = menu
 while response != 'Q'
   case response
-  when '1' then puts $shelter.display_animals; gets
-  when '2' then puts $shelter.display_clients; gets
-  when '3' then create_animal
-  when '4' then create_client
-  when '5' then $shelter.adopt_animal
-  when '6' then $shelter.return_animal
+  when '1'
+    puts $shelter.display_animals
+    gets
+  when '2'
+    puts $shelter.display_clients
+    gets
+  when '3'
+    create_animal
+  when '4'
+    create_client
+  when '5' 
+    $shelter.adopt_animal
+  when '6' 
+    $shelter.return_animal
   end
 
   response = menu
