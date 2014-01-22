@@ -1,4 +1,4 @@
-require 'pry'
+#require_relative = "seeds.rb"
 
 
 
@@ -112,7 +112,14 @@ class Shelter
 end
 
 ##Seeded Datas
+
+
 sample_shelter = Shelter.new("Super Daycare")
+#bear = sample_shelter.add_animal.new_animal("Socrates", "Bear")
+#giraffe = sample_shelter.add_animal.new_animal("Plato", "Giraffe")
+#etan = sample_shelter.add_client.new_client("Etan", 26)
+
+
 
 ##Program Menu
 
@@ -127,11 +134,10 @@ def menu
   puts " "
   puts "1: Create an animal"
   puts "2: Create a client"
-  puts "3: Create a shelter"
-  puts "4: List animals"
-  puts "5: List clients"
-  puts "6: Adopt an animal!"
-  puts "7: :( Give your pet up for adoption."
+  puts "3: List animals"
+  puts "4: List clients"
+  puts "5: Adopt an animal!"
+  puts "6: :( Give your pet up for adoption."
   puts " "
   puts "9: Quit program and be a jerk!"
   puts " "
@@ -156,16 +162,14 @@ while menu_choice != 9
   when 2
     sample_shelter.add_client
   when 3
-    puts
-  when 4
     sample_shelter.animal_list.each do |animal|
       puts animal
     end
-  when 5
+  when 4
    sample_shelter.client_list.each do |client|
       puts client
     end
-  when 6
+  when 5
     puts "Which animal would you like to adopt?"
     sample_shelter.animal_list.each do |animal|
       puts animal
@@ -195,7 +199,7 @@ while menu_choice != 9
 
     sample_shelter.animal_list.delete(animal_selected)
 
-  when 7 
+  when 6
     puts
   when 8
     puts 
