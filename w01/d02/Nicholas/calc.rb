@@ -21,11 +21,7 @@ def exp(num1, num2 = 2)
 end
 
 def sqrt(number)
-  x = 0 
-  while x * x != number
-    x += 1
-  end
-  return x
+  Math.sqrt(number)
 end
 
 puts "Would you like to open Nick's Calculator?"
