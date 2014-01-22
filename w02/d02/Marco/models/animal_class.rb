@@ -3,7 +3,7 @@ class Animal
     @name = name
     @species = species
 
-    toys = []
+    @toys = []
   end
 
   def name 
@@ -15,7 +15,7 @@ class Animal
   end
 
   def add_toy(toy)
-    toys.push(toy)
+    @toys.push(toy)
   end
 
 

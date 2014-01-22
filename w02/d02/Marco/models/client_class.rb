@@ -18,6 +18,10 @@ class Client
     @client_pets.push(pets)
   end
 
+  def surrender_pet(pets)
+    @client_pets.slice(pets)
+  end
+
   def list_pets
     @client_pets
   end

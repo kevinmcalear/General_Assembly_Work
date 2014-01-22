@@ -18,6 +18,7 @@ def menu
   puts "(5). Display all Clients"
   puts "(6). Client/Animal Adoption"
   puts "(7). Client/Animal Surrender"
+  puts "(8). Add Animal Toy"
   puts "(Q). to Quit"
 end
 
@@ -77,6 +78,36 @@ until response == "q"
     response = gets.chomp.downcase
 
   when "7"
+    $new_shelter.surrender_animal
+
+    menu
+    response = gets.chomp.downcase
+
+  when "8"
+
+    puts "Please enter name of animal to be given toy."
+    animal_name = gets.chomp.downcase
+
+      # binding.pry
+
+    puts "Please enter the species of animal to be given toy."
+    animal_species = gets.chomp.downcase
+
+    pet_finder = $new_shelter.shelter_animals.find do |pet|
+      pet.name == animal_name
+      pet.species == animal_species
+
+    end
+
+    puts "Please enter toy name."
+    toy = gets.chomp.downcase
+
+    pet_finder.add_toy(toy)
+
+    puts "#{animal_name} the #{animal_species} has been given a #{toy}!"
+
+    menu
+    response = gets.chomp.downcase
 
   else 
     puts "That is not a valid option! Please try again."
