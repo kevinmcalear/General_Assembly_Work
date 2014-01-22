@@ -121,7 +121,7 @@ class Shelter
     if self.clients != []
       self.clients.each do |client|
         if client.pets.count > 0
-          puts "#{client} owns #{client.pets.join(", ")}.8"
+          puts "#{client} owns #{client.pets.join(", ")}."
         else 
           puts "#{client} doesn't have any pets yet."
         end
