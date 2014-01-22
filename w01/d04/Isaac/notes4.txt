@@ -1,0 +1,99 @@
+January 16 2014
+
+Data type : some unit of data and the behavior that you use to interact with it, ie the actions that you can perform on that data
+
+Numbers, booleans
+Quasi data type: string. But strings actually work like data structures in most instances.
+
+Data structure: a group of data types held together by some common theme.
+We don't have a character data type so we treat strings as data types
+Collections(lists): hashes and arrays
+Object
+
+If ruby were a procedural language like c we would know everything there is to know about ruby. but ruby is an object oriented language
+
+OO is an idea of how we structure data. act of programming is mostly procedural
+
+Ennumeration starts to move us toward object orientation. Instead of using a while loop to iterate, we use a method on an object.
+
+since ruby is OO, we don't want to split up behavior in terms of loop and data.
+
+write a loop that will print out one by one 
+range is a data type probably exclusive to ruby.
+
+5.upto(10) {|num| puts "I <3 #{num} "}
+
+whenever you see yield whatever block your put it cuts and pastes it into yield
+
+when you see { } it is either a hash or a block. if its a block you can replace with do , end
+
+write a method that takes a block as an argument and takes a collection as an argument , will loop over that collection ni reverse order and apply whatever behavior you give it to each element of that collection in reverse order
+
+enumerable 
+
+.each is used to 
+perform an action with each item in the collection
+
+.map returns new array with the results of running block once for every element in array
+perform an action on each item in a collection saving the result to a new collection
+the items are mapped from one collection to another
+
+due to implicit return the last statement of any block is the return value
+join is defined only for arrays so its not in enumerable
+
+join does not take a block. new_strings = albums.join(" ")
+
+.join concatenates each item in an array with a separator string between
+
+EACH
+MAP
+JOIN
+SELECT
+REDUCE (inject)
+
+reduce does something very weird. also known as inject. it applies an action to each element in a collection while keeping a variable expressing the result of the past actions
+
+a block is a chunk of code. unlike a method it has access by default to the current scope. it only does implicit return.
+
+yield will allow you to pass an action into the context of a method
+
+the term we are using to describe where we save information and get information from is storage
+
+storage: file system, database
+
+file. a+ read write, starts at tend of file if the file exists, otherwise creates a new file for reading and writing
+
+modes worth knowing are : r, r+ a+
+
+file stream, its like a pipe into a specific point.
+
+Manipulating strings
+parse
+.upcase, .downcase
+.split
+.gsub           regular expressions
+.includ?
+
+.gsub will find all instances and replace them 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
