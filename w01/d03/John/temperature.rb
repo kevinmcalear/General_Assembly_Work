@@ -33,21 +33,27 @@ temp_convert = gets.chomp
 def which_conversion(temp_old, temp_new, temp)
   if temp_old == temp_new
     return temp
-  elsif temp_new == 'c' && temp_old == 'f'
+
+  elsif temp_old == 'f' && temp_new == 'c'
     return f_to_c(temp)
-  elsif temp_new == 'c' && temp_old == 'k'
-    return puts k_to_c(temp)
-  elsif temp_new == 'k' && temp_old == 'f'
-    return puts f_to_k(temp)
-  elsif temp_new == 'k' && temp_old == 'c'
-    return puts c_to_k(temp)
-  elsif temp_new == 'f' && temp_old == 'c'
-    return puts c_to_f(temp)
-  else temp_new == 'f' && temp_old == 'k'
-    return puts k_to_f(temp)
+
+  elsif temp_old == 'k' && temp_new == 'c'
+    return k_to_c(temp)
+
+  elsif temp_old == 'f' && temp_new == 'k'
+    return f_to_k(temp)
+
+  elsif temp_old == 'c' && temp_new == 'k'
+    return c_to_k(temp)
+
+  elsif temp_old == 'c' && temp_new == 'f'
+    return c_to_f(temp)
+    
+  else temp_old == 'k' && temp_new == 'f'
+    return k_to_f(temp)
   end
 end
 
 answer = which_conversion(temp_unit, temp_convert, temp).to_f
 
-puts "#{temp} degrees #{temp_unit} = #{answer} degrees #{temp_convert}"
+puts "#{temp} degrees #{temp_unit} = #{answer.round(2)} degrees #{temp_convert}"
