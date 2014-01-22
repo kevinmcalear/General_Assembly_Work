@@ -1,5 +1,5 @@
 class Animal
-  def initialize(name, spieces)
+  def initialize(name, species)
     @name = name
     @species = species
     @toys = []
@@ -17,10 +17,14 @@ class Animal
     return @toys
   end
 
- def add_toys
+  def add_toys
     toy = Toy.new
     self.toys().push(toy)
-end
+  end
+
+  def to_s
+    return "#{name} is a #{species}."
+  end
 end
 
 class Client
@@ -38,14 +42,14 @@ class Client
     return @name
   end
 
-  def animals
-    return @animals
+  def pets
+    return @pets
   end
 
- def add_animals
-    animal = Animal.new
-    self.animals().push(animal)
+ def add_pets(pet)
+    self.pets().push(pet)
   end
+
 end
 
 
@@ -71,7 +75,7 @@ class Shelter
   def add_animal
     puts "What is the animal's name?"
     name = gets.chomp
-    puts "What is the animal's spieces?"
+    puts "What is the animal's species?"
     species = gets.chomp
     animal = Animal.new(name, species)
     self.animals().push(animal)
