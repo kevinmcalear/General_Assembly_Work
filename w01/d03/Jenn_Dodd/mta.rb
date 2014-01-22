@@ -13,6 +13,8 @@ n_stops = "Times Square(ts), 34th(34th), 28th(28th-n), 23rd(23rd-n), Union Squar
 l_stops = "8th(8th-l), 6th(6th), Union Square(us), 3rd(3rd), 1st(1st)"
 s_stops = "Grand Central(gc), 33rd(33rd), 28th(28th-s), 23rd(23rd-s), Union Square(us), Astor(a)"
 
+
+
 #WELCOME AND CHOOSE ORIGIN LINE
 
 puts "Welcome to the subway!"
@@ -104,7 +106,6 @@ else
 	result = (origin - us1).abs + (destination - us2).abs
 
 	puts "It will take #{result} stops."
-
 
 end
 
