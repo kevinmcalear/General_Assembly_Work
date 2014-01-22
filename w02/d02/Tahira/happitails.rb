@@ -75,26 +75,18 @@ while (answer != 8)
   when 6
     puts "What animal do you want to adopt?"
     name_animal = gets.chomp
-    animal = $shelter.animals.find do |animal|
-      animal.name == name_animal
-    end
     puts "What's your name?"
     name_client = gets.chomp
-    client = $shelter.clients.find do |client|
-      client.name == name_client
-    end
+    client = $shelter.get_client(name_client)
+    animal = $shelter.get_pet(name_animal)
     $shelter.adoption(animal, client)
   when 7
     puts "What's your name?"
     name_client = gets.chomp
-    client = $shelter.clients.find do |client|
-      client.name == name_client
-    end
     puts "What animal do you want to return?"
     name_animal = gets.chomp
-    animal = client.pets.find do |pet|
-      pet.name == name_animal
-    end
+    client = $shelter.get_client(name_client)
+    animal = client.get_pet(name_animal)
     $shelter.return(animal, client)
   when 8
     puts "Thanks for visiting #{$shelter.name.upcase}!!"
