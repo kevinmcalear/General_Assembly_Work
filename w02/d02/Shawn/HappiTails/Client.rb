@@ -1,4 +1,8 @@
+#HappiTails Animal Shelter
+#Client Object Definition
+
 class Client
+
   def initialize(name, age)
     @name = name
     @age = age
@@ -6,18 +10,18 @@ class Client
   end
 
   def name
-    @name
+    return @name
   end
 
   def age
-    @age
+    return @age
   end
 
   def pets
-    @pets
+    return @pets
   end
 
-  def add_pet(shelter_animal)
-    self.pets << shelter_animal
+  def to_s
+    return "#{name} (#{age})"
   end
 end

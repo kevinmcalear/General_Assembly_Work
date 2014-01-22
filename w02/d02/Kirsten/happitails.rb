@@ -46,7 +46,6 @@ class Client
     self.client_pets.delete(pet)
   end
 end
-# A client can have multiple pets (animals), but it doesn't start with any.
 
 class Shelter 
   def initialize(name)
@@ -70,6 +69,9 @@ class Shelter
   def adopt_out_pet(pet,client)
     self.pets.delete(pet)
     client.adopt_pet(pet)
+  end
+  def remove_pet(pet)
+    self.pets.delete(pet)
   end
   def add_client(client)
     self.clients.push(client)

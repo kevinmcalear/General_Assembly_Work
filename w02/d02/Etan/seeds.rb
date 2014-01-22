@@ -1,0 +1,1 @@
+$sample_shelter = Shelter.new("Super Daycare")
