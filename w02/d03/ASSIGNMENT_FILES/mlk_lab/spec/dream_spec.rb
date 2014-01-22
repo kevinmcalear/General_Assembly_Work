@@ -10,11 +10,8 @@ describe "The Dream:" do
   describe "our nation" do
     let(:nation) { Nation.new }
 
-    it "has a creed" do
-      expect(nation).to respond_to(:creed)
-    end
-
     it "holds this truth to be self evident" do
+      expect(nation.creed).to be_kind_of(String)
       expect(nation.creed).to match "all men are created equal"
     end
 
@@ -32,7 +29,6 @@ describe "The Dream:" do
     let(:state) { State.new("Ohio") }
 
     it "has a name" do
-      expect(state).to respond_to(:name)
       expect(state.name).to be_kind_of(String)
     end
 
@@ -42,10 +38,12 @@ describe "The Dream:" do
     let(:georgia) { State.new("Georgia") }
 
     it "has people" do
+      expect(georgia.people).to be_kind_of(Array)
       expect(georgia.people.count).to be > 0
     end
 
     it "has sons of former slaves" do
+      expect(georgia.people.first).to be_kind_of(Hash)
       expect(georgia.people.find {|person| person[:ancestors] == "slaves"}).to be_true
     end
 
@@ -64,9 +62,12 @@ describe "The Dream:" do
       end
 
       it "allows all to sit down together" do
-        expect {georgia.table_of_brotherhood.push(
-          @sons_of_former_slaves && @sons_of_former_slave_owners
-        )}.not_to raise_error
+        expect(georgia.table_of_brotherhood).to be_kind_of(Array)
+        expect(georgia.table_of_brotherhood).not_to include(@sons_of_former_slaves.first)
+        expect { georgia.sit_at_table(
+          @sons_of_former_slaves + @sons_of_former_slave_owners
+        ) }.not_to raise_error
+        expect(georgia.table_of_brotherhood).to include(@sons_of_former_slaves.first)
       end
     end
   end
@@ -105,6 +106,11 @@ describe "The Dream:" do
       alabama.people.select do |person|
         person[:age] < 19
       end
+    end
+
+    it "has children" do
+      expect(alabama.people.find {|person| person[:age].nil?} ).to be nil
+      expect(boys_and_girls.count).to be >= 2
     end
 
     it "has white and black children" do
@@ -214,7 +220,7 @@ describe "The Dream:" do
           expect(freedom.ring(washington_dc)).not_to include(washington_dc)
         end
 
-        it "from the Pennsylvania, Colorado and California" do
+        it "from Pennsylvania, Colorado and California" do
           freedom.ring(pennsylvania, colorado, california)
           expect(freedom.ring).to include(pennsylvania)
           expect(pennsylvania).to be_ringing
