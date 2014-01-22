@@ -20,25 +20,29 @@ class Client
     return @pets
   end
 
+  def client_info
+    return "#{self.name}, age: #{self.age},\nPets owned:\n#{self.print_pets_list}\n"
+  end
+
+  def print_pets_list
+    return "#{(self.pets.map {|pet| pet.animal_info}).join("\n")}"
+  end
+
+  def get_which_pet
+    puts "Please select which pet by name:"
+    puts self.print_pets_list
+    animal_name = gets.chomp
+    return self.pets.find {|anim| anim.name == animal_name}
+  end
+
   def adopt_animal(animal)
     self.pets << animal
-    return "#{self.name}'s pets now are: #{self.print_pets_list}"
+    return "Success! #{self.name}'s pets now are:\n#{self.print_pets_list}"
   end
 
   def return_pet(pet)
     self.pets.delete(pet)
-  end
-
-  def print_pets_list
-    a = self.pets.map {|pet| pet.name}
-    return "{#{a.join(", ")}}"
-  end
-
-  def get_which_pet
-    puts "Please select which pet:"
-    puts self.print_pets_list
-    animal_name = gets.chomp
-    return self.pets.find {|anim| anim.name == animal_name}
+    return "Successful return!\n#{self.name}'s pets now are:\n#{self.print_pets_list}"
   end
   
 end

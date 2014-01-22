@@ -25,7 +25,10 @@ class Shelter
     name = gets.chomp
     puts "What is the animal's species?"
     species = gets.chomp
+
     animal = Animal.new name, species
+    animal.add_toys
+
     self.add_to_animals_list(animal)
   end
 
@@ -33,14 +36,17 @@ class Shelter
     puts "What is the client's name?"
     name = gets.chomp
     puts "What is the client's age?"
-    age = gets.chomp
-    puts "Is this client a cat lady? (yes or no)"
-    cat_lady = gets.chomp.downcase
-    if cat_lady == "yes"
-      client = CatLady.new name, age
-    else
+    age = gets.chomp.to_i
+    # puts "Is this client a cat lady? (yes or no)"
+    # cat_lady = gets.chomp.downcase
+    # if cat_lady == "yes"
+      # client = CatLady.new name, age
+      # cat = true
+    # else
       client = Client.new name, age
-    end
+      # cat = false
+    # end
+    # self.add_to_clients_list(client, cat)
     self.add_to_clients_list(client)
   end
 
@@ -49,71 +55,60 @@ class Shelter
   end
 
   def add_to_clients_list(client)
+    # if cat
+      # self.clients_list[:cats] << client
+    # else
+      # self.clients_list[:normal] << client
+    # end
     self.clients_list << client
   end
 
   def print_animals_list
-    #print the list of shelter's animals
-    a = self.animals_list.map {|animal| "#{animal.species.capitalize}: #{animal.name}"}
-    return "#{self.name}'s current animals are: {#{a.join(", ")}}"
+    return (self.animals_list.map {|animal| animal.animal_info}).join("\n")
   end
 
   def print_clients_list
-    #print the list of shelter's clients
-    a = self.clients_list.map {|client| "#{client.name}: Age #{client.age}"}
-    return "{#{a.join(", ")}}"
+    return (self.clients_list.map {|client| client.client_info}).join("\n")
   end
 
   def get_which_client
-    puts "what is the name of the client?"
-    puts puts self.print_clients_list
+    puts "Please select which client by name:"
+    puts
+    puts self.print_clients_list
     client_name = gets.chomp
     return self.clients_list.find {|client| client.name == client_name}
   end
 
   def get_which_animal
-    puts "Please select which animal:"
+    puts "Please select which animal by name:"
+    puts
     puts self.print_animals_list
     animal_name = gets.chomp
     return self.animals_list.find {|anim| anim.name == animal_name}
   end
 
   def facilitate_adoption
-    # get client
-    print "For adopting, "
+    puts "Adopting a pet:"
     client = self.get_which_client
+    puts
+
+    #Bonus: don't let a client have > 2 pets
     if client.pets.length > 1
-      return "That client has too many pets!"
+      return "That client has too many pets, you silly goose!"
     end
 
-    # get animal
     animal = self.get_which_animal
-
-    # remove animal from shelter's list
+    puts
     self.animals_list.delete(animal)
-
-    # add animal to client's pets
-    client.adopt_animal(animal)
-    return "#{client.name}'s pets now are: #{client.print_pets_list}"
-
+    puts client.adopt_animal(animal)
   end
 
   def facilitate_return
-    #get client
-    print "For returning, "
+    print "Returning a pet:"
     client = self.get_which_client
-
-    #get pet
     animal = client.get_which_pet
-    
-    #remove animal from client's pet list
-    client.return_pet(animal)
-    
-    #add animal to shelter's list
     self.animals_list << animal
-
-    return "#{client.name}'s pets now are #{client.print_pets_list}"
-
+    puts client.return_pet(animal)
   end
   
 end
