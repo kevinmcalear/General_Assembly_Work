@@ -44,7 +44,7 @@
 #####Commit 3
 - Add options to the menu so that a user can:
     - Display all animals
-    - Display all clients
+    - Display all clients7
 
 #####Commit 4
 - Add options to the menu so that a user can:
