@@ -30,6 +30,7 @@ class Apartment
   def initialize(name, price, sqft, num_beds, num_baths)
     @name = name
     @price = price
+    @sqft = sqft
     @num_beds = num_beds
     @num_baths = num_baths
   end
@@ -40,6 +41,10 @@ class Apartment
 
   def price
     return @price
+  end
+
+  def sqft
+    return @sqft
   end
 
   def num_beds
