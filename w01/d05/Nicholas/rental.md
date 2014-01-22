@@ -15,7 +15,7 @@ A person should have the following attributes:
 
 An apartment should have the following attributes:
 
-* name
+* name (like 1a, 2b, etc)
 * price
 * sqft
 * num_beds
