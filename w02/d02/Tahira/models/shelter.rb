@@ -26,6 +26,20 @@ class Shelter
     @clients.push(client)
   end
 
+  def get_client(name_client)
+    client = @clients.find do |client|
+      client.name == name_client
+    end
+    return client
+  end
+
+  def get_pet(name_animal)
+    pet = @animals.find do |animal|
+      animal.name == name_animal
+    end
+  return pet
+  end
+
   def print_clients
     puts "***Shelter Clients***"
     @clients.each do |client|
@@ -42,13 +56,17 @@ class Shelter
 
   def adoption (pet, client)
     animals = client.pets
-    animals.push(pet)
-    @animals.delete(pet)
+    if animals.count < 2
+      animals.push(pet)
+      @animals.delete(pet)
+    else
+      puts "YOU CANNOT HAVE MORE THAN TWO PETS!!"
+    end
   end
 
   def return (pet, client)
     animals = client.pets
-    animals.delete(pet)
+    pet = animals.delete(pet)
     @animals.push(pet)
   end
 
