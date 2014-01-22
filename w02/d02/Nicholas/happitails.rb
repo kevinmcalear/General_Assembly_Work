@@ -20,6 +20,10 @@ class Animal
     return @toys
   end
 
+  def to_s
+    return name
+  end
+
 end
 
 class Client
@@ -40,6 +44,14 @@ class Client
 
   def pets
     return @pets
+  end
+
+  def add_pet(pet)
+    self.pets().push(pet)
+  end
+
+  def to_s
+    puts "#{name} owns #{pets}"
   end
 
 end
