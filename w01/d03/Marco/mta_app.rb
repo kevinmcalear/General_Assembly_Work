@@ -40,8 +40,8 @@ when subway_line1 == subway_line2
 
 when subway_line1 == :o || subway_line2 == :o
 
-  pre_switch = ($origin - mta[subway_line1].index("us")).abs
-  post_switch = ($destination - mta[subway_line2].index("us")).abs
+  pre_switch = ($origin - mta[subway_line1].index("ts")).abs
+  post_switch = ($destination - mta[subway_line2].index("ts")).abs
 
   travel = (pre_switch + post_switch).abs
 

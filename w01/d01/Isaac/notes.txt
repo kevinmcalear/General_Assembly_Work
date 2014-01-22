@@ -1,0 +1,182 @@
+January 13 2014
+
+Ruby: PRY, Ruby, ruby interpreters
+Servers: SQL interacts with psql (interpreter). Relational, DBs Postgres[gi] (RDBMS)
+Rails framework: rack turns requests into commands and ruby does stuff and returns response. Rails is a series of conventions and ways of working with the server
+Active Record and embedded ruby are ruby programs that help us
+Sinatra framework allows you to write simple applications really fast
+Http: (tcp, ip)
+Modeling is the hardest thing to do. 
+Client / server model describes computer action. P2P is another one.
+Client is making a request from a server, http 
+Client / end user sits at the front end
+Browser is a program that runs technologies on top of it, inclding html / css, javascript
+Javascript has nothing to do with java, much derided, now gaining cache
+A framework is a collection of conventions and technologies that help us write programs more effectively, create models
+The major backend framework we are learning is rails, also sinatra
+On the front end we are going to use backbone (javascript framework), ember and angular are great too
+MVC idea is that you have a model (representation of data you will be working with)
+Model: view, controller (stands between the view and the model). 
+Once we have the model and view set we only have to change the controller. Putting a wall between our data and our presentation of that data. 
+The web application exists in multiple places at once
+
+Week 1
+M Intro to Ruby / Git
+T Computing / Ruby methods and loops
+W Collections in ruby / blocks and enumeration 
+Th Manipulating strings
+F Intro to objects / OOP and comprehensive lab
+
+Today
+Command line / terminal
+Spectable and window management
+Hipchat
+Intro to ruby and git
+
+Command line is important in explicitness 
+pwd print working directory. File system is like a tree.
+cd change directory. moves us around the tree. type cd with nothing you pop back to home directory, or cd ~
+~ is an alias for home
+cd / takes you to root, thetop level. home is the home of the user.
+ls lists what is in the current directory
+ls -a lists hidden files
+. means here .. means above directory   . is unnecessary to write. 
+cd .. takes you to above directory
+By pressing tab you will cycle through 
+Bash is the program we are interacting with the computer through. there are other terminal programs.
+mkdir name_of_folder makes a directory
+clear clears the screen
+mkdir /dev2 makes a directory on root, / means root
+rm -r dev  removes a direcotry, remove recursively. rm removes files/folders from system
+Recursive keeps going again and again and again
+touch creates a file
+subl file opens the file
+cat file 
+man cat
+man stands for manual. man program tells you what it is synopsis describes what flags you can add
+go down by pushing down. press q to get out
+touch -h, -h is common will give you basic usage info (help?)
+ls -l is another way to list
+unix has a permission system, basis of safety and file integrity. file security
+ls -l lists all the owners of files. users can be grouped:
+three levels: owner, group, anyone else
+d directory, read , write, execute
+size of file and time of last modification
+you can put flags next to each other ls -la
+sudo can get you around all permissions. super user do. super user is someone who has ownership rights to every file on the computer. you need to have admin rights and put in the password
+gui and terminal do the same things but in different ways. bash born again shell. sh, the shell, encapsulates operating system. 
+We set up profiles for bash. We personalized (or de personalized) our terminals.
+if you're going to make changes to bash profile make a backup
+cp is copy
+mv means move, basically the way to rename a file
+showfiles, hidefiles shows and hides hidden files in gui
+mou is a useful program for writing text files
+reload will reload the terminal
+cat /etc/paths executable programs list. bin = binary files instead of text files. /bin programs accessible to everyone. /usr/bin programs that are accessible to users.
+spectable will help us manage our windows and workflow
+
+Ruby
+syntax C style. (optional). interpreted language
+major programming language. Matz. 
+code is either compiled or interpreted.
+compiled: the compiler turns it into binary. you then execute the compiled code
+interpreter is a running on your computer and executtes. change the program that is running in real time.
+ruby is interpreted by ruby or pry
+paradigms: procedural, object oriented OO, functional
+ruby is a multi paradigm language, but at its heart it is object oriented. 
+everything is an object, or almost everything..
+
+ls piece_of_data lists the methods you can perform on that data
+data type: a description of a class of data and a series of methods that work with this data
+23.class - fixnum, ls 23 lists methods you can perform on fixnum
+in ruby we use dot notation. on the end of an object you put a dot then the name of the method you want to run on that object.
+23.next - 24, returns next integer up
+methods have return values. 
+object.method(arguments)
+false, true are also objects (booleans?)
+
+Data Types:
+numbers: fixnums, floats
+True / False (boolean values, each is its own data type)
+Strings, to_s turns something into a string
+pretty_print will print the object in a more readable format
+.upcase, .downcase
+ruby docs ruby-doc.org will help
+api is interface we surround code with, so other programs can interact with that code via that interface
+= is the assignment operator. it is not equals.
+== is equals
+methods with ! change the object. not always the case though. ruby is inherently mutable
+mjs_number += 1 gets you 46
+sugar: a syntactic thing that makes it easier to write something
+mjs_number = mjs_number + 1
+includes -=, *=, /=, %=
+ruby is a loosely typed language. data types are not as strict as other languages
+generally write variable names in snake_case, best_album
+if the best album is a constant, BEST_ALBUM. if you try to reassign you get a warning
+CamelCase is another naming convention.
+start variables with a letter. ? at the end of methods if it returns a boolean, ! if it mutates the object
+REPL. Read eval print loop
+ruby filename.rb runs the interpreter
+gets method gets info from the user. add .chomp to chop off the enter
+puts "Hello #{name} " is string interpolation
+.eql? is also a comparison operator, also != not equal to
+operators that work exclusively on boolean values && , || or, !false
+
+Process / Work Flow
+Standadization, Framework, manage complexity
+Who is doing what when where how
+Git - the defacto standard for version control
+Git is a distributed version control system. DVCS
+We have a snapshot of what our project looks like at a specific point in time and we can go back to it.
+VCS is a linked timeline of snapshots
+Distributed - git is a peer to peer system, rather than having a central depository
+git was invented by linus trovalt
+
+init stands for initialize
+git init -initializes empty git repository
+git status -states of the files in relation to last commit or snapshot
+a repository is a collection of files and folders under management by git
+git doesnt automatically track your files -- you add files to the index
+git add kitten.rb
++ indicates that we have changes that are staged but havent been committed 
+git commit -m "initial commit"
+creates an initial snapshot.
+git log -gives you a history of commits
+! means something has changed. git status to check, checks current state of files to last commit
+changes not staged for commit.. 
+1. move changes from your work space to your index (or stage)
+git diff will tell you exactly what the changes are
+git add kitten.rb to put it in staging area
+git status -changes to be committed
+git checkout master 
+git branch dogs  -cloning the current set of snapshots, like a different cut
+git checkout dogs    -switches to the dogs branch
+git merge dogs   --brings in any commits from another branch into the branch in question 
+
+
+homework:
+typing in code in pry, on github
+
+
+
+https://github.com/ga-students/WDI_NYC_12/blob/master/w01/d01/ASSIGNMENT_FILES/familiarity.rb
+
+
+http://try.github.io/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
