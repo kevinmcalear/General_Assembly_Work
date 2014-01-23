@@ -1,5 +1,5 @@
 require_relative '../lib/dream'
-
+require 'pry'
 describe "The Dream:" do
 
 # I have a dream that one day this nation will
@@ -110,6 +110,7 @@ describe "The Dream:" do
 
     it "has children" do
       expect(alabama.people.find {|person| person[:age].nil?} ).to be nil
+      # binding.pry
       expect(boys_and_girls.count).to be >= 2
     end
 
