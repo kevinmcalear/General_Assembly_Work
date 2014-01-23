@@ -1,9 +1,10 @@
 
 ##DATA: MTA stops for each line##
 mta = {
-  :n => ['ts', '34th', '28th-n', '23rd-n', 'us', '8th-n'],  # N line
-  :l => ['8th-l', '6th', 'us', '3rd', '1st'],                        # L line
-  :s => ['gc', '33rd', '28th-s', '23rd-s', 'us', 'astor']    # 6 line
+  :n => ['ts', '34th', '28th', '23rd', 'us', '8th'],          # N line
+  :l => ['8th', '6th', 'us', '3rd', '1st'],                        # L line
+  :s => ['gc', '33rd', '28th', '23rd', 'us', 'astor'],        # 6 line
+  :o => ['59th', '50th', 'ts', '34th']
 }
 
 ##Method##
