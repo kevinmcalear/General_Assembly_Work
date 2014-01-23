@@ -35,7 +35,7 @@ class State
     @people = [@white_children, @black_children]
     @together = Array.new
     @status = "a state sweltering with the heat of injustice and oppression"
-    $ringing = false
+    @ringing = false
   end
 
   def name
@@ -64,7 +64,11 @@ class State
   end
 
   def ringing?()
-   return $ringing
+   return @ringing
+  end
+
+  def ring
+    @ringing = true
   end
 
 
@@ -80,9 +84,11 @@ class Freedom
   def ring(state)
     @states = Array.new
     @states.push(state)
-    $ringing = true
+    state.ring
     return @states
   end
+
+
 
   def state(state)
     
