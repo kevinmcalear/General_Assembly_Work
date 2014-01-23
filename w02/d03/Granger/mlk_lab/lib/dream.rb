@@ -80,8 +80,10 @@ class Freedom
   def ring(*states)
     states.each do |state|
       state.ringing = true
-      @ring += [state]
+      @ring += [state] unless state.name == "Washington, DC"
     end
+
+    @ring
   end
 
 
