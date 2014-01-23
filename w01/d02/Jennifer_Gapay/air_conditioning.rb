@@ -1,7 +1,7 @@
 puts "What is the current temperature?"
 temperature = gets.chomp.to_i
 puts "Is the A/C working?"
-ac_working - gets.chomp
+ac_working = gets.chomp
 
 if ac_working == "Yes"
 	ac_working = true
