@@ -1,15 +1,14 @@
-require_relative "classes/animal"
+cdrequire_relative "classes/animal"
 require_relative "classes/client"
 require_relative "classes/shelter"
 require 'pry'
 
 ## MENU
 def print_out_your_choices_and_return_the_choice
-  # puts 'clear'
-  puts "Choose an option"
+  puts "Choose an option:"
   puts "1. Create an Animal"
   puts "2. Create a Client"
-  puts "3. Display all Animals"
+  # puts "3. Display all Animals"
   # puts "4. Display all Clients"
   puts "5. Quit"
   menu_response = gets.chomp.to_i
@@ -51,9 +50,13 @@ elsif choice == 2
   # clients should be added to the shelter
 happitails.add(new_client)
 
-# - Display all animals
-elsif choice == 3
-  puts animal_list ()
+# def display_all_animals 
+#   display_all_animals = (Animals name + species + toys)
+# end
+
+# # - Display all animals
+# elsif choice == 3
+#   puts display_all_animals
 
 # if the choice is 5 then quit!
 else choice == 5

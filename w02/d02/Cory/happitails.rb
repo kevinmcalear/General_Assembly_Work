@@ -57,6 +57,9 @@ class Client
   def add_animal(pet)
     self.animals().push(pet)
   end
+  def list_animals
+    self.animals
+  end
 end
 
 ####################
@@ -107,6 +110,7 @@ class Shelter
       end
     adopting_client.add_animal(adopting_animal)
     $shelter.animals.delete(adopting_animal)
+
   end
 end
 
