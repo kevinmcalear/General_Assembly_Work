@@ -12,7 +12,7 @@ class Nation
       end 
   end
 
-  def join_hands(white, black)
+  def self.join_hands(white, black)
     return @states
   end
 
@@ -84,7 +84,7 @@ class Freedom
     return @states
   end
 
-  def state
-    state.ringing? = true
+  def state(state)
+    state.rining?
   end
 end
