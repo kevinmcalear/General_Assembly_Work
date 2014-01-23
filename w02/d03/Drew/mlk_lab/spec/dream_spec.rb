@@ -178,7 +178,7 @@ describe "The Dream:" do
   # freedom ring." And if America is to be a 
   # great nation, this must become true.
 
-  describe Freedom do
+  describe "Freedom" do
 
   # And so let freedom ring 
   #   from the prodigious hilltops of New Hampshire. 

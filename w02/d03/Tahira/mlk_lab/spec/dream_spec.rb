@@ -1,4 +1,5 @@
 require_relative '../lib/dream'
+require '~/dev/wdi/WDI_NYC_12/w02/d03/Tahira/rspec/spec/spec_helper'
 
 describe "The Dream:" do
 
