@@ -50,8 +50,8 @@ while choice != "9"
   when "6"
     $shelter.adopt_animal
   when "7"
-    $shelter.clients.animals.each do |animals|
-      puts $shelter.clients
+    $shelter.clients.each do |animals|
+      puts animals.list_animals
      end
   when "8"
     something
