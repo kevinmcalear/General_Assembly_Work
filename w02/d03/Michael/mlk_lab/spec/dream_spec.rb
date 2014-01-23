@@ -1,3 +1,4 @@
+require "spec_helper"
 require_relative '../lib/dream'
 
 describe "The Dream:" do
@@ -234,24 +235,24 @@ describe "The Dream:" do
   end
 end
 
-  # But not only that. 
+#   # But not only that. 
     
-  # Let freedom ring from
-  #   Stone Mountain of Georgia. 
-  # Let freedom ring from 
-  #   Lookout Mountain of Tennessee. 
-  # Let freedom ring from 
-  #   every hill and every molehill of Mississippi,
-  # ... from every mountainside, let freedom ring!
+#   # Let freedom ring from
+#   #   Stone Mountain of Georgia. 
+#   # Let freedom ring from 
+#   #   Lookout Mountain of Tennessee. 
+#   # Let freedom ring from 
+#   #   every hill and every molehill of Mississippi,
+#   # ... from every mountainside, let freedom ring!
 
-  # And when this happens, when we allow freedom 
-  # to ring, when we let it ring from every village
-  # and every hamlet, from every state and every 
-  # city, we will be able to speed up that day when 
-  # all of God's children, black men and white men, 
-  # Jews and Gentiles, Protestants and Catholics, 
-  # will be able to join hands and sing in the words
-  # of the old Negro spiritual: 
+#   # And when this happens, when we allow freedom 
+#   # to ring, when we let it ring from every village
+#   # and every hamlet, from every state and every 
+#   # city, we will be able to speed up that day when 
+#   # all of God's children, black men and white men, 
+#   # Jews and Gentiles, Protestants and Catholics, 
+#   # will be able to join hands and sing in the words
+#   # of the old Negro spiritual: 
 
-  # "Free at last! Free at last! thank God Almighty,
-  #   we are free at last!"
+#   # "Free at last! Free at last! thank God Almighty,
+#   #   we are free at last!"
