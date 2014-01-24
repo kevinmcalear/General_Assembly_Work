@@ -91,8 +91,15 @@ end
   context "gladiators have the same weapon, both die" do
     it "both die" do
       expect(olympia.fight(gladiator_1, gladiator_2)).to eq("Both gladiators die!")
+      expect(olympia.gladiators.size).to eq(0)
   end
 end
+  
+  context "one gladiator died, was removed from array" do
+    it "one dies" do
+      expect(olympia.gladiators.size).to eq(1)
+    end
+  end
   #it "allows a fight to be called if there are two gladiators" do
   #  expect(olympia.fight).
   #end
