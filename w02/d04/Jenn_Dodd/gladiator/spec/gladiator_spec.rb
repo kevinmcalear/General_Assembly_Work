@@ -85,20 +85,20 @@ describe Arena do
       arena.add_gladiator(poseidon)
       arena.add_gladiator(aries)
     end
-    subject(:fight) { arena.fight(arena.gladiators) }
+    subject(:fight) { arena.fight(poseidon, aries) }
     it "player 1 wins" do
-      expect(fight).to eq("#{arena.gladiators[1].name} wins! #{arena.gladiators[0].name} is dead.")
-      #expect(arena.gladiators.count).to eq(1)
+      #expect(fight).to eq("#{arena.gladiators[1].name} wins! #{arena.gladiators[0].name} is dead.")
+      expect(arena.gladiators.count).to eq(1)
     end
     context "player 2 wins" do
       #before { arena.gladiators[0].weapon = "club" } 
       it "player 2 wins" do
-        expect(fight).to eq("#{arena.gladiators[0].name} wins! #{arena.gladiators[1].name} is dead.")
-        #expect(arena.gladiators.count).to eq(1)
+        #expect(fight).to eq("#{arena.gladiators[0].name} wins! #{arena.gladiators[1].name} is dead.")
+        expect(arena.gladiators.count).to eq(1)
       end
     end
       it "both players die" do
-        #expect(arena.gladiators.count).to eq(0)
+        expect(arena.gladiators.count).to eq(0)
       end
     
 

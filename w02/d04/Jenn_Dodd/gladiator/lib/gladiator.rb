@@ -40,23 +40,23 @@ class Arena
     end
   end
 
-  def fight(gladiators)
+  def fight(gladiator_one, gladiator_two)
     beats = {
       "trident" => "spear",
       "spear" => "club",
       "club" => "trident"
     }
     if self.ready?
-      if beats[gladiators[0].weapon] == gladiators[1].weapon
-        return "#{gladiators[1].name} wins! #{gladiators[0].name} is dead."
-        #@gladiators.delete_at[0]
-      elsif gladiators[0].weapon == gladiators[1].weapon
-        return "Both gladiators are dead!"
-        @gladiators.delete_at[1]
-        @gladiators.delete_at[0]
+      if beats[gladiator_two.weapon] == gladiator_one.weapon
+        puts "#{gladiators[0].name} wins! #{gladiators[1].name} is dead."
+        self.gladiators.delete(gladiator_two)
+      elsif gladiator_one.weapon == gladiator_two.weapon
+        puts "Both gladiators are dead!"
+        self.gladiators.delete(gladiator_two)
+        self.gladiators.delete(gladiator_one)
       else
-        return "#{gladiators[0].name} wins! #{gladiators[1].name} is dead."
-        @gladiators.delete_at[1]
+        puts "#{gladiators[1].name} wins! #{gladiators[0].name} is dead."
+        self.gladiators.delete(gladiator_two)
       end
     else
       return "You need two gladiators to fight!"
@@ -64,3 +64,29 @@ class Arena
   end
 
 end
+
+
+poseidon = Gladiator.new("Poseidon", "trident")
+aries = Gladiator.new("Aries", "spear")
+
+olympus = Arena.new("Olympus")
+
+olympus.add_gladiator(poseidon)
+olympus.add_gladiator(aries)
+
+puts olympus.gladiators.count
+
+olympus.gladiators.delete(poseidon)
+puts "#{poseidon.name} is dead!"
+puts olympus.gladiators.count
+olympus.gladiators.delete(aries)
+
+olympus.add_gladiator(poseidon)
+olympus.add_gladiator(aries)
+puts olympus.gladiators.count
+
+olympus.fight(poseidon, aries)
+
+
+
+
