@@ -1,5 +1,5 @@
 require_relative '../lib/dream'
-
+# require 'pry'
 describe "The Dream:" do
 
 # I have a dream that one day this nation will
@@ -31,8 +31,7 @@ describe "The Dream:" do
     it "has a name" do
       expect(state.name).to be_kind_of(String)
     end
-
-  end
+end
 
   describe "Georgia" do
     let(:georgia) { State.new("Georgia") }
@@ -44,6 +43,7 @@ describe "The Dream:" do
 
     it "has sons of former slaves" do
       expect(georgia.people.first).to be_kind_of(Hash)
+      # binding.pry
       expect(georgia.people.find {|person| person[:ancestors] == "slaves"}).to be_true
     end
 
@@ -178,7 +178,7 @@ describe "The Dream:" do
   # freedom ring." And if America is to be a 
   # great nation, this must become true.
 
-  describe Freedom do
+  describe "Freedom" do
 
   # And so let freedom ring 
   #   from the prodigious hilltops of New Hampshire. 
