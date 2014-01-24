@@ -71,6 +71,13 @@ describe Arena do
     end
   end
 
+  context "only 1 gladiator" do
+    before {arena.add_gladiator(augustus)}
+    it "fights with one" do
+      expect(arena.fight).to eq("Not enought gladiators to fight!")
+    end
+  end
+
 end
 
 

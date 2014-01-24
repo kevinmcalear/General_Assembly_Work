@@ -36,21 +36,25 @@ class Arena
   end
   end
   def beats
-    return beats
+    return @beats
   end
   def fight
-    gladiator_1 = gladiators[0]
-    gladiator_2 = gladiators[1]
+    if self.gladiators.count < 2
+      return "Not enought gladiators to fight!"
+    else
+    gladiator_1 = self.gladiators[0]
+    gladiator_2 = self.gladiators[1]
     weapon_1 = gladiator_1.weapon
     weapon_2 = gladiator_2.weapon
     if weapon_1 == weapon_2
       return "Both die!"
     elsif 
       beats[:weapon_1] == weapon_2
-      return "#{gladiator_2} wins!"
+      return "#{gladiator_2} wins the fight with a #{weapon_2}!"
     else
-      return "#{gladiator_1} wins!"
+      return "#{gladiator_1} wins the fight with a #{weapon_1}!"
     end
+  end
   end
 end
 
