@@ -8,17 +8,15 @@ class Word
   end
 
   def piglatinize
-    case original_word[0]
-    when "a", "e", "i", "o", "u"
-      return original_word + "way"
-    else
-      # return original_word.delete(original_word[0]) + original_word[0] + "ay"
-      vowels = ["a", "e", "i", "o", "u"]
+    vowels = ["a","e","i","o","u"]
+    if !vowels.include?(original_word[0]) # first letter is a consonant
       counter = 0
       while !vowels.include?(original_word[counter])
         counter += 1
       end
-      return original_word[counter..-1] + original_word[0...counter] + "ay"
+      return original_word[counter..-1] + original_word[0..(counter-1)] +"ay"
+    else # first letter is a vowel
+      return original_word+"way"
     end
   end
 end

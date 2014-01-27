@@ -11,21 +11,29 @@ describe Word do
     end
   end
 
-  describe "#piglatinize" do
-    let(:e_word) { Word.new("egg") }
-    let(:c_word) { Word.new("cow") }
-    let(:g_word) { Word.new("glove") }
+  describe "#piglatinze" do
+    context "word begins with a vowel" do
+      let(:word) { Word.new("egg") }
 
-    it "adds the suffix way to word that begin with a vowel" do
-      expect( e_word.piglatinize ).to eq("eggway")
+      it "returns the same word plus way at the end" do
+        expect( word.piglatinize ).to eq("eggway")
+      end
     end
 
-    it "returns the word with the consonant sound at the end with ay" do
-      expect( c_word.piglatinize ).to eq("owcay")
+    context "word begins with one consonant" do
+      let(:word) { Word.new("happy") }
+      
+      it "returns the consonant sound plus ay moved to the back" do
+        expect( word.piglatinize ).to eq("appyhay")
+      end
     end
 
-    it "returns the word with all leading consonant letters at the end with ay" do
-      expect( g_word.piglatinize ).to eq("oveglay")
+    context "word begins with multiple consonants" do
+      let(:word) { Word.new("glove") }
+      
+      it "returns the consonant sound plus ay moved to the back" do
+        expect( word.piglatinize ).to eq("oveglay")
+      end
     end
 
   end
