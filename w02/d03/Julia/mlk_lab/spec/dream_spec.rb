@@ -1,4 +1,4 @@
-require_relative '../lib/dream'
+require_relative "../lib/dream"
 
 describe "The Dream:" do
 
