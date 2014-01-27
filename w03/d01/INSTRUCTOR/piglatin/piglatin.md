@@ -1,6 +1,6 @@
 # Words and Pig Latin
 
-I've created a `Word` class that is a wrapper for a string. Your job will be to implement a Ruby method `piglatinize` that returns the pig latin equivalent of the word. __Use TDD!__
+I've created a `Word` class that is just a wrapper for a string. Your job will be to implement a Ruby method `piglatinize` that returns the pig latin equivalent of the word. Use TDD.
 
 Description of the rules from Wikipedia:
 
