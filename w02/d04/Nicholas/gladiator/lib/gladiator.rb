@@ -47,8 +47,6 @@ class Arena
         return "#{glad1.name} wins!"
       elsif glad1.weapon == glad2.weapon
         return "Both are dead!"
-        gladiators.delete[1]
-        gladiators.delete[0]
       else
         return "#{glad2.name} wins!"
       end
