@@ -1,10 +1,13 @@
 require_relative "lib/receipt.rb"
+FILE_PATH = "receipts.csv"
 
 system "clear"
 
 puts "============================"
 puts "Welcome to the Receipts App!"
 puts "============================"
+
+Receipt.read_all(FILE_PATH)
 
 begin
 
@@ -29,9 +32,17 @@ begin
     price = gets.chomp
     print "Enter date: "
     date = gets.chomp
-    receipt = Receipt.new(store, item, quantity, price, date)
+    receipts = Receipt.all
+    receipts << Receipt.new(store, item, quantity, price, date)
+
+    Receipt.save_all(FILE_PATH)
+
   elsif choice == "l"
-    puts "#{receipt}"
+    if receipts.count < 1
+      puts "No receipts yet!"
+    else
+      receipts.each { | receipt | puts receipt }
+    end
   elsif choice != "q"
     puts "Invalid option..."
   end
