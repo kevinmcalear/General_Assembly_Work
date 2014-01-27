@@ -1,4 +1,6 @@
 class Receipt
+  
+  @@receipts = []
 
   def initialize(store, item, quantity, price, date)
     @store = store
@@ -6,6 +8,8 @@ class Receipt
     @quantity = quantity
     @price = price
     @date = date
+
+    @@receipts << self
   end
 
   def store
@@ -28,17 +32,19 @@ class Receipt
     return @date
   end
 
+  def to_s
+    return "Receipt: #{@store}, #{@item}, #{@quantity}, #{@price}, #{@date}"
+  end
+
+  def self.all
+    return @@receipts
+  end
+
+  def self.clear
+    @@receipts = []
+  end
+
+  def self.save_all(path)
+    File.new("path", "a+")
+
 end
-
-
-
-
-
-
-
-
-
-
-
-
-

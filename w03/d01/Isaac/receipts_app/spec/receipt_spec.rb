@@ -2,10 +2,9 @@ require_relative "../lib/receipt.rb"
 require "spec_helper"
 
 describe Receipt do
+  let(:receipt){Receipt.new("Macy's","Khaki slacks",3,"$35.00","December 21, 1998")}
 
   describe "an instance" do
-    let(:receipt){Receipt.new("Macy's","Khaki slacks",3,"$35.00","December 21, 1998")}
-
     it "has a store" do
       expect(receipt.store).to eq("Macy's")
     end
@@ -23,19 +22,57 @@ describe Receipt do
     end
   end
 
-  describe "#so_s" do 
-    let(:receipt){Receipt.new("Macy's","Khaki slacks",3,"$35.00","December 21, 1998")}
-
-    it "returns a string with all the data" do 
-      expect(receipt.to_s).to eq("Receipt: Macy's, Khaki slacks, $35.00, December 21, 1998")
+  describe "#to_s" do
+    it "returns a string with all the data" do
+      expect(receipt.to_s).to eq("Receipt: Macy's, Khaki slacks, 3, $35.00, December 21, 1998")
     end
   end
 
+  describe "::clear" do
+    it "removes all instances from the internal list of Receipt (the class)" do
+      Receipt.new("Macy's","Khaki slacks",3,"$35.00","December 21, 1998")
+      Receipt.clear
+      expect(Receipt.all.count).to eq 0
+    end
+  end
 
-  # describe "#save" do
-  #  it "saves the receipt to the computer" do
-  #  end
-  # end
+  describe "::all" do
+    # before do
+    # end
+
+    it "returns all of the instances" do
+      Receipt.clear
+
+      r1 = Receipt.new("Macy's","Khaki slacks",3,"$35.00","December 21, 1998")
+      r2 = Receipt.new("JC Penny's","Pink Izod shirt",2,"$28.00","December 22, 1998")
+      #expect(Receipt.all).to be_kind_of(Array)
+
+      receipts = Receipt.all
+      #expect(receipts.count).to eq(2)
+      expect(receipts).to include(r1)
+      expect(receipts).to include(r2)
+      expect(receipts.count).to eq(2)
+    end
+  end
   
+  describe "::read_all" do 
+  end
+  describe "::save_all" do 
+    it "stores the current receipts list as a csv to the file at FILE_PATH" do 
+
+    end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
