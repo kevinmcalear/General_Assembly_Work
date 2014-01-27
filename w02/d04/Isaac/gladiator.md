@@ -31,3 +31,5 @@ Your job will be to develop a gladiator arena in a test-driven way using Rspec.
 
 * When a fight is over, before the gladiator is killed and removed, the user should be prompted to put their thumbs up or down. If they vote down, remove the losing gladiator from the arena. If they vote up, the gladiator stays alive in the arena.
 
+
+

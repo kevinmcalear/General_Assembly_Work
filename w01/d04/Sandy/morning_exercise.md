@@ -1,4 +1,4 @@
-#Morning Exercise
+subl #Morning Exercise
 
 ###Array and Hash access
 
@@ -32,3 +32,14 @@
 5. What is the return value of is["PJ"]?
 6. What is the return value of is[false||true]?
 6. What is the return value of is[false||"Jeff"]?
+
+
+albums = ["Who's Next", "Tommy", "Quadrophenia", "The Who Sell Out", "My Generation", "A Quick One"]
+
+
+
+
+
+
+
+
