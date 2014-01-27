@@ -25,7 +25,6 @@ Add these options to your program:
 
 1. `List all Grammys from a given year`
 2. `List all Grammys from a certain category`
-3. `Update a Grammy` (This option will list all the Grammys with number indices, and you choose which one to update by entering the index. You can then update and change the year, category or winner)
 
 # Reading on ACID
 
