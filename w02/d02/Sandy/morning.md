@@ -58,3 +58,6 @@ random_animals = ["porpoise", "camel", "lobster", "kangaroo", "wombat", "chamele
 * Return an array of the animals with each individual string reversed
 * Return an array of the animals sorted by word length (low to high)
 * Return an array of the animals sorted alphabetically by the last character in the string
+
+
+

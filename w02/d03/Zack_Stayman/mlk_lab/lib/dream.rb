@@ -48,7 +48,6 @@ class State
     return @status
   end
   def ringing?
-
     return @ring
   end
   def ring
