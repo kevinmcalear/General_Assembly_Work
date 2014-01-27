@@ -1,5 +1,4 @@
 require_relative "lib/receipt.rb"
-FILE_PATH = "receipts.csv"
 
 system "clear"
 
@@ -7,7 +6,7 @@ puts "============================"
 puts "Welcome to the Receipts App!"
 puts "============================"
 
-Receipt.read_all(FILE_PATH)
+Receipt.read_all("receipts.csv")
 
 begin
 
@@ -35,7 +34,7 @@ begin
 
     Receipt.new(store, item, quantity, price, date)
 
-    Receipt.save_all(FILE_PATH)
+    Receipt.save_all("receipts.csv")
 
   elsif choice == "l"
     receipts = Receipt.all

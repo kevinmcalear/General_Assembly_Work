@@ -45,6 +45,24 @@ class Receipt
   end
 
   def self.save_all(path)
-    File.new("path", "a+")
+    f = File.new(path,"w+")
+
+    @@receipts.each do |receipt|
+      f.puts "#{receipt.store}\t#{receipt.item}\t#{receipt.quantity}\t#{receipt.price}\t#{receipt.date}"
+    end
+
+    f.close
+  end
+
+  def self.read_all(path)
+    f = File.new(path,"a+")
+
+    f.each do |line|
+      line_array = line.split("\t")
+      Receipt.new(line_array[0],line_array[1],line_array[2],line_array[3],line_array[4])
+    end
+
+    f.close
+  end
 
 end
