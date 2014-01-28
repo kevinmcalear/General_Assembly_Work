@@ -1,4 +1,5 @@
 require_relative '../lib/dream'
+require "pry"
 
 describe "The Dream:" do
 

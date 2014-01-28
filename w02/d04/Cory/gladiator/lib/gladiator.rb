@@ -3,25 +3,26 @@ class Gladiator
     @name = name
     @weapon = weapon
   end
-  def has_name
+  def name
     return @name
   end
-  def has_weapon
+  def weapon
     return @weapon
   end
 end
 
 
 class Arena
-  def initialize (arena_name, gladiators)
-    @arena_name = arena_name
+  def initialize (name, gladiators)
+    @name = name
     @gladiators = []
   end
-  def gladiators
-    @gladiators
+  def gladiators 
+    return @gladiators
   end
-  def has_name
-    return @arena_name.capitalize
+  def name
+    return @name.capitalize
   end
+
 end
 
