@@ -20,27 +20,51 @@ describe Calculator do
   end
 
   describe "#power" do
-    it "raises one number to the power of another number"
+    it "raises one number to the power of another number" do
+      expect(Calculator.new.power(3, 3)).to eq(27)
+    end
   end
 
   describe "#sum" do
-    it "computes the sum of an empty array"
-    it "computes the sum of an array of one number"
-    it "computes the sum of an array of two numbers"
-    it "computes the sum of an array of many numbers"
+    it "computes the sum of an empty array" do
+      expect(Calculator.new.sum([])).to eq()
+    end
+    it "computes the sum of an array of one number" do
+      expect(Calculator.new.sum([1])).to eq(1)
+    end
+    it "computes the sum of an array of two numbers" do
+      expect(Calculator.new.sum([2,2])).to eq(4)
+    end
+    it "computes the sum of an array of many numbers" do
+      expect(Calculator.new.sum([2,6,10])).to eq(18)
+    end
   end
 
   describe "#multiply" do
-    it "multiplies two numbers"
-    it "multiplies several numbers"
+    it "multiplies two numbers" do
+      expect(Calculator.new.multiply(3,3)).to eq(9)
+    end
+    it "multiplies several numbers" do
+      expect(Calculator.new.multiply(2,2,2)).to eq(8)
+    end
   end
 
   describe "#factorial" do
-    it "computes the factorial of 0"
-    it "computes the factorial of 1"
-    it "computes the factorial of 2"
-    it "computes the factorial of 5" 
-    it "computes the factorial of 10"
+    it "computes the factorial of 0" do
+      expect(Calculator.new.factorial(0)).to eq(1)
+    end
+    it "computes the factorial of 1" do
+      expect(Calculator.new.factorial(1)).to eq(1)
+    end
+    it "computes the factorial of 2" do
+      expect(Calculator.new.factorial(2)).to eq(2)
+    end
+    it "computes the factorial of 5" do
+      expect(Calculator.new.factorial(5)).to eq(120)
+    end
+    it "computes the factorial of 10" do
+      expect(Calculator.new.factorial(10)).to eq(3628800)
+    end
   end
 
 end
