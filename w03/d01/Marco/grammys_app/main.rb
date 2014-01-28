@@ -30,11 +30,20 @@ begin
       
     when 3
       counter = 1
-      i = 0
-      puts "-----------------------------"
-      puts "#{counter}. #{Grammys.list[i]}"
-      counter +=1
-      i += 1
+      i = Grammys.list.count
+      
+      while i > 0
+        
+        puts "-----------------------------"
+        puts "#{counter}. #{Grammys.list[i]}"
+        counter +=1
+        i -= 1
+      end
+
+      puts "Please enter number of Grammy entry to delete."
+       number = gets.chomp.to_i
+
+       Grammys.list.delete(2)
     when 4
   end
 

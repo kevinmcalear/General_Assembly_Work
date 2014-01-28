@@ -38,6 +38,14 @@ class Grammys
     return @@grammys_list.delete_at(grammy_index)
   end
 
+  def self.save_to_file(path)
+    f = File.new(path, "w+")
+    @@grammys_list.each do |grammys|
+      f.puts "#{grammys.year}\t#{grammys.category}\t#{grammys.winner}"
+    end
+    f.close
+  end
+
 
 
 end

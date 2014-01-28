@@ -41,6 +41,21 @@ describe Grammys do
         expect( Grammys.list.count).to eq(0)
       end
     end
+
+    describe "returns all of the instances" do
+      Grammys.clear 
+      
+      it "checks to see if instance variables are included" do
+      # grammys_list = Grammys.list
+      @g4 = Grammys.new(2010, "Album of the Year", "Taylor Swift")
+      @g3 = Grammys.new(1994, "Record of the Year", "Whitney Houston")
+      
+      expect( Grammys.list).to include(@g4)
+      expect( Grammys.list).to include(@g3)
+      end
+
+    end
+
   end
 
   describe "::remove" do
@@ -57,9 +72,29 @@ describe Grammys do
     end
 
     it "deletes a particular Grammy entry" do
-      # g3 = Grammys.new(1994, "Record of the Year", "Whitney Houston")
-      expect( Grammys.list.delete(g2)).to be_nil
+      g3 = Grammys.new(1994, "Record of the Year", "Whitney Houston")
+      expect( Grammys.list.delete(@g3)).to be_nil
     end
+  end
+
+  describe "::save_to_file" do
+    before do
+      Grammys.clear
+
+      g4 = Grammys.new(2010, "Album of the Year", "Taylor Swift")
+      g3 = Grammys.new(1994, "Record of the Year", "Whitney Houston")
+    end
+
+    it "creates a CSV file if it doesn't exist" do
+      if File.exists? "grammys_test.csv"
+        File.delete("grammys_test.csv")
+      end
+
+      Grammys.save_to_file("grammys_test.csv")
+
+      expect(File.exists? "grammys_test.csv").to be_true
+    end
+
   end
 
 end
