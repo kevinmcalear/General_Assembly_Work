@@ -19,11 +19,11 @@ class Grammy
   end
 
   def winner
-    return @winner
+    return @winner.capitalize
   end
 
   def to_s
-    return "#{@year}, #{@category}, #{@winner}"
+    return "#{@winner.capitalize} won #{@category} in #{@year}."
   end
 
   def self.list
