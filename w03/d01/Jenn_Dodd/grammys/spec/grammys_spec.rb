@@ -2,7 +2,7 @@ require_relative "../lib/grammys.rb"
 require "spec_helper"
 
 describe Grammy do
-  let(:cowboy) {Grammy.new(2013, "country", "Cowboy")}
+  let(:cowboy) {Grammy.new(2013, "country", "cowboy")}
 
   describe "an instance" do
     it "has a year" do
@@ -17,7 +17,7 @@ describe Grammy do
   end
 
   describe "::clear" do
-    cowboy = Grammy.new(2013, "country", "Cowboy")
+    cowboy = Grammy.new(2013, "country", "cowboy")
     mumford = Grammy.new(2012, "newgrass", "Mumford")
     rhiana = Grammy.new(2012, "pop", "Rhiana")
     it "cleans out the entire list" do
@@ -39,12 +39,12 @@ describe Grammy do
 
   describe "#to_s" do
     it "returns a string with all the data" do
-      expect(cowboy.to_s).to eq("2013, country, Cowboy")
+      expect(cowboy.to_s).to eq("Cowboy won country in 2013.")
     end
   end
 
 
-  describe "#delete_grammy" do
+  describe "::delete_grammy" do
     it "deletes a grammy by index" do
       Grammy.clear
       mumford = Grammy.new(2012, "newgrass", "Mumford")
