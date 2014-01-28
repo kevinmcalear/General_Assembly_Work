@@ -64,9 +64,28 @@ describe "Grammy" do
     end
 
 
-  # describe"::delete_grammy" do
-  # it "can delete a Grammy" do
-  # end
+  describe"::delete_entry" do
+    before do
+      Grammy.clear
+      @s1 = Grammy.new(2014,"Song of the Year","Lorde")
+      @s2 = Grammy.new(2014,"Record of the Year","Daft Punk")
+      Grammy.save_all("grammy_test.csv")
+    end
+
+  it "can delete a Grammy" do
+    Grammy.delete_entry("grammy_test.csv",0)
+    Grammy.save_all("grammy_test.csv")
+
+    f = File.open("grammy_test.csv", "r")
+    contents = f.read
+    f.close
+
+    contents_array = contents.split("\n")
+    first_line = contents_array[0]
+
+    expect(first_line).to eq "2014|Record of the Year|Daft Punk"
+    end
+  end
 
   end
 end

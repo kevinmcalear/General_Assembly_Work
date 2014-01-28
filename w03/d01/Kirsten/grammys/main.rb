@@ -2,9 +2,9 @@ require_relative "lib/grammys.rb"
 
 system "clear"
 
-puts "****************************"
+puts "************************************"
 puts "Hello! Welcome to the Grammy Archive"
-puts "****************************"
+puts "************************************"
 
 Grammy.list_all("grammys.csv")
 
