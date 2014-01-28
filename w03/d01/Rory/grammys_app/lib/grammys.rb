@@ -55,8 +55,10 @@ class Grammys
   f.close
   end
 
-  def self.list_all_indices
-    @@grammys_list.each{|grammy| puts grammy + grammys_list(grammy).index}
+  def self.index
+    @@grammys_list.each{|grammy| puts @@grammys_list.index(grammy)}
+  end
+
   end
 
 end

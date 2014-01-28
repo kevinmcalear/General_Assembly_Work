@@ -42,11 +42,12 @@ begin
     end
 
   elsif choice == "d"
+    grammys = Grammys.all
     if grammys.count < 1
       puts "No grammys in the system yet!"
     else
       puts "Choose which grammy to delete by entering the index."
-      Grammys.list_all_indices
+      grammys.each{|grammy|puts grammy + grammys[grammy]}
       chosen_index = gets.chomp
       grammys.delete_at(chosen_index)
     end
