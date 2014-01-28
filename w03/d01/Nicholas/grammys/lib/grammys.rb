@@ -34,6 +34,10 @@ class Grammy
     @@grammy_list = []
   end
 
+  def self.find_index
+    @@grammy_list.each {|item| puts @grammy_list.index(item)}
+  end
+
   def self.save_info(path)
     f = File.new("grams.csv", "w+")
       @@grammy_list.each do |artist|
