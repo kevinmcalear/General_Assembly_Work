@@ -1,4 +1,4 @@
-require_relative "lib/grammys.rb"
+require_relative "../lib/grammys.rb"
 
 system "clear"
 
@@ -21,33 +21,39 @@ begin
   choice = gets.chomp.downcase
 
   if choice == "a"
-    print "Enter store: "
-    store = gets.chomp
-    print "Enter item: "
-    item = gets.chomp
-    print "Enter quantity: "
-    quantity = gets.chomp.to_i
-    print "Enter price: "
-    price = gets.chomp
-    print "Enter date: "
-    date = gets.chomp
+    print "Enter year: "
+    year = gets.chomp.to_i
+    print "Enter category: "
+    category = gets.chomp
+    print "Enter winner, with arist and album separate by comma: "
+    winner = gets.chomp
 
-    Receipt.new(store, item, quantity, price, date)
+    Grammys.new(year, category, winner)
 
-    Receipt.save_all("receipts.csv")
+    Grammys.save_all("grammys.csv")
 
   elsif choice == "l"
-    receipts = Receipt.all
+    grammys = Grammys.all
 
-    if receipts.count < 1
-      puts "No receipts yet!"
+    if grammys.count < 1
+      puts "No grammys in the system yet!"
     else  
-      receipts.each {|receipt| puts receipt}
+      grammys.each {|grammy| puts grammy}
+    end
+
+  elsif choice == "d"
+    if grammys.count < 1
+      puts "No grammys in the system yet!"
+    else
+      puts "Choose which grammy to delete by entering the index."
+      Grammys.list_all_indices
+      chosen_index = gets.chomp
+      grammys.delete_at(chosen_index)
     end
 
   elsif choice != "q"
     
-    puts "Invalid option..."
+    puts "Invalid option"
 
   end
 

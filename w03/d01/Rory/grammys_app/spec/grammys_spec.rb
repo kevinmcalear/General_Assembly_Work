@@ -50,10 +50,33 @@ describe Grammys do
       expect(File.exists? "grammys_test.csv").to be_true
     end
 
+    it "saves the grammy info in the csv file" do
+      Grammys.save_all("grammys_test.csv")
+      f = File.open("grammys_test.csv", "r")
+      contents = f.read
+      f.close
+
+      contents_array = contents.split("\n")
+      first_line = contents_array[0]
+
+      expect(first_line).to eq "2014|Record of the Year|Daft Punk, Get Lucky"
+    end
+
   end
 
   describe "::read_all" do
-    
+    before do 
+      Grammys.clear
+      daftpunk = Grammys.new(2014, "Record of the Year", "Daft Punk, Get Lucky")
+      bestnewartist = Grammys.new(2014, "Best New Artist", "Macklemore & Ryan Lewis")
+      Grammys.save_all("grammys_test.csv")
+      Grammys.clear
+    end
+
+    it "reads all grammy info from our grammys csv" do
+      Grammys.read_all("grammys_test.csv")
+      expect(Grammys.all.count).to eq(2)
+    end
   end
 
 end

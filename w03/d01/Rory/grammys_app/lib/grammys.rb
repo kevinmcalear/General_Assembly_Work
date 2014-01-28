@@ -3,7 +3,7 @@ class Grammys
   @@grammys_list = []
 
   def initialize(year, category, winner)
-    @year = year
+    @year = year.to_i
     @category = category
     @winner = winner
 
@@ -50,9 +50,13 @@ class Grammys
 
     f.each do|line|
       line_array = line.split("|")
-      Grammys.new(line_array[0..-1])
+      Grammys.new(line_array[0], line_array[1], line_array[3])
   end
   f.close
+  end
+
+  def self.list_all_indices
+    @@grammys_list.each{|grammy| puts grammy + grammys_list(grammy).index}
   end
 
 end
