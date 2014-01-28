@@ -43,7 +43,7 @@ describe Grammy do
     end
   end
 
-  describe "#list_by_index" do
+  describe "#list_by_index" do # test that I'm not sure in, although it's passed
     it "instantiates all objects and adds them and lists them" do
       Grammy.clear
       Grammy.new(2004, "Jazz", "Duffy Duck")
