@@ -1,4 +1,6 @@
 class Receipt
+  
+  @@receipts = []
 
 @@receipts = []
 
@@ -10,6 +12,7 @@ class Receipt
     @date = date
 
     @@receipts << self
+<<<<<<< HEAD
   end
 
   def self.all
@@ -26,6 +29,8 @@ class Receipt
       f.puts "#{receipt.store}\t#{receipt.item}\t#{receipt.quantity}\t#{receipt.price}\t#{receipt.date}"
     end
     f.close
+=======
+>>>>>>> b9203e2ed20746229c9c50a12ce5422bd08cd437
   end
 
   def store
@@ -52,5 +57,36 @@ class Receipt
     return "#{@store}\t#{@item}\t#{@quantity}\t#{@price}\t#{@date}"
   end
 
+<<<<<<< HEAD
+=======
+  def self.all
+    return @@receipts
+  end
+
+  def self.clear
+    @@receipts = []
+  end
+
+  def self.save_all(path)
+    f = File.new(path,"w+")
+
+    @@receipts.each do |receipt|
+      f.puts "#{receipt.store}\t#{receipt.item}\t#{receipt.quantity}\t#{receipt.price}\t#{receipt.date}"
+    end
+
+    f.close
+  end
+
+  def self.read_all(path)
+    f = File.new(path,"a+")
+
+    f.each do |line|
+      line_array = line.split("\t")
+      Receipt.new(line_array[0],line_array[1],line_array[2],line_array[3],line_array[4])
+    end
+
+    f.close
+  end
+>>>>>>> b9203e2ed20746229c9c50a12ce5422bd08cd437
 
 end
