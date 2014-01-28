@@ -58,7 +58,7 @@ def self.read_all(path)
 
     f.each do |line|
       line_array = line.split("\t")
-      Receipt.new(line_array[0], line_array[1],line_array[2], line_array[3],line_array[4], line_array[5])
+      Receipt.new(line_array[0], line_array[1],line_array[2], line_array[3],line_array[4])
     end
 
     @@receipts.each do |receipt| 

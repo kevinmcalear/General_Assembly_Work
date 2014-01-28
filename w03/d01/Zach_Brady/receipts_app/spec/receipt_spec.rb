@@ -65,7 +65,7 @@ let(:receipt) {Receipt.new("Macy's", "Khaki slacks", 2, "$35.00", "December 21, 
 
     it "reads all receipts from our CSV" do
       Receipt.read_all("receipts_test.csv")
-      expect(receipts.all.count).to eq(2)
+      expect( Receipt.all.count ).to eq(2)
     end
   end
 
