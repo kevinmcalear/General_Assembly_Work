@@ -31,6 +31,22 @@ describe Grammy do
     end
   end
 
+   describe "::read_all" do
+    before do
+      Grammy.clear
+      g1 = Grammy.new(2014, "Best Album", "Daft Punk")
+      g2 = Grammy.new(2014, "Best New Artist", "Macklemore")
+
+      Grammy.save_all("grammys_test.csv")
+      Grammy.clear
+    end
+
+    it "reads all awards from our Grammy CSV" do
+      Grammy.read_all("grammys_test.csv")
+      expect(Grammy.all.count).to eq 2
+    end
+  end
+
   describe "::save_all" do
     before do
       Grammy.clear
@@ -53,27 +69,9 @@ describe Grammy do
       contents = f.read
       f.close
 
-      contents_array = contents.split("\|")
+      contents_array = contents.split("\n")
       first_line = contents_array[0]
-      expect(first_line).to eq "2014\|Best Album\|Daft Pink"
+      expect(first_line).to eq "2014|Best Album|Daft Punk"
     end
   end
-
-
-  describe "::read_all" do
-    before do
-      Grammy.clear
-      g1 = Grammy.new(2014, "Best Album", "Daft Punk")
-      g2 = Grammy.new(2014, "Best New Artist", "Macklemore")
-
-      Grammy.save_all("grammys_test.csv")
-      Grammy.clear
-    end
-
-    it "reads all awards from our Grammy CSV" do
-      Grammy.read_all("grammys_test.csv")
-      expect(Grammy.all.count).to eq 2
-    end
-  end
-  
 end

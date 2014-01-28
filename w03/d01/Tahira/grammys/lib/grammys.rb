@@ -35,7 +35,7 @@ class Grammy
      f = File.new(path,"w+")
 
     @@grammys.each do |grammy|
-      f.puts "#{grammy.year}\|#{grammy.category}\|#{grammy.winner}"
+      f.puts "#{grammy.year}|#{grammy.category}|#{grammy.winner}"
     end
 
     f.close
@@ -47,7 +47,7 @@ class Grammy
     f = File.new(path,"a+")
 
     f.each do |line|
-      line_array = line.split("\|")
+      line_array = line.split("|")
       Grammy.new(line_array[0],line_array[1], line_array[2])
     end
 
