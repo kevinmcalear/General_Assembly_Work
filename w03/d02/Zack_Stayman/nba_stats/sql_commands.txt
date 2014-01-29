@@ -1,0 +1,15 @@
+SELECT * FROM players WHERE team='NYK';
+SELECT * FROM players WHERE team='IND' AND age<26;
+SELECT * FROM players ORDER BY points;
+SELECT name, AVG(points/games::numeric) FROM players GROUP BY name ORDER BY avg DESC LIMIT 20;
+SELECT AVG(age) FROM players;
+SELECT AVG(age) FROM players WHERE team='OKC';
+SELECT AVG(age) FROM players WHERE games>40;
+SELECT team, SUM(points) FROM players GROUP BY team ORDER BY sum DESC;
+
+SELECT age, AVG(points/games) FROM players GROUP BY age ORDER BY age;
+
+
+SELECT * FROM (SELECT store, SUM(quantity) FROM receipts GROUP BY store ORDER BY sum DESC) AS sum_table WHERE sum > 5;
+
+SELECT team, COUNT(name) FROM players WHERE points/games > 12 GROUP BY team ORDER BY count DESC;

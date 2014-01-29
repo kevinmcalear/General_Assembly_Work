@@ -1,0 +1,29 @@
+1) select * from players where team = 'NYK';
+
+2) select * from players where team = 'IND' and age <26;
+
+3) select * from players order by points;
+
+4) select name, (points/games) as PPG  from players order by PPG desc limit 20;
+
+5) select avg(age) from players;
+
+6) select avg(age) from players where team = 'OKC';
+
+7) select avg(age) from players where games < 40;
+
+8) select team, sum(points) from players group by team order by sum desc;
+
+
+BONUS 1: 
+select age, avg(points/games) from players group by age order by age;
+
+BONUS 2: 
+
+select team, count(id) 
+from (select * from players where (points/games)>12) as t1  
+group by team order by count desc;
+
+
+
+
