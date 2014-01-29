@@ -12,8 +12,8 @@ class ApartmentRentalApp
 
         def initialize
               $building = Building.new
-                $apartment = Apartment.new
-                $person = Person.new
+              $apartment = Apartment.new
+              $person = Person.new
           end
 
               def list_options
@@ -261,7 +261,7 @@ class ApartmentRentalApp
               end
         end
 
-      class Person
+        class Person
 
             def initialize()
                   @full_list_of_tenants = [
