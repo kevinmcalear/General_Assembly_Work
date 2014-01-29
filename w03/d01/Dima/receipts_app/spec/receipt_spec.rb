@@ -74,7 +74,6 @@ describe Receipt do
       expect(Receipt.all.count).to eq(2)
     end
   end
-  end
 
   describe "::save_all" do
     before do
