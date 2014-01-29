@@ -112,18 +112,18 @@
 # SELECT store, SUM(quantity) FROM receipts GROUP BY store ORDER BY sum;
 
 # - how much money was spent on December 21?
-SELECT SUM(quantity*price) FROM receipts WHERE date_bought = '1989-12-21';
-# - how many purchases (ie receipts) from Sears?
-SELECT store, COUNT(id) FROM receipts WHERE store = 'Sears' GROUP BY store;
-# - how many items from Express?
-SELECT item, SUM(quantity) FROM receipts WHERE store = 'Express' GROUP BY item;
-# - average # of items per purchase December 21-23
-SELECT AVG(quantity) FROM receipts WHERE date_bought >= '1989-12-21' AND date_bought <= '1989-12-23';
-# - amount spent per day, least $ to most
-SELECT date_bought, sum(price*quantity) FROM receipts GROUP BY date_bought ORDER BY sum;
+# SELECT SUM(quantity*price) FROM receipts WHERE date_bought = '1989-12-21';
+# # - how many purchases (ie receipts) from Sears?
+# SELECT store, COUNT(id) FROM receipts WHERE store = 'Sears' GROUP BY store;
+# # - how many items from Express?
+# SELECT item, SUM(quantity) FROM receipts WHERE store = 'Express' GROUP BY item;
+# # - average # of items per purchase December 21-23
+# SELECT AVG(quantity) FROM receipts WHERE date_bought >= '1989-12-21' AND date_bought <= '1989-12-23';
+# # - amount spent per day, least $ to most
+# SELECT date_bought, sum(price*quantity) FROM receipts GROUP BY date_bought ORDER BY sum;
 
 
-
+# CREATE TABLE names (id serial PRIMARY KEY, name varchar(50) NOT NULL);
 
 
 
