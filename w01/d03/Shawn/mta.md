@@ -27,6 +27,8 @@ and stop that user is getting off at and prints the total number of stops for th
   - The user should be given a list of all the stops on that line
   - The user should be able to enter the stop that they want to get on at
   - The user should be asked what line they want to get off
+
+  
   - The user should be given a list of all the stops on that line
   - The user should be able to enter the stop that they want to get off at
   - The user should be told the number of stops for their trip
