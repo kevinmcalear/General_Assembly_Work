@@ -114,14 +114,4 @@ describe Receipt do
       expect(first_line).to eq "Macy's\tKhaki slacks\t3\t$35.00\tDecember 21, 1998"
     end
   end
-
-
-
-
-
-
-
-
-  
-
 end
