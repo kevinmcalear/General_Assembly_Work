@@ -1,0 +1,15 @@
+SELECT * FROM players WHERE team='NYK';
+
+SELECT * FROM players WHERE team='IND' AND age < 26;
+
+SELECT * FROM players ORDER BY points;
+
+SELECT name, avg(points/games) AS ppg FROM players GROUP BY name ORDER BY avgpts DESC LIMIT 20;
+
+SELECT avg(age) FROM players;
+
+SELECT team, avg(age) AS okc_ages FROM players WHERE team='OKC' GROUP BY team;
+
+SELECT avg(age) FROM players WHERE games > 40;
+
+SELECT team, points FROM players ORDER BY points DESC;

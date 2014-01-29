@@ -125,7 +125,12 @@ while menu_choice != "h"
     menu_choice = list_options
 
   when "g" 
-    puts "I'm sorry to hear you'd like to put your pet up for adoption... :(...but I'll help you anyways..."
+    puts "
+
+
+
+
+    I'm sorry to hear you'd like to put your pet up for adoption... :(...but I'll help you anyways..."
     $happi_tails_shelter.put_up_for_adoption
     menu_choice = list_options
 
