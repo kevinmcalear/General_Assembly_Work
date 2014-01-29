@@ -11,7 +11,7 @@ describe Bottle do
     end
   end
 
-  context "Bottle is filled" do
+  context "Bottle is empty" do
     describe "#full" do 
       let(:aquafina) { Bottle.new }
       it "shoud fill the bottle" do 
@@ -20,7 +20,7 @@ describe Bottle do
     end
   end
 
-  context "Bottle empties when drunk" do
+  context "Bottle is full" do
     describe "#drink" do 
       context "Bottle has only been sipped once" do
         let(:bottle) { Bottle.new }
@@ -33,7 +33,7 @@ describe Bottle do
           expect( bottle.sips.count ).to eq(1)
         end
       end
-      
+
       context "bottle has been sipped 3 times"
       let(:bottle) { Bottle.new }
       before do
