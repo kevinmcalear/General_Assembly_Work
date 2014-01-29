@@ -34,10 +34,11 @@ class Grammy
     @@grammy_list = []
   end
 
+
   def self.save_info(path)
-    f = File.new("grams.csv", "w+")
+    f = File.new(path, "w+")
       @@grammy_list.each do |artist|
-        f.puts "#{artist.year},#{artist.category},#{artist.winner}"
+        f.puts "#{artist.year}|#{artist.category}|#{artist.winner}"
       end
     f.close
   end
@@ -45,12 +46,16 @@ class Grammy
   def self.read_info(path)
     f = File.new(path,"a+")
 
-    f.each do |artist|
-      gram_array = artist.split("|")
+    f.each do |line|
+      gram_array = line.split(",")
       Grammy.new(gram_array[0],gram_array[1],gram_array[2])
     end
 
     f.close
+  end
+
+  def self.delete(index)
+    @@grammy_list.delete_at(index)
   end
 
 
