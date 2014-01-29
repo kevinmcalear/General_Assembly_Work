@@ -22,6 +22,9 @@
 ### Register & Setup
 * If you [register](http://projecteuler.net/register) you'll be able to submit answers to check if they are correct.
 
+Username: NicholasJay
+password: 
+
 ### Project Euler Problem 1
 
 Begin by tackling [Problem 1](http://projecteuler.net/problem=1). TDD not required.
