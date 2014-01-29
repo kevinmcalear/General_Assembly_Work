@@ -2,6 +2,8 @@ class Receipt
   
   @@receipts = []
 
+@@receipts = []
+
   def initialize(store, item, quantity, price, date)
     @store = store
     @item = item
@@ -10,6 +12,25 @@ class Receipt
     @date = date
 
     @@receipts << self
+<<<<<<< HEAD
+  end
+
+  def self.all
+    return @@receipts
+  end
+
+  def self.clear
+    @@receipts = []
+  end
+
+  def self.save_all(path)
+    f = File.new(path, "a+")
+    @@receipts.each do |receipt|
+      f.puts "#{receipt.store}\t#{receipt.item}\t#{receipt.quantity}\t#{receipt.price}\t#{receipt.date}"
+    end
+    f.close
+=======
+>>>>>>> b9203e2ed20746229c9c50a12ce5422bd08cd437
   end
 
   def store
@@ -33,9 +54,11 @@ class Receipt
   end
 
   def to_s
-    return "Receipt: #{@store}, #{@item}, #{@quantity}, #{@price}, #{@date}"
+    return "#{@store}\t#{@item}\t#{@quantity}\t#{@price}\t#{@date}"
   end
 
+<<<<<<< HEAD
+=======
   def self.all
     return @@receipts
   end
@@ -64,5 +87,6 @@ class Receipt
 
     f.close
   end
+>>>>>>> b9203e2ed20746229c9c50a12ce5422bd08cd437
 
 end
