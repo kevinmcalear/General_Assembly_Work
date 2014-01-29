@@ -64,15 +64,15 @@
       superhero_view.each {|row| puts "Name: #{row["superhero_name"]}, Alter Ego: #{row["alter_ego"]}, Has Cape: #{row["has_cape"]}, Power: #{row["power"]}, Arch Nemesis: #{row["arch_nemesis"]}"} 
     
     when "U"
+      puts "Which superhero would you like to update?"
+      super_hero_name = gets.chomp
       puts "Which attribute would you like to update 'superhero_name', 'alter_ego', 'has_cape', 'power', or 'arch_nemesis'?"
       update_super_hero = gets.chomp.downcase
-      puts "Enter current value:"
-      current_value = gets.chomp
       puts "What do you want to update it to:"
       updated_value = gets.chomp
 
 
-      c.exec("UPDATE superheros SET #{update_super_hero}='#{current_value}'  WHERE #{update_super_hero}='#{updated_value}';")
+      c.exec("UPDATE superheros SET #{update_super_hero}='#{updated_value}'  WHERE superhero_name = '#{super_hero_name}';")
 
 
     when "D" 
