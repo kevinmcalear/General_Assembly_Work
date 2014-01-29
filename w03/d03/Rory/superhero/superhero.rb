@@ -5,15 +5,20 @@ require 'pg'
 
 puts "Welcome to Superhero Database"
 puts ""
-puts "Enter a selection: "
-puts "(I) Index - List all Super Heros"
-puts "(C) Add a Super Hero"
-puts "(R) View all info for a specific Super Hero"
-puts "(U) Update a Super Hero"
-puts "(D) Remove a Super Hero"
-puts "(Q) Remove a Super Hero"
 
- choice = gets.chomp.downcase
+def menu
+  puts "Enter a selection: "
+  puts "(I) Index - List all Super Heros"
+  puts "(C) Add a Super Hero"
+  puts "(R) View all info for a specific Super Hero"
+  puts "(U) Update a Super Hero"
+  puts "(D) Remove a Super Hero"
+  puts "(Q) Quit"
+end
+
+menu
+choice = gets.chomp.downcase
+
 
  c = PG.connect(:dbname => "superhero_db")
 
@@ -21,7 +26,11 @@ puts "(Q) Remove a Super Hero"
 while choice !="q"
  case choice
     when "i"
-      c.exec("SELECT*FROM superheroes")
+      list = c.exec("SELECT * FROM superheroes;")
+      list.each{|row|puts row}
+      menu
+      choice = gets.chomp.downcase
+
     when "c"
       puts "Enter a superhero name: "
       superhero_name = gets.chomp
@@ -29,16 +38,27 @@ while choice !="q"
       alter_ego = gets.chomp
       puts "Does the superhero have a cape?"
       has_cape = gets.chomp
+        if has_cape == "yes"
+          has_cape = true
+        else
+          has_cape = false
+        end
       puts "What is the superhero's power?"
       power = gets.chomp
       puts "Who is the superhero's arch nemesis?"
       arch_nemesis = gets.chomp
 
-      c.exec("INSERT INTO superheroes (superhero_name, alter_ego, has_cape, power, arch_nemesis) VALUES (#{superhero_name}, #{alter_ego}, #{has_cape}, #{power}, #{arch_nemesis});")
+      c.exec("INSERT INTO superheroes (superhero_name, alter_ego, has_cape, power, arch_nemesis) VALUES ('#{superhero_name}', '#{alter_ego}', '#{has_cape}', '#{power}', '#{arch_nemesis}');")
+      menu
+      choice = gets.chomp.downcase
+    
     when "r"
       puts "Enter a superhero name: "
       superhero_name = gets.chomp
       c.exec("SELECT * FROM superheroes WHERE superhero_name = #{superhero_name};")
+      menu
+      choice = gets.chomp.downcase
+    
     when "u"
       puts "Which superhero do you want to update?"
       superhero_name = gets.chomp
@@ -59,15 +79,32 @@ while choice !="q"
       puts "What do you want to change it to?"
       new_super_hero_info = gets.chomp
 
+      if new_super_hero_info.downcase == "yes"
+        new_super_hero_info = true
+      else
+        new_super_hero_info = false
+      end
+
       c.exec("UPDATE superheroes SET #{attribute_to_update} = #{new_super_hero_info} WHERE superhero_name = #{superhero_name};")
+      menu
+      choice = gets.chomp.downcase
+    
     when "d"
       puts "Enter a superhero name: "
-      superhero_name = gets.chomp
-      c.exec("DELETE FROM superheroes WHERE superhero_name= #{superhero_name};")
+      name = gets.chomp
+      c.exec("DELETE FROM superheroes WHERE superhero_name='#{name}';")
+      menu
+      choice = gets.chomp.downcase
+    
+    else
+      puts "That is not an option.  Enter new choice."
+      menu
+      choice = gets.chomp.downcase
+    
     end
   end
 
-c.exec("SQL")
+
 
 c.close
 
