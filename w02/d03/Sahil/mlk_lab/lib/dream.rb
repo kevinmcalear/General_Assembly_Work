@@ -11,6 +11,7 @@ class Nation
   def judge_by(trait)
      if trait == :character
        return true
+     end
   end
   def join_hands(x,y)
     x.merge(y)   
