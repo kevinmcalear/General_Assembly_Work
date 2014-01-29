@@ -48,6 +48,7 @@ describe "#palindrome?" do
     expect( palindrome?("abba ") ).to be_true
   end
 end
+
 describe "#rps" do
   let(:player_one) do
     { name: "Jeff", play: "scissors" }
