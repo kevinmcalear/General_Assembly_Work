@@ -49,9 +49,13 @@ class Grammy
     content = f.read
     f.close
     content = content.split("\n")
-  
-    puts content.each {|winner| puts content.index(winner).to_s+" "+winner}
-    return content.each {|winner| puts content.index(winner).to_s+" "+winner}
+    
+    record_hash = content.map{ |array| {:index=> content.index(array),:details=>array}} 
+    
+    binding.pry
+
+    return list
+
   end
 
 end
