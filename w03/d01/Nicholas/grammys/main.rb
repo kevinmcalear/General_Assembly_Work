@@ -1,4 +1,5 @@
 require_relative "lib/grammys"
+Grammy.read_info("grams.csv")
 
 def menu
   puts"---------------------------------"
@@ -7,6 +8,7 @@ def menu
   puts" (2) List of the Grammys"
   puts" (3) Delete a Grammy"
   puts" (4) Quit"
+  puts"---------------------------------"
  
   user_choice = gets.chomp
   return user_choice.to_i 
@@ -26,19 +28,30 @@ while user_choice != 4
     print "What year did the artist win? "
     year = gets.chomp.to_i
     Grammy.new(year, category, winner)
+    Grammy.save_info("grams.csv")
 
   when 2
     gramlist = Grammy.list
     if gramlist.empty?
       puts "Nothing in the list yet."
     else
-    gramlist.each {|artist| print "#{artist}|"}
+    gramlist.each {|artist| puts "#{artist}"}
     end
 
   when 3
     gramlist = Grammy.list
+    if gramlist.empty?
+      puts "No Grammy's to delete!"
+    else
+      puts "Enter the number you want to remove"
+      gramlist.each_with_index {|grammy, index| puts "#{index}. #{grammy}"}
+      index = gets.chomp.to_i
+    end
 
+    Grammy.delete(index)
+    Grammy.save_info("grams.csv")
+  else
+    puts "Not a choice!"
   end
-
   user_choice = menu
 end
