@@ -32,4 +32,19 @@ SELECT team, SUM(points) FROM players GROUP BY team ORDER BY sum DESC;
 
 ###Bonus
 #1. Age and the average points per game for that age, ordered from youngest to oldest
+
+SELECT age, (points/games) AS points_per_game FROM players ORDER BY age;
+
 #2. Team and the the number of players who score above 12 points per game on that team, ordered from most to least
+
+SELECT team, count(name) FROM players WHERE (points/games) > 12 GROUP BY team ORDER BY count DESC;
+
+### TESTING BONUS 2
+
+SELECT team FROM players GROUP BY team;
+
+SELECT team, name, (points/games) AS points_per_game FROM players WHERE (points/games) > 12 ORDER BY team;
+
+
+
+
