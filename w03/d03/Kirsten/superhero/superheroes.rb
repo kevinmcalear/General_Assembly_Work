@@ -1,18 +1,6 @@
 require 'pg'
 require 'pry'
 
-
-  # puts "Welcome to the superhero database"
-  # puts ""
-  # puts "What would you like to do?"
-  # puts "(I) Index - List all Super Heros"
-  # puts "(C) Add a Super Hero"
-  # puts "(R) View all info for a specific Super Hero"
-  # puts "(U) Update a Super Hero"
-  # puts "(D) Remove a Super Hero"
-  # puts "(Q) Quit"
-
-
 begin 
 db_conn = PG.connect( {:dbname => "superheroes_db"} )
 
@@ -33,7 +21,7 @@ choice = gets.chomp.upcase
 case choice
 when "I"
   list = db_conn.exec("SELECT * FROM superheroes;")
-  list.each {|row| puts row}
+  list.each {|row| puts "Name: #{row["superhero_name"]}, alter-ego: #{row["alter_ego"]}, Cape? #{row["has_cape"]}, power: #{row["power"]}, arch-nemesis: #{row["arch_nemesis"]}" }
 
 when "C"
   puts "What superhero would you like to add?"
@@ -100,9 +88,6 @@ when "H"
   else 
     puts "OK, not deleted."
   end
-
-else
-  puts "That is not a valid choice."
 end
 
 end while choice != "Q"
