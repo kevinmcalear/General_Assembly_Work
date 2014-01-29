@@ -1,4 +1,4 @@
-Write a method `twisted_fizzbuzz` that takes a single number as an argument.
+ Write a method `twisted_fizzbuzz` that takes a single number as an argument.
 
 * It should print out numbers divisible by 3 that are less than that number
 * It should print out numbers divisible by 5 that are less than that number
