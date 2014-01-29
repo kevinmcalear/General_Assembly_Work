@@ -28,3 +28,11 @@ nba_db=# SELECT AVG(age) FROM players WHERE games > 40;
 
 H)The team and total points scored from all players on that team (team points), ordered from most team points to least
 
+nba_db=# SELECT team, SUM (points) FROM players GROUP BY team;
+
+BONUS
+
+Age and the average points per game for that age, ordered from youngest to oldest
+
+nba_db=# SELECT age, AVG (points) FROM players GROUP BY age ORDER BY age;
+
