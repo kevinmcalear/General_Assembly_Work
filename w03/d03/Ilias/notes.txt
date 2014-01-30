@@ -1,0 +1,33 @@
+NOTES 1.28.14
+
+--------------------------------
+
+1. Explain ACID in layman's terms.
+
+2. Explain what the client server model is.
+
+3. Name the 4 basic actions underlying the client server relationship. (hint: CRUD)
+
+	CRUD
+	CREATE -> INSERT 
+	READ -> SELECT
+	UPDATE -> UPDATE
+	DELETE -> DELETE
+
+New SQL commands:
+
+-ALTER TABLE tname ADD/DROP COLUMN cname;
+	ALTER is used to change Schema.
+
+-UPDATE tname SET cname ='string';
+	CRUD actions are used to change Data.
+
+-PG-
+-pg turns our program in a post db client
+	c = PG.connect(:dbname => "name") #open connection
+	c.close #close
+	r = c.exec("SQL COMMAND") #SQL instructions
+	r.each {|x| puts x} /or/ r.values #to retreive data in hash or array
+
+ninja blocks
+iterms2
