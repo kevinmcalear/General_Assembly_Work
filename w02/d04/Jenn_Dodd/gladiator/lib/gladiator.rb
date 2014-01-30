@@ -77,15 +77,16 @@ olympus.add_gladiator(aries)
 puts olympus.gladiators.count
 
 olympus.gladiators.delete(poseidon)
-puts "#{poseidon.name} is dead!"
 puts olympus.gladiators.count
 olympus.gladiators.delete(aries)
+puts olympus.gladiators.count
 
 olympus.add_gladiator(poseidon)
 olympus.add_gladiator(aries)
 puts olympus.gladiators.count
 
 olympus.fight(poseidon, aries)
+puts olympus.gladiators.count
 
 
 

@@ -319,15 +319,15 @@ eval "$(rbenv init -)"
 # Students can add a shortcut to quickly access their GA folder
 # example: alias wdi="cd ~/Documents/GA/WDI4"
 
-alias wdi="cd ~/dev/wdi/WDI_NYC_12_Students"
+alias wdi="cd ~/dev/wdi/WDI_NYC_12"
 cdhwfunc() {
   # takes three args: the week, the day
   # and an optional third for the user
   if [ $1 -lt 10 ]
   then
-    cd ~/dev/wdi/WDI_NYC_12_Students/w0$1/d0$2/${3:-Instructor}
+    cd ~/dev/wdi/WDI_NYC_12/w0$1/d0$2/${3:-INSTRUCTOR}
   else
-    cd ~/dev/wdi/WDI_NYC_12_Students/w$1/d0$2/${3:-Instructor}
+    cd ~/dev/wdi/WDI_NYC_12/w$1/d0$2/${3:-INSTRUCTOR}
   fi
 }
 alias cdhw=cdhwfunc
