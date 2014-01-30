@@ -37,7 +37,7 @@ begin
     if grammys.length < 1
       puts "Please add one first"
     else
-      Grammy.List
+      Grammy.list
     end
 
   when "d"
@@ -49,5 +49,5 @@ begin
   else
     puts "Please choose something else"
   end
-end while option != q
+end while option != "q"
 
