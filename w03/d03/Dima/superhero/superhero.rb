@@ -101,11 +101,11 @@ choice = gets.chomp.downcase
       insert_query = "CREATE TABLE superheros (id serial PRIMARY KEY, name varchar(50), alter_ego varchar(50), has_cape bool, power varchar(50), arch_nemesis varchar(50));"
       input(insert_query)
       puts "Database has been refreshed"
-    elsif answer = "n"
+    elsif answer == "n"
       puts "good"
     else
       puts "please enter y or n"
-    end    
+    end
   else
     puts "Please enter correct letter"
   end
