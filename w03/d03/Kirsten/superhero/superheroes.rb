@@ -42,7 +42,7 @@ when "R"
   puts "Which hero would you like to get information about?"
   chosen_hero = gets.chomp
   hero = db_conn.exec("SELECT superhero_name, alter_ego, has_cape, power, arch_nemesis FROM superheroes WHERE superhero_name = '#{chosen_hero}';")
-  hero.each {|row| puts row}
+  hero.each {|row| puts "Name: #{row["superhero_name"]}, alter-ego: #{row["alter_ego"]}, Cape? #{row["has_cape"]}, power: #{row["power"]}, arch-nemesis: #{row["arch_nemesis"]}"}
 
 
 when "U"
