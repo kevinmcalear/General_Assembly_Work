@@ -28,6 +28,7 @@ puts "Here is what you can do:
 * (U) Update a Super Hero
 * (D) Remove a Super Hero
 * (Z) Remove all caped superheros
+* (J) Refresh the whole table (drop table, create table)
 * (E) Exit the database"
 
 choice = gets.chomp.downcase
@@ -88,7 +89,23 @@ choice = gets.chomp.downcase
       input(insert_query)
     elsif answer == "n"
       puts "no problem, you can choose something else"
+    else
+      puts "Please type y or n"
     end
+  when "j"
+    puts "This command will destroy all your data. Are you sure? (y/n)"
+    answer = gets.chomp.downcase
+    if answer == "y"
+        insert_query = "DROP TABLE superheros"
+      input(insert_query)
+      insert_query = "CREATE TABLE superheros (id serial PRIMARY KEY, name varchar(50), alter_ego varchar(50), has_cape bool, power varchar(50), arch_nemesis varchar(50));"
+      input(insert_query)
+      puts "Database has been refreshed"
+    elsif answer = "n"
+      puts "good"
+    else
+      puts "please enter y or n"
+    end    
   else
     puts "Please enter correct letter"
   end
