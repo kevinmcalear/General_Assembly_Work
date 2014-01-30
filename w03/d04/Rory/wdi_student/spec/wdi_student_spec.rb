@@ -36,7 +36,7 @@ describe Student do
       end
 
       it "reduces energy" do
-      expect( steve.energy_level ).to eq(0)
+        expect( steve.energy_level ).to eq(0)
       end
 
       it "adds smarts" do
