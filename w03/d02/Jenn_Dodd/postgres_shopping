@@ -1,0 +1,3 @@
+SELECT (item) FROM receipts WHERE (quantity >=3);
+
+SELECT * FROM receipts WHERE (date_bought > '1989-12-22');
