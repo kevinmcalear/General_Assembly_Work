@@ -1,33 +1,26 @@
 require 'pg'
 
-def populate
+def csv(choice)
   db_conn = PG.connect( {:dbname => "superhero_db"} )
     
   f = File.open("superheroes.csv", "r")
 
   f.each do |line|
     line_array = line.split(",")
-    values = "'" + line_array.join("', '") + "'"
-    query = "INSERT INTO superheroes (superhero_name, alter_ego, has_cape, power, arch_nemesis) VALUES (#{values});"
+    
+    if choice == 'p'
+      values = "'" + line_array.join("', '") + "'"
+      query = "INSERT INTO superheroes (superhero_name, alter_ego, has_cape, power, arch_nemesis) VALUES (#{values});"
+    else
+      hero_name = line_array[0]
+      query = "DELETE FROM superheroes WHERE superhero_name = '#{hero_name}';" 
+    end
     db_conn.exec(query)
   end
 
   f.close
   db_conn.close
 end
-
-def unpopulate
-  heroes = ["Superman", "Wonder Woman", "Batman", "Mr Incredible", "Professor X", "Spiderman", "Captain America", "Iron Man", "Wolverine"]
-  
-  db_conn = PG.connect( {:dbname => "superhero_db"} )
-  heroes.each do |hero|
-    query = "DELETE FROM superheroes WHERE superhero_name = '#{hero}';"
-    db_conn.exec(query)
-  end
-
-  db_conn.close
-end
-
 
 def add_hero
   print "What is our superhero's name? "
@@ -102,9 +95,9 @@ while choice != 'e'
   when 'd'
     query = delete_hero
   when 'p'
-    populate
+    csv(choice)
   when 'pp'
-    unpopulate
+    csv(choice)
   end
 
 
