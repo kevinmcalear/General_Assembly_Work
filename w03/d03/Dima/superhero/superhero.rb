@@ -27,6 +27,7 @@ puts "Here is what you can do:
 * (R) View all info for a specific Super Hero
 * (U) Update a Super Hero
 * (D) Remove a Super Hero
+* (Z) Remove all caped superheros
 * (E) Exit the database"
 
 choice = gets.chomp.downcase
@@ -37,15 +38,15 @@ choice = gets.chomp.downcase
      output(select_query) 
   when "c"
     puts "Please enter the name of superhero:"
-    name = gets.chomp
+    name = gets.chomp.downcase
     puts "Please enter the alter ego of superhero:"
-    alter_ego = gets.chomp
+    alter_ego = gets.chomp.downcase
     puts "Please tell if the superhero has a cape(true/false)"
-    has_cape = gets.chomp
+    has_cape = gets.chomp.downcase
     puts "What power does he have?"
-    power = gets.chomp
+    power = gets.chomp.downcase
     puts "Who's his arch nemesis?"
-    arch_nemesis = gets.chomp
+    arch_nemesis = gets.chomp.downcase
     insert_query = "INSERT INTO superheros "
     insert_query += "(name, alter_ego, has_cape, power, arch_nemesis)"
     insert_query += " VALUES('#{name}','#{alter_ego}','#{has_cape}','#{power}','#{arch_nemesis}');"
@@ -63,21 +64,32 @@ choice = gets.chomp.downcase
     puts "Who do you want to update? Please enter name from the list"
     select_query = "SELECT * FROM superheros"
     output(select_query)
-    name = gets.chomp
+    name = gets.chomp.downcase
     puts "Please choose the attribute that you want to update from the list above(name;power;etc..)"
-    old_attr = gets.chomp
+    old_attr = gets.chomp.downcase
     puts "Please enter new attribute for this person"
-    new_attr = gets.chomp
+    new_attr = gets.chomp.downcase
     insert_query = "UPDATE superheros SET #{old_attr} = '#{new_attr}' WHERE name = '#{name}';"
     input(insert_query)
   when "d"
     puts "Who would you like to remove from our database. Please enter name"
     select_query = "SELECT * FROM superheros"
     output(select_query)
-    name = gets.chomp
-    insert_query = "DELETE FROM superheros WHERE name = '#{name}';"
+    name = gets.chomp.downcase
+    insert_query = "DELETE FROM superheros WHERE name = '#{name.capitalize}';"
     input(insert_query)
   when "e"
     puts "goodbye"
+  when "z"
+    puts "All caped superheros will be deleted. Are you sure? (y/n)"
+    answer = gets.chomp.downcase
+    if answer == "y"
+      insert_query = "DELETE FROM superheros WHERE has_cape = 'true'"
+      input(insert_query)
+    elsif answer == "n"
+      puts "no problem, you can choose something else"
+    end
+  else
+    puts "Please enter correct letter"
   end
 end
