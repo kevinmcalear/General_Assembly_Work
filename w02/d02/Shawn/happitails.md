@@ -48,11 +48,12 @@
 
 #####Commit 4
 - Add options to the menu so that a user can:
-    - Facilitate client adopts an animal. This means the client now has the animal and they should no longer be a part of the shelter.
+    - Facilitate client adopts an animal. This means the client now has the animal and they should no longer be a part of the shelter.-- check
     - Facilitate client puts an animal up for adoption. This means the client no longer has the animal and it should be added to the shelter.
 
 #####Commit 5
 - Create a seeds.rb file that initializes a shelter as well as a few animals and clients so you have some data to start with when you run your program.
+- add a shelter function
 
 #####Commit 6 (Bonus)
 - Limit the number of animals a client can adopt to 2 per client. If they try to adopt more than that, yell at them.

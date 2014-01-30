@@ -34,7 +34,7 @@ class Grammy
     @@winners = []
   end
 
-  def self.list
+  def self.list #method that I was most curios about if it's correct and test for it
     @@winners.each_with_index {|key, val| return "#{val} => #{key.winner}"}
   end
 

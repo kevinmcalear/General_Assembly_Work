@@ -40,6 +40,7 @@ class State
       @status = "a state sweltering with the heat of injustice and oppression"
       @table_of_brotherhood = []
       @ring = false
+      @table = []
   end
 
   def table_of_brotherhood=(sit_at_table)
@@ -48,7 +49,14 @@ class State
   end
 
   def table_of_brotherhood
-    return sit_at_table
+    return @table
+  end
+
+  def sit_at_table(person_array)
+    person_array.each do |person| 
+      @table << person
+    end
+
   end
 
   def name
@@ -71,11 +79,7 @@ class State
 
 
   def ringing?
-    if @ring = false
-      false
-    else
-      true
-    end
+   
   
   end
 

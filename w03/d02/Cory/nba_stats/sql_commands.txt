@@ -1,0 +1,19 @@
+#1: nba_db=# SELECT * FROM players WHERE team = 'NYK';
+
+#2: nba_db=# SELECT * FROM players WHERE team = 'IND' AND age < '26';
+
+#3: nba_db=# SELECT * FROM players ORDER BY points DESC;
+
+#4: nba_db=# SELECT name, (points/games) AS avg FROM players ORDER BY avg DESC limit 20 ;
+
+#5: nba_db=# SELECT AVG(age) AS avg_age FROM players ORDER BY avg_age DESC;
+
+#6: nba_db=# SELECT AVG(age) AS avg_age FROM players WHERE team = 'OKC' ORDER BY avg_age;
+
+7: nba_db=# SELECT AVG(age) AS ave_age FROM players WHERE games > '40';
+
+8: nba_db=# SELECT team, SUM(points) AS sum_points FROM players GROUP BY team ORDER BY sum_points DESC;
+
+Bonus 1: nba_db=# SELECT age, sum(points/games) AS avg_ppg FROM players GROUP BY age ORDER BY age;
+
+Bonus 2: nba_db=# SELECT team, count(players) AS count FROM players WHERE (points/games) > 12 GROUP BY team ORDER BY count DESC;
