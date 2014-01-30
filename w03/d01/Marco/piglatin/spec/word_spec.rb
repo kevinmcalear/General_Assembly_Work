@@ -11,4 +11,24 @@ describe Word do
     end
   end
 
+  describe "#piglatinize" do
+    let(:wordvowel) {Word.new("apple")}
+    let(:wordconsonant) {Word.new("piggy")}
+    let(:g_word) {Word.new("glove")}
+
+    it "makes any word that begins with a vowel into Pig Latin" do
+      expect( wordvowel.piglatinize).to match("appleway")
+    end
+
+    it "makes any word that does not begin with a vowel into Pig Latin" do
+      expect( wordconsonant.piglatinize).to match("iggypay")
+    end
+
+    it "makes a word w/ all leading consonants that does not begin with a vowel into Pig Latin" do
+      expect( g_word.piglatinize).to match("oveglay")
+    end
+
+  end
+
+
 end
