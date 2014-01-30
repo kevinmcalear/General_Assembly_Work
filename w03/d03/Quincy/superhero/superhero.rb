@@ -69,8 +69,25 @@ elsif entry == "U"
   super_name = gets.chomp
   puts "What's the new super name?"
   super_name1 = gets.chomp
+  puts "What's the new alter ego?"
+  real_name = gets.chomp
+  puts "Is there a cape?"
+  cape = gets.chomp
+    if cape == "Yes"
+      cape = true
+    else
+      cape = false
+    end
+  puts "What's the new super power?"
+  super_power = gets.chomp
+  puts "What's the new arch enemy?"
+  arch_enemy = gets.chomp
 
   insert_query = "UPDATE superhero SET super_name ='#{super_name1}' WHERE super_name='#{super_name}'"
+  insert_query = "UPDATE superhero SET real_name ='#{real_name1}' WHERE super_name='#{super_name1}'"
+  insert_query = "UPDATE superhero SET cape ='#{cape}' WHERE super_name='#{super_name1}'"
+  insert_query = "UPDATE superhero SET super_power ='#{super_power}' WHERE super_name='#{super_name1}'"
+  insert_query = "UPDATE superhero SET super_name ='#{arch_enemy}' WHERE super_name='#{super_name1}'"
   db_conn.exec(insert_query)
 
   insert_query = "SELECT * FROM superhero WHERE super_name = '#{super_name1}'"
