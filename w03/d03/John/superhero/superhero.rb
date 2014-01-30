@@ -7,7 +7,8 @@ def populate
 
   f.each do |line|
     line_array = line.split(",")
-    query = "INSERT INTO superheroes (superhero_name, alter_ego, has_cape, power, arch_nemesis) VALUES ('#{line_array[0]}', '#{line_array[1]}', '#{line_array[2]}', '#{line_array[3]}', '#{line_array[4]}');"
+    values = "'" + line_array.join("', '") + "'"
+    query = "INSERT INTO superheroes (superhero_name, alter_ego, has_cape, power, arch_nemesis) VALUES (#{values});"
     db_conn.exec(query)
   end
 
