@@ -1,3 +1,4 @@
+require 'pry'
 class Grammy
 
 @@winners = []
@@ -36,6 +37,7 @@ class Grammy
 
   def self.list #method that I was most curios about if it's correct and test for it
     @@winners.each_with_index {|key, val| return "#{val} => #{key.winner}"}
+    #!!!!!!!!!!!!! REDO THIS METHOD TO READ FROM FILE
   end
 
   def delete(key)
@@ -45,7 +47,7 @@ class Grammy
   def self.save_winners(path)
      f = File.new(path, "w+")
      @@winners.each do |winner|
-      f.puts "#{winner.year} | #{winner.category} | #{winner.save_winners}"
+      f.puts "#{winner.year} | #{winner.category} | #{winner.winner}"
     end
 
     f.close
@@ -55,7 +57,7 @@ class Grammy
     f = File.new(path,"a+")
 
     f.each do |line|
-      line_array = line.split(" | ")
+      line_array = line.split(" | ") 
       Grammy.new(line_array[0], line_array[1], line_array[2])
     end
 
