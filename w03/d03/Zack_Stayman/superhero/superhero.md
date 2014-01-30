@@ -22,7 +22,7 @@ Your program should have a menu that allows you to perform the following actions
 ### Super Hero Spec
 
 A Super Hero has the following attributes:
-
+<!-- Columns -->
 * superhero_name
 * alter_ego
 * has_cape?
