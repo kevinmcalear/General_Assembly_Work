@@ -7,3 +7,5 @@ Spiderman,Peter Parker,false,wall climbing,Doctor Octopus
 Captain America,Steve Rogers,false,super soldier,Red Skull
 Iron Man,Tony Stark,false,iron suit,Mandarin
 Wolverine,Logan,false,healing,Sabretooth
+
+CREATE TABLE superheroes (superhero_name varchar(50) NOT NULL, alter_ego varchar(50) NOT NULL, has_cape bool NOT NULL, power varchar(50) NOT NULL, arch_nemsis varchar(50) NOT NULL);

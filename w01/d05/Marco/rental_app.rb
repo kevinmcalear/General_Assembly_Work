@@ -3,7 +3,9 @@ class Building
     @name = name
     @address = address
     @floors = floors
-    $apt_list = []
+    
+    @apt_list = []
+    @tenant_list = []
 
     # @name = "The Concordia"
     # @address = "401 W. 23rd Street"
@@ -33,8 +35,11 @@ class Building
   end
 
   def add_apt(apt)
-    @apt = apt
-    $apt_list.push(@apt)
+    @apt_list.push(apt)
+  end
+
+  def add_tenant(tenant)
+    @add_tenant.push(tenant)
   end
 
 end
@@ -47,19 +52,10 @@ class Apartment
     @sqft = sqft
     @num_bedrms = num_bedrms
     @num_bathrms = num_bathrms
-    @tenant_list = []
   end
 
   def name
     return @name
-  end
-
-  def add_tenant=(add_tenant)
-    @tenant_list.push(add_tenant)
-  end
-
-  def apt
-    return @apt
   end
 
   # def price=(price)
@@ -94,10 +90,6 @@ class Apartment
     return @num_bathrms
   end
 
-  def apt_details
-    @apt_details = {name: @name, price: @price, sqft: @sqft, num_bedrms: @num_bedrms, num_bathrms: @num_bathrms}
-    @apt_details
-  end
 end
 
 class Person
@@ -148,7 +140,7 @@ puts "Name: #{added_building.name}"
 puts "Address: #{added_building.address}"
 puts "Floors: #{added_building.floors}"
 
-$apt_list.push(added_building)
+added_building.apt_list.push(added_building)
 
 puts "To continue, press any button."
 
@@ -172,7 +164,7 @@ response = gets.chomp.downcase
     when "a"
 
       puts "To add an apartment, please fill in the following information:"
-      puts "In what building is this apartment located?"
+      puts "What is the name of the apartment?"
         @name = gets.chomp
       puts "How much is the monthly rent for this apartment?"
         @price = gets.chomp.to_i
@@ -191,7 +183,7 @@ response = gets.chomp.downcase
       puts "Bedrooms: #{new_apt.num_bedrms}"
       puts "Bathrooms: #{new_apt.num_bathrms}"
 
-      apt_list.push(new_apt)
+      added_building.apt_list.push(new_apt)
 
     when "t"
 
@@ -210,8 +202,10 @@ response = gets.chomp.downcase
       puts "Age: #{new_tenant.age}"
       puts "Gender: #{new_tenant.gender}"
 
+      added_building.apt_list.push(new_tenant)
+
     when "l"
-      puts new_building.apt_list
+      puts "#{added_building.apt_list[0]}"
 
     when "q"
       puts "Goodbye"
