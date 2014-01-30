@@ -67,7 +67,21 @@ def delete_hero
 
     return "DELETE FROM superheroes WHERE superhero_name = '#{hero}';"
   end
+end
 
+def query_exec(query)
+  db_conn = PG.connect( {:dbname => "superhero_db"} )
+  results = db_conn.exec(query)
+  
+  puts
+  results.each do |row|
+     row.each {|key, value| puts "#{key}, #{value}"}
+     puts
+  end
+  puts
+
+
+  db_conn.close
 end
 
 
@@ -100,19 +114,7 @@ while choice != 'e'
     csv(choice)
   end
 
-
-  db_conn = PG.connect( {:dbname => "superhero_db"} )
-  results = db_conn.exec(query)
-  
-  puts
-  results.each do |row|
-     row.each {|key, value| puts "#{key}, #{value}"}
-     puts
-  end
-  puts
-
-
-  db_conn.close
+  query_exec(query)
 
 end
 
