@@ -1,18 +1,21 @@
 require_relative "lib/grammys"
 
-def add_grammy
-  puts
-  puts "What is the year?"
-  year = gets.chomp.to_i
-  puts "What is the category?"
-  category = gets.chomp
-  puts "Who won?"
-  winner = gets.chomp
-  Grammy.new(year, category, winner)
-end
+FILE_PATH = "grammys.csv"
+
+# def add_grammy
+#   puts
+#   puts "What is the year?"
+#   year = gets.chomp.to_i
+#   puts "What is the category?"
+#   category = gets.chomp
+#   puts "Who won?"
+#   winner = gets.chomp
+#   Grammy.new(year, category, winner)
+#   Grammy.save(FILE_PATH)
+# end
 
 
-
+Grammy.read(FILE_PATH)
 begin
 
 puts
@@ -25,7 +28,7 @@ puts "4) Quit"
 choice = gets.chomp
 
 if choice == '1'
-  add_grammy
+  Grammy.add
 elsif choice == '2'
   puts  
   puts Grammy.all
@@ -36,6 +39,7 @@ elsif choice == '3'
   grammys.each_with_index do |grammy, index|
     puts "#{index + 1}) #{grammy}"
   end
+  
   delete_choice = gets.chomp.to_i
   grammy_index = delete_choice - 1
   Grammy.delete(grammy_index)

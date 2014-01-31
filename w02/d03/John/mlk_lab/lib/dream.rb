@@ -32,8 +32,8 @@ class State
     @table_of_brotherhood = []
     @status = "a state sweltering with the heat of injustice and oppression"
     @boys_and_girls = [person1, person2]
-    @white_children = [person1]
-    @black_children = [person2]
+    # @white_children = [person1]
+    # @black_children = [person2]
     @ringing = false
   end
 
@@ -73,13 +73,13 @@ class State
     return @boys_and_girls
   end
 
-  def black_children
-    return @black_children
-  end
+  # def black_children
+  #   return @black_children
+  # end
 
-  def white_children
-    return @white_children
-  end
+  # def white_children
+  #   return @white_children
+  # end
 
   def ringing?
     return @ringing
@@ -96,6 +96,16 @@ class Freedom
   def initialize
     @ring = []
   end
+
+  # def ring(*state)
+  #   state.each do |st|
+  #     if st[:name] != "Washington, DC"
+  #       st.ringing 
+  #       @ring << st
+  #     end
+  #   end
+  #   # return @ring
+  # end
 
   def ring(state)
     state.ring
