@@ -171,3 +171,72 @@
   - Naming
   - Test
   - Small
+
+## Databases
+
+#### Concepts
+- Explain what a database is and why you would use one as opposed to other persistent storage mechanisms
+- Explain the difference between a database management system (R/DBMS) and a database, and name the major DBMSes
+- Explain how a DBMS, a database, and SQL relate to one another
+- Explain ACID in laymans terms
+- Describe the parts of a schema (ie, an ERD): entitites, attributes and relationships
+- Explain what "auto-incrementing primary key" means for a database table
+- Explain what a foreign key is and why you would use one
+- Explain what a constraint is
+- Explain what a join is and when you would use one
+- Describe what `psql` is
+- Describe what `pg` is
+
+#### Mechanics
+- Design a database schema
+- Use SQL to structure your schema:
+  - CREATE DATABASE / CREATE TABLE
+  - DROP DATABASE / DROP TABLE
+  - ALTER TABLE
+- Use SQL to access your data:
+  - SELECT
+  - INSERT
+  - UPDATE
+  - DELETE
+- Modify SQL queries:
+    - AS
+    - WHERE
+    - ORDER BY
+    - GROUP BY
+    - SUM, COUNT, AVERAGE
+  - Connect a Ruby program to a database and run queries to both save and retrieve information
+
+## Mental Models for Computing
+
+#### Concepts
+- Define what a library is and what they are called in Ruby
+- Articulate the concept of "convention over configuration" and the tradeoffs associated with it
+- Articulate the approach for reading documentation for the first time
+
+## ActiveRecord
+
+#### Concepts
+- Explain what an ORM is and why we use it (vs. writing SQL directly)
+- Explain what ActiveRecord is and describe its benefits
+- Define the term metaprogramming and describe how it relates to ActiveRecord
+- Distinguish between when data is stored in memory vs when it is stored in the database and give examples of when each would happen
+- Explain what ActiveRecord validations are, how they and how they affect persistence
+- Compare and contrast SQL constraints with AR Validations
+- Explain how to use ActiveRecord to manage relationships
+
+#### Mechanics
+- Use the following ActiveRecord commands and describe the associated SQL statements that they write:
+  - new
+  - save
+  - create
+  - all
+  - find
+  - find_by
+  - where
+  - update_attributes
+  - delete vs destroy
+- Set up an ActiveRecord Association for a one-to-many relationship
+- Set up an ActiveRecord Association for a many-to-many relationship
+- Set up ActiveRecord validations for a model:
+  - presence
+  - uniqueness
