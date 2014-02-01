@@ -2,11 +2,11 @@ require 'pry'
 require "active_record"
 
 ActiveRecord::Base.establish_connection(
-:adapter => "postgresql",
-:host => "localhost",
-:username => "stevenweiss",
-:password => "",
-:database => "kitchen_db"
+  :adapter => "postgresql",
+  :host => "localhost",
+  :username => "stevenweiss",
+  :password => "",
+  :database => "kitchen_db"
   )
 
 class Fridge < ActiveRecord::Base
@@ -64,15 +64,15 @@ def input_for_drink
   user_input[:size] = gets.chomp
   print "Alcoholic?(true or false)"
   user_input[:alcoholic] = gets.chomp
-    if true 
-      puts "Wooooo!"
-    else
-      puts "Way to be responsible!"
-    end
+  if true 
+    puts "Wooooo!"
+  else
+    puts "Way to be responsible!"
+  end
 
   list_fridges
 
-  puts "Which fridge would you like to add food to?"
+  puts "Which fridge would you like to add the drink to?"
   user_input[:fridge_id] = gets.chomp
 
   return user_input
@@ -84,97 +84,132 @@ def list_fridges
   end
 end
 
-
-# * 1List all Fridges X
-# * 2Add a Fridge X
-# * 3Delete a Fridge X
-# * 4View all food items in a specific fridge
-# * 5Add a food item to a fridge X
-# * 6Eat a food item from a fridge (delete it)
-# * 7View all drink items in a specific fridge
-# * 8Add a drink item to a fridge X
-# * 9Consume PART of a drink from a fridge (update its size in ounces)
-# * 10Consume ALL of a drink from a fridge (delete it)
-
 choice = ""
 while choice != 11
 
-puts "Choose Your Fridge Option Wisely:"
-puts "1- list all friges"
-puts "2- Add a fridge"
-puts "3- Delete A Fridge"
-puts "4- View all Foods in a Fridge"
-puts "5- Add a Food Item To A Fridge"
-puts "6- Eat a food item from a Fridge"
-puts "7- View all Drinks in a Fridge"
-puts "8- Add a Drink to a Fridge"
-puts "9- Consume part of a drink"
-puts "10-Consume all of a drink"
-puts "11 - Quit"
+  puts "Choose Your Fridge Option Wisely:"
+  puts "1- list all friges"
+  puts "2- Add a fridge"
+  puts "3- Delete A Fridge"
+  puts "4- View all Foods in a Fridge"
+  puts "5- Add a Food Item To A Fridge"
+  puts "6- Eat a food item from a Fridge"
+  puts "7- View all Drinks in a Fridge"
+  puts "8- Add a Drink to a Fridge"
+  puts "9- Consume part of a drink"
+  puts "10-Consume all of a drink"
+  puts "11 - Quit"
 
-choice = gets.chomp.to_i
+  choice = gets.chomp.to_i
 
-case choice
+  case choice
 
-when 1
-  Fridge.all.sort_by(&:id).each do |fridge|
-    puts "#{fridge.location} || #{fridge.brand} || #{fridge.size} "
-  end
+  when 1 # * List all Fridges
+    Fridge.all.sort_by(&:id).each do |fridge|
+      puts "#{fridge.location} || #{fridge.brand} || #{fridge.size} "
+    end
 
-when 2
-  Fridge.create(input_for_fridge())
+  when 2 # * Add a Fridge
+    Fridge.create(input_for_fridge())
 
-when 3
-  list_fridges
+  when 3 # * Delete a Fridge
+    list_fridges
 
-  puts "Which Number Fridge Would You Like To Delete?"
-  num_choice = gets.chomp.to_i
+    puts "Which Number Fridge Would You Like To Delete?"
+    num_choice = gets.chomp.to_i
 
-  Fridge.find_by_id(num_choice).destroy
+    Fridge.find_by_id(num_choice).destroy
 
-when 4
-list_fridges
+  when 4 # * View all food items in a specific fridge
+    list_fridges
 
-puts "Which fridge would you like to view food items in?"
-fridge_choice = gets.chomp.to_i
+    puts "Which fridge would you like to view food items in?"
+    fridge_choice = gets.chomp.to_i
 
-foods = Food.where(fridge_id: fridge_choice)
-#find_by_fridge_id only returns one thing!!!
+    foods = Food.where(fridge_id: fridge_choice)
+    #find_by_fridge_id only returns one thing!!!
 
-foods.each do |food|
-  puts "#{food.name} || #{food.weight} || Vegan? #{food.vegan}"
-end
+    foods.each do |food|
+      puts "#{food.name} || #{food.weight} || Vegan? #{food.vegan}"
+    end
 
 
-when 5
-  Food.create(input_for_food())
-when 6
+  when 5 # * Add a food item to a fridge
+    Food.create(input_for_food())
+  when 6 # * Eat a food item from a fridge (delete it)
+    list_fridges
+
+    puts "Which fridge would you like to eat from?"
+    fridge_choice = gets.chomp.to_i
+
+    foods = Food.where(fridge_id: fridge_choice)
+
+    foods.each do |food|
+      puts "#{food.id} --- #{food.name} || #{food.weight}lbs || Vegan? #{food.vegan}"
+    end
+
+    puts "Enter the # of the food you want to eat"
+    food_num = gets.chomp.to_i
+
+    Food.find_by_id(food_num).destroy
+
+
+  when 7 # * View all drink items in a specific fridge
+    list_fridges
+
+    puts "Which fridge would you like to view drinks in?"
+    fridge_choice = gets.chomp.to_i
+
+    drinks = Drink.where(fridge_id: fridge_choice)
   
 
-when 7
-list_fridges
+    drinks.each do |drink|
+      puts "#{drink.name} || #{drink.size} || Alcoholic? #{drink.alcoholic}"
+    end
 
-puts "Which fridge would you like to view drinks in?"
-fridge_choice = gets.chomp.to_i
+  when 8 # * Add a drink item to a fridge
+    Drink.create(input_for_drink())
 
-drinks = Drink.where(fridge_id: fridge_choice)
-#find_by_fridge_id only returns one thing!!!
+  when 9 # * Consume PART of a drink from a fridge (update its size in ounces)
+    puts "You're only gonna drink a bit?"
+    puts "Way to show some restraint. "
+    puts "Which drink? (enter the  #)"
 
-drinks.each do |drink|
-  puts "#{drink.name} || #{drink.size} || Alcoholic? #{drink.alcoholic}"
-end
+    Drink.all.each do |drink|
+      puts "#{drink.id} --- #{drink.name} #{drink.size}"
+    end
 
-when 8
-  Drink.create(input_for_drink())
-when 9
+    drink_num = gets.chomp.to_i
 
-when 10
+    puts "How many ounces will be left?"
+    oz = gets.chomp.to_i
 
-end
+    drink_part = Drink.find_by_id(drink_num)
+    drink_part.update(size: oz)
 
+  when 10 # * Consume ALL of a drink from a fridge (delete it)
 
-response = gets.chomp.to_i
+    list_fridges
 
+    puts "Which fridge would you like to get a drink from?"
+    fridge_choice = gets.chomp.to_i
+
+    drinks = Drink.where(fridge_id: fridge_choice)
+
+    drinks.each do |drink|
+      puts "#{drink.id} --- #{drink.name} || #{drink.size} || Alcoholic? #{drink.alcoholic}"
+    end
+
+    puts "Enter the # of the drink"
+    drink_num = gets.chomp.to_i
+
+    Drink.find_by_id(drink_num).destroy
+
+    puts "Enjoy that beverage!"
+
+  end
+
+  response = gets.chomp.to_i
 
 end
 
