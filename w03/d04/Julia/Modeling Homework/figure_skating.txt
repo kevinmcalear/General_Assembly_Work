@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS skaters;
+
+CREATE TABLE skaters (
+  id serial PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  country VARCHAR(50) NOT NULL
+);
+
+DROP TABLE IF EXISTS scores (
+  id serial PRIMARY KEY,
+  judge_name VARCHAR(50) NOT NULL,
+  round_of_competition INTEGER NOT NULL,
+  points_awarded REAL NOT NULL,
+  skater_id INTEGER REFERENCES skaters(id)
+);

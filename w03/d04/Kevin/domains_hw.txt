@@ -1,0 +1,39 @@
+1. Travel Log
+
+CREATE DATABASE travel_db; 
+
+CREATE TABLE journal_entries (id serial PRIMARY KEY, journal_header varchar(50) NOT NULL, content varchar(5000) NOT NULL, date_written date DEFAULT current_date, cities_id integer references cities(id));
+
+CREATE TABLE cities (id serial PRIMARY KEY, name varchar(50) NOT NULL, city varchar(50) NOT NULL, country integer NOT NULL); 
+
+2. Photo Managment App
+
+CREATE DATABASE photo_app_db; 
+
+CREATE TABLE cutomers (id serial PRIMARY KEY, name varchar(50) NOT NULL, adress varchar(50) NOT NULL, albums_id integer references albums(id));
+
+CREATE TABLE albums (id serial PRIMARY KEY, name varchar(50) NOT NULL, event_type varchar(50) NOT NULL, photos_id integer references photos(id));
+
+CREATE TABLE photos (id serial PRIMARY KEY, name varchar(50) NOT NULL); 
+
+3. Figure Skating
+
+CREATE DATABASE skating_db; 
+
+CREATE TABLE judges (id serial PRIMARY KEY, name varchar(50) NOT NULL, country varchar(50) NOT NULL);
+
+CREATE TABLE skaters (id serial PRIMARY KEY, name varchar(50) NOT NULL, country varchar(50) NOT NULL); 
+
+CREATE TABLE judges_skaters (id serial PRIMARY KEY, photos_id integer references photos(id), photos_id integer references photos(id), score integer NOT NULL);
+
+4. Snapchat
+
+CREATE DATABASE snapchat_db; 
+
+CREATE TABLE senders (id serial PRIMARY KEY, name varchar(50) NOT NULL, user_name varchar(50) NOT NULL);
+
+CREATE TABLE photo_recievers (id serial PRIMARY KEY, photos_id integer references photos(id), recievers_id integer references recievers(id)); 
+
+CREATE TABLE photos (id serial PRIMARY KEY, name varchar(50) NOT NULL, date_snapped date DEFAULT current_date, senders_id integer references senders(id)); 
+
+CREATE TABLE receivers (id serial PRIMARY KEY, name varchar(50) NOT NULL, user_name varchar(50) NOT NULL); 
