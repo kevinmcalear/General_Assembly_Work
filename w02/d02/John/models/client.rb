@@ -22,6 +22,7 @@ class Client
 
   def client_info
     return "#{self.name}, age: #{self.age},\nPets owned:\n#{self.print_pets_list}\n"
+    # end
   end
 
   def print_pets_list
@@ -50,12 +51,15 @@ end
 
 class CatLady < Client
   def adopt_animal(animal)
-
-
+    if animal.species != "cat"
+      puts "Only cats allowed for this client please and thank you!"
+    else
+      adopt_animal(super)
+    end
   end
 
-  def cat_lady?
-    return true
+  def client_info
+    return "#{self.name}, age: #{self.age},\nPets owned:\n#{self.print_pets_list}\n#{self.name} is a cat lady.\n"
   end
 end
 
