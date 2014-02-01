@@ -1,0 +1,4 @@
+CREATE TABLE clients (id serial PRIMARY KEY, name varchar(50) NOT NULL, phone_number varchar(12), email varchar(50) NOT NULL);
+
+CREATE TABLE albums (id serial PRIMARY KEY, event_type varchar(50) NOT NULL, location varchar(50) NOT NULL, date date NOT NULL, photo_title varchar(50) NOT NULL, client_id integer references clients(id));
+
