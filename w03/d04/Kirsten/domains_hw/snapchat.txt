@@ -1,0 +1,6 @@
+CREATE TABLE users (name varchar(50) NOT NULL, email varchar(50) NOT NULL);
+
+CREATE TABLE friendships (user_id integer references users(id), friend_id integer references users(id));
+
+CREATE TABLE photos (title varchar(50) NOT NULL, size integer, relationship_id integer friendships(id));
+

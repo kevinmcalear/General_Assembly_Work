@@ -28,7 +28,12 @@ class Shelter
 
     animal = Animal.new name, species
     animal.add_toys
+    # if species.downcase == "cat"
+    #   cat_taker = self.clients_list.shuffle.find do |client|
+    #     client.class == CatLady
+    #   end
 
+    # end
     self.add_to_animals_list(animal)
   end
 
@@ -55,11 +60,6 @@ class Shelter
   end
 
   def add_to_clients_list(client)
-    # if cat
-      # self.clients_list[:cats] << client
-    # else
-      # self.clients_list[:normal] << client
-    # end
     self.clients_list << client
   end
 
@@ -87,6 +87,17 @@ class Shelter
     return self.animals_list.find {|anim| anim.name == animal_name}
   end
 
+  # def get_adoption_client
+  #   puts "Adopting a pet:"
+  #   client = self.get_which_client
+  #   puts
+
+  #   #Bonus: don't let a client have > 2 pets
+  #   if client.pets.length > 1
+  #     return "That client has too many pets, you silly goose!"
+  #   end
+  # end
+
   def facilitate_adoption
     puts "Adopting a pet:"
     client = self.get_which_client
@@ -99,6 +110,7 @@ class Shelter
 
     animal = self.get_which_animal
     puts
+    #new method here: "execute adoption" for these two lines
     self.animals_list.delete(animal)
     puts client.adopt_animal(animal)
   end

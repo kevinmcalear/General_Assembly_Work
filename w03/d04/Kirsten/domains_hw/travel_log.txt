@@ -1,0 +1,6 @@
+
+CREATE TABLE journals (id serial PRIMARY KEY, name varchar(50) NOT NULL);
+
+CREATE TABLE places (id serial PRIMARY KEY, city varchar(50) NOT NULL, country varchar(50) NOT NULL, journal_id integer references journals(id));
+
+CREATE TABLE entries (id serial PRIMARY KEY, date date, feelings varchar(500), place_id integer references places(id));
