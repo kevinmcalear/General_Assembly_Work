@@ -32,6 +32,8 @@ class Drink < ActiveRecord::Base
    belongs_to :fridges
 end
 
+#Fridge.create(location: "Kitchen", brand: "Whirlpool", size: 32, contains_food: true, contains_drinks: true)
+
 
 def get_user_input(attributes)
   user_input = {}
@@ -44,9 +46,25 @@ def get_user_input(attributes)
   return user_input
 end
 
+def input_for_fridge
+  user_input = {}
+
+  print "Location: "
+  user_input[:location] = gets.chomp
+  print "Brand: "
+  user_input[:brand] = gets.chomp
+  print "Size: "
+  user_input[:size] = gets.chomp
+  print "Contains food?: "
+  user_input[:contains_food] = gets.chomp
+  print "Contains drinks?: "
+  user_input[:contains_drinks] = gets.chomp
+
+  return user_input
+end
+
 
 #get_user_input([:location, :brand, :size, :contains_food, :contains_drinks])
-get_user_input(Fridge.attribute_names)
 
 ##Set up menu
 system "clear"
@@ -73,7 +91,21 @@ choice = gets.chomp.downcase
 
 while choice !="q"
   case choice
-  when 1
-    results = Fridge.all
-    results.each { |row| puts "Fridge Name: #{row["title"]} composer: #{row["composer"]} #Lyricist: #{row["lyricist"]} Year: #{row["year"]}" }
+    when "1"
+      results = Fridge.all
+      results.each { |row| puts "location: #{row["location"]}, brand: #{row["brand"]}, size: #{row["size"]}, contains food: #{row["contains_food"]}, contains drinks: #{row["contains_drinks"]}" }
+      menu
+      choice = gets.chomp.downcase
+    when "2"
+      Fridge.create(input_for_fridge())
+      menu
+      choice = gets.chomp.downcase
+    when "3"
+      puts "Where is the fridge you want to delete located?"
+      spot = gets.chomp
+      deleted_fridge = Fridge.find_by(location: spot)
+      deleted_fridge.destroy
+      menu
+      choice = gets.chomp.downcase
   end
+end
