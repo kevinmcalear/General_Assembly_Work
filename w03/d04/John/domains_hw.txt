@@ -1,0 +1,40 @@
+Travel Log App: 
+
+CREATE TABLE destinations (id serial PRIMARY KEY, city varchar(50) NOT NULL, country varchar(50) NOT NULL, date_arrived date NOT NULL, date_departed date NOT NULL, hotel varchar(50) NOT NULL);
+
+CREATE TABLE journals (id serial PRIMARY KEY, title varchar(50) NOT NULL, date date NOT NULL, author varchar(50) NOT NULL, destination_id integer references destinations(id));
+
+
+
+Photo Management App: 
+
+CREATE TABLE clients (id serial PRIMARY KEY, name varchar(50) NOT NULL, address varchar(50) NOT NULL, payment_info varchar(50) NOT NULL, email varchar(50) NOT NULL);
+
+CREATE TABLE events (id serial PRIMARY KEY, type varchar(50) NOT NULL, date date NOT NULL, location varchar(50) NOT NULL, client_id integer references clients(id));
+
+CREATE TABLE photographs (id serial PRIMARY KEY, name varchar(50) NOT NULL, timestamp timestamp NOT NULL, location varchar(50) NOT NULL, photographer varchar(50) NOT NULL, event_id integer references events(id));
+
+
+
+Figure Skating App:
+
+CREATE TABLE skaters (id serial PRIMARY KEY, name varchar(50) NOT NULL, age integer NOT NULL, country varchar(50) NOT NULL);
+
+CREATE TABLE judges (id serial PRIMARY KEY, name varchar(50) NOT NULL, country varchar(50) NOT NULL);
+
+CREATE TABLE scores (id serial PRIMARY KEY, routine varchar(50) NOT NULL, date date NOT NULL, value integer NOT NULL, skater_id integer references skaters(id), judge_id integer references judges(id)); 
+
+
+
+Snapchat App:
+
+CREATE TABLE friendships (id serial PRIMARY KEY, date_became_friends date NOT NULL, date_defriended date NOT NULL);
+
+CREATE TABLE photos (id serial PRIMARY KEY, name varchar(50) NOT NULL, photo varchar(50) NOT NULL, description varchar(50) NOT NULL, owner varchar(50) NOT NULL);
+
+CREATE TABLE users (id serial PRIMARY KEY, name varchar(50) NOT NULL, email varchar(50) NOT NULL, birthday date NOT NULL, profile_photo varchar(50) NOT NULL);
+
+CREATE TABLE friendships_users (id serial PRIMARY KEY, friendship_id integer references friendships(id), user_id integer references users(id));  
+   
+CREATE TABLE photos_users (id serial PRIMARY KEY, photo_id integer references photos(id), user_id integer references users(id)); 
+
