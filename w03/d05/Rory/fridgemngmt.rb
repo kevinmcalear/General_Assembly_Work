@@ -33,18 +33,8 @@ class Drink < ActiveRecord::Base
 end
 
 #Fridge.create(location: "Kitchen", brand: "Whirlpool", size: 32, contains_food: true, contains_drinks: true)
+#Food.create(name: "steak", weight: 2, vegan: false, time: "2014-02-02 12:00:00 UTC", fridges_id: 5  )
 
-
-def get_user_input(attributes)
-  user_input = {}
-
-  attributes.each do |attribute|
-    print "#{attribute.capitalize}:"
-    user_input[attribute] = gets.chomp
-  end
-
-  return user_input
-end
 
 def input_for_fridge
   user_input = {}
@@ -62,6 +52,28 @@ def input_for_fridge
 
   return user_input
 end
+
+def input_for_food
+  user_input = {}
+
+  print "Fridge location?"
+    fridge_location = gets.chomp
+    fridge_result = Fridge.find_by(location: fridge_location)
+    fridges_id = fridge_result.id
+    user_input[:fridges_id] = fridges_id
+  print "Name: "
+  user_input[:name] = gets.chomp
+  print "Weight: "
+  user_input[:weight] = gets.chomp
+  print "Vegan: "
+  user_input[:vegan] = gets.chomp
+  print "Time: "
+  user_input[:time] = gets.chomp
+
+
+  return user_input
+end
+
 
 
 #get_user_input([:location, :brand, :size, :contains_food, :contains_drinks])
@@ -107,5 +119,41 @@ while choice !="q"
       deleted_fridge.destroy
       menu
       choice = gets.chomp.downcase
+    when "4"
+      puts "Where is the fridge you want to look in?"
+      fridge_location = gets.chomp
+      id_of_fridge = Fridge.all.find_by(location: fridge_location)
+      food_result = Food.all.find_by(fridges_id: id_of_fridge.id)
+      puts "name: #{food_result.name}, weight: #{food_result.weight}, vegan: #{food_result.vegan}, time: #{food_result.time}"
+      menu
+      choice = gets.chomp.downcase
+    when "5"
+      Food.create(input_for_food())
+      #puts "Where is the fridge you want to add this to?"
+      #fridge_location = gets.chomp
+      #fridge_result = Fridge.find_by(location: fridge_location)
+      #fridges_id = fridge_result.id
+      #puts "What is the name of the food you want to add?"
+      #food_name = gets.chomp
+      #puts "What is the weight of the food you want to add?"
+      #food_weight = gets.chomp
+      #puts "True or false, is the food vegan?"
+      #food_vegan = gets.chomp.downcase
+      #puts "When are you adding it?  (Date format: 2014-02-03 10:00:00 UTC)"
+      #food_time = gets.chomp
+      #Food.create(name: food_name, weight: food_weight, vegan: food_vegan, time: food_time, #fridges_id: id_of_fridge)
+      menu
+      choice = gets.chomp.downcase
+    when "6"
+      puts "What is the name of the food you want to eat?"
+      name_of_food = gets.chomp
+      deleted_food = Food.find_by(name: name_of_food)
+      deleted_food.destroy
+      menu
+      choice = gets.chomp.downcase
+    when "7"
+      
+
+
   end
 end
