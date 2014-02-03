@@ -20,4 +20,4 @@ CREATE TABLE performances(
   id serial primary key,
   song_id integer references songs(id),
   character_id integer references characters(id)
-)
+);

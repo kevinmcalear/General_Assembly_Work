@@ -4,15 +4,15 @@ Your job will be to develop a gladiator arena in a test-driven way using Rspec.
 
 ### Gladiator Spec
 
-* A gladiator has a name
-* A gladiator has a weapon
+* A gladiator has a name x
+* A gladiator has a weapon x
 
 ### Arena Spec
 
-* An arena has a name
-* The arena name should be capitalized
-* An arena can have gladiators
-* You can add a gladiator to the arena
+* An arena has a name x
+* The arena name should be capitalized x
+* An arena can have gladiators x
+* You can add a gladiator to the arena 
   * The arena should never have more than 2 gladiators in it at a time
 * If there are two gladiators in the arena, you can call a fight method that will kill one of the gladiators and remove them from the arena.
   * Winning conditions:
