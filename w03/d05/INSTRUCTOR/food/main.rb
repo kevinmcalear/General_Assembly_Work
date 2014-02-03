@@ -95,7 +95,7 @@ begin
     Fridge.create(get_fridge_input)
   when "3"
     fridge = get_fridge
-    Fridge.destroy(fridge)
+    fridge.destroy
   when "4"
     fridge = get_fridge
     puts fridge.foods
@@ -107,7 +107,7 @@ begin
   when "6"
     fridge = get_fridge
     food = get_food(fridge)
-    Food.destroy(food)
+    food.destroy
   when "7"
     fridge = get_fridge
     puts fridge.drinks
@@ -126,7 +126,7 @@ begin
   when "10"
     fridge = get_fridge
     drink = get_drink(fridge)
-    Drink.destroy(drink)
+    drink.destroy
   end
 end
 end while choice != "11"
