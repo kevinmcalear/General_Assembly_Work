@@ -98,9 +98,11 @@ I heart Highway To Hell
 => [nil, nil, nil]
 
 
-a = album_names.map {|heart| "I heart #{heart}"}
-puts a
+love_these_albums = album_names.map {|album| "I heart #{album}"}
+puts love_these_albums
 
+
+albums.select { |album| album }
 
 
 
