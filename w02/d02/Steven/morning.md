@@ -5,6 +5,7 @@
 Take a look at this class:
 
 ```ruby
+
 class Person
 
 def initialize(name)
