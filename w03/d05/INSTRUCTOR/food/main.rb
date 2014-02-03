@@ -9,7 +9,7 @@ require_relative 'models/drink'
 ActiveRecord::Base.establish_connection(
   :adapter => "postgresql",
   :host => "localhost",
-  :username => "peterlai",
+  :username => "wdi",
   :password =>  "",
   :database => "fridge_db"
   )
