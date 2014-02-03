@@ -1,6 +1,11 @@
+# require libraries
 require 'pry'
 require 'active_record'
 
+# require our code
+Dir[File.join(File.dirname(__FILE__), 'chopped', '*.rb')].each {|file| require file } 
+
+# Configure Active Record
 ActiveRecord::Base.logger = Logger.new("./sql.log")
 
 ActiveRecord::Base.establish_connection(
@@ -8,13 +13,5 @@ ActiveRecord::Base.establish_connection(
   :host => "localhost",
   :username => "jeff",
   :password => "",
-  :database => "playground"
+  :database => "chopped"
 )
-
-class Musical < ActiveRecord::Base
-  has_many :songs
-end
-
-class Song < ActiveRecord::Base
-  belongs_to :musical
-end

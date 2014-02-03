@@ -4,7 +4,9 @@
 # loaded once.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require "active_record"
+
+require_relative '../lib/chopped'
+
 require "shoulda-matchers"
 require "database_cleaner"
 
