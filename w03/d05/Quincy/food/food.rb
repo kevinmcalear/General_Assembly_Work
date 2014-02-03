@@ -40,11 +40,16 @@ puts "(10) Consume ALL of a drink from a fridge (delete it)"
 input = gets.chomp
 
 if input == 1
-
+puts fridge.all
 elsif input == 2
-
+puts "What's the new fridge name?"
+new_fridge = gets.chomp
+fridge.create(name: "#{new_fridge}")
 elsif input == 3
-
+puts "What's the fridge you wanna get rid of?"
+old_fridge = gets.chomp
+fridge.find_by(name: "#{old_fridge}")
+fridge.destroy
 elsif input == 4
 
 elsif input == 5
