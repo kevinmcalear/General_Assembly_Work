@@ -13,5 +13,5 @@ ActiveRecord::Base.establish_connection(
   :host => "localhost",
   :username => "rorybudnick",
   :password => "",
-  :database => "chopped_db"
+  :database => "chopped"
 )
