@@ -36,8 +36,16 @@ class Grammy
   end
 
   def self.list #method that I was most curios about if it's correct and test for it
-    @@winners.each_with_index {|key, val| return "#{val} => #{key.winner}"}
+    #@@winners.each_with_index {|key, val| return "#{val} => #{key.winner}"}
     #!!!!!!!!!!!!! REDO THIS METHOD TO READ FROM FILE
+
+    f = File.open("grammy.csv", "r")
+
+    f.each do |line|
+      puts "#{f.lineno}: #{line.split(" | ")[2]}"
+    end
+
+    f.close
   end
 
   def delete(key)
