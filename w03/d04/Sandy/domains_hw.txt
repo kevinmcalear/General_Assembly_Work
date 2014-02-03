@@ -1,0 +1,46 @@
+###travel log###
+
+CREATE DATABASE travel_db
+
+CREATE TABLE travel_logs(id serial PRIMARY KEY, 
+                                            location varchar(50) NOT NULL, 
+                                            section varchar(50) NOT NULL, 
+                                            date date DEFAULT current_date,
+                                            entry varchar(50));
+
+
+### photo management app ###
+
+CREATE DATABASE photomanage_db
+
+CREATE TABLE photos(id serial PRIMARY KEY, 
+                                      album varchar(50) NOT NULL,
+                                      event varchar(50) NOT NULL);
+
+CREATE TABLE clients(id serial PRIMARY KEY,
+                                    client_name varchar(50) NOT NULL,
+                                    album_id integer references album(id));
+
+### figure skating ###
+
+CREATE DATABASE figureskating_db
+
+CREATE TABLE skater_scores(id serial PRIMARY KEY,
+                                                skater_names varchar(50) NOT NULL,
+                                                 judges_score varchar(50) NOT NULL, 
+                                                 );
+### snapchat ###
+
+CREATE DATABASE snapshot_db
+
+CREATE TABLE users(id serial PRIMARY KEY, account_name varchar(50) NOT NULL, user_actual_name varchar(50) NOT NULL, email_address varchar(50) NOT NULL)
+
+CREATE TABLE photos(id serial PRIMARY KEY, photos blob, account_name _id integer references album(id)); 
+
+is blob the right data type for photos?
+
+
+
+
+
+
