@@ -195,17 +195,52 @@
 #def travel(city, food)
 
 
-student names
+# student names
 
-names.sample
-names.length
-names.index("Sandy Yu")
-names[4]
-names.join("|")
-names.select{|name| name[0].include?("J")}
+# names.sample
+# names.length
+# names.index("Sandy Yu")
+# names[4]
+# names.join("|")
+# names.select{|name| name[0].include?("J")}
+
+# users = {
+#   "Peter" => {
+#     :github => "peterylai",
+#     :favorite_numbers => [12, 42, 75],
+#   },
+#   "PJ" => {
+#     :github => "h4w5",
+#     :favorite_numbers => [8, 12, 24],
+#   },
+#   "Jeff" => {
+#     :github => "jkonowitch",
+#     :favorite_numbers => [12, 14, 85],
+#   },
+# }
+
+
+# users["Jeff"][:github]
+# users["PJ"][:favorite_numbers].push(7)
+# users["Steve"] = {:github =>"stevenaweiss", :favorite_numbers=>[3,4,7]}
+# users["Peter"][:favorite_numbers]
+
+# users["Jeff"][:favorite_numbers].sort[0]
+# users["PJ"][:favorite_numbers].select {|number| number.even?}
+
+# users["Peter"][:favorite_numbers] & users["Jeff"][:favorite_numbers] & users["PJ"][:favorite_numbers]
+
+# [ "a", "b", "c" ] | [ "c", "d", "a" ]    #=> [ "a", "b", "c", "d" ]
+
+
+getter vs setter
 
 
 
+the setter method sets the state of an object. In a class, call it on an argument as an instance of a class, 
+apt_1.sqft = 300 is the setter method 
+
+the getter method returns the state of the instance variable.
 
 
 

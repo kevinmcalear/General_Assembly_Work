@@ -1,8 +1,9 @@
 f=File.open("potter.csv","r")
-  # f.read
+  
   potter_string = f.read
 
   line_split = potter_string.split("\n")
+  
   comma_array = line_split.map {|character| character.split(",")}
   my_array_everything = comma_array.map {|character| {:mentions => character[0].to_i, :name => character[1], :house => character[2]}}
 
