@@ -4,6 +4,8 @@ require 'pry'
 puts "WELCOME TO RECEIPT.LY"
 puts ""
 
+# GETS USER INPUT
+
 print "Enter a store: "
 store = gets.chomp
 print "Enter an item: "
@@ -13,11 +15,15 @@ price = gets.chomp + " $"
 print "Enter a parent: "
 parent = gets.chomp
 
+# DEFINES QUERIES -- FOR WHAT PURPOSE? 
+
 insert_query = "INSERT INTO receipts "
 insert_query += "(store, item, price_per_item, parent) "
 insert_query += "VALUES ('#{store}','#{item}','#{price}','#{parent}');"
 
 select_query = "SELECT * FROM receipts;"
+
+# CREATES CONNECTION TO DB FOR PERSISTANT STORAGE OF DATA
 
 db_conn = PG.connect( {:dbname => "receipts_db"} )
 
