@@ -103,9 +103,9 @@ describe Grammy do
     contents = f.read
     f.close
 
-    contents_array = contents.split(" | ")
+    contents_array = contents.split("\n")
     first_line = contents_array[0]
-
+    
     expect(first_line).to eq "2004 | Jazz | Duffy Duck"
   end
 end
