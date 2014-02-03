@@ -1,4 +1,4 @@
-# Fridge Management App
+food# Fridge Management App
 
 We're going to building a fridge management app to keep track of all of our food and drink using ActiveRecord. It may be helpful to review the docs for [ActiveRecord Basics](http://edgeguides.rubyonrails.org/active_record_basics.html) and [ActiveRecord Associations](http://edgeguides.rubyonrails.org/association_basics.html) for this.
 
@@ -6,16 +6,18 @@ We're going to building a fridge management app to keep track of all of our food
 
 Your program should have a menu that allows you to perform the following actions:
 
-* List all Fridges
-* Add a Fridge
-* Delete a Fridge
-* View all food items in a specific fridge
-* Add a food item to a fridge
-* Eat a food item from a fridge (delete it)
-* View all drink items in a specific fridge
-* Add a drink item to a fridge
-* Consume PART of a drink from a fridge (update its size in ounces)
-* Consume ALL of a drink from a fridge (delete it)
+* (L) List all Fridges
+* (A) Add a Fridge
+* (D) Delete a Fridge
+
+* (VF) View all food items in a specific fridge
+* (AF) Add a food item to a fridge
+* (E) Eat a food item from a fridge (delete it)
+
+* (VD) View all drink items in a specific fridge
+* (AD) Add a drink item to a fridge
+* (CD) Consume PART of a drink from a fridge (update its size in ounces)
+* (CA) Consume ALL of a drink from a fridge (delete it)
 
 ### Fridge Spec
 * has a location
