@@ -38,19 +38,15 @@ class Arena
       "Spear" => "Club",
       "Club" => "Trident"
     }
-    if @gladiators.size < 2
-      return "nooooooo"
-    elsif @gladiators.size == 2
-      fight
-
-
-      if beats[glad_1.gladiators(1)] == [glad_2.gladiators(2)]
-  return "#{glad_1.name} wins!"
-else
-  return "#{glad_2.name} wins!"
-end
-    #if glad_1.weapon = key of beats
-    #and glad_2.weapon = value of beats
+    if gladiators. size == 2
+      if gladiators.first.weapon == gladiators.last.weapon
+        gladiators.clear
+      elsif beats[gladiators.first.weapon] == gladiators.last.weapon
+        gladiators.delete_at(1)
+      else
+        gladiators.delete_at(0)
+      end
+    end
 
   end
 
