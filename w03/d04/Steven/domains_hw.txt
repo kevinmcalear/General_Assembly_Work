@@ -1,0 +1,38 @@
+TRAVEL LOG
+
+
+CREATE DATABASE travel_log_db;
+
+CREATE TABLE places (id serial PRIMARY KEY, city varchar(50) NOT NULL, country varchar(50) NOT NULL);
+
+CREATE TABLE entries (id serial PRIMARY KEY, entry_text varchar(500) NOT NULL, author varchar(50) NOT NULL, date_written date DEFAULT current_date, places_id integer references places(id));
+
+
+PHOTO MANAGEMENT
+
+CREATE DATABASE photo_mgmt_db;
+
+CREATE TABLE clients (id serial PRIMARY KEY, client_name varchar(50) NOT NULL);
+
+CREATE TABLE albums (id serial PRIMARY KEY, date_created date DEFAULT current_date, clients_id integer references clients(id));
+
+CREATE TABLE photos (id serial PRIMARY KEY, file_type varchar(50) NOT NULL, photo_subject varchar(50) albums_id integer references albums(id));
+
+
+FIGURE SKATING
+
+CREATE DATABASE figure_skating_db;
+
+CREATE TABLE figure_skaters (id serial PRIMARY KEY, skater_name varchar(50), judge_1_score integer default 1, judge_2_score integer, judge_3_score);
+
+CREATE DATABASE snap_chat_db;
+
+CREATE TABLE users (id serial PRIMARY KEY, user_name varchar(50) NOT NULL);
+
+CREATE TABLE snapshots (id serial PRIMARY KEY, caption varchar(50), time_sent now DEFAULT now);
+
+CREATE TABLE users_snapshots (id serial PRIMARY KEY, users_id integer references users(id), snapshot_id integer references snapshots(id));
+
+
+
+
