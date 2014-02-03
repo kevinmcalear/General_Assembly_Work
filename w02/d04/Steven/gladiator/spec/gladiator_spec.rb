@@ -1,6 +1,6 @@
 require 'spec_helper'
 require_relative '../lib/gladiator'
-# require "pry"
+
 
 describe Gladiator do
   subject(:glad) {Gladiator.new("Russel", "Axe")}
@@ -75,5 +75,5 @@ describe Arena do
 end
 
 
-# binding.pry
+
 

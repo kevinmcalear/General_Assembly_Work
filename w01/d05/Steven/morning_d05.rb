@@ -97,6 +97,8 @@ class Song
   end
 end
 
+song_1 = song.new
+
 
 
 

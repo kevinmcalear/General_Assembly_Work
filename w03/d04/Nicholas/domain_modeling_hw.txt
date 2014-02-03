@@ -1,0 +1,38 @@
+1. Travel Log
+
+createdb travel_db
+
+CREATE TABLE places (id serial PRIMARY KEY, name varchar(50) NOT NULL);
+
+CREATE TABLE entries (id serial PRIMARY KEY, info varchar(500) NOT NULL, date_written date DEFAULT current_date, places_id integer references places(id));
+
+SELECT info FROM entries WHERE entries.places_id=places.id
+
+2. Photo Management
+
+createdb photo_db
+
+CREATE TABLE person (id serial PRIMARY KEY, name varchar(50) NOT NULL);
+
+CREATE TABLE albums (id serial PRIMARY KEY, name varchar(50) NOT NULL, date_of_album DEFAULT current_date, person_id integer references person(id));
+
+CREATE TABLE photos (id serial PRIMARY KEY, name varchar(50) NOT NULL, album_id integer references album(id));
+
+SELECT name FROM albums, photos WHERE name.album_id=album.id
+
+3. Figure Skating
+
+createdb skating_db
+CREATE TABLE scores (id serial PRIMARY KEY, name varchar(50) NOT NULL, judge1 integer NOT NULL, judge2 integer NOT NULL, judge3 integer NOT NULL, judge 4 integer NOT NULL, judge 5 integer NOT NULL);
+
+SELECT name, AVG(judge1 + judge2 + judge3 + judge4 + judge5) FROM scores;
+
+4. Snapchat
+
+createdb snapchat_db
+CREATE TABLE people (id serial PRIMARY KEY, name varchar(50) NOT NULL);
+CREATE TABLE photos (id serial PRIMARY KEY, name varchar(50) NOT NULL, people_id integer references people(id));
+CREATE TABLE people_photos (id serial PRIMARY KEY, people_id integer references people(id), photo_id integer references photos(id));
+
+SELECT name FROM people_photos WHERE photos.people_id=people.id
+
