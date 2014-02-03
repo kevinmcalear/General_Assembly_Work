@@ -1,0 +1,22 @@
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+  id serial PRIMARY KEY,
+  username VARCHAR(50) NOT NULL,
+  email_address VARCHAR(50) NOT NULL,
+  phone_number INTEGER NOT NULL
+);
+
+CREATE TABLE friendships (
+  id serial PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id)
+  friend_id INTEGER REFERENCES users(id)
+);
+
+CREATE TABLE photos (
+  id serial PRIMARY KEY,
+  date date DEFAULT current_date,
+  photo_name VARCHAR(50) NOT NULL,
+  caption VARCHAR(140),
+  sender_and_recipient_relationship_id INTEGER REFERENCES friendships(id)
+);

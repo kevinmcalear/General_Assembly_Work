@@ -11,6 +11,9 @@ describe Cipher do
     it "encodes the word 'peter'" do
       expect( Cipher.encode( "peter") ).to eq("crgre")
     end
+
+    it "encodes a full sentence" do
+      expect( Cipher.encode( "I want some ice cream") ).to eq("I jnag fbzr vpr pernz")
+    end
   end
-  
 end

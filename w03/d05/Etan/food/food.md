@@ -1,3 +1,33 @@
+  ✓puts " (I) Index - List all fridges"
+  ✓puts " (C) Add a fridge"
+  ✓puts " (P) Remove a fridge"
+  ✓puts " (R) View all food for a specific fridge"
+  ✓puts " (K) View all drink for a specific fridge"
+  ✓puts " (A) Add a food item to a fridge"
+  *puts " (E) Eat a food item from a fridge (deleted!)"
+  ✓puts " (V) Add a drink item to a fridge"
+  *puts " (U) Drink part of a drink"
+  *puts " (D) Drink an entire drink (deleted!)"
+  puts " (Q) Quit Program"
+
+*needs connection to sql database
+
+
+DATABASE STRUCTURE:
+FROM fridges;
+ id | brand | location | has_food | has_drink 
+----+-------+----------+----------+-----------
+
+FROM drinks;
+ id | name | can_size_oz | is_alcoholic | fridge_id 
+----+------+-------------+--------------+-----------
+
+the_kitchen=# SELECT * FROM foods;
+ id | name | weight | is_vegan | date_entered | fridge_id 
+----+------+--------+----------+--------------+-------
+
+
+
 # Fridge Management App
 
 We're going to building a fridge management app to keep track of all of our food and drink using ActiveRecord. It may be helpful to review the docs for [ActiveRecord Basics](http://edgeguides.rubyonrails.org/active_record_basics.html) and [ActiveRecord Associations](http://edgeguides.rubyonrails.org/association_basics.html) for this.
