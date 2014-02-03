@@ -1,3 +1,5 @@
+
+#Days Of The Week!
 puts "What day of the week is it (Monday - Friday) ?"
 day = gets.chomp
 
@@ -13,3 +15,5 @@ when "Thursday"
 when "Friday"
   puts "Friiiiidaaaaaay"
 end
+
+
