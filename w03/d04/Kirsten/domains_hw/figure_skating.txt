@@ -1,0 +1,3 @@
+CREATE TABLE skaters (id serial PRIMARY KEY, name varchar(50), country varchar(50) NOT NULL);
+
+CREATE TABLE scores (id serial PRIMARY KEY, judge_name varchar(50) NOT NULL, score integer NOT NULL, round_of_competition integer NOT NULL, skater_id integer references skaters(id));
