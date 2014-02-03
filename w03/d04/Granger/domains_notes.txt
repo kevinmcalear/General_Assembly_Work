@@ -1,0 +1,85 @@
+Travel Log
+
+
+PLACES
+-has many entries
+
+
+JOURNAL
+-has many entries
+
+
+JOURNAL ENTRY
+-belongs to a Journal
+-belongs to a Place
+
+
+Photo Management
+
+CLIENTS
+
+CLIENTS_ALBUMS
+has many clients
+has many albums
+
+PHOTOGRAPHS
+belongs to album
+
+ALBUMS
+has many photos
+
+
+Figure Skating
+
+SKATERS
+
+SCORES
+has many judges
+has many skaters
+
+Judges
+
+_____________
+Snapchat
+
+USERS
+has many FRiendships
+has many Snapshots
+
+
+FRIENDSHIPS
+has_many users
+
+
+
+
+SNAPSHOTS
+belongs to user
+
+_________________
+
+BlackBoard
+
+STUDENT
+has many classes
+has many grades
+
+TEACHER
+has many classes
+
+CLASSES
+has many assignments
+
+ASSIGNMENTS
+
+GRADES
+belongs to student
+belongs to class
+
+
+
+
+
+
+
+

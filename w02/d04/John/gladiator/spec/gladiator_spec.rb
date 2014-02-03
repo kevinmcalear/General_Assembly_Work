@@ -57,16 +57,22 @@ describe Arena do
   end
 
   describe "weapon test" do
-    before { arena.add_gladiator(Gladiator.new("Maximus", "club")) }
-    before { arena.add_gladiator(Gladiator.new("Sheera", "spear")) }
+    before do 
+      arena.add_gladiator(Gladiator.new("Maximus", "club")) 
+      arena.add_gladiator(Gladiator.new("Sheera", "spear"))
+    end
+
     it "should have club lose to spear" do
       expect( arena.fight ).to eq("Maximus is dead!")
     end
   end
 
   describe "weapon test" do
-    before { arena.add_gladiator(Gladiator.new("Maximus", "trident")) }
-    before { arena.add_gladiator(Gladiator.new("Sheera", "club")) }
+    before do
+      arena.add_gladiator(Gladiator.new("Maximus", "trident"))
+      arena.add_gladiator(Gladiator.new("Sheera", "club"))
+    end
+    
     it "should have trident lose to club" do
       expect( arena.fight ).to eq("Maximus is dead!")
     end
