@@ -11,3 +11,14 @@ CREATE TABLE songs(
   musical_id integer references musicals(id)
 );
 
+CREATE TABLE characters(
+  id serial primary key,
+  name varchar(100)
+);
+
+CREATE TABLE performances(
+  id serial primary key,
+  song_id integer references songs(id),
+  character_id integer references characters(id)
+);
+
