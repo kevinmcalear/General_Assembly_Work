@@ -8,5 +8,5 @@ class Judge < ActiveRecord::Base
     score_up.update(score: number)
     return name, number
   end
-  self.validates(:name { presence: true})
+  self.validates(:name, :score { presence: true})
 end

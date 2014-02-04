@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe Chef do
-  let(:chef) { Chef.create(name: "Joe") }
+  subject(:chef) { Chef.create(name: "Joe") }
 
   describe "#make_dish" do
     let(:course) { Course.create }
