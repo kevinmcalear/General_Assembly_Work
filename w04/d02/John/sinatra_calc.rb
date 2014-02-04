@@ -21,3 +21,9 @@ get '/calculator/:id' do
   end
 end
 
+post '/calculator/add' do
+  result = params[:number1].to_i + params[:number2].to_i
+  last_id = calculations.keys.max
+  calculations[last_id + 1] = "#{params[:number1]} + #{params[:number2]} = #{result}"
+end
+
