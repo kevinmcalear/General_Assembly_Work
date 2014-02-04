@@ -1,7 +1,7 @@
 require 'spec_helper'
 require_relative '../lib/reverse'
 
-# Write a function reverse_words that given a string reverses the order of the words
+# Write a method reverse_words that given a string reverses the order of the words
 
 describe "reverse_words" do
   it "reverses the words" do
@@ -9,7 +9,7 @@ describe "reverse_words" do
   end
 end
 
-# Write a function reverse_each_word that given a string reverses the order of the words
+# Write a method reverse_each_word that given a string reverses the order of the words
 
 describe "reverse_each_word" do
   it "reverses each word" do
