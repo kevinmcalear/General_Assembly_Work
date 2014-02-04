@@ -10,4 +10,4 @@
 ActiveRecord Validations & Many to Many Relationships | Networking & Intro to Sinatra | HTML & ERB, POST and Forms | Intro to Ruby on Rails | Multiple Model CRUD apps 
 
 ###What are we doing next week?
-- We are going to delve deeper into the world of Ruby on Rails, exploring the built in tools and learning best practices. We are also going to learn about authorization and authentication and deploy our first apps to the internet.
+- We are going to delve deeper into the world of Ruby on Rails, exploring the built in tools and learning best practices. We are also going to learn about authorization and authentication and deploy our first apps.
