@@ -27,3 +27,22 @@ post '/calculator/add' do
   calculations[last_id + 1] = "#{params[:number1]} + #{params[:number2]} = #{result}"
 end
 
+post '/calculator/subtract' do
+  result = params[:number1].to_i - params[:number2].to_i
+  last_id = calculations.keys.max
+  calculations[last_id + 1] = "#{params[:number1]} - #{params[:number2]} = #{result}"
+end
+
+post '/calculator/multiply' do
+  result = params[:number1].to_i * params[:number2].to_i
+  last_id = calculations.keys.max
+  calculations[last_id + 1] = "#{params[:number1]} * #{params[:number2]} = #{result}"
+end
+
+post '/calculator/divide' do
+  result = params[:number1].to_f / params[:number2].to_f
+  last_id = calculations.keys.max
+  calculations[last_id + 1] = "#{params[:number1]} / #{params[:number2]} = #{result}"
+end
+
+
