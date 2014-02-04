@@ -97,16 +97,36 @@ while choice != 10
     chef_search = gets.chomp
     chef = Chef.find_by(name: chef_search)
 
-    create_dish = Dish.create(name: name, course_id: round, chef_id: chef)
+    create_dish = Dish.create(name: name, course_id: round, chef_id: chef.id)
     puts "New Dish Created!"
 
   elsif choice == 7
+    
+    puts "---------------------------"
+    puts "      List all Dishes"
+    Dish.all.each {|dish| puts "#{dish.id}. #{dish.name}"}
+    puts "---------------------------"
 
+    puts "What is the number of the dish to rate? "
+    dish_id = gets.chomp.to_i
+    puts "Which judge is giving the rating? "
+    judge = gets.chomp
+    judge_search = Judge.find_by(name: judge)
+    puts "Please give a rating between 1 and 5: "
+    rating = gets.chomp.to_i
 
+    creating_rating = Dish_rating.create(score: rating, dish_id: dish_id, judge_id: judge_search.id )
+    puts "Rating Created!"
 
 
   elsif choice == 8
+    least = Dish_rating.all.each {|number| number.score.min }
+    self.Create(course_id: least.course_id, chef_id: least.chef_id)
 
+    puts "---------------------------"
+    puts "    View Who is on the Chopping Block"
+    Chopping_block.all.each {|chop| puts "#{chop.id}. #{chop.chef_id.name}"}
+    puts "---------------------------"
 
   elsif choice == 9
   

@@ -4,4 +4,5 @@ class Chopping_block < ActiveRecord::Base
 
   validates(:chef_id, {presence: true})
   validates(:course_id, {presence: true})
+
 end
