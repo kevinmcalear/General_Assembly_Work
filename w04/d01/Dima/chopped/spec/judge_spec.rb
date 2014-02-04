@@ -12,4 +12,5 @@ describe Judge do
   # end
 
   it {should validate_presence_of(:name)}
+  it {should have_many(:dishrating)}
 end
