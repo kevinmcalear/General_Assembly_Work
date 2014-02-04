@@ -1,3 +1,10 @@
 class Judge < ActiveRecord::Base
-  self.validates(:name, { presence: true})
+  #has_many: dish_ratings
+  self.validates(:name, {presence: true})
+
+  def rate_dish
+    return 0
+  end
+
+
 end
