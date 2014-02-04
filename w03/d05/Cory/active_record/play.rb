@@ -20,13 +20,45 @@ ActiveRecord::Base.establish_connection(
 
 class Musical < ActiveRecord::Base
   has_many :songs
+  self.validates(:title, { presence: true, uniqueness: true })
+  # composer and year should be present
+  # no two musicals should have the same title
+  # using self. to illustrate what its doing, not required.
+  self.validates(:composer, { presence: true })
+  self.validates(:year, { presence: true })
+
+  self.before_validation(:i_am_called_before)
+  self.after_validation(:i_am_called_after)
+
+  def i_am_called_before
+    puts "BEFORE VALIDATION!!!"
+  end
+
+  def i_am_called_after
+    puts "AFTER VALIDATION!!!"
+  end
 end
 
 class Song < ActiveRecord::Base
   belongs_to :musical
+  has_many :performances
+  has_many :characters, :through => :performances
 end
 
-# binding.pry
+class Character < ActiveRecord::Base
+  # validates that a character cannot sing a song twice.
+  self.validates(:song_id, { uniqueness: { :scope => :character_id } })
+  has_many :performances
+  has_many :songs, :through => :performances
+end
+#join class
+class Performance < ActiveRecord::Base
+  belongs_to :song
+  belongs_to :character
+end
+
+binding.pry
+
 begin
 
   puts "c to create"

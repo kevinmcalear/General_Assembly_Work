@@ -19,7 +19,7 @@ class Musical < ActiveRecord::Base
   has_many :songs
 end
   
-class Songs < ActiveRecord::Base
+class Song < ActiveRecord::Base
   belongs_to :musical
 end
 
