@@ -32,11 +32,6 @@ post '/calculator/subtract' do
   calculations[last_id + 1] = (params[:value1].to_i - params[:value2].to_i).to_s
 end
 
-post '/calculator/subtract' do
-  last_id = calculations.keys.max
-  calculations[last_id + 1] = (params[:value1].to_i - params[:value2].to_i).to_s
-end
-
 post '/calculator/multiply' do
   last_id = calculations.keys.max
   calculations[last_id + 1] = (params[:value1].to_i * params[:value2].to_i).to_s
