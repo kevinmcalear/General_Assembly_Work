@@ -18,3 +18,9 @@ Instagram is SO last year. We're going to build a web app that allows us to add 
 
 ###College Class Management Software (Think Blackboard)
 You are building software to help students and professors manage their classes. A student can be enrolled in several classes, and they have assignments and grades for each of those classes. A teacher also can teach multiple classes and teaches many students. Courses, students and teachers are limited to a university (no cross-university enrollment).
+
+
+CREATE TABLE photos (id serial PRIMARY KEY, name varchar(50) NOT NULL, photo varchar(50) NOT NULL, description varchar(50) NOT NULL, owner varchar(50) NOT NULL);
+
+
+CREATE TABLE scores (id serial PRIMARY KEY, routine varchar(50) NOT NULL, date date NOT NULL, value integer NOT NULL, skater_id integer references skaters(id), judge_id integer references judges(id));
