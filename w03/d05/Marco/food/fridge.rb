@@ -10,12 +10,12 @@ ActiveRecord::Base.establish_connection(
   )
 
 class Fridge < ActiveRecord::Base
-  has_many :food
-  has_many :drink
+  has_many (:foods, {:dependent => :destroy})
+  has_many (:drinks, {:dependent => :destroy})
 end
 
 class Food < ActiveRecord::Base
-  belongs_to :fridge
+  belongs_to :fridges
 end
 
 class Drink < ActiveRecord::Base
