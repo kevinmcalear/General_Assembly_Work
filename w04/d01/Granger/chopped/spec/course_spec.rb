@@ -1,6 +1,7 @@
-require "spec_helper"
+require 'spec_helper'
 
-describe Course  do 
+describe Course do 
+  it {should have_many :dishes}
   
-  it {should have_many(:dishes)}
+  
 end
