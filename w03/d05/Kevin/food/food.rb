@@ -10,8 +10,8 @@ ActiveRecord::Base.establish_connection(
 
 
 class Fridge < ActiveRecord::Base
-  has_many :foods
-  has_many :drinks
+  has_many :foods, {:dependent => :destroy}
+  has_many :drinks, {:dependent => :destroy}
 end
 
 class Food < ActiveRecord::Base
