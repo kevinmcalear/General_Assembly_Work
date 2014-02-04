@@ -7,6 +7,7 @@ describe Chef do
 
   it { should validate_presence_of(:name) }
 
+
   describe "#make_dish" do
     let(:course) { Course.create }
 
@@ -16,4 +17,9 @@ describe Chef do
       expect(course.dishes).to include(dish)
     end
   end
+
+  #describe "#gets_put_on_cb" do
+   #cb_chef = chef.gets_put_on_cb("Mary", 1)
+   #expect(chopping_block.chefs).to include(#chef)
+  #end
 end
