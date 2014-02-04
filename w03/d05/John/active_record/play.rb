@@ -65,27 +65,16 @@ while choice != 'q'
     puts "What is the new information?"
     update_info = gets.chomp
 
-    finder = Musical.find_by(title: "#{get_title}")
+    musical = Musical.find_by(title: "#{get_title}")
     binding.pry
-    finder.update_attributes("#{atrb}" => "#{update_info}")
+    musical.update_attributes("#{atrb}" => "#{update_info}")
 
 
   when 'c'
+
 
   when 'd'
 
   end
 
 end
-
-
-
-# grease = Musical.new do |u|
-#   u.title = "Grease"
-# end
-# grease.save
-# puts grease.title
-
-
-
-# puts Musical.all
