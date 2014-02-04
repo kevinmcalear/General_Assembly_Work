@@ -19,3 +19,18 @@ get '/calculator' do
       user_calculations.values.join('\n')
     end
 end
+
+get '/calculator/:id' do
+  id = params[:id].to_i
+  search = user_calculations[id]
+
+  if search
+    search
+  else
+    "No calculation here, SUCKER! Maybe you should make one. ;)"
+  end
+end
+
+get '/add/:num1/:num2' do
+  "#{params[:num1]} + #{params[:num2]} = #{params[:num1].to_i + params[:num2].to_i}"
+end
