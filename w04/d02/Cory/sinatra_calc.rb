@@ -11,3 +11,13 @@ end
 get '/calculator' do
   calculations.values.join(", ")
 end
+
+get '/calculator/:id' do
+  id = params[:id].to_i
+  calc = calculations[id]
+  if calc
+    calc
+  else
+    "THERE ARE NO CALCULATIONS HERE!!!"
+  end
+end
