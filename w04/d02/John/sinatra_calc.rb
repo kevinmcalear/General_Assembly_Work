@@ -12,5 +12,12 @@ get '/calculator' do
   calculations.values.join(", ")
 end
 
-
+get '/calculator/:id' do
+  calc = calculations[params[:id].to_i]
+  if calc
+    calc
+  else
+    "Entry not found!"
+  end
+end
 
