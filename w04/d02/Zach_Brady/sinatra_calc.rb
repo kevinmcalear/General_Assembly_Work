@@ -22,6 +22,7 @@ get "/" do
     body {
       margin:0;
       background: #8AE65C;
+      font-family: Futura;
     }
     header {
       font-size: 24;
@@ -53,6 +54,9 @@ get "/" do
     }
     aside {
       float: right;
+    }
+    footer {
+      margin: 1em;
     }
 </style>
 
@@ -97,8 +101,18 @@ get "/" do
 
 end
 
-past_calculations = { 1 => "42" }
+past_calculations = { 1 => "42", 2 => "69", 3 =>"26" }
 
 get '/calculator' do
-  past_calculations.values.join(", ")
+  "<p style=\"font-size:32px; \">#{past_calculations.values.join(', ')}</p>"
+end
+
+get '/calculator/:past_calculation_solution_id' do
+  id = params[:past_calculation_solution_id].to_i
+  entry = past_calculations[id]
+  if entry
+    "<p style=\"margin: 20% 0 0 0; text-align: center; font-size:128px; \">#{entry}</p>"
+  else
+    '<p style="margin: 20% 0 0 0; text-align: center; font-size:32px;">YOU HAVEN\'T CALCULATED ENOUGH GET TO THE NUMBER CRUNCHING NERRRD</p>'
+  end
 end
