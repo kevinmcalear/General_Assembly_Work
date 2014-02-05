@@ -12,6 +12,12 @@ ActiveRecord::Base.establish_connection(
 class Fridge < ActiveRecord::Base
   has_many :foods
   has_many :drinks
+
+  # validates :location, :brand, :size,
+  # presence: true
+
+  # validates :food, :drink,
+  # absence: true
 end
 
 class Food < ActiveRecord::Base
@@ -20,6 +26,11 @@ end
 
 class Drink < ActiveRecord::Base
   belongs_to :fridge
+
+  # validates :size, 
+  # numericality: {
+  #   less_than: 50
+  # }
 end
 
 #methods for listing fridges, food, and drinks
