@@ -24,17 +24,6 @@ end
 
 binding.pry
 
-# van_gogh = Artist.create(:name => "Vincent Van Gogh", :nationality => "Dutch")
 
-# starry_night = Painting.create(:title => "Starry Night", :artist_id => van_gogh.id)
-
-# picasso = Artist.create(:name => "Pablo Picasso", :nationality => "French")
-
-# guernica = Painting.create(:title => "Guernica", :artist_id => picasso.id)
-
-
-
-# artists = Artist.all
-# paintings = Painting.all
 
 
