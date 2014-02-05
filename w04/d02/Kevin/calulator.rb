@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
-
+# USE THIS TO TO THE MATH: curl -d "num1=2&num2=3" http://localhost:4567/calculator/add       Replace the values for num1 & num2 and the /add to use.
 past_calculations = { 1 => "Your Calculation Was: <span style=\"color: purple;\">7 + 4 = 11</span><br><br>", 2 => "Your Calculation Was: <span style=\"color: purple;\">7 * 3 = 21</span><br><br>", 3 => "Your Calculation Was: <span style=\"color: purple;\">7 - 7 = 0</span><br><br>"}
 
 get '/'  do
