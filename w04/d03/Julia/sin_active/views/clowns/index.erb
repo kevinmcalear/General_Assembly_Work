@@ -2,7 +2,8 @@
 
 <ul>
 
-<li>
-<%= @clowns %>
+<% @clowns.each do |clown| %>
+<li><%= clown.name %></li>
+<% end %>
 
 </ul>
