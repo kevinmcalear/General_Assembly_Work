@@ -2,10 +2,14 @@ require 'spec_helper'
 require_relative '../lib/reverse'
 
 # Write a method reverse_words that given a string reverses the order of the words
+ describe Reverse do
+  subject (:r_words) { Reverse.new}
+ end
+
 
 describe "reverse_words" do
   it "reverses the words" do
-      expect(reverse_words("We are never ever ever getting back together")).to eq("together back getting ever ever never are We")
+      expect( Reverse.new("We are never ever ever getting back together")).to eq("together back getting ever ever never are We")
   end
 end
 
