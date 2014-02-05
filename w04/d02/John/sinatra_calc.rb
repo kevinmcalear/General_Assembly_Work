@@ -21,28 +21,25 @@ get '/calculator/:id' do
   end
 end
 
-post '/calculator/add' do
-  result = params[:number1].to_i + params[:number2].to_i
+post '/calculator/:operation' do
+  num1 = params[:number1].to_i
+  num2 = params[:number2].to_i
   last_id = calculations.keys.max
-  calculations[last_id + 1] = "#{params[:number1]} + #{params[:number2]} = #{result}"
+
+  case params[:operation]
+  when 'add'
+    result = num1 + num2
+    operation = "+"
+  when 'subtract'
+    result = num1 - num2
+    operation = "-"
+  when 'multiply'
+    result = num1 * num2
+    operation = "*"
+  when 'divide'
+  result = num1.to_f / num2.to_f
+  operation = "/"
+  end
+
+  calculations[last_id + 1] = "#{num1} #{operation} #{num2} = #{result}"
 end
-
-post '/calculator/subtract' do
-  result = params[:number1].to_i - params[:number2].to_i
-  last_id = calculations.keys.max
-  calculations[last_id + 1] = "#{params[:number1]} - #{params[:number2]} = #{result}"
-end
-
-post '/calculator/multiply' do
-  result = params[:number1].to_i * params[:number2].to_i
-  last_id = calculations.keys.max
-  calculations[last_id + 1] = "#{params[:number1]} * #{params[:number2]} = #{result}"
-end
-
-post '/calculator/divide' do
-  result = params[:number1].to_f / params[:number2].to_f
-  last_id = calculations.keys.max
-  calculations[last_id + 1] = "#{params[:number1]} / #{params[:number2]} = #{result}"
-end
-
-
