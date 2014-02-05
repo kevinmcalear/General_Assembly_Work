@@ -22,30 +22,29 @@ get "/calculator/:id" do
   end 
 end
 
-# curl -X POST -F number1=25 number2=75 http://localhost:4567/calculate/add/
-
+# curl -d "number1=400&number2=150" http://localhost:4567/calculate/subtract
 
 post "/calculate/add" do
 
   last_id = calculations.keys.max
-  equals = params[:number1].to_i + params[:number2].to_i
+  equals = params[:number1].to_f + params[:number2].to_f
   calculations[last_id + 1] = equals
 end
 
 post "/calculate/subtract" do
   last_id = calculations.keys.max
-  equals = params[:number1].to_i - params[:number2].to_i
+  equals = params[:number1].to_f - params[:number2].to_f
   calculations[last_id + 1] = equals
 end
 
 post "/calculate/multiply" do
   last_id = calculations.keys.max
-  equals = params[:number1].to_i * params[:number2].to_i
+  equals = params[:number1].to_f * params[:number2].to_f
   calculations[last_id + 1] = equals
 end
 
 post "/calculate/divide" do
   last_id = calculations.keys.max
-  equals = params[:number1].to_i / params[:number2].to_i
+  equals = params[:number1].to_f / params[:number2].to_f
   calculations[last_id + 1] = equals
 end
