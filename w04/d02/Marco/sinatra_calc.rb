@@ -45,3 +45,37 @@ post '/calculator/add' do
     user_calculations[last_id + 1] = "#{first_num} + #{second_num} = #{first_num + second_num}<br>"
   end
 end
+
+post '/calculator/subtract' do
+  last_id = user_calculations.keys.max
+  first_num = params[:num1].to_i
+  second_num  = params[:num2].to_i
+  if user_calculations.empty? == true
+    user_calculations[1] = "#{first_num} - #{second_num} = #{first_num - second_num}<br>"
+  else
+    user_calculations[last_id + 1] = "#{first_num} - #{second_num} = #{first_num - second_num}<br>"
+  end
+end
+
+post '/calculator/multiply' do
+  last_id = user_calculations.keys.max
+  first_num = params[:num1].to_i
+  second_num  = params[:num2].to_i
+  if user_calculations.empty? == true
+    user_calculations[1] = "#{first_num} x #{second_num} = #{first_num * second_num}<br>"
+  else
+    user_calculations[last_id + 1] = "#{first_num} x #{second_num} = #{first_num * second_num}<br>"
+  end
+end
+
+post '/calculator/divide' do
+  last_id = user_calculations.keys.max
+  first_num = params[:num1].to_i
+  second_num  = params[:num2].to_i
+  if user_calculations.empty? == true
+    user_calculations[1] = "#{first_num} / #{second_num} = #{first_num / second_num}<br>"
+  else
+    user_calculations[last_id + 1] = "#{first_num} / #{second_num} = #{first_num / second_num}<br>"
+  end
+end
+
