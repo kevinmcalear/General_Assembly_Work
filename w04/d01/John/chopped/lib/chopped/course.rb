@@ -1,3 +1,5 @@
+require 'pry'
+
 class Course < ActiveRecord::Base
   has_many :dishes
   has_many :chopping_blocks
@@ -15,6 +17,19 @@ class Course < ActiveRecord::Base
     end
 
     return scores.sort_by { |key, value| value }.first[0]
+    # return scores.order("")
+  end
+
+  # def find_worst_dish
+  #   # self.dishes.order("score desc").first
+  #   self.dishes.dish_ratings.average(score).group(judge_id)
+
+  # end
+
+  def chop(dish)
+    self.chopping_blocks.create(:chef_id => dish.chef_id, :course_id => self.id)
   end
 
 end
+
+

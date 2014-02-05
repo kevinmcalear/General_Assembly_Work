@@ -26,6 +26,8 @@ end
   houses.delete(nil)
   puts houses.uniq
 
+one_word_names = values.map {|names| names[1]}
+puts one_word_names.delete_if{|names| names.include?" "}
 
 # def unique_house_name(unique)
 #   values.each do |x|
