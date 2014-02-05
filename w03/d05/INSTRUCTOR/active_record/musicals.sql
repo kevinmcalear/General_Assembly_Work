@@ -13,7 +13,7 @@ CREATE TABLE songs(
 
 CREATE TABLE characters(
   id serial primary key,
-  name varchar(100)
+  name varchar(100),
 );
 
 CREATE TABLE performances(
