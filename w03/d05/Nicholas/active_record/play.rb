@@ -15,11 +15,44 @@ ActiveRecord::Base.establish_connection(
 
 class Musical < ActiveRecord::Base
   has_many :songs
+  self.validates(:title, {presence: true, uniqueness: true})
+  self.validates(:composer, {presence: true})
+  self.validates(:year, {presence: true})
+  self.validates(:title, {uniqueness: true})
+
+#   self.before_validation(:i_am_called_before)
+#   self.before_validation(:i_am_called_after)
+
+#   def i_am_called_before
+#     puts "Before Validation!"
+#   end
+
+#   def i_am_called_after
+#     puts "After Validation!"
+#   end
+
 end
 
 class Song < ActiveRecord::Base
   belongs_to :musical
+  has_many :performances
+  has_many :characters, :through => :performances
 end
+
+class Character < ActiveRecord::Base
+  has_many :performances
+  has_many :songs, :through => :performances
+end
+
+class Performance < ActiveRecord::Base
+  belongs_to :song
+  belongs_to :character
+  self.validates(:song, {uniqueness: {:scope => :character, :message => "Character is already singing this song!"} })
+  # Active Record finds the Character class
+  # and uses it for association behaviors
+end
+
+
 binding.pry
 
 choice = 0 

@@ -5,9 +5,12 @@ describe Judge do
   let(:dish) {Dish.new}
 
   it {should validate_presence_of(:name)}
+
   it {should have_many(:dish_ratings)}
+
   describe "#rate_dish" do
-    #before {judge.save}
-    #expect(judge.rate_dish).to eq(0)
+    it "rates a dish" do
+      expect(judge.rate_dish(5)).to eq(5)
+    end
   end
 end
