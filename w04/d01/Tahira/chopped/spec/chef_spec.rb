@@ -9,7 +9,7 @@ describe Chef do
   describe "#make_dish" do
     let(:course) {Course.create}
 
-    it "makes a dish for a particulat course" do
+    it "makes a dish for a particular course" do
       dish = chef.make_dish(course, "test dish")
       expect(dish).to be_kind_of Dish
       expect(course.dishes).to include(dish)
