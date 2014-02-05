@@ -61,7 +61,7 @@ get "/" do
 <body>
 
   <header>
-    <h1><a href="localhost:4567/calculator">the Calculator</a></h1>
+    <h1><a href="http://localhost:4567/calculator">the Calculator</a></h1>
   </header>
   
   <div class="clearfix">
@@ -80,7 +80,7 @@ get "/" do
   </section>
 
   <aside>
-    <button>Click here for the latest and greatest in Calculator UX!</button>
+    <input type="button" value="Click here for the latest and greatest in Calculator UX!" onclick="location.href=\'http://localhost:4567/calculator\';"></input>
     <h2>About section</h2>
     <p>Why are you looking over here? Just click on the link to look at the calculator. </p>
     <img src="http://ak3.picdn.net/shutterstock/videos/2383145/preview/stock-footage-punching-numbers-into-a-calculator.jpg">
@@ -97,8 +97,8 @@ get "/" do
 
 end
 
-
+past_calculations = { 1 => "42" }
 
 get '/calculator' do
-  
+  past_calculations.values.join(", ")
 end
