@@ -22,22 +22,6 @@ class Drink < ActiveRecord::Base
   belongs_to :fridge
 end
 
-# fridge_attributes = ["location", "brand", "size"]
-# food_attributes = ["name", "weight", "vegan"]
-
-
-
-
-# def list_fridges
-#   Fridge.all.each do |fridge|
-#     Fridge.attribute_names.each do |attribute|
-#       puts "#{attribute.capitalize}: #{fridge[attribute]}"
-#     end
-#     puts
-#   end
-# end
-
-
 
 def list_items(item_list)
   item_list.each do |item|
@@ -57,24 +41,6 @@ def get_fridge_id
   list_fridge_ids
   return gets.chomp
 end
-
-# def list_all_foods
-#   Food.all.each do |food|
-#     Food.attribute_names.each do |attribute|
-#       puts "#{attribute.capitalize}: #{food[attribute]}"
-#     end
-#     puts
-#   end
-# end
-
-# def list_drinks
-#   Drink.all.each do |drink|
-#     Drink.attribute_names.each do |attribute|
-#       puts "#{attribute.capitalize}: #{drink[attribute]}"
-#     end
-#     puts
-#   end
-# end
 
 
 def add_fridge
