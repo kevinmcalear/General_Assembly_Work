@@ -27,41 +27,52 @@ end
 
 #Posts
 
-#CURL: curl -X POST -F nunber1="3" -F number2="3" http://localhost:4567/calculator/divide
 
 post "/calculator/divide" do
   last_id = calculator.keys.max
+  if last_id == nil
+    last_id = 1
+  end
   divide = (params[:number1].to_f / params[:number2].to_f)
   calculator[last_id + 1] = "#{params[:number1]} / #{params[:number2]} = #{divide}"
 end
 
-#CURL: curl -X POST -F number1="3" -F number2="3" http://localhost:4567/calculator/divide
+#CURL: curl -d "number1="3"&number2="3"" http://localhost:4567/calculator/divide
 
 post "/calculator/multiply" do
   last_id = calculator.keys.max
+  if last_id == nil
+    last_id = 1
+  end
   multiply = (params[:number1].to_i * params[:number2].to_i)
   calculator[last_id + 1] = "#{params[:number1]} * #{params[:number2]} = #{multiply}"
 end
 
-#CURL: curl -X POST -F number1="3" -F number2="2" http://localhost:4567/calculator/multiply
+#CURL: curl -d "number1="3"&number2="2"" http://localhost:4567/calculator/multiply
 
 post "/calculator/subtract" do
   last_id = calculator.keys.max
+  if last_id == nil
+    last_id = 1
+  end
   subtract = (params[:number1].to_i - params[:number2].to_i)
   calculator[last_id + 1] = "#{params[:number1]} - #{params[:number2]} = #{subtract}"
 end
 
-#CURL: curl -X POST -F number1="7" -F number2="2" http://localhost:4567/calculator/subtract
+#CURL: curl -d "number1="7"&number2="2"" http://localhost:4567/calculator/subtract
 
 post "/calculator/add" do
   last_id = calculator.keys.max
+  if last_id == nil
+    last_id = 1
+  end
   add = (params[:number1].to_i + params[:number2].to_i)
   calculator[last_id + 1] = "#{params[:number1]} + #{params[:number2]} = #{add}"
 end
 
-#CURL: curl -X POST -F number1="3" -F number2="2" http://localhost:4567/calculator/add
+#CURL: curl -d "number1="3"&number2="2"" http://localhost:4567/calculator/add
 
-
+#=========================================================#
 
 #Fun, but not saving
 
