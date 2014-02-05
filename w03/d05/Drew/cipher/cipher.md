@@ -7,7 +7,7 @@ In cryptography, a Caesar cipher is one of the simplest and most widely known en
 We're going to implement a simple Caesar Cipher called ROT13 ("rotate by 13 places"). The transformation can be represented by aligning two alphabets:
 
 ```
-Plain:    abcdefghijklmnopqrstuvwxyz
+Plain:    a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z
 Cipher:   nopqrstuvwxyzabcdefghijklm
 ```
 
