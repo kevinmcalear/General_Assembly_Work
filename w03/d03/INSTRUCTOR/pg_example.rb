@@ -24,6 +24,6 @@ db_conn = PG.connect( {:dbname => "receipts_db"} )
 db_conn.exec(insert_query)
 results = db_conn.exec(select_query)
 
-puts results.values
+results.values {|row| puts rows}
 
 db_conn.close
