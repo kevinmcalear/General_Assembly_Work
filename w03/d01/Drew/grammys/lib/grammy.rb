@@ -36,8 +36,7 @@ class Grammys
   end
 
   def delete_grammy 
-    grammys = Grammys.all
-    puts grammys.each_with_index {|val, index| puts "#{index} => #{val}"}
+   
   end
 
 end
