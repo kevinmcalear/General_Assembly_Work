@@ -51,18 +51,30 @@ get '/calculator/:id' do
   end
 end
 
-get '/calculator/ops/:method/' do
-  #binding.pry
+post '/calculator/add' do
 
-  case params[:method]
-  when "add"
-    "add"
-  when "subtract"
-    "subtract"
-  when "multiply"
-    "multiply"
-  when "divide"
-    "divide"
-  end
+    number_of_calculations = (past_calculations.keys.max) + 1
+    past_calculations[number_of_calculations] = (params[:value1].to_i + params[:value2].to_i)
+
+end
+
+post '/calculator/subtract' do
+
+    number_of_calculations = (past_calculations.keys.max) + 1
+    past_calculations[number_of_calculations] = (params[:value1].to_i - params[:value2].to_i)
+
+end
+
+post '/calculator/multiply' do
+
+    number_of_calculations = (past_calculations.keys.max) + 1
+    past_calculations[number_of_calculations] = (params[:value1].to_f * params[:value2].to_f).round(3)
+
+end
+
+post '/calculator/divide' do
+
+    number_of_calculations = (past_calculations.keys.max) + 1
+    past_calculations[number_of_calculations] = (params[:value1].to_f / params[:value2].to_f).round(3)
 
 end
