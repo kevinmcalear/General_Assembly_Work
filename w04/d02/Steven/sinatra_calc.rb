@@ -43,9 +43,21 @@ end
 
 post "/calculator/multiply" do
 
+   sum = params[:num_1].to_i * params[:num_2].to_i
+  last_id = calculations.keys.max
+  calculations[last_id + 1] =
+  "#{params[:num_1]} * #{params[:num_2]} = #{sum}"
+
+
 end
 
 post "/calculator/divide" do
+
+   sum = params[:num_1].to_i / params[:num_2].to_i
+  last_id = calculations.keys.max
+  calculations[last_id + 1] =
+  "#{params[:num_1]} / #{params[:num_2]} = #{sum}"
+
 
 end
 
