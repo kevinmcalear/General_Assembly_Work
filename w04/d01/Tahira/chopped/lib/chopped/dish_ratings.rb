@@ -1,6 +1,10 @@
 #dish_ratings.rb
 
-class DishRatings < ActiveRecord::Base
-  #belongs_to: judges
-  #belongs_to: dishes  
+class DishRating < ActiveRecord::Base
+  belongs_to :judges
+  belongs_to :dishes  
+
+  def score(score)
+    return score
+  end
 end
