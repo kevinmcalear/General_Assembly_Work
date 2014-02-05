@@ -9,7 +9,7 @@ get '/'  do
   <a style="background: purple; color: white; padding: 10px; border-radius: 9px; margin: 25px;"  href="http://localhost:4567/calculator">   See Your Recipts   </a>
   </div>
   <h1 style="font-style: italic; margin-top: 55px; margin-bottom: 25px;">Welcome To The Calculator My Friend.</h1>
-  <p style="color: gray; margin-bottom: 25px;">A calculator for real mean.</p>
+  <p style="color: gray; margin-bottom: 25px;">A calculator for real men.</p>
   <img src="http://upload.wikimedia.org/wikipedia/en/0/0a/NERD.GIF">
   
   </body>'
