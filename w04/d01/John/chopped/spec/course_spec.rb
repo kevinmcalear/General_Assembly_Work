@@ -39,4 +39,16 @@ describe Course do
 
   end
 
+  describe "#chop" do
+    let (:course1) { Course.create(:round => 1, :ingredient => "brains")}
+    let (:chef1) { Chef.create(:name => "Jeff")}
+    let (:dish1) { chef1.make_dish(course1, "Camel brains")}
+
+    it "chops a chef" do
+      course1.chop(dish1)
+      chopped_chef_id = course1.chopping_blocks[0][:chef_id]
+      expect( Chef.find(chopped_chef_id).name ).to eq("Jeff")
+    end
+  end
+
 end
