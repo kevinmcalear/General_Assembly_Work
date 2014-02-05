@@ -49,8 +49,8 @@ end
 class Performance < ActiveRecord::Base
   belongs_to :song
   belongs_to :character
-  validates(:song_id, {:uniqueness => {:scope => :character_id}})
-  # validates(:song, {:uniqueness => {:scope => :character}})
+  validates(:song, {:uniqueness => {:scope => :character, :message => "Custom error message"}})
+  # validates(:song_id, {:uniqueness => {:scope => :character_id}})
 end
 
 
