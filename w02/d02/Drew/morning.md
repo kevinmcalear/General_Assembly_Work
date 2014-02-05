@@ -31,6 +31,8 @@ end
 
 end
 ```
+pj = 
+
 
 Create a new Person object and store it in the variable `pj`. Print the following to the console / see what it returns in pry
 * What happens when I call pj.learn

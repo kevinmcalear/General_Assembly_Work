@@ -1,34 +1,38 @@
+CREATE TABLE judges (
+  id SERIAL PRIMARY KEY,
+  judge_name VARCHAR(50)
+  );
 
+CREATE TABLE chefs (
+  id SERIAL PRIMARY KEY,
+  judge_name VARCHAR(50)
+  );
 
-# CREATE TABLE fridges (
-#   id SERIAL PRIMARY KEY,
-#   fridge_name VARCHAR(50),
-#   location VARCHAR(50),
-#   brand VARCHAR(50),
-#   cubic_feet integer DEFAULT 4.4
-#   );
+CREATE TABLE course (
+  id SERIAL PRIMARY KEY,
+  round VARCHAR(50),
+  ingredient VARCHAR(50)
+  );
 
+CREATE TABLE dishes (
+  id SERIAL PRIMARY KEY,
+  dish_name VARCHAR(50),
+  chefs_id integer references chefs(id),
+  course_id integer references course(id)
+);
 
-# CREATE TABLE app (
-#   id SERIAL PRIMARY KEY,
-#   fridges_id integer references fridges(id));
+CREATE TABLE ratings (
+  id SERIAL PRIMARY KEY,
+  ratings_value VARCHAR(50),
+  dishes_id integer references dishes(id),
+  judges_id integer references judges(id)
+);
 
+CREATE TABLE chop_blocks (
+  id SERIAL PRIMARY KEY,
+  chef_id integer references chef(id),
+  course_id integer references course(id)
+);
 
-# CREATE TABLE drinks (
-#   id SERIAL PRIMARY KEY,
-#   drink_name VARCHAR(50),
-#   ounces integer DEFAULT 1,
-#   alcohol BOOLEAN,
-#   fridges_id integer references fridges(id)
-#   );
-
-# CREATE TABLE food (
-#   id SERIAL PRIMARY KEY,
-#   food_name VARCHAR(50),
-#   weight integer DEFAULT 1,
-#   vegan BOOLEAN,
-#   timestamp date DEFAULT current_date,
-#   fridges_id integer references fridges(id)
-#   );
 
 
