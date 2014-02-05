@@ -6,7 +6,7 @@ ActiveRecord::Base.logger = Logger.new("./sql.log")
 ActiveRecord::Base.establish_connection(
   :adapter => "postgresql",
   :host => "localhost",
-  :username => "drewtunney",
+  :username => "jeff",
   :password => "",
   :database => "playground"
 )
