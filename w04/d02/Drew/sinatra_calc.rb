@@ -22,46 +22,34 @@ get '/calculator/:id' do
 end
 
 post "/calculator/add" do
-  num1 = params[:num1]
-  num2 = params[:num2]
-  answer = num1.to_i + num2.to_i
+  sum = params[:num_1].to_i + params[:num_2].to_i
   last_id = calculations.keys.max
-  calculations[last_id + 1] = answer
-
-  "#{num1} + #{num2} = #{answer}"
+  calculations[last_id + 1] =
+  "#{params[:num_1]} + #{params[:num_2]} = #{sum}"
 
 end
 
 post "/calculator/subtract" do
-  num1 = params[:num1]
-  num2 = params[:num2]
-  answer = num1.to_i - num2.to_i
+  sum = params[:num_1].to_i - params[:num_2].to_i
   last_id = calculations.keys.max
-  calculations[last_id + 1] = answer
-
-  "#{num1} + #{num2} = #{answer}"
+  calculations[last_id + 1] =
+  "#{params[:num_1]} - #{params[:num_2]} = #{sum}"
 
 end
 
 post "/calculator/multiply" do
-  num1 = params[:num1]
-  num2 = params[:num2]
-  answer = num1.to_i * num2.to_i
+  sum = params[:num_1].to_i * params[:num_2].to_i
   last_id = calculations.keys.max
-  calculations[last_id + 1] = answer
-
-  "#{num1} + #{num2} = #{answer}"
+  calculations[last_id + 1] =
+  "#{params[:num_1]} * #{params[:num_2]} = #{sum}"
 
 end
 
 post "/calculator/divide" do
-  num1 = params[:num1]
-  num2 = params[:num2]
-  answer = num1.to_i / num2.to_i
+  sum = params[:num_1].to_i / params[:num_2].to_i
   last_id = calculations.keys.max
-  calculations[last_id + 1] = answer
-
-  "#{num1} + #{num2} = #{answer}"
+  calculations[last_id + 1] =
+  "#{params[:num_1]} / #{params[:num_2]} = #{sum}"
 
 end
 
