@@ -19,3 +19,6 @@ Cipher.encode("peter")
 => "kvgvi"
 
 ```
+
+
+25 - existing = new
