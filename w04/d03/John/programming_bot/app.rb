@@ -4,7 +4,7 @@ require 'active_record'
 require_relative './models/config'
 
 
-get("/index") do
+get("/") do
   @question = "Do you have a test for that?"
   @link1 = "does_it_pass" 
   @link2 = "write_test"
@@ -27,7 +27,7 @@ end
 
 get("/write_test") do
   @statement = "Write the test"
-  @link = "index"
+  @link = ""
   erb(:'one_option')
 end
 
