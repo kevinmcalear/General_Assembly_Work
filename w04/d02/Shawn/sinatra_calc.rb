@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
-calculations = { 1 => "1 + 1 = 2", 2 => "2 * 3 = 6", 3 => "6 / 3 = 2"}
+calculations = { 1 => "2", 2 => "6", 3 => "2"}
 
 get '/' do 
   "Welcome to ∞Calculate∞"
@@ -22,4 +22,9 @@ get '/calculator/:id' do
   end
 end
 
-
+post "/calculator/add" do
+  # - A user can POST an Addition calculation to `/calculator/add` by providing 2 numbers as parameters.
+  last_id = calculations.keys.max
+  sum = params[:num1].to_i + params[:num2].to_i
+  calculations[last_id+1] = sum
+end
