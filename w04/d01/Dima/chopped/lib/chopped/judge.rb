@@ -1,6 +1,6 @@
 class Judge < ActiveRecord::Base
   self.validates(:name, {presence: true})
-  has_many(:dishrating)
+  has_many(:dish_ratings)
 
   def rate_dish(dish_name)
     score_point = gets.chomp
