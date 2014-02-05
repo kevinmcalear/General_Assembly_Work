@@ -17,6 +17,7 @@ class State
   def initialize(name)
     @name = name
     @emancipate = "a state sweltering with the heat of injustice and oppression"
+    @table_of_brotherhood = []
   end
 
   def name
@@ -28,12 +29,12 @@ class State
     [{:ancestors => "slaves"}, {:ancestors => "slave-owners"}]
   end
 
-  def sit_at_table(table)
+  def sit_at_table(person_array)
     @table_of_brotherhood << {:ancestors => "slaves"}
   end
 
   def table_of_brotherhood
-    @table_of_brotherhood ||= []
+    @table_of_brotherhood 
   end
 
   def status
