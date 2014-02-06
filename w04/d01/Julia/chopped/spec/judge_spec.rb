@@ -18,28 +18,37 @@ describe Judge do
 
   describe "#rate_dish" do
     
-
-    it "assigns a rating" do
-      dish = Dish.create(:name => "Pasta")
-      chef = Chef.create(:name => "Jon")
-      course = Course.create(round: 1, ingredient: "asparagus") 
+    it "assigns a rating" do 
       judge = Judge.create(:name => "Alton Brown")
-      rating = judge.rate_dish(5)
-      expect(rating).to be_a DishRating
-      #binding.pry
+      dish = Dish.create(:name => "Pasta")
 
-      expect(DishRating.all).to include rating
+      judge.rate_dish(dish, 5)
+      expect(judge.dishes).to include(dish)
     end
 
-    it "has a dish" do
-      dish = Dish.create(:name => "Pasta")
-      chef = Chef.create(:name => "Jon")
-      course = Course.create(round: 1, ingredient: "asparagus") 
-      judge = Judge.create(:name => "Alton Brown")
-      rating = judge.rate_dish(5)
 
-      expect(DishRating.dish_id).to be_kind_of(integer)
-    end
+
+    # it "assigns a rating" do
+    #   dish = Dish.create(:name => "Pasta")
+    #   chef = Chef.create(:name => "Jon")
+    #   course = Course.create(round: 1, ingredient: "asparagus") 
+    #   judge = Judge.create(:name => "Alton Brown")
+    #   rating = judge.rate_dish(5)
+    #   expect(rating).to be_a DishRating
+    #   #binding.pry
+
+    #   expect(DishRating.all).to include rating
+    # end
+
+    # it "has a dish" do
+    #   dish = Dish.create(:name => "Pasta")
+    #   chef = Chef.create(:name => "Jon")
+    #   course = Course.create(round: 1, ingredient: "asparagus") 
+    #   judge = Judge.create(:name => "Alton Brown")
+    #   rating = judge.rate_dish(5)
+
+    #   expect(DishRating.dish_id).to be_kind_of(integer)
+    # end
   end
 
 end
