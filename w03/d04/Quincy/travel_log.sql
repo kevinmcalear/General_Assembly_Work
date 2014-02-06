@@ -10,6 +10,8 @@ CREATE TABLE journal (
   liked_attraction boolean DEFAULT TRUE
 );
 
+DROP TABLE IF EXISTS cities;
+
 CREATE TABLE cities (
   id serial PRIMARY KEY,
   state varchar(50) NOT NULL,
