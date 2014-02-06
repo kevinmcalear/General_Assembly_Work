@@ -8,6 +8,7 @@ An Artist has
 
 A Painting has
 * title
+# Foreign Key
 
 ###Part 1 - Database Schemas
 

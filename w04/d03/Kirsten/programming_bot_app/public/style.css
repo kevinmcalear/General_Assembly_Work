@@ -1,0 +1,36 @@
+BODY {
+background-color: #33CCFF;
+font-family: 'Source Sans Pro', sans-serif;
+font-size: 40px;
+text-align: center;
+color: white;
+}
+
+BUTTON {
+  background-color: white;
+  border-radius: 10px;
+  border: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+Restartbutton {
+  background-color: white;
+  border-radius: 10px;
+  border: 2px;
+  padding: 5px;
+  padding-right: 5px;
+  font-size: 20px;
+  float: right;
+  margin-right: 20px
+}
+
+a:link {
+  color:black;
+  text-decoration: none;
+}
+a:visited {
+  color:black;
+  text-decoration: none;
+
+}
