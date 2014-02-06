@@ -1,0 +1,32 @@
+vin = Artist.create(name: 'Van Gogh', nationality: 'Dutch')
+
+vin.paintings.create(title: 'Stary Night')
+
+Artist.all
+
+Painting.all
+
+Artist.find_by_id(2)
+
+Artist.find_by_name('Van Gogh')
+
+Artist.find_by_nationality('Spanish')
+
+Painting.find_by_id(1)
+
+Painting.where(nationality: "Spanish")
+
+### Where returns an array with multiple objects###
+### Find by just returns the single object ###
+
+vg = Artist.find_by(name: 'Van Gogh')
+vg.paintings
+
+Artist.find_by(name: 'Van Gogh').update(nationality: 'Dutch')
+
+Painting.find_by(title: 'Stary Night').update(artist_id: 3)
+
+elgreco.paintings << starry_night (elgreco and starry_night are variable objects)
+
+
+
