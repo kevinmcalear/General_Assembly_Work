@@ -1,0 +1,11 @@
+<!-- Show list of clowns with links to their profiles -->
+
+<ul>
+<!--   <% a = 25 %>
+  <% a += 500 %>
+  <%= a %> -->
+  <% @clowns.each do |clown| %>
+    <li>
+      <a href="/clowns/<%= clown.id %>"><%= clown.name %></li>
+  <% end %>
+</ul>

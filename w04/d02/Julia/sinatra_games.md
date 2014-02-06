@@ -23,3 +23,6 @@
      "Don't count on it", "My reply is no", "My sources say no",
      "Outlook not so good", "Very doubtful"]
 ```
+'<h1 style="background: pink;">Hello World!</h1>
+  <a style="background: pink;" href="http://localhost:4567/banana"> Sup</a>'
+end

@@ -9,7 +9,7 @@ get '/' do
 end
 
 get '/calculator' do
-  calculations.values.join(", ")
+  calculations.values.join("<br>")
 end
 
 get '/calculator/:id' do
