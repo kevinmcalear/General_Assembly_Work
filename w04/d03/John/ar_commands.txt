@@ -76,3 +76,9 @@ painting.update(:artist => artist_object)
 OR
 
 artist_object.paintings << painting
+
+
+
+
+
+

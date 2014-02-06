@@ -1,0 +1,65 @@
+1. Create a new Artist (Vincent Van Gogh) and save him to your database
+
+Artist.create(name: "Vincent Van Gogh", nationality: "Dutch")
+
+picasso = Artist.create(name: "Pablo Picasso", nationality: "Spanish")
+
+2. Create a new Painting (Starry Night) and save it to your database
+
+van_gogh = Artist.find_by(name: "Vincent Van Gogh")
+
+van_gogh.paintings.create(title: "Starry Night")
+
+3. Return all Artists
+
+  Artist.all
+
+4. Return all Paintings
+
+  Painting.all
+
+5. Return the artist with an id of 2
+
+  Artist.find(2)
+
+6. Return the artist with a name of "Vincent Van Gogh"
+  
+  Artist.find_by(name: "Vincent Van Gogh")
+
+7. Return all the artists who are "Spanish"
+
+  Artist.where(nationality: "Spanish")
+
+8. Return the painting with an id of 1
+
+  Painting.find(1)
+
+9. Return the painting with a name of "Guernica"
+
+  Painting.find_by(title: "Guernica")
+
+10. Return all the paintings that "Pablo Picasso" painted
+
+  picasso.paintings
+
+11. Return the artist of "Guernica"
+
+  Painting.find_by(title: "Guernica").artist
+
+12. Change Vincent Van Gogh's nationality to "American"
+
+  Artist.find_by(name: "Vincent Van Gogh").update(nationality: "Ameriacan")
+
+13. Change "Starry Night" to be one of Pablo Picasso's paintings
+
+  Painting.find_by(title: "Starry Night").update(artist: picasso)
+
+  Change the artist that this is associated with , to this new artist. Pass the objects!
+
+14. Delete some paintings by id
+
+  Painting.delete([1,2,3])
+
+15. Delete an artist by id
+
+  Artist.delete([1,2,3])
