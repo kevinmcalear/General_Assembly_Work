@@ -15,15 +15,13 @@
 
   <label>
     Sings?
-    <input type="checkbox" name="is_singer" <%= @clown.is_singer ? checked : nil%> />  
+    <input type="checkbox" name="is_singer" <%=@clown.is_singer ? checked : nil %> />  
   </label>
 
   <label>
     happiness_level
     <input type="text" name="happiness_level" value= "<%= @clown.happiness_level%>" />  
   </label>
-
-
 
   <button>Incept this clown</button>
 </form>
