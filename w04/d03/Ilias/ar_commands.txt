@@ -1,0 +1,29 @@
+Artist.create(name: "Vincent Van Gogh", nationality: "Dutch")
+
+Painting.create(title: "Starry Night")
+
+Artist.all
+
+Painting.all
+
+Artist.find_by(id: 2)
+
+Artist.find_by(name: "Vincent Van Gogh")
+
+Artist.find_by(nationality: "Spanish") 
+
+Painting.find_by(id: 1)
+
+Painting.find_by(title: "Guernica")
+
+Picasso = Artist.find_by(name: "Pablo")
+Painting.create(title: "Guernica", artist_id: Picasso.id)
+
+guernica = Painting.find_by(title: "Guernica")
+guernica.artist
+
+picasso = Artist.find_by(name: "Pablo Picasso")
+picasso.update(nationality: "French")
+
+starry_night = Painting.find_by(title: "Starry Night")
+starry_night.update(id: picasso.id)

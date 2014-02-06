@@ -1,0 +1,33 @@
+3. Artist.all
+
+4. Painting.all
+
+5. Artist.find_by(id: 2) 
+
+6. Artist.find_by(name: "Vincent Van Gogh")
+
+7. Artist.all.find_by(nationality: "Spanish")
+
+8. Painting.find_by(id: 1)
+
+9. Painting.find_by(title: "The Old Guitarist")
+
+10. picasso = Artist.find_by(name: "Pablo Picasso") 
+    picasso.paintings
+
+11. guitar = Painting.find_by(title: "The Old Guitarist")
+    guitar.artist_id
+
+12. change = Artist.find_by(name: "Vincent Van Gogh")
+    change.update(nationality: "American")
+
+13. change_painting = Painting.find_by(title: "Starry Night")
+    pablo = Arist.find_by(name: "Pablo Picasso")
+    change_painting.update(artist_id: pablo)
+
+To change the painting artist to Michelangelo there is an even sweeter way!!!!!
+    change_painting.update(artist: angelo)
+
+    or
+
+    angelo.paintings << changed_painting
