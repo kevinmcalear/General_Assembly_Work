@@ -1,0 +1,96 @@
+body {
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+  color: white;
+  background: #160200;
+  text-align: center;
+}
+
+h1 {
+  font-size: 70px;
+}
+
+a {
+  color: #444;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: #fff;
+}
+
+.button {
+  border: none;
+  padding: 25px 80px;
+  display: inline-block;
+  margin: 15px 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  background: #5cbcf6;
+  -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+  perspective: 800px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-transform: rotateX(15deg);
+  -moz-transform: rotateX(15deg);
+  -ms-transform: rotateX(15deg);
+  transform: rotateX(15deg);
+}
+
+.button:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 40%;
+  left: 0;
+  top: 100%;
+  background: #49a7df;
+  -webkit-transform-origin: 0% 0%;
+  -webkit-transform: rotateX(-90deg);
+  -moz-transform-origin: 0% 0%;
+  -moz-transform: rotateX(-90deg);
+  -ms-transform-origin: 0% 0%;
+  -ms-transform: rotateX(-90deg);
+  transform-origin: 0% 0%;
+  transform: rotateX(-90deg);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.button:active {
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+.red {
+color: #790000;
+background: #B82121;
+}
+
+.red::after {
+background: #790000;
+}
+
+.green {
+color: green;
+background: #49A549;
+}
+
+.green:after {
+  background: green;
+}
+
+#restart {
+  float: right;
+  padding: 10px;
+}

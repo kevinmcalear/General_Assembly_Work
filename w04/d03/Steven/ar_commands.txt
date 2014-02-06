@@ -1,0 +1,33 @@
+van_gogh = Artist.new(name: "Vincent Van Gogh", nationality: "Dutch")
+
+van_gogh.save
+
+starry_night = Painting.create(title: "Starry Night", artist_id: 1)
+
+
+
+
+3.  Artist.all
+4.  Painting.all
+
+5.  Artist.find_by(id: 2)
+     Artist.find(2)
+
+6.  Artist.find_by(name: "Vincent Van Gogh")
+
+7.  Artist.where(nationality: "Spanish")
+
+8.  Painting.find_by(id: 1)
+
+9.  Painting.find_by(name: "Guernica")
+
+10.  Painting.where(artist_id: 1)
+       Artist.find_by(name: "Vincent Van Gogh").paintings
+
+11.  guernica = Painting.find_by(title: "Guernica")
+       guernica.artist
+
+      vg = Artist.find_by(name: "Vincent Van Gogh")
+      vg.update( nationality: "American")
+
+

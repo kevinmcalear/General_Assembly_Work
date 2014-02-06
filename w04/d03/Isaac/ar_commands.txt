@@ -1,0 +1,35 @@
+Artist.create(name: "Pablo Picasso", nationality: "Spanish")
+Artist.create(name: "Vincent Van Goh", nationality: "Dutch")
+Artist.create(name: "Hokusai", nationality: "Japanese")
+Artist.find_by(name: "Vincent Van Goh").paintings.create(title: "Starry Night")
+Painting.create(title: "The sunflower one", artist_id: 2)
+Painting.all
+Artist.where(id:2)
+Artist.find_by(id:2)
+Artist.find(2)
+Artist.find_by(name: "Vincent Van Goh")
+Artist.create(name: "El Greco", nationality: "Spanish")
+Artist.where(:nationality => "Spanish")
+Painting.where(artist: "Pablo Picasso")
+vg = Artist.find_by(name: "Vincent Van Goh")
+vg.paintings
+sunflower = Painting.find_by(title: "The sunflower one")
+sunflower.artist
+vg.update(nationality: "American")
+Artist.find_by(name: "El Greco").update(nationality: "Spanish")
+elgreco.paintings << starry_night
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
