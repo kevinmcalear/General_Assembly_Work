@@ -31,30 +31,19 @@ def exp(x,y)
   return x ** y
 end
 
-i = 0
+begin
 
 puts "\n\n\t***ÜberCalc***"
 puts "Select (b)asic (a)dvanced or (q)uit\n"
 input = gets.chomp.downcase
 
-while input != "q" #quit function
 
-if i > 0
-puts "\n\n\t***ÜberCalc***"
-puts "Select (b)asic (a)dvanced or (q)uit\n"
-input = gets.chomp.downcase
-else
-end
-i +=1
-
-
-##BASIC MENU##
-
-  if input == "b"
+  case input
+  when "b"
     puts "Select (a)ddition (s)ubtraction (m)ultiplication or (d)ivision\n"
     operation = gets.chomp.downcase
       case operation
-        when "a" 
+        when "a"
           prompt
           add($x,$y)
         when "s"
@@ -72,7 +61,7 @@ i +=1
       end
 
   ##ADVANCED MENU##
-  elsif input == "a"
+  when "a"
     puts "Select (e)xponent, (p)ie, or (s)qrt\n"
     operation = gets.chomp
       case operation
@@ -89,8 +78,8 @@ i +=1
           puts "Come again?"
           operation = gets.chomp.downcase
       end
-  else
   end
-end
+
+end while input != "q"
 puts "Goodbye!"
 exit
