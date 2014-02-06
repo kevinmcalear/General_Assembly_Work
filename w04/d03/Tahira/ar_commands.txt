@@ -1,0 +1,28 @@
+
+
+artist = Artist.create(name: "Vincent Van Gogh", nationality: "French")
+
+
+painting = Painting.create(title: "Starry Night", artist_id: 1)
+
+Artist.all
+
+Painting.all
+
+Artist.where(id: 2)
+Artist.where(name: Vincent Van Gogh)
+Artist.where(nationality: Spanish)
+
+Painting.where(id: 1)
+Painting.where(title: Gurnica)
+
+Painting.where(artist:)
+
+Painting.where(artist_id: Artist.where(name: "Pablo Picasso"))
+
+
+Artist.find_by(id: (Painting.where(title: "Starry Night")).artist_id)
+
+(Artist.find_by(name: "Vincent Van Gogh")).nationality = "American"
+
+(Painting.where(title: "Starry Night")).artist 
