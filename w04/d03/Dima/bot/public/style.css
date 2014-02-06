@@ -1,0 +1,47 @@
+body {
+  background-color: #000000;
+}
+
+h1 {
+  text-align: center;
+  color: #FFFFFF;
+}
+
+ul {
+  border-width: 2px;
+  border-style: dotted;
+  border-radius: 8px;
+}
+
+li {
+  text-align: center;
+  float: left;
+  border: 5px solid #01DF01;
+  border-style: outset;
+  display: inline;
+  padding: 1px 50px 1px 50px;
+  margin: 0px 0px 0px 360px;
+  background-color: #01DF01;
+}
+
+li a, #done {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+#done {
+  text-align: center;
+  float: left;
+  border: 5px solid #08088A;
+  border-style: outset;
+  padding: 1px 50px 1px 50px;
+  margin: 0px 0px 0px 600px;
+  background-color: #08088A;
+}
+
+/*#restart a{
+  color: #FFFFFF;
+  text-align: left;
+  float: left;
+}
+*/
