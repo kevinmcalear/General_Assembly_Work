@@ -6,10 +6,10 @@ require_relative './models/clowns'
 
 Clown.create( {
   name: "John Wayne Gacy", 
-  happiness_level: 100,
-  creepiness_level: 0,
-  talent: "Bringing joy to children",
-  is_singer: true
+  happiness_level: 0,
+  creepiness_level: 100,
+  talent: "Bringing joy to children with a tourniquet",
+  is_singer: false
   } )
 
 get("/") do
@@ -32,6 +32,7 @@ end
 # Read a particular clown
 # Show action
 get("/clowns/:id") do
+  @clown = Clown.find_by_id(params[:id])
   erb(:'clowns/show')
 end
 

@@ -1,1 +1,9 @@
 <!-- show one clown's profile -->
+
+<h2><%=@clown.name %>'s Police Record</h2>
+<ul>
+  <li>Happiness Level: <%=@clown.happiness_level %></li>
+  <li>Creepiness Level: <%=@clown.creepiness_level %></li>
+  <li>Talents: <%= @clown.talent%></li>
+  <li>But can he sing: <%= @clown.is_singer%></li>
+</ul>
