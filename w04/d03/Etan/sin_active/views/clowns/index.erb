@@ -1,0 +1,5 @@
+<ul>
+  <% @clowns.each do |clown| %>
+    <li><a href ="http://localhost:4567/clowns/<%= clown.id %>"><%= clown.name %> </a></li>
+  <% end %>
+</ul>
