@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   database: dogs_db
-  user: jeff
+  user: peterlai
   host: localhost
   pool: 5
   timeout: 5000
