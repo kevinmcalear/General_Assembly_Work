@@ -69,11 +69,13 @@ end
 # Delete that clown
 # Destroy Action
 delete("/clowns/:id") do
+  @clown = Clown.find_by(id: params[:id])
+  @clown.destroy
   redirect to("/clowns")
 end
 
 # Delete ALL clowns
 # Destroy Action
 delete("/clowns") do
-  redirect to("http://clowns.com")
+  
 end
