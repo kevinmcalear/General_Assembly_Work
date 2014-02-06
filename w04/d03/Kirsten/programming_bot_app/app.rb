@@ -24,6 +24,12 @@ get('/has_test') do
   erb(:index)
 end
 
+get('/test_fails') do
+  @output=@@responses[:test_fails]
+  @done = "has_test"
+  erb(:single_response)
+end
+
 get('/no_test')do
   @output=@@responses[:no_test]
   @done = "has_test"
