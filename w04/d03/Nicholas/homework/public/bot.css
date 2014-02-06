@@ -1,0 +1,25 @@
+body {
+  background: black;
+  color: red;
+}
+
+
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+  color: white;
+}
+
+h3 {
+  text-align: center;
+}
+
+a:link {
+  color:red;
+}
+
+a:visited {
+  color:skyblue;
+}

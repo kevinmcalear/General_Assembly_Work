@@ -9,6 +9,10 @@ class Course < ActiveRecord::Base
 
   def find_worst_dish
     scores = {}
+
+
+    
+
     self.dishes.each do |dish|
       sum = 0
       dish.dish_ratings.each {|rating|
@@ -22,8 +26,6 @@ class Course < ActiveRecord::Base
 
   # def find_worst_dish
   #   # self.dishes.order("score desc").first
-  #   self.dishes.dish_ratings.average(score).group(judge_id)
-
   # end
 
   def chop(dish)
@@ -31,5 +33,20 @@ class Course < ActiveRecord::Base
   end
 
 end
+
+
+# http://edgeguides.rubyonrails.org/active_record_querying.html#having
+    # Order.select("date(created_at) as ordered_date, sum(price) as total_price").group("date(created_at)").having("sum(price) > ?", 100)
+
+# self.dishes.minimum("chef_id")
+# returns 2
+
+# self.dishes.minimum("dish_id, average(score)").group("average")
+# returns error
+
+
+
+
+
 
 

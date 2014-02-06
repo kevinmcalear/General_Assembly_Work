@@ -10,8 +10,33 @@ ActiveRecord::Base.establish_connection(
   )
 
 class Musical < ActiveRecord::Base
+  has_many :songs
+  validates :title, presence: true, uniqueness: true
+  validates :composer, presence: true
+  validates :year, presence: true
+
+  before_validation :i_am_called_before
+  after_validation :i_am_called_after
+
+  def i_am_called_before
+    puts "BEFORE VALIDATION!!"
+  end
+
+   def i_am_called_after
+    puts "AFTER VALIDATION!!"
+  end
 
 end
+
+class Song < ActiveRecord::Base
+  belongs_to :musical
+end
+
+class Performance < ActiveRecord::Base
+  validates :song, { uniqueness: { scope: :character, message: "This character is already singing the song!" } }
+end
+
+binding.pry
 
 def get_user_input(attributes)
   user_input = {}
