@@ -1,0 +1,14 @@
+<!-- Show list of clowns links to their profiles -->
+
+<ul>
+  <% @clowns.each do |clown| %>
+    <li><a href="http://localhost:4567/clowns/<%= clown.id %>"><%= clown.name %></a></li>
+  <% end %>
+</ul>
+<!-- <% %> embeded ruby, we can do any ruby logic here hidden
+# <%= %> equals sign is ruby puts command -->
+<ul>
+  <% @clowns.each do |clown| %>
+  <li><%= clown.happiness_level %></li>
+  <% end %>
+</ul>
