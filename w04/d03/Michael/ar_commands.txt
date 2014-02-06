@@ -1,0 +1,49 @@
+### NOTE:  Find_by returns the first one.  
+### to get a list, use "WHERE" 
+
+# van_gogh = Artist.create(:name => "Vincent Van Gogh", :nationality => "Dutch")
+
+# starry_night = Painting.create(:title => "Starry Night", :artist_id => van_gogh.id)
+
+# picasso = Artist.create(:name => "Pablo Picasso", :nationality => "French")
+
+# guernica = Painting.create(:title => "Guernica", :artist_id => picasso.id)
+
+
+
+# artists = Artist.all
+# paintings = Painting.all
+
+
+Artist.find_by_id(2)
+Artist.where(id:2)
+Artist.find(2)
+
+
+Artist.find_by_name("Vincent Van Gogh")
+Artist.find_by_nationality("Spanish")
+
+Artist.find_by(:name=>"Vincent Van Gogh").paintings.create(title:"Starry Night")
+
+
+Painting.find_by_id(1)
+Painting.find_by_title("Guernica")
+
+picasso = Artist.find_by_name("Pablo Picasso")
+picasso.paintings.all
+
+### 
+
+
+guernica = Painting.find_by_title("Guernica")
+guernica.artist
+
+van_gogh = Artist.find_by_name("Vincent Van Gogh")
+van_gogh.update(:nationality=>"American")
+
+starry_night = Painting.find_by_title("Starry Night")
+pablo = Artist_find_by_name("Pablo Picasso") 
+starry_night.update(:artist_id => pablo.id)
+
+
+
