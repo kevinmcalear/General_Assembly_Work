@@ -8,7 +8,7 @@ end
 calculations = {1 => "4 * 2 = 8", 2 => "2 + 2 = 4"}
 
 get '/calculator' do
-  calculations.values.join("<html><br></br></html>")
+  calculations.values.join("<br>")
 end
 
 get '/calculator/:id' do

@@ -1,0 +1,39 @@
+Artist.create({:name => "Vincent Van Gogh", :nationality => "Dutch"})
+
+Artist.find_by(name: "Vincent Van Gogh"). paintings.create(title: "Starry Night"))
+
+OR
+
+Painting.create(title: "The sunflower one", artist_id: 1)
+
+SEE ALL:
+
+Artist.all
+painting.all
+
+see artist with id2
+Artist.where(id: 2), or Artist.find(2), 
+
+Artist.find_by(name: "Vincent Van Gogh")
+
+view all
+Artist.where(nationality: "Spanish")
+
+vg.update(:nationality => "American")
+
+elgreco = Artist.find_by(:name => "ElGreco")
+elgreco.update(:nationality => "Greek")
+
+or
+
+Artist.find_by(:name => "El Greco").update(:nationality => "Spanish")
+
+update memory
+name_of_artist.reload
+
+13.  starry_night.update(:artist_id => 2)
+
+add
+
+elgreco.paintings << starry_night
+
