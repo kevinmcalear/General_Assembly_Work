@@ -33,7 +33,7 @@ end
 
 post '/guest_book' do
 
-last_id = guest_book.keys.max
-guest_book[last_id +1] = params[:name]
+  last_id = guest_book.keys.max
+  guest_book[last_id +1] = params[:name]
 
 end

@@ -26,7 +26,7 @@ class Client
   def initialize(c_name, age, pets)
     @c_name = c_name
     @age = age
-    @pets = pets
+    @pets = {}
   end
 
   def c_name
@@ -37,8 +37,8 @@ class Client
     return @age
   end
 
-  def pets
-    return @pets
+  def add_pets
+    @pets 
   end
 end
 
