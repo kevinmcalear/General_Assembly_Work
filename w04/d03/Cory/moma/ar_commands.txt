@@ -1,0 +1,28 @@
+3. Artist.all
+
+4. Painting.all
+
+5. Artist.find_by(id:2)
+
+6. Artist.find_by(name: "Vincent van Gogh")
+
+7. Artist.where(nationality: "Spanish")
+
+8. Painting.find_by(id: 1)
+
+10. picasso = Artist.find_by(name: "Pablo Picasso")
+      picasso.paintings
+
+11. sunflower = Painting.find_by(title: "The Sunflower")
+      sunflower.artist
+
+12. vg = Artist.find_by(name: "Vincent van Gogh")
+      vg.update(:nationality => "American")
+
+      or
+
+      Artist.find_by(name: "Vincent van Gogh").update(:nationality => "American")
+
+
+13. starry_night = Painting.find_by(:title => "Starry Night")
+        starry_night.update(:artist_id => 2)
