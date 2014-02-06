@@ -31,7 +31,10 @@ end
 # Create a clown
 # This is a "Create Action"
 post("/clowns") do
-  @clown = Clown.create(name: params[:name], talent: params[:talent], is_singer: params[:is_singer])
+  @clown = Clown.create(
+    name: params[:name], 
+    talent: params[:talent], 
+    is_singer: params[:is_singer])
   erb(:'clowns/show')
 end
 
