@@ -1,0 +1,11 @@
+<!--   Show list of clowns -->
+
+<ul>
+  <% a = 25 %>
+  <% a +=500 %>
+  <%= a %>
+  <%= @a %>
+  <% @clowns.each do |clown| %>
+    <li><%= clown.name %></li>
+  <% end %>
+</ul>
