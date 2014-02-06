@@ -1,0 +1,22 @@
+<h1>New Photo!</h1>
+
+
+<form action="/wdinstagrams" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <label>
+    Name:
+    <input type="text" name="name" />
+  </label>
+
+  <label>
+    Image URL:
+    <input type="text" name="img_address" />
+  </label>
+
+  <button>Submit!</button>
+
+
+
+
+</form>

@@ -1,0 +1,10 @@
+<h1> Oh Hey! It's The Index!</h1>
+
+<ul>
+<% @wdinstagrams.each do |photo| %>
+    <li><img src="<%= photo.img_address%>" width="400" height="300" /></br><%= photo.name %></li>
+    <% end %>
+
+
+</ul>
+
