@@ -1,0 +1,21 @@
+<h1>Add new 'gram</h1>
+
+<form action="/entries" method="POST">
+
+  <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token %>"/>
+
+  <label for="author">Name: 
+    <input type="text" name="author" />
+  </label>
+  
+  <label for="photo_url">Breed: 
+    <input type="text" name="photo_url" />
+  </label>
+  
+  <label for="date">Age: 
+    <input type="text" name="date" />
+  </label>
+
+
+  <button>Add 'gram</button>
+</form>

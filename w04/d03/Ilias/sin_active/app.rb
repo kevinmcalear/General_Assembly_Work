@@ -33,9 +33,22 @@ get("/clowns") do
   erb(:'clowns/index')
 end
 
+#create new clown
+get("/clowns/new") do
+  erb(:'clowns/new')
+end
+
 #create a clown
 #create action
 post('/clowns') do
+  @clowns = Clown.all
+  @clown = Clown.create(
+  name: params[:name],
+  talent: params[:talent],
+  is_singer: params[:is_singer]
+  )
+  @name = @clown.name
+  @talent = @clown.talent
   erb(:'clowns/show')
 end
 
@@ -43,21 +56,30 @@ end
 #show action
 get('/clowns/:id') do
   @clown = Clown.find_by(id: params[:id])
-  @name = @clown.name
-  @happiness_level = @clown.happiness_level
-  @creepiness_level = @clown.creepiness_level
-  @talent = @clown.talent
   erb(:'clowns/show')
+end
+
+get('/clowns/:id/edit') do
+  @clown = Clown.find_by(id: params[:id])
+  erb(:'clowns/edit')
 end
 
 #update a particular clown
 #update action
 put('/clowns/:id') do
+  @clown = Clown.find_by(id: params[:id])
+  @clown.update(
+  name: params[:name],
+  talent: params[:talent],
+  is_singer: params[:is_singer]
+  )
   erb(:'clowns/show')
 end
 
 #delete a particular clown
-delete(:'/clowns/:id') do
+delete('/clowns/:id') do
+  @clown = Clown.find_by(id: params[:id])
+  @clown.destroy
   redirect to("/clowns")
 end
 

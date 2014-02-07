@@ -6,3 +6,7 @@ ActiveRecord::Base.establish_connection(
   :database => "playground"
 )
 
+after do
+  ActiveRecord::Base.connection.close
+end
+

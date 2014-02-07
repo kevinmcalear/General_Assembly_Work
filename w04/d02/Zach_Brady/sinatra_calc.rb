@@ -104,7 +104,7 @@ end
 past_calculations = { 1 => "42", 2 => "69", 3 =>"26" }
 
 get '/calculator' do
-  "<p style=\"font-size:32px; \">#{past_calculations.values.join(', ')}</p>"
+  "<p style=\"font-size:32px; \">#{past_calculations.values.join(', ')}</p><a href=\"http://localhost:4567/\">Get outta here!</a>"
 end
 
 get '/calculator/:past_calculation_solution_id' do

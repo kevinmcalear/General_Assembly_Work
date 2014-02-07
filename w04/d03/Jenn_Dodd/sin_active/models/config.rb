@@ -6,3 +6,6 @@ ActiveRecord::Base.establish_connection(
   :database => "clown_db"
 )
 
+ after do
+  ActiveRecord::Base.connection.close
+end
