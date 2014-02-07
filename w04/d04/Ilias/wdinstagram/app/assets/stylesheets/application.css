@@ -1,0 +1,44 @@
+#h1{
+  text-decoration: none;
+  padding: 10px 20px;
+  color: grey;
+  font-family: helvetica;
+  float: left;
+}
+
+#h2{
+  text-decoration: none;
+  padding: 10px 40px;
+  color: #880000;
+  font-family: helvetica;
+  float: right;
+}
+
+div {
+  padding: 30px;
+}
+
+li {
+  list-style-type: none;
+  font-family: helvetica;
+  text-align: center;
+}
+
+img {
+  width: 350px;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+post {
+  padding: 20px;
+}
+
+form {
+  padding: 20px;
+}
+
+input {
+  border-radius: 5px;
+}

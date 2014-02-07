@@ -3,7 +3,7 @@ firstnamelist = ["Bumblebee", "Bandersnatch", "Broccoli", "Rinkydink", "Bombadil
 lastnamelist = ["Coddleswort", "Curdlesnoot", "Calldispatch", "Humperdinck", "Rivendell", "Cuttlefish", "Lingerie", "Vegemite", "Ampersand", "Cumberbund", "Candycrush", "Clombyclomp", "Cragglethatch", "Nottinghill", "Cabbagepatch", "Camouflage","Creamsicle", "Curdlemilk", "Upperclass", "Frumblesnatch", "Crumplehorn", "Talisman", "Candlestick", "Chesterfield", "Bumbersplat", "Scratchnsniff", "Snugglesnatch", "Charizard", "Ballsacksnip", "Carrotstick", "Cumbercooch", "Crackerjack", "Crucifix", "Cuckatoo", "Cockletit", "Collywog", "Gigglesnort", "Capncrunch", "Covergirl", "Cumbersnatch", "Countryside","Coggleswort", "Splishnsplash", "Copperwire", "Animorph", "Curdledmilk", "Cheddarcheese", "Cottagecheese", "Crumplehorn", "Snickersbar", "Banglesnatch", "Stinkyrash", "Cameltoe", "Chickenbroth", "Concubine", "Candygram", "Moldyspore", "Chuckecheese", "Cankersore", "Crimpysnitch", "Wafflesmack", "Chowderpants", "Toodlesnoot", "Clavichord", "Cuckooclock", "Oxfordshire", "Cumbersome", "Chickenstrips", "Battleship", "Commonwealth", "Cunningsnatch", "Custardbath", "Kryptonite"]
 
 #Retrieve Bumblebee
-firstnamelist.include?("Bumlebee")
+firstnamelist[0]
 
 #Add Jeff
 firstnamelist.push("Jeff")
@@ -14,14 +14,23 @@ firstnamelist.delete("Muffintop")
 #find the index of Gigglesnort
 lastnamelist.index "Gigglesnort"
 
-puts "#{firstnamelist.sample} #{lastnamelist.sample}"
+def generate_name
+	return "#{firstnamelist.sample} #{lastnamelist.sample}"
+end
+
+puts generate_name()
 
 answer = "y"
 
 while answer == "y"
-	puts "Would you like to generate a random name? Y/N"
-	answer = gets.chomp.downcase
-	if answer == "y"
-		puts "#{firstnamelist.sample} #{lastnamelist.sample}"
-	end 
+puts "Would you like to generate a random name? Y/N"
+answer = gets.chomp.downcase
+if answer == "y"
+	puts generate_name()
+end 
 end
+
+
+## to add a hash
+hash = {:item1 => 1}
+hash[:item2] = 2

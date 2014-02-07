@@ -61,7 +61,7 @@ class State
     return @ringing
   end
   def ring2
-    @ringing = true
+    @ringing = true 
   end 
 end
 
