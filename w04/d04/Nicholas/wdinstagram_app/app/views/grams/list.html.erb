@@ -1,0 +1,6 @@
+<h1> Photo List By Name</h1>
+<ul>
+  <% @grams.each do |photo| %>
+    <li class="listnames"><a href='/grams/<%= photo.id %>'><%= photo.name %></a></li>
+  <% end %>
+</ul>

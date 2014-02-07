@@ -1,0 +1,38 @@
+<h1> Update a Spaceship </h1>
+
+<form action="/spaceships/<%= @spaceship.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    Name:
+    <input type="text" name="name" value="<%= @spaceship.name %>" />
+  </label>
+
+  <label>
+    Photo URL:
+    <input type="text" name="photo_url" value="<%= @spaceship.photo_url %>"/>
+  </label>
+
+  <label>
+    Capacity
+    <input type="integer" name="capacity" value="<%= @spaceship.capacity %>"/>
+  </label>
+
+  <label>
+    Origin
+    <input type="text" name="origin" value="<%= @spaceship.origin %>"/>
+  </label>
+
+  <label>
+    Species Allowed
+    <input type="text" name="species_allowed" value="<%= @spaceship.species_allowed %>"/>
+  </label>
+
+  <label>
+    Purpose
+    <input type="text" name="purpose" value="<%= @spaceship.purpose %>"/>
+  </label>
+
+
+  <button>Update your spaceship</button>
+</form>

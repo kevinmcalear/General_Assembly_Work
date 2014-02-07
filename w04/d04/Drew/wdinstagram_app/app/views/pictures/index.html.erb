@@ -1,0 +1,7 @@
+<h1>Welcome</h1>
+
+  <a href="/pictures/new">Post a Picture!</a>
+  
+  <% @pictures.each do |picture| %>
+  <p><img src= "<%= picture.url %>" /></p>
+  <% end %>

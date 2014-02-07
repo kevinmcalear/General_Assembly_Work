@@ -1,0 +1,10 @@
+<h1>Index of Grams</h1>
+
+<nav>
+  <p><a href='/grams'>Home</a><p><p><a href='/grams/new'>Add Photo</a></p><p><a href='/grams/list'>List</a></p>
+</nav>
+<ul>
+  <% @grams.each do |photo| %>
+    <li><a href='/grams/<%= photo.id %>'><img src='<%= photo.image_address %>'/></a></li>
+  <% end %>
+</ul>
