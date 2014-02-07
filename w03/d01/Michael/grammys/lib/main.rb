@@ -1,6 +1,6 @@
 require 'pry'
 require_relative "grammy.rb"
-FILE_PATH = "lib/grammys.csv"
+FILE_PATH = "grammys.csv"
 
 system "clear"
 

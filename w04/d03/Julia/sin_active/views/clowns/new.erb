@@ -1,0 +1,23 @@
+<h1>Create a Clown!</h1>
+
+<!--package up this information and POST it to this route-->
+<form action="/clowns" method="POST">
+  <!-- name attribute of our input element is important – it's how we build our key/value hash -->
+  <label>
+    Name:
+    <input type="text" name="name">
+  </label>
+
+  <label>
+    Talent:
+    <input type="text" name="talent">
+  </label>
+
+  <label>
+    Singer?
+    <input type="checkbox" name="is_singer">
+  </label>
+
+  <button>Incept this clown!</button>
+
+</form>

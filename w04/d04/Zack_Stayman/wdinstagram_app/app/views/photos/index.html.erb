@@ -1,0 +1,10 @@
+<h1>WELCOME TO WDINSTAGRAM</h1>
+
+  <ul>
+    <% @photos.each do |photo| %>
+    <a href="/photos/<%= photo.id %>"><img src="<%= photo.photo_url %>" width="300" /></a><br>
+    <p><%= photo.author %>, <%= photo.date_taken %></p>
+    <% end %>
+  </ul>
+
+  <a href="/photos/new">Add a photo</a>

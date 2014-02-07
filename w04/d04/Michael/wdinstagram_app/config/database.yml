@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: wdinstagram_app_development
+  pool: 5
+  host: localhost
+  username: michaelwagner

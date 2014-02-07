@@ -24,9 +24,18 @@ get ("/clowns") do
   erb(:'clowns/index')
 end
 
+# New Action
+get ("/clowns/new") do
+  erb(:'clowns/new')
+end
+
 #create a clown
 #Create Action
 post ("/clowns") do
+  @clown = Clown.create({
+    name: params[:name],
+    talent: params[:talent], 
+    is_singer: params[:is_singer]})
   erb(:'clowns/show')
 end
 
@@ -37,14 +46,28 @@ get ("/clowns/:id") do
   erb(:'clowns/show')
 end
 
+#page to edit a clown  
+get ("/clowns/:id/edit") do
+  @clown = Clown.find_by(:id => params[:id])
+  erb(:'clowns/edit')
+end
+
 #update a clown
 put ("/clowns/:id") do
+  @clown = Clown.find_by(:id => params[:id])
+  @clown.update({
+    name: params[:name],
+    talent: params[:talent], 
+    is_singer: params[:is_singer]
+    })
   erb(:'clowns/show')
 end
 
 #delete one clown
 #destroy action
 delete ("/clowns/:id") do
+  @clown = Clown.find_by(:id => params[:id])
+  @clown.destroy
   redirect to("/clowns")
 end
 

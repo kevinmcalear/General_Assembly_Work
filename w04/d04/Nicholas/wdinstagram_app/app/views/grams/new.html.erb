@@ -1,0 +1,21 @@
+<h1> Add a new Photo! </h1>
+
+<form action="/grams" method="post">
+  <input name='authenticity_token' type='hidden' value='<%= form_authenticity_token %>' />
+  <label>
+    Name: 
+    <input type='text' name='name' />
+  </label>
+
+  <label>
+    Image Address:
+    <input type='text' name='image_address' />
+  </label>
+
+  <label>
+    Date:
+    <input type='date' name='timestamps'/>
+  </label>
+
+  <button> Click to Add Photo </button>
+</form>
