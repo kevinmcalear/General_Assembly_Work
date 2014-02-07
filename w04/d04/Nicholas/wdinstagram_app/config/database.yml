@@ -1,0 +1,9 @@
+
+development:
+  adapter: postgresql
+  database: gram_db
+  host: localhost
+  username: nicholasbundy
+  pool: 5
+  timeout: 5000
+

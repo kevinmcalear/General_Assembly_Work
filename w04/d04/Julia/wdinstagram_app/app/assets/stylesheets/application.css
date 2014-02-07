@@ -1,0 +1,21 @@
+body {
+text-align: center;
+background-color: #454545;
+}
+
+h1 {
+  font-family:helvetica;
+  color:#ffffff;
+  text-align:center;
+}
+
+h3 {
+  font-family:helvetica;
+  color:#ffffff;
+  text-align:center;
+
+}
+
+div {
+  display:inline-block;
+}

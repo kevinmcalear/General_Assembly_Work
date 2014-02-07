@@ -1,0 +1,9 @@
+<h1>This is where we will put all the pretty pictures</h1>
+
+<ul>
+  <% @wdinstagrams.each do |wdinstagram| %>
+    <li><a href="/wdinstagrams/<%= wdinstagram.id %>"><%= wdinstagram.name %></a><img src="<%= @wdinstagram.url %>"></li>
+  <% end %>
+</ul>
+
+<a href="/wdinstagrams/new">Add a new picture</a>

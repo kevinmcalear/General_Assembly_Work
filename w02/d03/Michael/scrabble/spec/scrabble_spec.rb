@@ -1,4 +1,4 @@
-require 'spec_helper'
+surequire 'spec_helper'
 require_relative '../lib/scrabble'
 
 describe ScrabbleWord do
