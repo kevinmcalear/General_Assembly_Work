@@ -1,0 +1,17 @@
+<div class="top"><a href="/pics/new" id="upload">+ New Picture</a>
+<br>
+<h1>Welcome To <span id="wdi">WDI</span>nstagram.</h1>
+</div>
+<br>
+
+  <% @pics.each do |pic| %>
+        <time datetime=""></time>
+        <div class="cbp_tmlabel">
+            <h2>Author: <%= pic.author %></h2>
+            
+            <a href="/pics/<%= pic.id %>">
+            <img src="<%= pic.photo_url %>"/></a>
+            <p id="time"> Time Taken: <%= pic.date_taken %></p>
+        </div>
+    
+  <% end %>
