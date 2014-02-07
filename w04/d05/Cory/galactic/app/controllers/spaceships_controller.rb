@@ -1,4 +1,6 @@
 class SpaceshipsController < ApplicationController
+  self.before_action(:load_spaceship, { only: [:show, :edit, :update, :destroy] })
+
   def index
     @spaceships = Spaceship.all
     render(:index)
@@ -19,10 +21,15 @@ class SpaceshipsController < ApplicationController
   end
 
   def show
-    @spaceship = Spaceship.find(params[:id])
+   # load_spaceship() dont need anymore thanks to self.before_action
     render(:show)
   end
 
+  private
+
+  def load_spaceship
+    @spaceship = Spaceship.find(params[:id])
+  end
 
 end
 
