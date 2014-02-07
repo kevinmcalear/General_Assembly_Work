@@ -1,0 +1,12 @@
+<h1>Instagal</h1> 
+
+<a href="/entries/new">Click here to add a new photo!</a>
+
+<ul>
+  <% @entries.each do |entry| %>
+  <figure>
+    <li><img src=<%= entry.photo_url %> /></li>
+    <figcaption>Photo taken by <%= entry.author %> on <%= entry.date %></figcaption>
+    </figure>
+  <% end %>
+</ul>
