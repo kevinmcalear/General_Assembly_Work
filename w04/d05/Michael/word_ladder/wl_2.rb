@@ -1,4 +1,30 @@
-## Draft One:  ONlY finds similar words
+## Draft TWO:  Word Chain
+
+
+### Create a neighbors method
+
+def are_neighbors?(word1,word2)
+  counter = 0
+  4.times do |index|
+    if word1|index| == word2|index|
+      counter+=0
+    end 
+  end 
+  return counter == 3
+end 
+
+### Find all the neighbors: 
+def all_neighbords(base_word)
+  
+  matches = four_letter_words.select do |match_word|
+    are_neighbors?(base_word, match_word)
+  end  
+
+  return matches
+  
+end
+
+
 
 
 require 'pry'
@@ -10,11 +36,13 @@ four_letter_words = ["aahs","aals","abas","abba","abbe","abed","abet","able","ab
 def word_ladder_neighbors(word)
   @match_array = []
   
-  ## Step 1:  Add Items with a match
+  ## Step 1:  Add Items with a first_letter match
   @match_array= @four_letter_array.select do |four_letter_word|
-    four_letter_word[0] == word[0] ||
-    four_letter_word[1] == word[1]
+    four_letter_word[0] == word[0]
   end 
+
+  ## Step 2:  Add Items with a first_letter match
+
 
   ## Step 2:  Remove items without match. 
   @match_array.delete_if do |match_word|
@@ -27,15 +55,3 @@ end
 word_ladder_neighbors("hell")
 
 binding.pry
-
-
-
-##Parking Lot
- # ## Step 1:  Create Sub Array with only Letter Match
-  # @four_letter_array.each do |four_letter_word| 
-  #   if four_letter_word[0] == word[0]
-  #     @match_array.push(four_letter_word)
-  #   elsif four_letter_word[1] == word[1]
-  #     @match_array.push(four_letter_word)  
-  #   end 
-  # end
