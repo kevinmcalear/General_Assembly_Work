@@ -1,0 +1,53 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+  margin: 0 auto;
+  text-align: center;
+  padding-left: 220px;
+  padding-right: 220px;
+  font-family: 'Open Sans', sans-serif;
+  background-image:url('crossword.png');
+  background-repeat:repeat;
+}
+
+#title {
+  font-size: 25px;
+  color: black;
+  text-shadow: 0px 2px 3px #555;
+  padding-bottom: 20px;
+
+}
+
+.photographer {
+  font-style: italic;
+  font-size: 12px;
+}
+
+.image {
+  /* #1 */
+  border: 5px solid hsl(20, 20%, 20%);
+
+  /* #2 */
+  padding: 5px;
+  background: hsl(0, 0%, 0%);
+
+  /* #3 */
+  outline: 5px solid hsl(30, 30%, 30%);
+
+  /* #4 AND INFINITY!!! (CSS3 only) */
+  box-shadow:
+  0 0 0 10px hsl(40, 40%, 40%),
+  0 0 0 15px hsl(50, 50%, 50%);
+
+
+    /* If you could do pseudo elements 
+    you could get a few more... */
+    
+    /* Also, HSL is awesome but don't use it if
+    you need super old browser support */
+  }
+
+  .timestamp {
+    font-size: 8px;
+    text-align: left;
+  }

@@ -1,0 +1,20 @@
+<div class="top"><h1>Upload A Photo</h1>
+<a class="back" href="/pics">Go Back Home</a></div>
+<br>
+<br>
+<form action="/pics" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    <input class="input" type="text" name="author" placeholder="Your Name" />
+  </label>
+  <br>
+  <label>
+    <input  class="input" type="text" name="photo_url" placeholder="instagram.com/your_photo" />
+  </label>
+  <br>
+  <label>
+    <input  class="input" type="date" name="date_taken"/>
+  </label>
+  <br>    
+  <button class="button">Upload Your Photo</button>
+</form>

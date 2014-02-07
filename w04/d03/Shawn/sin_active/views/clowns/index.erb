@@ -1,0 +1,9 @@
+<!-- Show a list of clowns with links to their profiles -->
+<h1> Here's a List of All You Bozos</h1>
+<h2> Click to View Profile </h2>
+<ul> 
+  <% @clowns.each do |clown| %>
+    <li><a href="/clowns/<%= clown.id %>"> <%=clown.name %></a></li>
+    <% end %>
+</ul>
+<a href="/clowns/new"> Create a new clown</a>

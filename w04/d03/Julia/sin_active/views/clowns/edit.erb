@@ -1,0 +1,25 @@
+<h1>Update <%= @clown.name %></h1>
+<form action="/clowns/<%=@clown.id%>" method="POST">
+
+<!-- html only supports post/get, so to get the behavior of a PUT
+we need to do something like this -->
+  <input type="hidden" name="_method" value="PUT" />
+  <label>
+    Name:
+    <input type="text" name="name" value="<%=@clown.name%>">
+  </label>
+
+  <label>
+    Talent:
+    #value – default text
+    <input type="text" name="talent" value="<%=@clown.talent%>">
+  </label>
+
+  <label>
+    Singer?
+    <input type="checkbox" name="is_singer" checked>
+  </label>
+
+  <button>Incept this clown!</button>
+
+</form>
