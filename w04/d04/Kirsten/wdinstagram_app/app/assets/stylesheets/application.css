@@ -16,6 +16,10 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+p {
+  font-size: 20px;
+}
+
 
 h1 {
   text-align: center;
@@ -35,7 +39,7 @@ a.visited {
 
 img {
   width: 300px;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 label {
