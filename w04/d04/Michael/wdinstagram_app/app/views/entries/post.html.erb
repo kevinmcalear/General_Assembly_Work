@@ -1,0 +1,28 @@
+<h1>Please add a new Gram</h1>
+
+<p>
+Please note that author and photo_url are required.  Additionally, only photos taken after October 1, 2010 will be allowed.  
+</p>
+
+
+<form action="/entries" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>" />
+  <label>
+    Photo Author
+    <input type="text" name="author" required/>
+  </label>
+  <br>
+  <label>
+    Photo URL
+    <input type="url" name="photo_url" required/>
+  </label>
+  <br>
+  <label>
+    Date Taken
+    <input type="datetime" name="date_taken" />
+  </label>  
+
+
+  <br>
+  <button>Add Entry</button>
+</form>

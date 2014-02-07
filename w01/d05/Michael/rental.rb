@@ -169,7 +169,7 @@ def remove_tenant(building)
   building.building_apartment_array[index.to_i][:renter].delete(tenant_to_remove)
 end
 
-## Apartment_directory.  Used in Step 5. 
+## Apartment_directory.  Used in Step 5. ru
 def view_apartment_detail(building)
   i = 0
   while i < building.building_apartment_array.length 

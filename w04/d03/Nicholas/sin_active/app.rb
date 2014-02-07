@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'active_record'
+
+
 require_relative './models/config'
 require_relative './models/clown'
 
@@ -23,9 +25,18 @@ get('/clowns') do
   erb(:'clowns/index')
 end
 
+get('/clowns/new') do
+  erb(:'clowns/new')
+end
+
 #Create a clowns
 #Create action
-post('/clowns') do
+post("/clowns") do
+  @clown = Clown.create({
+    name: params[:name], 
+    talent: params[:talent], 
+    is_singer: params[:is_singer]
+  })
   erb(:'clowns/show')
 end
 
@@ -38,12 +49,25 @@ end
 
 #Update a particular clown
 put('/clowns/:id') do
+  @clown = Clown.find_by_id(params[:id])
+  @clown.update({
+    name: params[:name], 
+    talent: params[:talent], 
+    is_singer: params[:is_singer]
+  })
   erb(:'clowns/show')
+end
+
+get('/clowns/:id/edit') do
+  @clown = Clown.find_by_id(params[:id])
+  erb(:'clowns/edit')
 end
 
 #Delete a particular clown
 #Destroy action
-delete('clowns/:id') do
+delete('/clowns/:id') do
+  @clown = Clown.find_by_id(params[:id])
+  @clown.destroy
   redirect to("/clowns")
 end
 
