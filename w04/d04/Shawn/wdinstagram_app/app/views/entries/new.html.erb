@@ -1,0 +1,20 @@
+<!-- new.html.erb -->
+
+<h1> New Photo </h1>
+<form action="/entries" method="POST">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token%>" />
+
+    <label>
+      Author:
+      <input type="text" name="author" /> </label>
+
+      <label>
+        Photo URL:
+        <input type="url" name="photo_url" /></label>
+
+      <label>
+        Date Taken:
+        <input type="date" name="date_taken" /></label>
+
+      <button> Submit </button>
+</form>
