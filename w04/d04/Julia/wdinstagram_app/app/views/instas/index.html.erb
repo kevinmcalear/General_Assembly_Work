@@ -1,0 +1,11 @@
+<!-- index -->
+<!--displays /instas-->
+<h1>LovettLovett Instagram</h1>
+
+<% @instas.each do |insta| %>
+<a href="/instas/<%=insta.id%>"><img src="<%= insta.photo_url %>" width="200"></a>
+<h3>author: <%= insta.author %> | date: <%= insta.date_taken %></h3>
+<%end%>
+
+
+
