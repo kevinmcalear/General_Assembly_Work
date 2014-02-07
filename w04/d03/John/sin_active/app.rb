@@ -27,14 +27,10 @@ get("/") do
   erb(:index)
 end
 
-
-
-
 get ("/clowns") do
   @clowns = Clown.all
   erb(:'clowns/index')
 end
-
 
 get ("/clowns/new") do
   erb(:'clowns/new')
