@@ -1,0 +1,21 @@
+<h1> Create a new WDInstagram </h1>
+
+<form action="/wdinstagrams" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    Name:
+    <input type="text" name="name" />
+  </label>
+
+  <label>
+    URL:
+    <input type="text" name="url" />
+  </label>
+
+  <label>
+    Date:
+    <input type="date" name="date" />
+  </label>
+
+  <button>Create your pic</button>
+</form>
