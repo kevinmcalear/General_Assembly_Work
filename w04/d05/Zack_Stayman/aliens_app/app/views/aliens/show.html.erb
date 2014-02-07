@@ -1,0 +1,17 @@
+<h1><%= @alien.name %> </h1>
+
+<ul>
+  <li><%= @alien.appendages %></li>
+  <li><%= @alien.origin %></li>
+  <li><%= @alien.stuff %></li>
+  <li><%= @alien.strength %></li>
+</ul>
+
+<a href="/spaceships/<%= @alien.spaceship_id %>/aliens"> To the ship</a>
+<a href="/spaceships/<%= @alien.spaceship_id %>/aliens/<%= @alien.id %>/edit">Update Information</a>
+
+<form action="/spaceships/<%= @alien.spaceship_id %>/aliens/<%= @alien.id %>" method="POST" >
+<input type="hidden" name="_method" value="DELETE" />
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Delete this Alien!</button>
+</form>
