@@ -1,5 +1,6 @@
 <!-- show.html.erb -->
 <header>
+  <h1> <%= @entry.author %>'s Photos </h1>
   <ul>
         <li>
             <a href="/entries"> All Photos</a>
@@ -10,8 +11,9 @@
           </li>
   </ul>   
 </header>   
-<h1> <%= @entry.author %>'s Photos </h1>
+<body>
+
 <ul>
-    <li> <img src="<%= @entry.photo_url %>"> </li>
-    <li>Date taken: <%= @entry.date_taken %></li>
+    <p><li> <img src="<%= @entry.photo_url %>"> </li></p>
+    <p><li>Date taken: <%= @entry.date_taken %></li></p>
 

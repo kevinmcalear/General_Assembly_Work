@@ -1,9 +1,13 @@
 <!-- new.html.erb -->
 
-<h1> New Photo </h1>
+<header><h1> Upload Photo </h1></h1>
+<a href="/entries"> Photo Stream </a>
+</header> 
+
 <form action="/entries" method="POST">
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token%>" />
 
+    <div id="entry_form">
     <label>
       Author:
       <input type="text" name="author" /> </label>
@@ -17,4 +21,6 @@
         <input type="date" name="date_taken" /></label>
 
       <button> Submit </button>
+
+
 </form>

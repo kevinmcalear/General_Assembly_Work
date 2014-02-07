@@ -1,12 +1,21 @@
 <!-- index.html.erb -->
 
-<h1> WDInstagram </h1>
-<a href="/entries/new"> Upload New Photo </a>
+
+
+
+
+
+<header><h1> WDInstagram </h1></header>
 <h2> Photo Stream </h2>
+
   <ul> <% @entries.each do |entry| %>
-    <li><a href = "/entries/<%= entry.id %>"><img src="<%=entry.photo_url %>"/></a> </li>
-    <li>Taken by <%=entry.author %> on <%=entry.date_taken  %></li>
+    <div = "photo_entry"
+    <p><li><a href = "/entries/<%= entry.id %>"><img src="<%=entry.photo_url %>"/></a> </li></p>
+    <p><li>Taken by <%=entry.author %> on <%=entry.date_taken  %></li></p>
     <%end%>
+    </div>
     </ul>
+    <a href="/entries/new"> Upload New Photo </a>
+  
 
     
