@@ -1,0 +1,13 @@
+<h1> THIS IS YOUR DOG, YO </h1>
+<a href="/dogs">Go Back Home</a><br><br>
+<ul>
+  <li>Name: <%= @dog.name %></li>
+  <li>Breed: <%= @dog.breed %></li>
+  <li>Age: <%= @dog.age %></li>
+</ul>
+<a href="/dogs/<%= @dog.id %>/edit">Edit this dog</a>
+
+<form action="/dogs/<%= @dog.id %>" method="POST" >
+  <input type="hidden" name="_method" value="DELETE" />
+  <button>Kill dog</button>
+</form>

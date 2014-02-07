@@ -1,0 +1,17 @@
+<h1> POST YOUR FABULOUS PHOTO TO SHITTERGRAM </h1>
+
+<form action="/instagrams/new" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    Photographer:
+    <input type="text" name="photographer" />
+  </label>
+
+  <label>
+    URL of Photo (I ain't hosting your shit):
+    <input type="text" name="url" />
+  </label>
+
+  <button> Fake Upload to Instagram! </button>
+
+</form>
