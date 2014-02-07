@@ -1,0 +1,11 @@
+<h1><a href="/grams">WDI Grams </a></h1>
+
+<p><a href="grams/new">Add a Photo!</a></p>
+
+
+  <% @grams.each do |gram| %>
+  <a href="grams/<%= gram.id %>"><img src="<%=gram.photo_url %>"></a>
+<h3>Author:  <%= gram.author %></h2>
+<h3>Date: <%= gram.date_taken%></h2>
+  <% end %>
+
