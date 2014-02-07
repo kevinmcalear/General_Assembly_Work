@@ -1,0 +1,11 @@
+<h1><%= @spaceship.name %></h1>
+<a href="/spaceships/<%=@spaceship.id %>/aliens/">See The Space Creatures</a>
+<p>
+  <%= @spaceship.capacity %>
+  <%= @spaceship.origin %>
+  <%= @spaceship.species_allow %>
+  <%= @spaceship.purpose %>
+</p>
+
+<img src="<%= @spaceship.photo_url %>">
+
