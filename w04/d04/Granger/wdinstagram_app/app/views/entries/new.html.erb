@@ -1,0 +1,26 @@
+
+<h1> New Entryv<h2>
+
+
+<form action="/entries" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token  %>"
+  <label>
+    Author:
+    <input type="text" name="author">
+  </label>
+
+
+<label>
+    Photo url:
+    <input type="text" name="photo_url">
+  </label>
+
+  <label>
+    Date Taken:
+    <input type="datetime" name="date_taken">
+  </label>
+
+
+  <button>Add Entry</button>
+
+</form>

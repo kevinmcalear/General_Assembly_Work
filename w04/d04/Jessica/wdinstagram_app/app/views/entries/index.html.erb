@@ -1,0 +1,21 @@
+<div class="top">
+<header>
+<h1> WDInstagram Entries</h1>
+<img src="<%= asset_path( 'Instagram.png' ) %>">
+</header>
+</div>
+
+<ul>
+  <% @entries.each do |entry| %>
+  <div class="image">
+    <li>
+      <a href = "/entries/<%= entry.id %>">Author: <%= entry.author %></a>
+      <img src="<%=entry.photo_url%>">
+    </li>
+    </div>
+  <% end %>
+</ul>
+
+<button>
+<a href="/entries/new">New Entry</a>
+</button>
