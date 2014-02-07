@@ -1,0 +1,9 @@
+<h1> Dog List!</h1>
+
+<ul>
+  <% @dogs.each do |dog| %>
+    <li><a href='/dogs/<%= dog.id %>'><%= dog.name %></a></li>
+  <% end %>
+</ul>
+
+<h4><a href='/dogs/new'>Create a new Dog</a></h4>

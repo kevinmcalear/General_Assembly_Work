@@ -1,0 +1,19 @@
+<h1>Create a Doggy!</h1>
+<a href="/dogs">Go Back Home</a><br><br>
+<form action="/dogs" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    Name:
+    <input type="text" name="name" value="A cute puppy name" />
+  </label>
+  <label>
+    Breed:
+    <input type="text" name="breed" value="Laberdoodle" />
+  </label>  
+  <label>
+    Age:
+    <input type="integer" name="age" value="3" />
+  </label> 
+
+  <button>Make That Puppy!</button>
+</form>

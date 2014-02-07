@@ -1,0 +1,21 @@
+<h1>ADD A REPOST</h1>
+
+<form action="/photos" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    Who did you rip this off from? 
+    <input type="text" name="author" />
+  </label>
+  <label>
+    When was this ACTUALLY taken? 
+    <input type="text" name="date_taken" value="year-month-day" />
+  </label>
+
+  <label>
+    What is the URL you can find the photo at? 
+    <input type="text" name="photo_url" />
+  </label>
+  
+   
+  <button>Post to WDInstagram</button>
+</form>
