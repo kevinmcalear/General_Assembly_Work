@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Dog.delete_all - run if you want to delete all before seeding the db
+
+Dog.create(name: "Jeff", breed: "Shaggydog", age: 3)
+Dog.create(name: "PJ", breed: "Bloodhound", age: 3)
+Dog.create(name: "Peter", breed: "Beagle", age: 3)
+Dog.create(name: "Cory", breed: "Poodle", age: 3)
+
+# run rake db:seed in root folder of app to seed the database
