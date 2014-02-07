@@ -1,0 +1,26 @@
+--color
+--format progress
+
+#<Board:0x007fd3e92ab8f8 @row=4, @column=4, 
+@array=[
+
+[#<Cell:0x007fd3e92ab880 @alive=true, @next_value=false>,
+#<Cell:0x007fd3e92ab808 @alive=true,
+@next_value=false>,
+#<Cell:0x007fd3e92ab7b8 @alive=false, @next_value=false>, 
+#<Cell:0x007fd3e92ab768 @alive=false, @next_value=false>], 
+
+[#<Cell:0x007fd3e92ab6f0 @alive=true, @next_value=false>, 
+#<Cell:0x007fd3e92ab650 @alive=false, @next_value=false>, 
+#<Cell:0x007fd3e92ab5d8 @alive=false, @next_value=false>, 
+#<Cell:0x007fd3e92ab588 @alive=true, @next_value=false>], 
+
+[#<Cell:0x007fd3e92ab510 @alive=false, @next_value=false>, 
+#<Cell:0x007fd3e92ab498 @alive=true, @next_value=false>, 
+#<Cell:0x007fd3e92ab420 @alive=true, @next_value=false>, 
+#<Cell:0x007fd3e92ab3a8 @alive=false, @next_value=false>], 
+
+[#<Cell:0x007fd3e92ab2e0 @alive=true, @next_value=false>, 
+#<Cell:0x007fd3e92ab268 @alive=true, @next_value=false>, 
+#<Cell:0x007fd3e92ab218 @alive=false, @next_value=false>, 
+#<Cell:0x007fd3e92ab1a0 @alive=false, @next_value=false>]]>

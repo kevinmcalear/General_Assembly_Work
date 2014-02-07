@@ -69,5 +69,12 @@ character_hash.map {
 character_name_with_weasley.compact!
 
 #Return an array with the first names of characters whose first names end in "y"
+#maybe use map, split, first, end_with?
+
 character_name_with_firstname_y = character_name.select { |name| name.split(" ").first.end_with?("y") }
-character_name_with_firstname_y = character_name_with_firstname_y.map { |name| name.split.first}
+
+puts character_name_with_firstname_y
+
+#character_name_with_firstname_y = character_name_with_firstname_y.map { |name| name.split.first}
+
+

@@ -240,3 +240,64 @@
 - Set up ActiveRecord validations for a model:
   - presence
   - uniqueness
+
+## Networking
+
+### Concepts
+- Explain what the client-server model is
+- Define a "communication protocol" in reference to computer communications
+- Name the four basic parts of the Internet protocol suite (the TCP/IP stack), and articulate the purpose of each.
+- Explain the purpose of having a protocol "stack."
+- Describe the basics of the HTTP protocol, and explain what a HTTP Request is.
+- Compare and contrast between the two "modes" of using HTTP.
+- Explain the difference between GET and POST and when you would use each.
+- Describe, in simple terms, the premise of REST.
+- Describe the parts of a url in detail
+
+## Sinatra Basics
+
+### Concepts
+- Describe what Sinatra is and what it is used for
+- Define what WEBrick and Rack are
+- Distinguish between a route and a path
+
+### Mechanics
+- Build a Sinatra app that responds to HTTP requests
+- Define routes using Sinatra
+- Define routes with URL paramters and access those parameters
+
+## Sinatra with HTML & ERB
+
+### Concepts
+- Explain the idea of "separation of concerns" and why it is so important
+- Explain the different roles of HTML, CSS & JavaScript
+
+### Mechanics
+- Create an HTML page and use common tags
+- Use ERB templates to create dynamic pages and render views
+- Pass values into views using instance variables
+- Include an outside file (stylsheet or script) in a Sinatra app 
+
+## Sinatra with Forms & Persistence
+
+###Mechanics
+- Write an HTML form that formats parameters as expected by the server
+- Create a RESTful Sinatra app backed by a database using ActiveRecord
+
+## Ruby on Rails
+
+###Concepts
+- Explain what Ruby on Rails is and its architectural components using a diagram
+- Articulate three benefits of using Ruby on Rails as a web application framework
+- Explain what "convention over configuration" means and how it relates to Ruby on Rails
+- Describe the lifecycle of an HTTP request in Ruby on Rails
+- Explain the components of the "MVC" software pattern and what each component is responsible for
+- Explain what a database migration is and why we use it
+
+### Mechanics
+- Follow Rails naming conventions when creating models, views and controllers
+- Create a database migration to alter your database schema
+- Seed a database using the seeds file in Rails
+- Create a Rails App with CRUD actions (new, create, index, show, edit, update, destroy)
+- Create a Rails App with multiple models associated correctly
+- Define routes in a RESTful way for nested resources

@@ -5,3 +5,11 @@
 <p> <%= @clown.creepiness_level %> </p>
 <p> <%= @clown.talent %> </p>
 <p> <%= @clown.is_singer %> </p>
+
+<a href="/clowns/<%= @clown.id %>/edit">Edit this clown</a>
+
+<form actions="/clowns/<%= @clown.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <button>Delete this clown</button>
+</form>
+
