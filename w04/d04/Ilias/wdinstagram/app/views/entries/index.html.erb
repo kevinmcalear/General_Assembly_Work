@@ -1,0 +1,15 @@
+<h1><a id=h1 href="/entries">WDInstagram</a></h1>
+
+<h1><a id=h2 href="/entries/new">New Post</a></h1>
+
+<div>
+</div>
+
+<post>
+  <ul>
+    <%@entries.each do |entry|%>
+    <a href="/entries/<%=entry.id%>"><img src="<%=entry.photo_url%>" width="300"/></a>
+    <li><%=entry.author%></li>
+    <%end%>
+  </ul>
+</post>

@@ -4,3 +4,12 @@
 <p>Creepiness Level: <%= @clown.creepiness_level %></p>
 <p>Talent: <%= @clown.talent %></p>
 <p>Singer: <%= @clown.is_singer%></p>
+
+<button><a href='/clowns/<%= @clown.id %>/edit'>Edit this clown</a></button>
+<br></br>
+<form action="/clowns/<%= @clown.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE" />
+  <button>Delete Clown!</button>
+</form>
+<br>
+<button><a href='/clowns'>Return to list of Clowns</a></button>

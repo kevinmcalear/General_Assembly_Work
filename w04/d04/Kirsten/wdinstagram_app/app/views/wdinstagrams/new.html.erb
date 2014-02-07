@@ -1,0 +1,24 @@
+<h1>Create a new entry<h1>
+
+<form action="/wdinstagram" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    Author:
+    <input type="text" name="author" />
+  </label>
+<br>
+<br>
+  <label>
+    Picture URL:
+    <input type="text" name="photo_url" />
+  </label>
+<br>
+<br>
+  <label>
+    Date Taken:
+    <input type="date" name="date_taken" />
+  </label>
+  <br>
+  <br>
+  <button>Create!</button>
+</form>
