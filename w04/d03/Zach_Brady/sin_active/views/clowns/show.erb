@@ -7,3 +7,11 @@
   <li>Talents: <%= @clown.talent%></li>
   <li>But can he sing: <%= @clown.is_singer%></li>
 </ul>
+
+<a href="/clowns/<%= @clown.id %>/edit">Edit this clown</a>
+
+<form action="/clowns/<%= @clown.id %>" method="POST" >
+  <input type="hidden" name="_method" value="DELETE" /><button>Destroy this klown</button> 
+</form>
+
+<a href="/clowns">Look at them all again.</a>
