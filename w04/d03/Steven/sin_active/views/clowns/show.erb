@@ -2,9 +2,17 @@
 
 
 
-      <h1><%= @clown.name %></h1>
+      <h1><%= @clown.name %> is a clown!</h1>
       <p><%= @clown.happiness_level %></p>
       <p><%= @clown.creepiness_level %></p>
-      <p><%= @clown.talent %></p>
+      <p>It's special talent is <%= @clown.talent %></p>
       <p><%= @clown.is_singer %></p>
 
+<a href= "/clowns/<%= @clown.id %>/edit">Edit This Clown</a>
+
+<form action="/clowns/<%= @clown.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE" />
+  <button>Delete this clown!</button>
+
+
+</form>
