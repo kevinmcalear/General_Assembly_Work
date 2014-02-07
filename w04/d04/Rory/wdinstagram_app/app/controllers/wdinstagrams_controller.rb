@@ -14,7 +14,4 @@ class WdinstagramsController < ApplicationController
     @wdinstagram = Wdinstagram.find(params[:id])
     render(:show)
   end
-  def url
-
-  end
 end
