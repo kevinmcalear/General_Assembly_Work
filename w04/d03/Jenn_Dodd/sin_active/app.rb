@@ -6,17 +6,9 @@ require 'active_record'
 require_relative './models/config'
 require_relative './models/clown'
 
-#Clown maker, fishes!
-  Clown.create({
-  name: "Zipper",
-  happiness_level: 50,
-  creepiness_level: 33,
-  talent: "Bringing joy to children.",
-  is_singer: true
-  })
 
 get("/") do
-  erb(:index)
+  redirect to("/clowns")
 end
 
 #read all the clowns
@@ -26,9 +18,19 @@ get("/clowns") do
   erb(:'clowns/index')
 end
 
+#new action
+get("/clowns/new") do
+  erb(:'clowns/new')
+end
+
 #add a clown
 #create action
 post("/clowns") do
+  @clown = Clown.create({
+      name: params[:name], 
+      talent: params[:talent], 
+      is_singer: params[:is_singer] 
+    })
   erb(:"clowns/show")
 end
 
@@ -39,15 +41,30 @@ get("/clowns/:id") do
   erb(:'clowns/show')
 end
 
+#update clown
+#update 
+get("/clowns/:id/edit") do
+  @clown = Clown.find_by_id(params[:id])
+  erb(:'clowns/edit')
+end
+
 #update a particular clown
 #update action
 put("/clowns/:id") do
+  @clown = Clown.find_by_id(params[:id]) 
+  @clown.update({
+      name: params[:name], 
+      talent: params[:talent], 
+      is_singer: params[:is_singer] 
+    })
   erb(:"clowns/show")
 end
 
 #kill a particular clown
 #destroy action
 delete("/clowns/:id") do
+  @clown = Clown.find_by_id(params[:id])
+  @clown.destroy
   redirect to("/clowns")
 end
 

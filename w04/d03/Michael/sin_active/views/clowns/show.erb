@@ -1,11 +1,14 @@
 <!-- Show one clown's profile -->
 
+<h1><%= @clown.name %></h1>
 
-<ol>
-  <li><%= @clown.id %></li>
-  <li><%= @clown.name %></li>
-  <li><%= @clown.happiness_level %></li>
-  <li><%= @clown.creepiness_level %></li>
-  <li><%= @clown.talent %></li>
-  <li><%= @clown.is_singer %></li>
-</ol>
+<p><%= @clown.name %> currently is a clown.  And its special talent is <%= @clown.talent %>
+  
+</p>
+
+<a href ="/clowns/<%= @clown.id %>/edit">Edit this clown</a>
+
+<form action="/clowns/<%= @clown.id %>" method="POST">
+<input type="hidden" name="_method" value="DELETE" />
+<button>Delete the clown</button>
+</form>

@@ -1,0 +1,10 @@
+<!-- index lists all --> 
+<!-- new- get's the info for a new instance --> 
+
+<h1>This is where we will list all the dogs!</h1>
+
+<ul>
+  <% @dogs.each do |dog| %>
+    <li><a href="/dogs/<%= dog.id %>"><%=dog.name %></a></li>
+  <% end %>
+</ul>

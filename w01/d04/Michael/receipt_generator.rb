@@ -17,6 +17,7 @@ f.puts "Cost: $#{cost.round(2)}"
 f.puts ""
 f.puts "Thank you for your patronage"
 f.puts "---"
+
 f.close
 
 

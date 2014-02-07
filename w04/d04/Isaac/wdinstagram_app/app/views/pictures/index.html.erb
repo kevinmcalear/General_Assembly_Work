@@ -1,0 +1,7 @@
+<h1>PICTURES INDEX!</h1>
+
+<ul>
+  <% @pictures.each do |picture| %>
+  <li><a href="/pictures/<%= picture.id %>"><%= picture.author %></a></li>
+  <% end %>
+</ul>

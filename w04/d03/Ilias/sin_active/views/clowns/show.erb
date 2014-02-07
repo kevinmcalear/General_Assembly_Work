@@ -1,5 +1,15 @@
 <!-- Show one clown's profile -->
-<h1><%=@name%></h1>
-<h3>Happiness Level: <%=@happiness_level%></h3>
-<h3>Creepiness Level: <%=@creepiness_level%></h3>
-<h3>Talent: <%=@talent%></h3>
+<h1><%=@clown.name%></h1>
+
+<h3>Happiness Level: <%=@clown.happiness_level%></h3>
+
+<h3>Creepiness Level: <%=@clown.creepiness_level%></h3>
+
+<h3>Talent: <%=@clown.talent%></h3>
+
+<a href="/clowns/<%=@clown.id%>/edit">Edit this clown</a>
+
+<form action="/clowns/<%=@clown.id%>" method="POST">
+  <input type="hidden" name="_method" value="DELETE"/>
+  <button>Delete this Clown! ^_^</button>
+</form>
