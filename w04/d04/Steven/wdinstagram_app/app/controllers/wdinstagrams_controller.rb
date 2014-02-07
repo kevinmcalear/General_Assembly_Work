@@ -17,8 +17,8 @@ class WdinstagramsController < ApplicationController
   end
 
   def show
-    @wdinstagram = Wdinstagram.find
-
+    @wdinstagram = Wdinstagram.find(params[:id])
+    render(:show)
   end
 
 end
