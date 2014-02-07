@@ -8,3 +8,10 @@
   <li>Talent: <%= @clown.talent %></li>
   <li>Singer: <%= @clown.is_singer %></li>
 </ul>
+
+<a href="/clowns/<%= @clown.id %>/edit">Edit this clown</a>
+
+<form action="/clowns/<%= @clown.id %>" method="POST" >
+  <input type="hidden" name="_method" value="DELETE" />
+  <button>Kill Clown</button>
+</form>

@@ -1,0 +1,19 @@
+<h1>Update <%= @dog.name %> the puppy!</h1>
+<a href="/dogs/<%= @dog.id %>">Go back</a>
+<form action="/dogs/<%= @dog.id %>" method="POST">
+  <input type="hidden" name="_method" value="PUT"/>
+   <label>
+    Name:
+    <input type="text" name="name" value="<%= @dog.name %>" />
+  </label>
+  <label>
+    Breed:
+    <input type="text" name="breed" value="<%= @dog.breed %>" />
+  </label>  
+  <label>
+    Age:
+    <input type="integer" name="age" value="<%= @dog.age %>" />
+  </label> 
+
+  <button>Update This Pup</button>
+</form>

@@ -5,4 +5,3 @@ ActiveRecord::Base.establish_connection(
   :password => "",
   :database => "clown_db"
 )
-

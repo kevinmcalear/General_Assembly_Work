@@ -1,9 +1,13 @@
 <!-- Show list of clown's with links to their profiles -->
 
+<a href="/clowns/new">Create a new Clown</a>
+
 <ul>
   <% @clowns.each do |clown| %>
     <li>
-      <a href="clowns/<%=clown.id%>"><%=clown.name %></a>
+      <a href="/clowns/<%=clown.id%>"><%=clown.name %></a>
     </li>
   <% end %>
 </ul>
+
+<a href="/">back <~</a>

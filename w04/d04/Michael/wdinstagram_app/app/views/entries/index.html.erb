@@ -1,0 +1,15 @@
+<h1>Welcome to Beatle-gram </h1>
+
+
+<ul>
+  <% @entries.each do |entry| %>
+    <li> 
+      <a href= "entries/<%=entry.id%>"  >
+      <img src="<%=entry.photo_url%>" height="300" width="300"/> 
+      </a>
+
+      <br>  
+      Author: <%= entry.author %>
+    </li>
+  <%end%>
+</ul>
