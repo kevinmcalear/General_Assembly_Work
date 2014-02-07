@@ -1,0 +1,12 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+development:
+  adapter: postgresql
+  database: wdinstagram_app_db
+  user: eLights
+  host: localhost
+  pool: 5
+  timeout: 5000
