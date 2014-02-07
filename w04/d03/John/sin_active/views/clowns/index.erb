@@ -1,10 +1,9 @@
 <!-- Show a list of clowns with links to their profiles -->
 
+<a href = "/clowns/new">Create a new clown</a>
+
 <ul>
-  <% a = 25 %>
-  <% a += 500 %>
-  <%= a %>
   <% @clowns.each do |clown| %>
-    <a href = "clowns/<%=clown.id%>"><%= clown.name %></a>
+    <a href = "clowns/<%=clown.id%>"><%= clown.name %></a><br/>
   <% end %>
 </ul>

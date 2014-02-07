@@ -85,7 +85,7 @@ ans = gets.chomp.downcase
 
 		case ans
 		when "a"	
-			add(first_num, second_num)
+w			add(first_num, second_num)
 		when "s"
 			subtract(first_num, second_num)
 		when "m"

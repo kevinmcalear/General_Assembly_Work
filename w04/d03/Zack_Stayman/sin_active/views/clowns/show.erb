@@ -1,0 +1,15 @@
+<!-- show one clown -->
+<h1><%= @clown.name %></h1>
+<ul>
+  <li>Name: <%= @clown.name %></li>
+  <!-- <li>Happiness Level: <%= @clown.happiness_level %></li> -->
+  <!-- <li>Creepiness Level: <%= @clown.creepiness_level %></li> -->
+  <li>Talent: <%= @clown.talent %></li>
+  <li>Singer? <%= @clown.is_singer %></li>
+</ul>
+<a href="/clowns/<%= @clown.id %>/edit">Edit this clown</a>
+
+<form action="/clowns/<%= @clown.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE" />
+<button>Kill the Clown</button>
+</form>
