@@ -1,7 +1,12 @@
 <h1>Favorite Movies List</h1>
-<a href="/movies/new">Add new movie</a><br/><br/><br/><br/>
+<a href="/movies/new">Add new movie</a>
+
+<br/><br/><br/><br/>
 
 <% @movies.each do |movie| %>
-    <img src="<%= movie.poster_url %>" /><br/>
+    <img src="<%= movie.poster_url %>" />
+
+    <br/>
+    
     <p><a href="/movies/<%= movie.id %>"><%= movie.title %></a>, <%= movie.year %></p> 
 <% end %>
