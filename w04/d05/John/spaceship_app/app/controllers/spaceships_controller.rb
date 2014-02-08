@@ -39,17 +39,17 @@ class SpaceshipsController < ActionController::Base
 
   private
 
-  def load_spaceship
-    @spaceship = Spaceship.find(params[:id])
-  end
+    def load_spaceship
+      @spaceship = Spaceship.find(params[:id])
+    end
 
-  def spaceship_params
-    return {
-      name: params[:name],
-      capacity: params[:capacity],
-      origin: params[:origin],
-      photo_url: params[:photo_url],
-      purpose: params[:purpose]
-    }
-  end
+    def spaceship_params
+      return {
+        name: params[:name],
+        capacity: params[:capacity],
+        origin: params[:origin],
+        photo_url: params[:photo_url],
+        purpose: params[:purpose]
+      }
+    end
 end

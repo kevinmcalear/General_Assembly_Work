@@ -33,24 +33,24 @@ class AliensController < ActionController::Base
 
   private
 
-  def load_spaceship
-    @spaceship = Spaceship.find(params[:spaceship_id])
-  end
+    def load_spaceship
+      @spaceship = Spaceship.find(params[:spaceship_id])
+    end
 
-  def load_alien
-    @alien = @spaceship.aliens.find(params[:id])
-  end
+    def load_alien
+      @alien = @spaceship.aliens.find(params[:id])
+    end
 
-  def load_all_aliens
-    @aliens = @spaceship.aliens.all
-  end
+    def load_all_aliens
+      @aliens = @spaceship.aliens.all
+    end
 
-  def alien_params
-    return {
-      name: params[:name],
-      species: params[:species],
-      strength: params[:strength],
-      spaceship_id: params[:spaceship_id]
-    }
-  end
+    def alien_params
+      return {
+        name: params[:name],
+        species: params[:species],
+        strength: params[:strength],
+        spaceship_id: params[:spaceship_id]
+      }
+    end
 end
