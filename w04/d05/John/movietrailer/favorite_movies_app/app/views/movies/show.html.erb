@@ -2,11 +2,15 @@
 <h2><%= @movie.year %></h2>
 <img src="<%= @movie.poster_url %>" />
 
-<br/>
+<br/><br/>
 
 <a href="/movies/<%= @movie.id %>/edit">Edit this movie</a>
 
-<br/><br/>
+<br/>
+
+<a href="/movies/<%= @movie.id %>/characters">View Characters</a>
+
+<br/>
 
 <a href="/movies">Movies Home</a>
 
