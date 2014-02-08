@@ -14,7 +14,12 @@ class CharactersController < ApplicationController
       photo_url: params[:photo_url], 
       movie_id: params[:movie_id],
       })
-    redirect_to ("/movies")
+    redirect_to ("/movies/#{params[:movie_id]}/characters")
+  end
+
+  def show
+    @characters = Character.find(params[:id])
+    render(:show)
   end
 
 
