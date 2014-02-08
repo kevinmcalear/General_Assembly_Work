@@ -26,6 +26,11 @@ class CharactersController < ActionController::Base
     redirect_to "/movies/#{@movie.id}/characters/#{@character.id}"
   end
 
+  def destroy
+    @character.destroy
+    redirect_to "/movies/#{@movie.id}/characters"
+  end
+
   private
 
     def load_movie

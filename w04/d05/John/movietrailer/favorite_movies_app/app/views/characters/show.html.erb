@@ -9,3 +9,11 @@
 <br/>
 
 <a href="/movies/<%= @movie.id %>/characters">Back to characters</a>
+
+<br/><br/><br/><br/>
+
+<form action="/movies/<%= @movie.id %>/characters/<%= @character.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE"/>
+  
+  <button>Remove Character</button>
+</form>
