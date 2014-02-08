@@ -1,7 +1,7 @@
 <h1>Aliens occupying the <%= @spaceship.name %></h1>
 
 <% @aliens.each do |alien| %>
-  <p>Name: <%= alien.name %></p>
+  <a href="/spaceships/<%= @spaceship.id %>/aliens/<%= alien.id %>">Name: <%= alien.name %></a>
   <p>Species: <%= alien.species %></p>
   <p>Strength: <%= alien.strength %></p>
   <br/>
