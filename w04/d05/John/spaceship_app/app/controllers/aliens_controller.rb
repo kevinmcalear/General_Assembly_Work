@@ -26,6 +26,11 @@ class AliensController < ActionController::Base
     redirect_to ("/spaceships/#{@spaceship.id}/aliens/#{params[:id]}")
   end
 
+  def destroy
+    @alien.destroy
+    redirect_to ("/spaceships/#{@spaceship.id}/aliens")
+  end
+
   private
 
   def load_spaceship
