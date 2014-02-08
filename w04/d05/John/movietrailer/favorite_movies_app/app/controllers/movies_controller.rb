@@ -4,7 +4,9 @@ class MoviesController < ActionController::Base
     @movies = Movie.all
   end
 
-  
+  def show
+    @movie = Movie.find(params[:id])
+  end
 
   private
 
