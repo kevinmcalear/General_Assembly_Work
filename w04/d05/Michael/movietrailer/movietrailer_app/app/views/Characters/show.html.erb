@@ -1,5 +1,14 @@
 <h1>Character Details</h1>
 
+<form action="/movies/<%=params[:id]%>/characters/<%=params[:id]%>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+
+<button>Delete this character</button>
+</form>
+
+
 <img src=<%=@character.photo_url%>>
 
 

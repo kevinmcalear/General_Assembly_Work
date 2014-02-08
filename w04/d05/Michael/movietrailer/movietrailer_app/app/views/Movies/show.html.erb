@@ -1,10 +1,19 @@
 <h1>Movie Detail</h1>
 
+<form action="/movies/<%=@movie.id%>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+
+<button>Delete this movie</button>
+</form>
+
+
 <img src="<%=@movie.poster_url%>" />
 
 
 <form action="/movies/<%=@movie.id%>" method="POST">
-<input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="_method" value="patch">
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
 
   <label>
@@ -115,6 +124,13 @@
     </label>
   <button>Update Trailer</button>  
   </form>
+
+  <form action="/movies/<%=@movie.id%>/trailers/<%=@trailer.id%>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Delete this trailer</button>
+  </form>
+
 
 <iframe id="ytplayer" type ="text/html" width="640" height="390" src="http://www.youtube.com/embed/<%=@trailer.embed_url%>" frameborder="1" />
 <%end%>

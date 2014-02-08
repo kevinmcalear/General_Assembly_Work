@@ -11,5 +11,9 @@ class TrailersController < ApplicationController
     @trailer.update({embed_url: params[:embed_url]}) 
     redirect_to(:back)
   end
-
+  def destroy
+    @trailer= Trailer.find_by(id: params[:id])
+    @trailer.destroy
+    redirect_to(:back)
+  end 
 end
