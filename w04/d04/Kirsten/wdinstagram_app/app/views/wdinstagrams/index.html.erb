@@ -1,0 +1,9 @@
+<h1>WDInstagram!<h1>
+<% @wdinstagrams.each do |wdinstagram| %>
+<a href="/wdinstagram/<%= wdinstagram.id%>"><p><%= wdinstagram.author %></a><br />
+<img src="<%= wdinstagram.photo_url %>"><br>
+Date: <%= wdinstagram.date_taken %>
+<% end %>
+<br>
+<a href="/wdinstagram/new">Create a new entry</a>
+<br>

@@ -1,0 +1,18 @@
+<h1>ADD A PICTURE TO THE APP</h1>
+
+<form action="/pictures" method "POST">
+  <input name="authenticity_token" type="hidden" value="<% form_authenticity_token %>" />
+  <label>
+    Author:
+    <input type="text" name="author" />
+  </label>
+  <label>
+    Picture URL
+    <input type="text" name="photo_url" />
+  </label>
+  <label>
+    Date taken:
+    <input type="text" name="date_taken" />
+  </label>
+  <button>ADD PICTURE</button>
+</form>
