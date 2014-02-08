@@ -13,4 +13,16 @@ class CharactersController < ApplicationController
       movies_id: params[:movies_id]})
     redirect_to(:back)
   end 
+  def update
+    @character = Character.find_by(id: params[:id])
+    @character.update(
+      {name: params[:name],
+       actor: params[:actor],
+       photo_url: params[:photo_url],
+       gender: params[:gender],
+      }
+      )
+    redirect_to(:back)
+  end
+
 end

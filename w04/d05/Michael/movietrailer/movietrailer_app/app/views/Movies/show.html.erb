@@ -2,24 +2,33 @@
 
 <img src="<%=@movie.poster_url%>" />
 
-<table>
-  <tr>
-    <td>Movie Title</td>
-    <td><%=@movie.title%></td>
-  </tr>
-  <tr>
-    <td>Year Released</td>
-    <td><%=@movie.year_released%></td>
-  </tr>
-  <tr>
-    <td>Genre</td>
-    <td><%=@movie.genre%></td>
-  </tr>
-  <tr>
-    <td>Director</td>
-    <td><%=@movie.director%></td>
-  </tr>
-</table>
+
+<form action="/movies/<%=@movie.id%>" method="POST">
+<input type="hidden" name="_method" value="patch">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <label>
+  Movie Title: 
+  <input type="text" name="title" value="<%=@movie.title%>"/>
+  </label>
+  <label>
+  Year Released: 
+  <input type="text" name="year_released" value="<%=@movie.year_released%>"/>
+  </label>
+  <label>
+  Genre: 
+  <input type="text" name="genre" value="<%=@movie.genre%>"/>
+  </label>
+  <label>
+  Director: 
+  <input type="text" name="director" value="<%=@movie.director%>"/>
+  </label>
+  <label>
+  Poster_URL: 
+  <input type="text" name="poster_url" value="<%=@movie.poster_url%>"/>
+  </label>
+  <button>Update Movie</button>
+</form>
 
 
 <form action="/movies/<%=@movie.id%>/characters" method="POST">
@@ -70,6 +79,9 @@
 
 
 
+
+
+
 <%if @trailer.nil? %>
 <form action="/movies/<%=@movie.id%>/trailers" method="POST">
 <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>" />
@@ -94,5 +106,15 @@
 
 
 <%elsif %>
+  <form action="/movies/<%=@movie.id%>/trailers/<%=@trailer.id%>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+    <label>
+    Youtube ID: 
+    <input type="text" name="embed_url" value="<%=@trailer.embed_url%>"/>
+    </label>
+  <button>Update Trailer</button>  
+  </form>
+
 <iframe id="ytplayer" type ="text/html" width="640" height="390" src="http://www.youtube.com/embed/<%=@trailer.embed_url%>" frameborder="1" />
 <%end%>

@@ -2,5 +2,27 @@
 
 <img src=<%=@character.photo_url%>>
 
-<%= @character.name%>
-<%= @character.actor%>
+
+<form action="/movies/<%=params[:id]%>/characters/<%=params[:id]%>" method="POST">
+<input type="hidden" name="_method" value="patch">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <label>
+  Name: 
+  <input type="text" name="name" value="<%=@character.name%>"/>
+  </label>
+  <label>
+  Portrayed By: 
+  <input type="text" name="actor" value="<%=@character.actor%>"/>
+  </label>
+  <label>
+  Photo URL: 
+  <input type="text" name="photo_url" value="<%=@character.photo_url%>"/>
+  </label>
+  <label>
+  Gender: 
+  <input type="text" name="gender" value="<%=@character.gender%>"/>
+  </label>
+
+  <button>Update character</button>
+</form>

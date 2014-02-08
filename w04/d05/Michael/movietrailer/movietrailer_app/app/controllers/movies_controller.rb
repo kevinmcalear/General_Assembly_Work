@@ -13,4 +13,17 @@ class MoviesController < ApplicationController
     Movie.create({title: params[:title], year_released: params[:year_released], poster_url: params[:poster_url], genre: params[:genre], director: params[:director]})
     redirect_to("/movies")
   end 
+  def update
+    @movie = Movie.find_by(id: params[:id])
+    @movie.update(
+      {title: params[:title], 
+      year_released: params[:year_released], 
+      poster_url: params[:poster_url],
+      genre: params[:genre], 
+      director: params[:director]
+      })
+    redirect_to(:back)
+  end 
+
+
 end
