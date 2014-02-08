@@ -1,0 +1,6 @@
+<h1>Favorite Movies List</h1>
+
+<% @movies.each do |movie| %>
+    <img src="<%= movie.poster_url %>" /><br/>
+    <p><a href="/movies/<%= movie.id %>"><%= movie.title %></a>, <%= movie.year %></p> 
+<% end %>
