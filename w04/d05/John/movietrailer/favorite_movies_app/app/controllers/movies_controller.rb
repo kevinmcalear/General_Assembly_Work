@@ -8,6 +8,17 @@ class MoviesController < ActionController::Base
     @movie = Movie.find(params[:id])
   end
 
+  def new
+  end
+
+  def create
+    Movie.create(
+      title: params[:title],
+      year: params[:year],
+      poster_url: params[:poster_url])
+    redirect_to ("/movies")
+  end
+
   private
 
 end
