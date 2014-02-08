@@ -1,0 +1,2 @@
+class TrailersController < ApplicationController
+end
