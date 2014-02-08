@@ -1,0 +1,11 @@
+<h1>WDInstagram</h1>
+
+<% @entries.each do |entry| %>
+  <img src ="<%= entry.photo_url %>" />
+  <br/>
+  <p><%= entry.caption %></p>
+  <a href="/entries/<%= entry.id%>">Photo by <%= entry.author %></a>
+  <p>Taken <%= entry.date_taken %></p>
+<% end %>
+
+

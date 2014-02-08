@@ -1,0 +1,11 @@
+<h1>This is where we will list all the entries!</h1>
+
+<h2>Click <a href="/entries/new">here</a> to enter a new entry</h2>
+
+<ul>
+  <% @entries.each do |entry| %>
+    <li class="author"><a href="/entries/<%=entry.id%>"><%= entry.author %> <img src="<%= entry.photo_url %>"> </li><br>
+  
+  <% end %>
+</ul>
+
