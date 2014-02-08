@@ -1,7 +1,7 @@
 class CharactersController < ActionController::Base
   
   self.before_action :load_movie, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  self.before_action :load_character, only: [:show, :edit]
+  self.before_action :load_character, only: [:show, :edit, :update, :destroy]
 
   def index
     @characters = @movie.characters.all
@@ -22,6 +22,8 @@ class CharactersController < ActionController::Base
   end
 
   def update
+    @character.update(character_params)
+    redirect_to "/movies/#{@movie.id}/characters/#{@character.id}"
   end
 
   private
