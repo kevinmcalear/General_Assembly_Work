@@ -18,3 +18,34 @@
   <% end %>
 </table>
 
+
+<form action="/movies" method="POST">
+<input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>" />
+<label>
+  Title: 
+  <input type="text" name="title"/>
+</label>
+
+<label>
+  Release Year: 
+  <input type="text" name="year_released"/>
+</label>
+
+<label>
+  Poster URL: 
+  <input type="text" name="poster_url"/>
+</label>
+
+<label>
+  Genre: 
+  <input type="text" name="genre"/>
+</label>
+
+<label>
+  Director: 
+  <input type="text" name="director"/>
+</label>
+
+
+<button>Add Movie</button>
+</form>

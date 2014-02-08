@@ -1,8 +1,6 @@
 <h1>Movie Detail</h1>
 
-
 <img src="<%=@movie.poster_url%>" />
-
 
 <table>
   <tr>
@@ -24,6 +22,37 @@
 </table>
 
 
+<form action="/movies/<%=@movie.id%>/characters" method="POST">
+<input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>" />
+
+<label>
+  Name: 
+  <input type="text" name="name"/>
+</label>
+
+<label>
+  Actor: 
+  <input type="text" name="actor"/>
+</label>
+
+<label>
+  Photo URL: 
+  <input type="text" name="photo_url"/>
+</label>
+
+<label>
+  Gender: 
+  <input type="text" name="gender"/>
+</label>
+
+<label>
+  Movies ID: 
+  <input type="text" name="movies_id"/>
+</label>
+
+<button>Add Character</button>
+</form>
+
 
 <table border="1" solid black>
   <tr>
@@ -39,4 +68,31 @@
 </table>
 
 
+
+
+<%if @trailer.nil? %>
+<form action="/movies/<%=@movie.id%>/trailers" method="POST">
+<input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>" />
+
+<label>
+  Title
+  <input type="text" name="title"/>
+</label>
+
+<label>
+  YouTube ID
+  <input type="text" name="embed_url"/>
+</label>
+
+<label>
+  Movie ID:
+  <input type="text" name="movies_id"/>
+</label> 
+
+<button>Add Trailer</button>
+</form>
+
+
+<%elsif %>
 <iframe id="ytplayer" type ="text/html" width="640" height="390" src="http://www.youtube.com/embed/<%=@trailer.embed_url%>" frameborder="1" />
+<%end%>

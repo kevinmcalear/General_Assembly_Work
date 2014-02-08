@@ -10,5 +10,7 @@ class MoviesController < ApplicationController
     render(:show)
   end 
   def create
+    Movie.create({title: params[:title], year_released: params[:year_released], poster_url: params[:poster_url], genre: params[:genre], director: params[:director]})
+    redirect_to("/movies")
   end 
 end
