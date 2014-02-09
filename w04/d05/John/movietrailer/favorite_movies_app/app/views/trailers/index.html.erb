@@ -1,0 +1,14 @@
+<h1>Trailers for "<%= @movie.title %>"</h1>
+
+<% @trailers.each do |trailer| %>
+    <iframe width="560" height="315" src="<%= trailer.embed_url%>" frameborder="0" allowfullscreen></iframe>
+    
+    <br/>
+    
+    <p>"<%= trailer.title %>"</p>
+
+    <br/><br/>
+
+<% end %>
+
+<a href="/movies/<%= @movie.id %>">Back to "<%= @movie.title %>"</a>
