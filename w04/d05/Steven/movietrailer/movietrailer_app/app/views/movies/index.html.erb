@@ -1,8 +1,9 @@
-<h1>Welcome To The Movie DB!</h1>
+<h1>Intranetz Moovee DB!</h1>
+<a href="/movies/new">Add A New Movie!</a>
 
 <ul>
   <% @movies.each do |movie| %>
-  <li><%= movie.title %></li>
+  <li><a href="/movies/<%=movie.id%>" /><%= movie.title %></li>
   <img src="<%= movie.poster_url %>" width="400" />
   <%end %>
 

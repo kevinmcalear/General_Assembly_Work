@@ -1,0 +1,10 @@
+<h1><%= @movie.title %>Trailer!</h1>
+
+<ul><%= @trailers.each do |trailer| %>
+<iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="<%=trailer.embed_url %>"
+  frameborder="0"/>
+  <% end %>
+
+
+  </ul>

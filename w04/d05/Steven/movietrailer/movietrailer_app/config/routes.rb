@@ -2,8 +2,8 @@ MovietrailerApp::Application.routes.draw do
  
 
  resources :movies do
-  resources :characters
-  resources :trailers
+  resources :characters, :trailers
+  
 
  end
 end
