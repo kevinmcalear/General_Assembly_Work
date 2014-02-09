@@ -9,8 +9,9 @@
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
     <input type="hidden" name="_method" value="DELETE">
 
+  <div class="center"> 
   <button>Delete trailer</button>
-
+</div>
 </form>
 
 
@@ -19,8 +20,10 @@
 
 <h2>Video:</h2> 
 
+<div class="center">
 <iframe id="ytplayer" type="text/html" width="640" height="390"
   src="http://www.youtube.com/embed/<%= @trailer.embed_url %>?autoplay=1&origin=http://example.com"
   frameborder="0"/>
+</div>
 
 

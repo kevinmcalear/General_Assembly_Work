@@ -11,3 +11,32 @@
  *= require_self
  *= require_tree .
  */
+
+ body {
+  background-color: lightgreen;
+  font-family: helvetica;
+ }
+
+ h1, h2, h3, p, li{
+  text-align: center;
+ }
+
+ a:visited{
+  color: darkblue;
+ }
+
+ img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+ }
+
+ .center {
+  text-align: center;
+  color: darkblue;
+ }
+
+ ul {
+  list-style: none;
+}
+
