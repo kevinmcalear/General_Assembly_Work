@@ -7,7 +7,7 @@ class TrailersController < ApplicationController
     redirect_to(:back)
   end  
   def update
-    @trailer = Trailer.find_by(movies_id: params[:id])
+    @trailer = Trailer.find_by(id: params[:id])
     @trailer.update({embed_url: params[:embed_url]}) 
     redirect_to(:back)
   end

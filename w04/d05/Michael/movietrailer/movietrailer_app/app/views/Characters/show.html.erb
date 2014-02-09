@@ -13,11 +13,12 @@
   <label for="gender"> Gender: </label> <input type="text" name="gender" value="<%=@character.gender%>"/> <br />
 
   <button>Update character</button>
-  <form action="/movies/<%=params[:id]%>/characters/<%=params[:id]%>" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-    <button>Delete this character</button>
-  </form>
+
 </form>
 
+<form class="action2" action="/movies/<%=params[:id]%>/characters/<%=params[:id]%>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Delete this character</button>
+</form>
 
