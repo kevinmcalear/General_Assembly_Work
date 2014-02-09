@@ -20,6 +20,14 @@ class TrailersController < ActionController::Base
     redirect_to "/movies/#{@movie.id}/trailers/#{@trailer.id}"
   end
 
+  def edit
+  end
+
+  def update
+    @trailer.update(trailer_params)
+    redirect_to "/movies/#{@movie.id}/trailers/#{@trailer.id}"
+  end
+
 
 
   private
