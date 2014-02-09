@@ -1,0 +1,9 @@
+<h1>Welcome To The Movie DB!</h1>
+
+<ul>
+  <% @movies.each do |movie| %>
+  <li><%= movie.title %></li>
+  <img src="<%= movie.poster_url %>" width="400" />
+  <%end %>
+
+</ul>
