@@ -11,3 +11,22 @@
  *= require_self
  *= require_tree .
  */
+ body {
+  background: #CCBFB4;
+  font-family: 'Oranienbaum', serif;
+  width:600px;
+  margin: 0 auto;
+  text-align: center
+
+ }
+
+img{
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+ul
+{
+list-style-type: none;
+}

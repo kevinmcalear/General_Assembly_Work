@@ -13,12 +13,13 @@ class CharactersController < ApplicationController
   end
 
   def create
+    @movie = Movie.find(params[:movie_id])
     Character.create({
       name: params[:name],
       photo_url: params[:photo_url],
       movie_id: params[:movie_id]
       })
-    redirect_to("/movies")
+    redirect_to("/movies/#{params[:movie_id]}/characters")
   end
 
 
