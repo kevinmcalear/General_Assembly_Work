@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: movietrailer_db
+  user: eLights
+  pool: 5
+  timeout: 5000
