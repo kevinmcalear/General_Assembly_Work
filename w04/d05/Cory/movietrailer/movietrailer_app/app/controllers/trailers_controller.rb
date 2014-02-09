@@ -20,16 +20,13 @@ self.before_action(:load_trailer, { only: [:show, :edit, :update, :destroy] })
   end
 
   def show
-  #  @trailers = Trailer.find(params[:id])
     render(:show)
   end
 
   def edit
- #   @trailer = Trailer.find(params[:id])
   end
 
   def update
-  #  @trailer = Trailer.find(params[:id])
     @trailer.update({title: params[:title], 
       embed_url: params[:embed_url], 
       })
@@ -37,7 +34,6 @@ self.before_action(:load_trailer, { only: [:show, :edit, :update, :destroy] })
   end
 
   def destroy
- #   @trailer = Trailer.find(params[:id])
     @trailer.destroy
     redirect_to("/movies")
   end
