@@ -1,0 +1,8 @@
+<h3><%= @character_movie.title%> Character List</h3>
+
+<% @characters.each do |char| %>
+  
+  <ul>
+    <li>Name: <%= char.name%></li>
+  </ul>
+  <% end %>
