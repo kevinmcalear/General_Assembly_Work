@@ -11,3 +11,64 @@
  *= require_self
  *= require_tree .
  */
+body {
+  background-image: url("http://pxwallpaper.com/wp-content/uploads/2013/08/stars-and-galaxies-hd-163.jpg");
+  background-repeat: repeat;
+}
+img {
+  width: 300px;
+}
+iframe {
+  width: 640px;
+  height: 390px;
+}
+
+
+h1 {
+  text-align: center;
+  font-family: palatino;
+  font-style: italic;
+  font-weight: 100;
+  color: slategrey;
+  margin-top: 50px;
+  margin-left: -50px;
+}
+
+li {
+
+  list-style-type: none;
+  text-align: center;
+  margin-left: -40px;
+  color: white;
+}
+label {
+  color: white;
+}
+
+.addmovie {
+  margin-left: 140px;
+  width: 300px;
+}
+button {
+  font-size: 18px;
+  background-color: black;
+  text-align: center;
+  color: white;
+  padding: 5px;
+  width: 150px;
+}
+.characters {
+  margin-left: 40px;
+}
+.trailer {
+  margin-left: 20px;
+  padding: 10px;
+}
+a {
+  color: silver;
+  font-family: helvetica;
+}
+div {
+  text-align: center;
+  margin-left: -40px;
+}

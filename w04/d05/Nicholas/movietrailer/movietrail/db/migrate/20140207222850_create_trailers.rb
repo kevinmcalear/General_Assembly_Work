@@ -3,7 +3,7 @@ class CreateTrailers < ActiveRecord::Migration
     create_table :trailers do |t|
       t.string :title
       t.text :embed_url
-      t.belongs_to :movies
+      t.belongs_to :movie
     end
   end
 end

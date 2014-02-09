@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140207222850) do
   create_table "characters", force: true do |t|
     t.string  "name"
     t.text    "photo_url"
-    t.integer "movies_id"
+    t.integer "movie_id"
   end
 
   create_table "movies", force: true do |t|
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140207222850) do
   create_table "trailers", force: true do |t|
     t.string  "title"
     t.text    "embed_url"
-    t.integer "movies_id"
+    t.integer "movie_id"
   end
 
 end

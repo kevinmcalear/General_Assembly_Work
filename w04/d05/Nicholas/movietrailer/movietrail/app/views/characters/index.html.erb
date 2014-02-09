@@ -1,1 +1,10 @@
-<h1> List of Characters in said movie </h1>
+<h1> List of Characters in <%= @movie.title %> </h1>
+<div>
+<button class='characters'><a href="/movies">Home</a></button><button class='characters'><a href="/movies/<%= @movie.id %>/trailers">Trailer</a></button>
+</div>
+
+<ul>
+<% @characters.each do |character| %>
+<li><img src="<%= character.photo_url %>" /><p><%= character.name %></p></li>
+<% end %>
+</ul>

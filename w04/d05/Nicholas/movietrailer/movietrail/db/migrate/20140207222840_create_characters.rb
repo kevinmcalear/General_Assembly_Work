@@ -3,7 +3,7 @@ class CreateCharacters < ActiveRecord::Migration
     create_table :characters do |t|
       t.string :name
       t.text :photo_url
-      t.belongs_to :movies
+      t.belongs_to :movie
     end
   end
 end
