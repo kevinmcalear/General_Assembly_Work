@@ -28,6 +28,11 @@ class TrailersController < ActionController::Base
     redirect_to "/movies/#{@movie.id}/trailers/#{@trailer.id}"
   end
 
+  def destroy
+    @trailer.destroy
+    redirect_to "/movies/#{@movie.id}/trailers"
+  end
+
 
 
   private
