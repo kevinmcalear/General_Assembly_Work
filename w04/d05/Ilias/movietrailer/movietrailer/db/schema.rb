@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20140209034145) do
   end
 
   create_table "trailers", force: true do |t|
-    t.string  "name"
-    t.text    "photo_url"
+    t.string  "title"
+    t.text    "embed_url"
     t.integer "movie_id"
   end
 

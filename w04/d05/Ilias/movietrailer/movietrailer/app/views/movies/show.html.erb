@@ -1,0 +1,12 @@
+<h1><%=@movie.title%></h1>
+<h3><%=@movie.year%></h3>
+
+<img src="<%=@movie.poster_url%>" width="350"/>
+
+<iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="http://www.youtube.com/embed/<%=@embed_url%>?autoplay=1"
+  frameborder="0"/>
+
+<br/><a href="/movies/<%=@movie.id%>/trailers">See Trailers</a>
+
+<br/><a href="/movies">Back</a>

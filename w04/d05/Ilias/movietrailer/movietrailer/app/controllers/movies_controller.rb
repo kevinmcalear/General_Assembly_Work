@@ -19,7 +19,11 @@ class MoviesController < ApplicationController
   end
 
   def show
-
+    @movie = Movie.find("#{params[:id]}")
+    trailer = Trailer.find_by(movie_id: "#{params[:id]}")
+    url = trailer.embed_url
+    @embed_url = url.split("=")[1]
+    render(:show)
   end
 
 end

@@ -9,6 +9,9 @@ gem 'sqlite3'
 # postgres adapter
 gem 'pg'
 
+#pry
+gem 'pry'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
