@@ -2,11 +2,18 @@
 <h3><%=@movie.year%></h3>
 
 <img src="<%=@movie.poster_url%>" width="350"/>
-
 <iframe id="ytplayer" type="text/html" width="640" height="390"
   src="http://www.youtube.com/embed/<%=@embed_url%>?autoplay=1"
-  frameborder="0"/>
+  frameborder="0"></iframe>
+<h3>Characters</h3>
+<ul>
+  <%@characters.each do |character|%>
+  <li><%=character.name%></li>
+  <img src="<%=character.photo_url%>" width="200"/>
+  <%end%>
+</ul>
 
-<br/><a href="/movies/<%=@movie.id%>/trailers">See Trailers</a>
+<!-- <br/><a href="/movies/<%=@movie.id%>/trailers/new">Add Trailer</a> -->
+<br/><a href="/movies/<%=@movie.id%>/characters/new">Add Character</a>
 
 <br/><a href="/movies">Back</a>

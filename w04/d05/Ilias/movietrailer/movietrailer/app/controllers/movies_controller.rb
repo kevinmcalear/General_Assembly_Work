@@ -23,6 +23,7 @@ class MoviesController < ApplicationController
     trailer = Trailer.find_by(movie_id: "#{params[:id]}")
     url = trailer.embed_url
     @embed_url = url.split("=")[1]
+    @characters = Character.where(movie_id: params[:id])
     render(:show)
   end
 
