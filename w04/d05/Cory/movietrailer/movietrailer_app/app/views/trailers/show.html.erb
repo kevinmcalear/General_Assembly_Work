@@ -1,5 +1,5 @@
 
-<h1> Title: <%= @trailers.title %></h1>
+<h1> Title: <%= @trailer.title %></h1>
 
 <h3>Edit this trailer <a href="/movies/<%= params[:movie_id] %>/trailers/<%= params[:id]%>/edit">here</a></h3>
 
@@ -20,7 +20,7 @@
 <h2>Video:</h2> 
 
 <iframe id="ytplayer" type="text/html" width="640" height="390"
-  src="http://www.youtube.com/embed/<%= @trailers.embed_url %>?autoplay=1&origin=http://example.com"
+  src="http://www.youtube.com/embed/<%= @trailer.embed_url %>?autoplay=1&origin=http://example.com"
   frameborder="0"/>
 
 

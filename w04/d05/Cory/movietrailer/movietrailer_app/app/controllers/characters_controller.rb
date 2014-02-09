@@ -1,4 +1,6 @@
 class CharactersController < ApplicationController
+self.before_action(:load_character, { only: [:show, :edit, :update, :destroy] })
+
 
   def index
     @characters = Character.where(movie_id: params[:movie_id])
@@ -18,16 +20,13 @@ class CharactersController < ApplicationController
   end
 
   def show
-    @characters = Character.find(params[:id])
     render(:show)
   end
 
   def edit
-    @character = Character.find(params[:id])
   end
 
   def update
-    @character = Character.find(params[:id])
     @character.update({name: params[:name], 
       photo_url: params[:photo_url], 
       })
@@ -35,10 +34,12 @@ class CharactersController < ApplicationController
   end
 
   def destroy
-    @character = Character.find(params[:id])
     @character.destroy
     redirect_to("/movies")
   end
 
+  def load_character
+    @character = Character.find(params[:id])
+  end
 
 end
