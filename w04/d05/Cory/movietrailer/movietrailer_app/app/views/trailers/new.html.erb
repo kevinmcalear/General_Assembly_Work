@@ -1,5 +1,6 @@
 <h1>Enter a new trailer!</h1>
 
+<div class="center">
 <form action="/movies/<%= params[:movie_id] %>/trailers" method="POST">
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
   <label>
@@ -15,4 +16,5 @@
   <button>Add Trailer</button>
 
 </form>
+</div>
 

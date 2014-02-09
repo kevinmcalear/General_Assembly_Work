@@ -1,5 +1,6 @@
 <h1>Edit the movie!</h1>
 
+<div class="center">
 <form action="/movies/<%= params[:id]%>" method="POST">
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
     <input type="hidden" name="_method" value="PUT">
@@ -22,3 +23,4 @@
   <button>Make changes!</button>
 
 </form>
+</div>

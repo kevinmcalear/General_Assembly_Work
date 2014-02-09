@@ -1,5 +1,6 @@
 <h1> Edit <%= @character.name %></h1>
 
+<div class="center">
 <form action="/movies/<%= params[:movie_id]%>/characters/<%= params[:id]%>" method="POST">
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
     <input type="hidden" name="_method" value="PUT">
@@ -16,3 +17,4 @@
   <button>Make changes!</button>
 
 </form>
+</div>
