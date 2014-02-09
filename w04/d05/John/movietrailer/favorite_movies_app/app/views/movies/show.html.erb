@@ -12,10 +12,6 @@
 
 <br/>
 
-<a href="/movies/<%= @movie.id %>/characters/new">Add Character</a>
-
-<br/>
-
 <a href="/movies/<%= @movie.id %>/trailers">View Trailers</a>
 
 <br/><br/>
@@ -27,5 +23,5 @@
 <form action="/movies/<%= @movie.id %>" method="POST">
   <input type="hidden" name="_method" value="DELETE" />
   
-  <button>Delete movie</button>
+  <button>Delete this movie</button>
 </form>

@@ -1,5 +1,9 @@
 <h1>Characters in "<%= @movie.title %>"</h1>
 
+<a href="/movies/<%= @movie.id %>/characters/new">Add Character</a>
+
+<br/><br/><br/>
+
 <% @characters.each do |character| %>
   <img src="<%= character.photo_url %>" />
 

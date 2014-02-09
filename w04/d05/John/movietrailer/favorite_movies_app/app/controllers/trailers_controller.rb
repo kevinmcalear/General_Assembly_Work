@@ -12,6 +12,14 @@ class TrailersController < ActionController::Base
   def show
   end
 
+  def new
+  end
+
+  def create
+    @trailer = Trailer.create(trailer_params)
+    redirect_to "/movies/#{@movie.id}/trailers/#{@trailer.id}"
+  end
+
 
 
   private
