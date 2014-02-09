@@ -1,0 +1,9 @@
+<h3><%= @trailer_movie.title%> Trailer(s)</h3>
+
+<% @trailers.each do |trailer| %>
+  
+  <ul>
+    <li><%= trailer.title%></li><br>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/<%= trailer.embed_url%>" frameborder="0" allowfullscreen></iframe>
+  </ul>
+  <% end %>
