@@ -22,4 +22,7 @@ Character.create(name: "Lt. Dan", actor: "Gary Sinise", photo_url: "http://stand
 Character.create(name: "Jenny", actor: "Robin Wright", photo_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBECu7u4ngcoNd0hoGwYHNahQN3okq-YKDLX21pcnTTdDElzRg", gender: 2, movies_id: Movie.find_by(title: "Forrest Gump").id )
 Trailer.create(title: "Forest Gump", embed_url: "uPIEn0M8su0", movies_id: Movie.find_by(title: "Forrest Gump").id)
 
-
+Movie.create(title: "Harry Potter", year_released: "2001", poster_url: "http://ia.media-imdb.com/images/M/MV5BMTYwNTM5NDkzNV5BMl5BanBnXkFtZTYwODQ4MzY5._V1_SY317_CR8,0,214,317_.jpg", genre: "Fantasy", director: "Christopher Columbus")
+Character.create(name: "Harry Potter", actor: "Daniel Radcliffe", photo_url: "http://ia.media-imdb.com/images/M/MV5BMTg4NTExODc3Nl5BMl5BanBnXkFtZTgwODUyMDEzMDE@._V1_SY317_CR11,0,214,317_.jpg", gender: 1, movies_id: Movie.find_by(title: "Harry Potter").id )
+Character.create(name: "Hermione Granger", actor: "Emma Watson", photo_url: "http://imworld.aufeminin.com/story/20130626/emma-watson-44467_w1000.jpg", gender: 2, movies_id: Movie.find_by(title: "Harry Potter").id )
+Trailer.create(title: "Harry Potter", embed_url: "K1KPcXRMMo4", movies_id: Movie.find_by(title: "Harry Potter").id)
