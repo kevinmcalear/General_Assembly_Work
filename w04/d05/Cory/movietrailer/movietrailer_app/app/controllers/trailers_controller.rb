@@ -35,8 +35,8 @@ class TrailersController < ApplicationController
   end
 
   def destroy
-    @movie = Movie.find(params[:id])
-    @movie.destroy
+    @trailer = Trailer.find(params[:id])
+    @trailer.destroy
     redirect_to("/movies")
   end
 

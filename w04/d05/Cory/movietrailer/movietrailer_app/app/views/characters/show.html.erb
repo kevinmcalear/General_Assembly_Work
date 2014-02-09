@@ -11,4 +11,10 @@
 
 <h3>View characters <a href="/movies/<%= params[:movie_id] %>/characters">here</a></h3>
 
-<h3>Delete this character <a href="/movies/<%=@movie_id %>">here</a></h3>
+<form action="/movies/<%= params[:movie_id]%>/characters/<%= params[:id]%>" method="POST">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+
+  <button>Delete Character</button>
+
+</form>
