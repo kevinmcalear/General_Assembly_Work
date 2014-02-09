@@ -5,10 +5,12 @@
     
     <br/>
     
-    <p>"<%= trailer.title %>"</p>
+    <a href="/movies/<%= @movie.id %>/trailers/<%= trailer.id %>">"<%= trailer.title %>"</a>
 
     <br/><br/>
 
 <% end %>
+
+<br/><br/>
 
 <a href="/movies/<%= @movie.id %>">Back to "<%= @movie.title %>"</a>

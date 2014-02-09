@@ -53,17 +53,17 @@
 
 Trailer.create(
   title: "Batman Begins Official Trailer",
-  embed_url: "//www.youtube.com/embed/vak9ZLfhGnQ",
+  embed_url: "http://www.youtube.com/embed/vak9ZLfhGnQ",
   movie_id: "1")
 
 Trailer.create(
   title: "The Dark Knight Official Trailer",
-  embed_url: "//http://www.youtube.com/watch?v=5y2szViJlaY",
+  embed_url: "http://www.youtube.com/embed/5y2szViJlaY",
   movie_id: "2")
 
 Trailer.create(
   title: "The Dark Knight Rises Official Trailer",
-  embed_url: "//www.youtube.com/watch?v=GokKUqLcvD8",
+  embed_url: "http://www.youtube.com/embed/GokKUqLcvD8",
   movie_id: "3")
 
 

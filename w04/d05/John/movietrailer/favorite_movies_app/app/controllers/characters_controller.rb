@@ -1,6 +1,7 @@
 class CharactersController < ActionController::Base
   
-  self.before_action :load_movie, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  self.before_action :load_movie
+  # , only: [:index, :show, :new, :create, :edit, :update, :destroy]
   self.before_action :load_character, only: [:show, :edit, :update, :destroy]
 
   def index
