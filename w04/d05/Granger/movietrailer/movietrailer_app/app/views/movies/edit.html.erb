@@ -1,0 +1,20 @@
+<h1> Update your movie.</h1>
+
+<form action="/movies/<%= @movie.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch" />
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+   <label>Title</label>
+  <input type="text" name="title" value="<%= @movie.title %>">
+
+  <label>Year</label>
+  <input type="integer" name="year" value="<%= @movie.year %>">
+
+  <label>Poster URL</label>
+  <input type="text" name="poster_url" value="<%= @movie.poster_url %>">
+
+
+  <button>Submit</button>
+
+
+</form>
