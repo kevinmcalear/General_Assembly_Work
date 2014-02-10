@@ -1,0 +1,47 @@
+<h1> Update an Alien </h1>
+
+<form action="/spaceships/<%= params[:spaceship_id] %>/aliens/<%= @alien.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    Name:
+    <input type="text" name="name" value="<%= @alien.name %>" />
+  </label>
+
+  <label>
+    Stuff
+    <input type="text" name="stuff" value="<%= @alien.stuff %>"/>
+  </label>
+
+  <label>
+    Appendages
+    <input type="integer" name="appendages" value="<%= @alien.appendages %>"/>
+  </label>
+
+  <label>
+    Origin
+    <input type="text" name="origin" value="<%= @alien.origin %>"/>
+  </label>
+
+  <label>
+    Weakness
+    <input type="text" name="weakness" value="<%= @alien.weakness %>"/>
+  </label>
+
+  <label>
+    Strength
+    <input type="text" name="strength" value="<%= @alien.strength %>"/>
+  </label>
+
+  <label>
+    Spaceship
+    <select name="spaceship">
+     <% Spaceship.all.each do |ship| %>
+     <option value="<%= Spaceship.find_by(id: params[:spaceship_id]).name %>">
+      <%= ship.name %>
+    </option>
+    <% end %>
+  </label>
+
+  <input type="submit" value="Update your alien" />
+</form>

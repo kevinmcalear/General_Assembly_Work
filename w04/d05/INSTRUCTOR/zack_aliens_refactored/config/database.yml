@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: alien_app
+  pool: 5
+  username: jeff
+  host: localhost
+  timeout: 5000
