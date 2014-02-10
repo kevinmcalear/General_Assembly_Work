@@ -1,1 +1,5 @@
-show.html.erb
+<h1> <%= @character.name %> </h1>
+<button><a href="/movies/<%= @movie.id %>/characters">Go Back to Character List</a></button>
+<br>
+<img src="<%= @character.photo_url %>">
+<p><%= @character.name %></p>
