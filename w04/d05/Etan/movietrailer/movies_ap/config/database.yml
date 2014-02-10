@@ -6,8 +6,7 @@
 development:
   adapter: postgresql
   database: film_db
-  username: newuser
-  host: localhost
+
   pool: 5
   timeout: 5000
 
