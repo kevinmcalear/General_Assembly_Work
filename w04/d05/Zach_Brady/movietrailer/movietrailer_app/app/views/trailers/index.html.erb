@@ -1,0 +1,12 @@
+<h1>Movie Trailers</h1>
+
+<ul>
+  <% @trailers.each do |trailer| %>
+  <li>
+    <%=trailer.embed_url%>
+  </li>
+  <%end%>
+</ul>
+
+<a href="/movies/<%=params[:movie_id]%>/trailers/new">Add a trailer to the database</a>
+<a href="/movies/<%=params[:movie_id]%>">Return to movie profile</a>
