@@ -1,0 +1,11 @@
+<h1>Hello I'm The Trailers Index</h1>
+<a href="/movies/<%=@movie.id %>">Go Back</a>
+<a href="/movies/<%= @movie.id %>/trailers/new">Add A New Trailer</a>
+
+<ul>
+  <% @trailers.each do |trailer| %>
+    <li>
+      <a href="/movies/<%=@movie.id %>/trailers/<%=trailer.id %>"><%= trailer.name %></a>
+    </li>
+  <% end %>
+</ul>

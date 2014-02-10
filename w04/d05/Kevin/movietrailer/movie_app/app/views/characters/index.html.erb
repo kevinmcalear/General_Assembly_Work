@@ -1,0 +1,11 @@
+<h1>Hello I'm The Characters Index</h1>
+<a href="/movies/<%=@movie.id %>">Go Back</a>
+<a href="/movies/<%= @movie.id %>/characters/new">Add A New Character</a>
+
+<ul>
+  <% @characters.each do |character| %>
+    <li>
+      <a href="/movies/<%=@movie.id %>/characters/<%=character.id %>"><%= character.name %></a>
+    </li>
+  <% end %>
+</ul>
