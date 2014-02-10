@@ -11,3 +11,22 @@
  *= require_self
  *= require_tree .
  */
+
+ button {
+ 	background-color: #0898bb;
+ 	color:#ffffff;
+
+ }
+
+h1 {
+	font-family:helvetica;
+
+}
+
+li {
+	font-family:helvetica;
+}
+
+h3 {
+	font-family:helvetica;
+}

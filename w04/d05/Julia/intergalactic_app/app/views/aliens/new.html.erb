@@ -1,11 +1,11 @@
 <h1>Create a New Alien</h1>
 
 <form action="/spaceships/<%=@spaceship.id%>/aliens" method="POST">
-	<input name="authenticity_token" type="hidden" value="%=form_authenticity_token%>"/>
+	<input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>"/>
 
 <label>
 	Number of Appendages:
-	<select id="appendages">
+	<select name="appendages">
 		<option value = "1">1</option>
 		<option value = "2">2</option>
 		<option value = "3">3</option>
@@ -15,7 +15,7 @@
 		<option value = "7">7</option>
 		<option value = "8">8</option>
 		<option value = "9">9</option>
-		<option value = "10">10</option>
+		<option value = "1000">1000</option>
 	</select>
 </label>
 
