@@ -6,3 +6,5 @@
     <li><a href="/movies/<%= params[:movie_id]%>/characters/<%= char.id%>"><%= char.name%></a></li>
   </ul>
   <% end %>
+
+<p><a href="/movies/<%= @character_movie.id %>/characters/new">Add a character</a></p>
