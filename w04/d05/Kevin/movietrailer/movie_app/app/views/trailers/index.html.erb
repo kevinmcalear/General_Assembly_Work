@@ -1,8 +1,10 @@
-<h1>Hello I'm The Trailers Index</h1>
+<header class="clearfix center">
+<h1><%=@movie.name %>'s Trailers</h1>
 <a href="/movies/<%=@movie.id %>">Go Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="/movies/<%= @movie.id %>/trailers/new">Add A New Trailer</a>
-
-
+</header>
+<br>
+<br>
 <div class="main">
   <ul class="cbp-ig-grid">
     <% @trailers.each do |trailer| %>

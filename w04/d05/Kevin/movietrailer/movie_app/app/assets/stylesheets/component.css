@@ -9,6 +9,18 @@
 	font-style: normal;
 }
 
+@font-face {
+    font-family: 'airstreamregular';
+    src: url('fonts/airstream/Airstream-webfont.eot');
+    src: url('fonts/airstream/Airstream-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/airstream/Airstream-webfont.woff') format('woff'),
+         url('fonts/airstream/Airstream-webfont.ttf') format('truetype'),
+         url('fonts/airstream/Airstream-webfont.svg#airstreamregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 /* General grid styles */
 .cbp-ig-grid {
 	list-style: none;
@@ -482,4 +494,13 @@ input:focus, textarea:focus {
     img {
 
     	width: 350px;
+    }
+
+    h1 {
+
+    	font-family: 'airstreamregular';
+    	font-size: 90px;
+    	color: #47E0C2;
+    	font-weight: 100;
+    	margin-bottom: 15px;
     }
