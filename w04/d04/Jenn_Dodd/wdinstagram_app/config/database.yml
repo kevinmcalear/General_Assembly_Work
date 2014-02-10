@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: wdinstagram_db
+  pool: 5
+  username: jenndodd
+  password:
+  host: localhost

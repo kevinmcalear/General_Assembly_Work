@@ -1,0 +1,24 @@
+<h1>Edit <%= @clown.name %></h1>
+
+<form action="/clowns/<%= @clown.id %>" method="POST">
+  <input type="hidden" name="_method" value="PUT" />
+  <label>
+    Name:
+    <input type="text" name="name" value= "<%= @clown.name %>">
+  </label>
+
+
+<label>
+    Talent:
+    <input type="text" name="talent" value= "<%= @clown.talent %>">
+  </label>
+
+  <label>
+    Sings?
+    <input type="checkbox" name="is_singer" <%= @clown.is_singer ? "checked" : "" %>>
+  </label>
+
+
+  <button>Incept this clown</button>
+
+</form>
