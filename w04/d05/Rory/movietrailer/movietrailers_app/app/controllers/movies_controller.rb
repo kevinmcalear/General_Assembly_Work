@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    Movie.new(movie_params)
+    Movie.create(movie_params)
     redirect_to("/movies")
   end
 
