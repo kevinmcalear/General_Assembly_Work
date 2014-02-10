@@ -1,0 +1,337 @@
+  [1m[36m (394.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (74.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (20.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMovie (20140209230847)
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (163.8ms)[0m  [1mCREATE TABLE "movies" ("id" serial primary key, "title" character varying(255), "year" integer, "poster_url" text) [0m
+  [1m[35mSQL (67.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230847"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCharacter (20140209230902)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (16.6ms)[0m  [1mCREATE TABLE "characters" ("id" serial primary key) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230902"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTrailer (20140209230916)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "trailers" ("id" serial primary key, "title" character varying(255), "embed_url" text) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230916"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMovie (20140209230847)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "movies" ("id" serial primary key, "title" character varying(255), "year" integer, "poster_url" text) [0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230847"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCharacter (20140209230902)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "characters" ("id" serial primary key, "name" character varying(255), "photo_url" text) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230902"]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTrailer (20140209230916)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "trailers" ("id" serial primary key, "title" character varying(255), "embed_url" text) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230916"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (36.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (17.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMovie (20140209230847)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "movies" ("id" serial primary key, "title" character varying(255), "year" integer, "poster_url" text) [0m
+  [1m[35mSQL (16.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230847"]]
+  [1m[36m (16.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCharacter (20140209230902)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "characters" ("id" serial primary key, "name" character varying(255), "photo_url" text, "movie_id" integer) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230902"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTrailer (20140209230916)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "trailers" ("id" serial primary key, "title" character varying(255), "embed_url" text, "movie_id" integer) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230916"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMovie (20140209230847)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (6.2ms)[0m  [1mCREATE TABLE "movies" ("id" serial primary key, "title" character varying(255), "year" integer, "poster_url" text) [0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230847"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCharacter (20140209230902)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (107.5ms)[0m  [1mCREATE TABLE "characters" ("id" serial primary key, "name" character varying(255), "photo_url" text, "movie_id" integer) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230902"]]
+  [1m[36m (58.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTrailer (20140209230916)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (10.0ms)[0m  [1mCREATE TABLE "trailers" ("id" serial primary key, "title" character varying(255), "embed_url" text, "movie_id" integer) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230916"]]
+  [1m[36m (8.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMovie (20140209230847)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (5.9ms)[0m  [1mCREATE TABLE "movies" ("id" serial primary key, "title" character varying(255), "year" integer, "poster_url" text) [0m
+  [1m[35mSQL (15.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230847"]]
+  [1m[36m (16.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCharacter (20140209230902)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "characters" ("id" serial primary key, "name" character varying(255), "photo_url" text, "movie_id" integer) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230902"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTrailer (20140209230916)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "trailers" ("id" serial primary key, "title" character varying(255), "embed_url" text, "movie_id" integer) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230916"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (10.0ms)[0m  DELETE FROM "movies"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "movies"
+  [1m[36mSQL (0.7ms)[0m  [1mDELETE FROM "characters"[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "trailers"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "movies"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "characters"[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "trailers"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "movies"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "characters"[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "trailers"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "movies"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "characters"[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "trailers"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "movies"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "characters"[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "trailers"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "movies"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "characters"[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "trailers"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mMovie Exists (0.7ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."title" = 'The Master' LIMIT 1
+  [1m[36mSQL (16.6ms)[0m  [1mINSERT INTO "movies" ("poster_url", "title", "year") VALUES ($1, $2, $3) RETURNING "id"[0m  [["poster_url", "http://www.impawards.com/2012/posters/master_ver6_xlg.jpg"], ["title", "The Master"], ["year", 2012]]
+  [1m[35m (16.1ms)[0m  COMMIT
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'The Master' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["movie_id", 1], ["name", "Freddie Quell"], ["photo_url", "http://tonyortega.org/wp-content/uploads/2012/10/freddiequell2.jpg"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"  [["movie_id", 1], ["name", "Lancaster Dodd"], ["photo_url", "http://25.media.tumblr.com/5a9aa191f53d9abbd6a1b661c3ea2430/tumblr_mj4uthKrBq1qzqju7o1_500.jpg"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "trailers" ("embed_url", "movie_id", "title") VALUES ($1, $2, $3) RETURNING "id"[0m  [["embed_url", "//www.youtube.com/embed/fJ1O1vb9AUU"], ["movie_id", 1], ["title", "The Master"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mMovie Exists (0.3ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."title" = 'The Big Lebowski' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("poster_url", "title", "year") VALUES ($1, $2, $3) RETURNING "id"[0m  [["poster_url", "http://www.impawards.com/1998/posters/big_lebowski_ver1_xlg.jpg"], ["title", "The Big Lebowski"], ["year", 1998]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'The Big Lebowski' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["movie_id", 2], ["name", "Jeffrey The Dude Lebowski"], ["photo_url", "http://www.castingfrontier.com/wp-content/uploads/2012/04/movies_big_lebowski_the_dude_jeff_bridges_movie_desktop_1280x1024_wallpaper-43039.jpg"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"  [["movie_id", 2], ["name", "Walter Sobchak"], ["photo_url", "http://gutenfilm.files.wordpress.com/2011/12/the-big-lebowski.jpg"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["movie_id", 2], ["name", "Theodore Donald Kerabatsos"], ["photo_url", "http://25.media.tumblr.com/tumblr_laazocDDpg1qcazvso1_500.jpg"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trailers" ("embed_url", "movie_id", "title") VALUES ($1, $2, $3) RETURNING "id"  [["embed_url", "//www.youtube.com/embed/cd-go0oBF4Y"], ["movie_id", 2], ["title", "The Big Lebowski"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mMovie Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = 'The Terminator' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("poster_url", "title", "year") VALUES ($1, $2, $3) RETURNING "id"  [["poster_url", "http://www.wichitaorpheum.com/wp-content/uploads/2013/12/The-Terminator-Poster.jpg"], ["title", "The Terminator"], ["year", 1984]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."title" = 'The Terminator' LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "movies"
+  [1m[36mSQL (0.8ms)[0m  [1mDELETE FROM "characters"[0m
+  [1m[35mSQL (0.7ms)[0m  DELETE FROM "trailers"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mMovie Exists (0.6ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."title" = 'The Master' LIMIT 1
+  [1m[36mSQL (2.7ms)[0m  [1mINSERT INTO "movies" ("poster_url", "title", "year") VALUES ($1, $2, $3) RETURNING "id"[0m  [["poster_url", "http://www.impawards.com/2012/posters/master_ver6_xlg.jpg"], ["title", "The Master"], ["year", 2012]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'The Master' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["movie_id", 4], ["name", "Freddie Quell"], ["photo_url", "http://tonyortega.org/wp-content/uploads/2012/10/freddiequell2.jpg"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"  [["movie_id", 4], ["name", "Lancaster Dodd"], ["photo_url", "http://25.media.tumblr.com/5a9aa191f53d9abbd6a1b661c3ea2430/tumblr_mj4uthKrBq1qzqju7o1_500.jpg"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "trailers" ("embed_url", "movie_id", "title") VALUES ($1, $2, $3) RETURNING "id"[0m  [["embed_url", "//www.youtube.com/embed/fJ1O1vb9AUU"], ["movie_id", 4], ["title", "The Master"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mMovie Exists (0.2ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."title" = 'The Big Lebowski' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("poster_url", "title", "year") VALUES ($1, $2, $3) RETURNING "id"[0m  [["poster_url", "http://www.impawards.com/1998/posters/big_lebowski_ver1_xlg.jpg"], ["title", "The Big Lebowski"], ["year", 1998]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'The Big Lebowski' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["movie_id", 5], ["name", "Jeffrey The Dude Lebowski"], ["photo_url", "http://www.castingfrontier.com/wp-content/uploads/2012/04/movies_big_lebowski_the_dude_jeff_bridges_movie_desktop_1280x1024_wallpaper-43039.jpg"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"  [["movie_id", 5], ["name", "Walter Sobchak"], ["photo_url", "http://gutenfilm.files.wordpress.com/2011/12/the-big-lebowski.jpg"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["movie_id", 5], ["name", "Theodore Donald Kerabatsos"], ["photo_url", "http://25.media.tumblr.com/tumblr_laazocDDpg1qcazvso1_500.jpg"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trailers" ("embed_url", "movie_id", "title") VALUES ($1, $2, $3) RETURNING "id"  [["embed_url", "//www.youtube.com/embed/cd-go0oBF4Y"], ["movie_id", 5], ["title", "The Big Lebowski"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mMovie Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = 'The Terminator' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("poster_url", "title", "year") VALUES ($1, $2, $3) RETURNING "id"  [["poster_url", "http://www.wichitaorpheum.com/wp-content/uploads/2013/12/The-Terminator-Poster.jpg"], ["title", "The Terminator"], ["year", 1984]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."title" = 'The Terminator' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"  [["movie_id", 6], ["name", "Sarah Connor"], ["photo_url", "http://segabits.com/wp-content/uploads/2012/02/SarahConnor-T1.jpg"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["movie_id", 6], ["name", "The Terminator"], ["photo_url", "http://www.thatfilmguy.net/wp-content/uploads/2012/06/The-Terminator.jpg"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trailers" ("embed_url", "movie_id", "title") VALUES ($1, $2, $3) RETURNING "id"  [["embed_url", "//www.youtube.com/embed/c4Jo8QoOTQ4"], ["movie_id", 6], ["title", "The Terminator"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (1.7ms)[0m  DELETE FROM "movies"
+  [1m[36mSQL (0.7ms)[0m  [1mDELETE FROM "characters"[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "trailers"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mMovie Exists (0.6ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."title" = 'The Master' LIMIT 1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "movies" ("poster_url", "title", "year") VALUES ($1, $2, $3) RETURNING "id"[0m  [["poster_url", "http://www.impawards.com/2012/posters/master_ver6_xlg.jpg"], ["title", "The Master"], ["year", 2012]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'The Master' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["movie_id", 7], ["name", "Freddie Quell"], ["photo_url", "http://tonyortega.org/wp-content/uploads/2012/10/freddiequell2.jpg"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"  [["movie_id", 7], ["name", "Lancaster Dodd"], ["photo_url", "http://25.media.tumblr.com/5a9aa191f53d9abbd6a1b661c3ea2430/tumblr_mj4uthKrBq1qzqju7o1_500.jpg"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "trailers" ("embed_url", "movie_id", "title") VALUES ($1, $2, $3) RETURNING "id"[0m  [["embed_url", "//www.youtube.com/embed/fJ1O1vb9AUU"], ["movie_id", 7], ["title", "The Master"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mMovie Exists (0.2ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."title" = 'The Big Lebowski' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("poster_url", "title", "year") VALUES ($1, $2, $3) RETURNING "id"[0m  [["poster_url", "http://www.impawards.com/1998/posters/big_lebowski_ver1_xlg.jpg"], ["title", "The Big Lebowski"], ["year", 1998]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'The Big Lebowski' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["movie_id", 8], ["name", "Jeffrey The Dude Lebowski"], ["photo_url", "http://www.castingfrontier.com/wp-content/uploads/2012/04/movies_big_lebowski_the_dude_jeff_bridges_movie_desktop_1280x1024_wallpaper-43039.jpg"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"  [["movie_id", 8], ["name", "Walter Sobchak"], ["photo_url", "http://gutenfilm.files.wordpress.com/2011/12/the-big-lebowski.jpg"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["movie_id", 8], ["name", "Theodore Donald Kerabatsos"], ["photo_url", "http://25.media.tumblr.com/tumblr_laazocDDpg1qcazvso1_500.jpg"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trailers" ("embed_url", "movie_id", "title") VALUES ($1, $2, $3) RETURNING "id"  [["embed_url", "//www.youtube.com/embed/cd-go0oBF4Y"], ["movie_id", 8], ["title", "The Big Lebowski"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mMovie Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = 'The Terminator' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("poster_url", "title", "year") VALUES ($1, $2, $3) RETURNING "id"  [["poster_url", "http://www.wichitaorpheum.com/wp-content/uploads/2013/12/The-Terminator-Poster.jpg"], ["title", "The Terminator"], ["year", 1984]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."title" = 'The Terminator' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"  [["movie_id", 9], ["name", "Sarah Connor"], ["photo_url", "http://segabits.com/wp-content/uploads/2012/02/SarahConnor-T1.jpg"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["movie_id", 9], ["name", "The Terminator"], ["photo_url", "http://www.thatfilmguy.net/wp-content/uploads/2012/06/The-Terminator.jpg"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trailers" ("embed_url", "movie_id", "title") VALUES ($1, $2, $3) RETURNING "id"  [["embed_url", "//www.youtube.com/embed/c4Jo8QoOTQ4"], ["movie_id", 9], ["title", "The Terminator"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMovie (20140209230847)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "movies" ("id" serial primary key, "title" character varying(255), "year" integer, "poster_url" text) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230847"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCharacter (20140209230902)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "characters" ("id" serial primary key, "name" character varying(255), "photo_url" text, "movie_id" integer) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230902"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTrailer (20140209230916)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "trailers" ("id" serial primary key, "title" character varying(255), "embed_url" text, "movie_id" integer) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140209230916"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "movies"
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "characters"[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "trailers"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mMovie Exists (0.7ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."title" = 'The Master' LIMIT 1
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO "movies" ("poster_url", "title", "year") VALUES ($1, $2, $3) RETURNING "id"[0m  [["poster_url", "http://www.impawards.com/2012/posters/master_ver6_xlg.jpg"], ["title", "The Master"], ["year", 2012]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'The Master' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["movie_id", 1], ["name", "Freddie Quell"], ["photo_url", "http://tonyortega.org/wp-content/uploads/2012/10/freddiequell2.jpg"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"  [["movie_id", 1], ["name", "Lancaster Dodd"], ["photo_url", "http://25.media.tumblr.com/5a9aa191f53d9abbd6a1b661c3ea2430/tumblr_mj4uthKrBq1qzqju7o1_500.jpg"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "trailers" ("embed_url", "movie_id", "title") VALUES ($1, $2, $3) RETURNING "id"[0m  [["embed_url", "//www.youtube.com/embed/fJ1O1vb9AUU"], ["movie_id", 1], ["title", "The Master"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mMovie Exists (0.2ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."title" = 'The Big Lebowski' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("poster_url", "title", "year") VALUES ($1, $2, $3) RETURNING "id"[0m  [["poster_url", "http://www.impawards.com/1998/posters/big_lebowski_ver1_xlg.jpg"], ["title", "The Big Lebowski"], ["year", 1998]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'The Big Lebowski' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["movie_id", 2], ["name", "Jeffrey The Dude Lebowski"], ["photo_url", "http://www.castingfrontier.com/wp-content/uploads/2012/04/movies_big_lebowski_the_dude_jeff_bridges_movie_desktop_1280x1024_wallpaper-43039.jpg"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"  [["movie_id", 2], ["name", "Walter Sobchak"], ["photo_url", "http://gutenfilm.files.wordpress.com/2011/12/the-big-lebowski.jpg"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["movie_id", 2], ["name", "Theodore Donald Kerabatsos"], ["photo_url", "http://25.media.tumblr.com/tumblr_laazocDDpg1qcazvso1_500.jpg"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trailers" ("embed_url", "movie_id", "title") VALUES ($1, $2, $3) RETURNING "id"  [["embed_url", "//www.youtube.com/embed/cd-go0oBF4Y"], ["movie_id", 2], ["title", "The Big Lebowski"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mMovie Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = 'The Terminator' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("poster_url", "title", "year") VALUES ($1, $2, $3) RETURNING "id"  [["poster_url", "http://www.wichitaorpheum.com/wp-content/uploads/2013/12/The-Terminator-Poster.jpg"], ["title", "The Terminator"], ["year", 1984]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."title" = 'The Terminator' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"  [["movie_id", 3], ["name", "Sarah Connor"], ["photo_url", "http://segabits.com/wp-content/uploads/2012/02/SarahConnor-T1.jpg"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "characters" ("movie_id", "name", "photo_url") VALUES ($1, $2, $3) RETURNING "id"[0m  [["movie_id", 3], ["name", "The Terminator"], ["photo_url", "http://www.thatfilmguy.net/wp-content/uploads/2012/06/The-Terminator.jpg"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trailers" ("embed_url", "movie_id", "title") VALUES ($1, $2, $3) RETURNING "id"  [["embed_url", "//www.youtube.com/embed/c4Jo8QoOTQ4"], ["movie_id", 3], ["title", "The Terminator"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
