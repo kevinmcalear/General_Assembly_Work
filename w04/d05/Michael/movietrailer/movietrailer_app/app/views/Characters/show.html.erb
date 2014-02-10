@@ -15,9 +15,7 @@
       <option  <%= @character.gender.to_i==1 ? "selected='selected'" : "" %> value="1">Male</option>
       <option <%= @character.gender.to_i==2 ? "selected='selected'" : "" %> value="2">Female</option>
     </select> <br />
-
   <button>Update character</button>
-
 </form>
 
 <form class="action2" action="/movies/<%=params[:id]%>/characters/<%=params[:id]%>" method="POST">

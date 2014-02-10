@@ -12,8 +12,7 @@
   <label for "genre">Genre: </label> <input type="text" name="genre" value="<%=@movie.genre%>"/> <br />
   <label for "director"> Director: </label> <input type="text" name="director" value="<%=@movie.director%>"/> <br />
   <label for "poster_url">Poster_URL: </label> <input type="text" name="poster_url" value="<%=@movie.poster_url%>"/> <br />
-  <button>Update Movie</button>
-  
+  <button>Update Movie</button>  
 </form>
 
 <form class="action2" action="/movies/<%=@movie.id%>" method="POST">
@@ -22,8 +21,8 @@
   <button>Delete this movie</button>
 </form>
 
-
 <div class="separator">Trailer</div>
+
 <%if @trailer.nil? %>
   <form class="view" action="/movies/<%=@movie.id%>/trailers" method="POST">
     <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>" />
@@ -48,7 +47,6 @@
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token%>" />
     <button>Delete trailer</button>
   </form>
-
 <%end%>
 
 <div class="separator">Cast</div>
