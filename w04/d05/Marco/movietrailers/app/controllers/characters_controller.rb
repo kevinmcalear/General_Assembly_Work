@@ -29,13 +29,13 @@ class CharactersController < ApplicationController
   def update
     @char = Character.find(params[:id])
     @char.update(char_params)
-    redirect_to("movies/#{params[:movie_id]}/characters/#{@char.id}")
+    redirect_to("/movies/#{@char.movie_id}/characters/#{@char.id}")
   end
 
   def destroy
     @char = Character.find(params[:id])
     @char.destroy
-    redirect_to("movies/#{params[:movie_id]}/characters")
+    redirect_to("/movies/#{params[:movie_id]}/characters")
   end
 
   private

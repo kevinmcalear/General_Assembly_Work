@@ -29,13 +29,13 @@ class TrailersController < ApplicationController
   def update
     @trailer = Trailer.find(params[:id])
     @trailer.update(trailer_params)
-    redirect_to("movies/#{params[:movie_id]}/trailers/#{@trailer.id}")
+    redirect_to("/movies/#{params[:movie_id]}/trailers/#{@trailer.id}")
   end
 
   def destroy
     @trailer = Trailer.find(params[:id])
     @trailer.destroy
-    redirect_to("movies/#{params[:movie_id]}/trailers")
+    redirect_to("/movies/#{params[:movie_id]}/trailers")
   end
 
   private
