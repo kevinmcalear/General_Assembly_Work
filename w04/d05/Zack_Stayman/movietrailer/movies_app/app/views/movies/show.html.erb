@@ -1,0 +1,22 @@
+<h1><%= @movie.title %> </h1>
+
+<img src="<%= @movie.poster_url %>" height="300"> 
+
+<h2><%= @movie.year %></h2>
+  
+<ul>
+<% @movie.characters.each do |character| %>
+<li><a href="/character/<%= character.id %>"><%= character.name %></a></li>
+<% end %>
+</ul>
+
+<a href="/movies/<%= @movie.id %>/trailers"> Trailers</a>
+<a href="/movies/<%= @movie.id %>/trailers/new">New Trailer</a>
+<a href="/movies/<%= @movie.id %>/edit">Update Information</a>
+
+<form action="/movies/<%= @movie.id %>" method="POST" >
+  <input type="hidden" name="_method" value="DELETE" />
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Delete this Movie!</button>
+</form>
+<a href="/movies">All Movies</a>
