@@ -24,15 +24,23 @@ class TrailersController < ApplicationController
   end
 
   def edit
-    #code
+    @movie = Movie.find(params[:movie_id])
+    @trailer = @movie.trailers.find(params[:id])
+    render(:edit)
   end
 
   def update
-    #code
+    @movie = Movie.find(params[:movie_id])
+    @trailer = @movie.trailers.find(params[:id])
+    @trailer.update(trailer_params())
+    redirect_to("/movies/#{ @movie.id }/trailers/#{@trailer.id}")
   end
 
   def destroy
-    #code
+    @movie = Movie.find(params[:movie_id])
+    @trailer = @movie.trailers.find(params[:id])
+    @trailer.destroy
+    redirect_to ("/movies/#{ @movie.id }/trailers")
   end
 
   private

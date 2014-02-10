@@ -24,15 +24,23 @@ class CharactersController < ApplicationController
   end
 
   def edit
-    #code
+    @movie = Movie.find(params[:movie_id])
+    @character = @movie.characters.find(params[:id])
+    render(:edit)
   end
 
   def update
-    #code
+    @movie = Movie.find(params[:movie_id])
+    @character = @movie.characters.find(params[:id])
+    @character.update(character_params())
+    redirect_to("/movies/#{ @movie.id }/characters/#{ @character.id }")
   end
 
   def destroy
-    #code
+    @movie = Movie.find(params[:movie_id])
+    @character = @movie.characters.find(params[:id])
+    @character.destroy
+    redirect_to ("/movies/#{ @movie.id }/characters")
   end
 
   private

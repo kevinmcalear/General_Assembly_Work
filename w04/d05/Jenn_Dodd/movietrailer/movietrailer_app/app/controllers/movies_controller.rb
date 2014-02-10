@@ -20,15 +20,20 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    #code
+    @movie = Movie.find(params[:id])
+    render(:edit)
   end
 
   def update
-    #code
+    @movie = Movie.find(params[:id])
+    @movie.update(movie_params())
+    redirect_to("/movies")
   end
 
   def destroy
-    #code
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    redirect_to ("/movies")
   end
 
   private
