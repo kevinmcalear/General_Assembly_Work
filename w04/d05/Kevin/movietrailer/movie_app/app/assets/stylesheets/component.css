@@ -50,47 +50,12 @@
 .cbp-ig-grid li > a {
 	display: block;
 	height: 100%;
-	color: #47a3da;
+	color: #55646D;
 	-webkit-transition: background 0.2s;
 	-moz-transition: background 0.2s;
 	transition: background 0.2s;
 }
 
-.cbp-ig-grid-1 li > a {
-display: block;
-height: 100%;
-color: #720060;
--webkit-transition: background 0.2s;
--moz-transition: background 0.2s;
-transition: background 0.2s;
-}
-
-.cbp-ig-grid-2 li > a {
-display: block;
-height: 100%;
-color: #720060;
--webkit-transition: background 0.2s;
--moz-transition: background 0.2s;
-transition: background 0.2s;
-}
-
-.cbp-ig-grid-3 li > a {
-display: block;
-height: 100%;
-color: #720060;
--webkit-transition: background 0.2s;
--moz-transition: background 0.2s;
-transition: background 0.2s;
-}
-
-.cbp-ig-grid-4 li > a {
-display: block;
-height: 100%;
-color: #720060;
--webkit-transition: background 0.2s;
--moz-transition: background 0.2s;
-transition: background 0.2s;
-}
 
 /* the icon with pseudo class for icon font */
 .cbp-ig-icon {
