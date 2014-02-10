@@ -1,1 +1,8 @@
-show.html.erb
+<h1> <%= @movie.title %> </h1>
+<button><a href="/movies">Go Back to Movies</a></button>
+<button><a href="/movies/<%= @movie.id%>/characters">See Character List</a></button>
+<button><a href="/movies/<%= @movie.id%>/trailers">View Trailers</a></button>
+<br>
+<img src="<%= @movie.poster_url %>">
+<p><%= @movie.title %></p>
+<p><%= @movie.year %></p>

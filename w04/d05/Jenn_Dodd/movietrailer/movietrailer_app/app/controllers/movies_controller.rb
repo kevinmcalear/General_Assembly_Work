@@ -6,15 +6,17 @@ class MoviesController < ApplicationController
   end
 
   def show
-    #code
+    @movie = Movie.find(params[:id])
+    render(:show)
   end
 
   def new
-    #code
+    render(:new)
   end
 
   def create
-    #code
+    Movie.create(movie_params())
+    redirect_to ("/movies")
   end
 
   def edit
@@ -27,6 +29,16 @@ class MoviesController < ApplicationController
 
   def destroy
     #code
+  end
+
+  private
+
+  def movie_params
+    return {
+      title: params[:title],
+      year: params[:year],
+      poster_url: params[:poster_url]
+    }
   end
 
 end

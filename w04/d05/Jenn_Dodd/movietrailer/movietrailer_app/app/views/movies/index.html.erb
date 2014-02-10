@@ -1,4 +1,4 @@
-<h1>It's ships! In space!</h1>
+<h1>Best movies ever.</h1>
 
 <button><a href="movies/new">Add a Movie</a></button>
 
@@ -6,7 +6,7 @@
   <% @movies.each do |movie| %>
     <li>
       <img src="<%= movie.poster_url %>">
-      <p><a href="/movies/<%= movie.id%>"><%= spaceship.name %></p>
+      <p><a href="/movies/<%= movie.id %>"><%= movie.title %></p>
     </li>
   <% end %>
 </ul>
