@@ -1,9 +1,10 @@
-<div class="top">
+<form class="form" action="/movies/<%=@movie.id %>/trailers/" method="POST">
+
+  <div class="top">
   <h1>Add A Trailer</h1>
   <a href="/movies/<%=@movie.id %>/trailers/">Go Back Home</a>
 </div>
-
-<form action="/movies/<%=@movie.id %>/trailers/" method="POST">
+<br>
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
   <label>
     <input class="input" type="text" name="name" placeholder="The trailer's Name" />

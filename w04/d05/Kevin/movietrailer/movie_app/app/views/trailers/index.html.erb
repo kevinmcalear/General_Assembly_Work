@@ -1,11 +1,18 @@
 <h1>Hello I'm The Trailers Index</h1>
-<a href="/movies/<%=@movie.id %>">Go Back</a>
+<a href="/movies/<%=@movie.id %>">Go Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="/movies/<%= @movie.id %>/trailers/new">Add A New Trailer</a>
 
-<ul>
-  <% @trailers.each do |trailer| %>
+
+<div class="main">
+  <ul class="cbp-ig-grid">
+    <% @trailers.each do |trailer| %>
     <li>
-      <a href="/movies/<%=@movie.id %>/trailers/<%=trailer.id %>"><%= trailer.name %></a>
-    </li>
-  <% end %>
-</ul>
+      <a href="/movies/<%=@movie.id %>/trailers/<%=trailer.id %>">
+        <span class="cbp-ig-icon <%= @icons.sample %>"></span>
+        <h3 class="cbp-ig-title"><%= trailer.name %></h3>
+        <span class="cbp-ig-category"><%= @movie.name %></span>
+      </a>
+    </li> 
+    <% end %>
+  </ul>
+</div>

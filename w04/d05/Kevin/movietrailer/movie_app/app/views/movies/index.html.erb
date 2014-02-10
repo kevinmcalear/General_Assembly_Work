@@ -1,10 +1,20 @@
-  <h1>Hello I'm The Movies Index</h1>
-<a href="/movies/new">Add A Movie</a>
-<ul>
-  <% @movies.each do |movie| %>
-    <li>
-      <img src="<%= movie.poster_url %>">
-      <a href="/movies/<%=movie.id %>"><%= movie.name %></a>
-    </li>
-  <% end %>
-</ul>
+        <header class="clearfix">
+          <h1>Explore My Movies</h1>
+          <a href="/movies/new" data-info="Add A Movie To The Collection.">Add A Movie</a>
+        </header>
+
+        <div class="main">
+          <ul class="cbp-ig-grid">
+
+            <% @movies.each do |movie| %>
+            <li>
+              <a href="/movies/<%=movie.id %>">
+                <span class="cbp-ig-icon <%= @icons.sample %>"></span>
+                <h3 class="cbp-ig-title"><%= movie.name %></h3>
+                <span class="cbp-ig-category"><%= movie.year %></span>
+              </a>
+            </li> 
+
+            <% end %>
+          </ul>
+        </div>

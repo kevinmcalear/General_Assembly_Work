@@ -1,14 +1,20 @@
-<h1><%= @character.name %></h1>
-<a href="/movies/<%= @movie.id %>/characters">Go Back</a>
-<a href="/movies/<%= @movie.id %>/trailers">View Trailers</a>
-<a href="/movies/<%=@movie.id %>/characters/<%= @character.id %>/edit">Edit Character</a>
-<form action="/movies/<%= @movie.id %>/characters/<%= @character.id %>" method="POST" >
-<input type="hidden" name="_method" value="DELETE" />
-    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-  <button>Delete this Character!</button>
-</form>
-<p>
-  Title: <%= @character.name %>
-</p>
+<div class="clearfix center">
+  <h1><%= @character.name %></h1>
+  <a href="/movies/<%= @movie.id %>/characters">Go Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="/movies/<%= @movie.id %>/trailers">View Trailers</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="/movies/<%=@movie.id %>/characters/<%= @character.id %>/edit">Edit Character</a>
+  <form action="/movies/<%= @movie.id %>/characters/<%= @character.id %>" method="POST" >
 
-<img src="<%= @character.photo_url %>">
+    <p>
+      Title: <%= @character.name %>
+    </p>
+
+    <img src="<%= @character.photo_url %>">
+
+    <br>
+    <br>
+    <input type="hidden" name="_method" value="DELETE" />
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+    <button>Delete this Character!</button>
+  </form>
+</div>
