@@ -5,5 +5,8 @@ class CharactersController <ApplicationController
     render(:index)
   end
 
+  def show
 
+  end
+  
 end
