@@ -11,9 +11,9 @@
   <label for="actor"> Portrayed By: </label> <input type="text" name="actor" value="<%=@character.actor%>"/> <br />
   <label for="photo_url"> Photo URL: </label> <input type="text" name="photo_url" value="<%=@character.photo_url%>"/> <br />
   <label for="gender"> Gender: </label>
-    <select name="gender" selected="<%=@character.gender%>">
-      <option  selected= "<%=@character.gender== "1" ? "selected" : "" %>" value="1">Male</option>
-      <option selected= "<%=@character.gender== "2" ? "selected" : "" %>" value="2">Female</option>
+    <select name="gender">
+      <option  <%= @character.gender.to_i==1 ? "selected='selected'" : "" %> value="1">Male</option>
+      <option <%= @character.gender.to_i==2 ? "selected='selected'" : "" %> value="2">Female</option>
     </select> <br />
 
   <button>Update character</button>
