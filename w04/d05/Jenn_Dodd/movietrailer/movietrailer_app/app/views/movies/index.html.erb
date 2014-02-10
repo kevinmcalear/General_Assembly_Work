@@ -1,0 +1,12 @@
+<h1>It's ships! In space!</h1>
+
+<button><a href="movies/new">Add a Movie</a></button>
+
+<ul>
+  <% @movies.each do |movie| %>
+    <li>
+      <img src="<%= movie.poster_url %>">
+      <p><a href="/movies/<%= movie.id%>"><%= spaceship.name %></p>
+    </li>
+  <% end %>
+</ul>
