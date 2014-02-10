@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   
   def index
+    @trailers = Trailer.all
     @movies = Movie.all
     render(:index)
   end
