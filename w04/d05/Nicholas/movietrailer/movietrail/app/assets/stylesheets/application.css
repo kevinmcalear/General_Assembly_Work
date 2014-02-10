@@ -17,13 +17,18 @@ body {
 }
 img {
   width: 300px;
+  border-radius: 15px;
 }
 iframe {
   width: 640px;
   height: 390px;
 }
 
-
+.edit_delete {
+  width: 75px;
+  background-color: maroon;
+  font-size: 15px;
+}
 h1 {
   text-align: center;
   font-family: palatino;
@@ -31,14 +36,21 @@ h1 {
   font-weight: 100;
   color: slategrey;
   margin-top: 50px;
-  margin-left: -50px;
+
+}
+h2 {
+
+  font-family: palatino;
+  font-style: italic;
+  font-weight: 100;
+  color: slategrey;
+  margin-top: 50px;
 }
 
 li {
 
   list-style-type: none;
   text-align: center;
-  margin-left: -40px;
   color: white;
 }
 label {
@@ -56,6 +68,7 @@ button {
   color: white;
   padding: 5px;
   width: 150px;
+  border-radius: 10px;
 }
 .characters {
   margin-left: 40px;
@@ -70,5 +83,5 @@ a {
 }
 div {
   text-align: center;
-  margin-left: -40px;
+
 }

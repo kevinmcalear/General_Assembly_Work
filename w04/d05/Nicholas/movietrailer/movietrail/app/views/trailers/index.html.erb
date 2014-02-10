@@ -1,8 +1,11 @@
 <h1> The Trailer for <%= @movie.title %> </h1>
 <div>
+<button><a href="/movies/<%= @movie.id %>/trailers/new">Add a Trailer</a></button>
+<br></br>
 <button class='characters'><a href="/movies">Home</a></button><button class='characters'><a href="/movies/<%= @movie.id %>/characters">Characters</a></button>
 </div>
 
 <div class='trailer'>
 <iframe src="http://www.youtube.com/embed/<%= @trailer.embed_url %>" />
 </div>
+

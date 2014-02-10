@@ -11,5 +11,14 @@ class TrailersController < ApplicationController
     render(:show)
   end
 
+  def new
+    @movie = Movie.find(params[:movie_id])
+    render(:new)
+  end
+
+  def create
+    @movie = Movie.find(params[:movie_id])
+    Trailer.create(title: params[:title], embed_url: params[:embed_url], movie_id: @movie.id)
+  end
   
 end
