@@ -44,5 +44,11 @@ class CharactersController < ApplicationController
     redirect_to("/movies/#{params[:movie_id]}/characters")
   end
 
+  def destroy
+    @character = Character.find(params[:id])
+    @character.destroy
+    redirect_to("/movies/#{params[:movie_id]}/characters")
+  end
+
 
 end
