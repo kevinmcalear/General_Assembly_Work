@@ -7,7 +7,7 @@ class CreateAliens < ActiveRecord::Migration
       t.text :organic_substrate
       t.string :weakness
       t.string :powers
-      t.references :spaceships
+      t.references :spaceship
     end
   end
 end
