@@ -1,3 +1,3 @@
-class Trailer
+class Trailer < ActiveRecord::Base
   belongs_to :movie
 end

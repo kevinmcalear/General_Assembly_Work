@@ -1,1 +1,6 @@
-show.html.erb
+<h1> <%= @trailer.title %> </h1>
+<button><a href="/movies/<%= @movie.id %>/trailers">Go Back to Trailer List</a></button>
+<br>
+<iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="http://www.youtube.com/embed/<%= @trailer.embed_url %>"
+  frameborder="0"/>
