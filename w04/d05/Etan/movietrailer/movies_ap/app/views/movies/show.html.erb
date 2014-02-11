@@ -1,0 +1,33 @@
+<body>   
+  <div>Title: <%= @movie.title %></div>
+  <br />
+  <div>Year: <%= @movie.year %></div>
+  <br />
+  <div>Poster: <img src = "<%= @movie.poster_url %>" height = "450" width "300"/>
+
+<form action="/movies">
+  <input type="submit" value="Click here to go back to all movies">
+</form>
+
+<form action="/movies/<%= @movie.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE" />
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Click here to delete this movie forever!</button>
+</form>
+
+<form action="/movies/<%= @movie.id %>/edit" method="GET">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Click here to UPDATE this movie</button>
+</form>
+
+<form action="/movies/<%= @movie.id %>/actors" method="GET">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>View and Add a Actor</button>
+</form>
+
+<form action="/movies/<%= @movie.id %>/trailers" method="GET">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>View and Add a Movie Trailer</button>
+</form>
+
+</body>

@@ -1,0 +1,21 @@
+<h1>Add character for "<%= @movie.title %>"</h1>
+
+<form action="/movies/<%= @movie.id %>/characters" method="POST"/>
+  <input type="hidden" name="authenticity_token" value="form_authenticity_token"/>
+
+  <label>
+    Name:
+    <input type="text" name="name"/>
+  </label>
+
+  <br/>
+  
+  <label>
+    Photo URL:
+    <input type="url" name="photo_url"/>
+  </label>
+
+  <br/>
+
+  <button>Add character</button>
+</form>

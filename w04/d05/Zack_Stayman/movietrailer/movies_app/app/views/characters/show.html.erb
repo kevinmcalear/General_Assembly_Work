@@ -1,0 +1,18 @@
+<h1><%= @character.name %> </h1>
+
+<img src="<%= @character.photo_url %>" height="300"> 
+
+<ul>
+<% @character.movies.each do |movie| %>
+<li><a href="/movies/<%= movie.id %>"><%= movie.title %></a></li>
+<% end %>
+</ul>
+
+<a href="/characters/<%= @character.id %>/edit">Update Information</a>
+
+<form action="/characters/<%= @character.id %>" method="POST" >
+  <input type="hidden" name="_method" value="DELETE" />
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Delete this Character</button>
+</form>
+<a href="/characters">All Characters</a>

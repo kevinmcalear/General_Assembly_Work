@@ -1,0 +1,10 @@
+<h1>SPACESHIP INDEX</H1>
+
+  <p><a href="/spaceships/new">CREATE NEW SPACESHIP</a>
+    <p><a href="/aliens/new">CREATE NEW ALIEN</a>
+    <p>
+
+  <% @spaceships.each do |ship| %>
+  <br>
+  <a href="/spaceships/<%= ship.id %> "><%= ship.name %></a>
+  <% end %>

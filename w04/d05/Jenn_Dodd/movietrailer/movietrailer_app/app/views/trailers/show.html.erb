@@ -1,0 +1,21 @@
+<h1> <%= @trailer.title %> </h1>
+<button><a href="/movies/<%= @movie.id %>/trailers">Go Back to Trailer List</a></button>
+<br>
+<button><a href="/movies/<%= @movie.id%>/trailers/<%= @trailer.id %>/edit">Edit this Trailer</a></button>
+<form action="/movies/<%= @movie.id %>/trailers/<%= @trailer.id %>" method="POST">
+  <input type="hidden" name="_method" value="delete">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Delete this Trailer</button>
+</form>
+
+<iframe id="ytplayer" type="text/html" width="640" height="390"
+src="http://www.youtube.com/embed/<%= @trailer.embed_url %>"
+frameborder="0"/>
+<br>
+
+<button><a href="/movies/<%= @movie.id%>/trailers/<%= @trailer.id %>/edit">Edit this Trailer</a></button>
+<form action="/movies/<%= @movie.id %>/trailers/<%= @trailer.id %>" method="POST">
+  <input type="hidden" name="_method" value="delete">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Delete this Trailer</button>
+</form>
