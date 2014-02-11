@@ -1,0 +1,17 @@
+<h1> Welcome to our movies database </h1>
+<br/>
+<h3> Here you see a list of movies you can check </h3>
+<h4><a href="/movies/new">Or you can add a new one</a></h4>
+<br/>
+<ul>
+  <% @movies.each do |movie| %>
+  <li>
+    <a href="/movies/<%= movie.id %>"><h4><%= movie.title %>"</h4><br/><img src="<%= movie.poster_url %>"/></a>
+    <form action="/movies/<%= movie.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE" />
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+      <button>Delete this movie</button>
+    </form>
+  </li>
+  <% end %>
+</ul>
