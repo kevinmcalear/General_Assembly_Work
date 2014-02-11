@@ -1,0 +1,27 @@
+<h3>Add a New Trailer to MovieTrail.er</h3>
+
+<form action="/movies/<%= params[:movie_id]%>/trailers" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  
+  <select name="movie_id">
+
+      <% @movies.each do |movie| %>
+      <option value=<%= movie.id %>><%= movie.title %></option>
+      <% end %>
+    
+  </select>
+
+  <label>
+    Trailer Title: <input type="text" name="title" />
+
+  </label>
+
+  <label>
+    YouTube Video URL: <input type="text" name="embed_url">
+
+  </label>
+
+  <button>Submit</button>
+  
+
+</form>

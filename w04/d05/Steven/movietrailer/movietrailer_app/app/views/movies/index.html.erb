@@ -1,0 +1,10 @@
+<h1>The Greatest Movies Of All Time!</h1>
+<a href="/movies/new">Add A New Movie!</a>
+
+<ul>
+  <% @movies.each do |movie| %>
+  <li><a href="/movies/<%=movie.id%>" /><%= movie.title %></li>
+  <img src="<%= movie.poster_url %>" width="400" />
+  <%end %>
+
+</ul>

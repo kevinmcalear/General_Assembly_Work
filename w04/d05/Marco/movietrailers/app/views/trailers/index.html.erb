@@ -1,0 +1,19 @@
+<h3><%= @trailer_movie.title%> Trailer(s)</h3>
+
+<% @trailers.each do |trailer| %>
+  
+  <ul>
+    <li><%= trailer.title%> - <a href="/movies/<%= trailer.movie_id %>/trailers/<%= trailer.id %>/edit">edit</a></li>
+    
+    <li>
+      <form action="/movies/<%= trailer.movie_id%>/trailers/<%= trailer.id%>" method="POST">
+          <input type="hidden" name="_method" value="DELETE" />
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+          <button>Delete Trailer</button>
+      </form></li>
+    <br>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/<%= trailer.embed_url%>" frameborder="0" allowfullscreen></iframe>
+  </ul>
+  <% end %>
+
+  <p><a href="/movies/<%= @trailer_movie.id %>/trailers/new">Add a trailer</a></p>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ArmadaApp</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<h1>ARMADA APP</h1>
+<h3><a href="/spaceships/">SPACESHIPS</a></h3>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+<h1>Alien Database</h1>
+
+<% @aliens.each do |alien| %>
+  
+  <ul>
+    <li>Name: <a href="/spaceships/<%=alien.spaceship_id%>/aliens/<%= alien.id%>"><%= alien.name%></a></li>
+    
+  </ul>
+  <% end %>

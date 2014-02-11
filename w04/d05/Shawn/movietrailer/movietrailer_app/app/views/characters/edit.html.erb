@@ -1,0 +1,16 @@
+<!-- edit.html.erb -->
+
+<h1> Edit <%= @character.name %>'s Data</h1>
+
+<form action="/movies/<%= @character.movie_id %>/characters/<%= @character.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch" />
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <label>Name:
+    <input type="text" name="title" /> </label>
+
+      <label>Photo URL:
+        <input type="url" name="photo_url" /></label>
+
+        <button>Submit</button>
+      </form>

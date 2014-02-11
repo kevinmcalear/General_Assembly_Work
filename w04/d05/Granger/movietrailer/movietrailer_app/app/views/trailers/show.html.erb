@@ -1,0 +1,11 @@
+<h1>Trailer:</h1>
+
+Movie: <%= @trailer.movie.title %>
+<br>
+title: <%= @trailer.title %>
+
+<br>
+<%= button_to "Destroy trailer", "/movies/#{@trailer.movie.id}/trailers/#{@trailer.id}", class: "button", method: :delete %>
+<p>
+<iframe width="560" height="315" src="<%= @trailer.embed_url %>" frameborder="0" allowfullscreen></iframe>
+</p>

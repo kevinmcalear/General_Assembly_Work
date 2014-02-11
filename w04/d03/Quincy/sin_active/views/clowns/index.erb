@@ -1,7 +1,11 @@
 <!-- Show list of clowns with links to their profiles -->
 
+<a href="">Create a new form</a>
+
 <ul>
   <% @clowns.each do |clown| %>
-    <li><%= clown.name %></li>
+    <li>
+      <a href="/clowns/<%= clown.id %>"><%=clown.name %></a>
+      </li>
   <% end %>
 </ul>

@@ -1,0 +1,19 @@
+<form action="/movies/<%= @movie.id %>/trailers/<%= @trailer.id %>" method="POST" />
+  <input type="hidden" name="_method" value="PUT"/>
+
+  <label>
+    Title:
+    <input type="text" name="title" value="<%= @trailer.title %>" />
+  </label>
+
+  <br/>
+
+  <label>
+    Embed URL:
+    <input type="url" name="embed_url" value="<%= @trailer.embed_url %>" />
+  </label>  
+  
+  <br/>
+
+  <button>Update trailer</button>
+</form>
