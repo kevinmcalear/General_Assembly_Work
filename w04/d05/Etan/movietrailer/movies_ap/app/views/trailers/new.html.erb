@@ -1,0 +1,20 @@
+<body>
+  <h1> Create a trailer! </h1>
+  <form action="/movies/<%= @trailer %>/trailers" method="POST">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+    <label>
+      What's the title of this trailer?
+      <input type="text" name="name" />
+    </label>
+
+    <label>
+      Paste in a URL for a trailer for this movie:
+      <input type="text" name="embed_url" />
+    </label>
+
+    <button>Upload your movie trailer. Click here!</button>
+
+  </form>
+
+</body>

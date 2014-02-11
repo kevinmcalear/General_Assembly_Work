@@ -1,0 +1,41 @@
+<h3>Make an Alien!</h3>
+
+<form action="/spaceships/<%= @spaceship.id %>/aliens" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+  <label>
+    Name:
+    <input type="text" name="name">
+  </label>
+
+  <label>
+    Photo URL:
+    <input type="text" name="photo_url">
+  </label>
+
+  <label>
+    Appendages:
+    <input type="text" name="appendages">
+  </label>
+
+  <label>
+    Origin:
+    <input type="text" name="origin">
+  </label>
+
+  <label>
+    Organic Substrate:
+    <input type="text" name="organic_substrate">
+  </label>
+
+  <label>
+    Weakness:
+    <input type="text" name="weakness">
+  </label>
+
+  <label>
+    Strength:
+    <input type="text" name="strength">
+  </label>
+
+  <button>All Aboard!</button>
+</form>

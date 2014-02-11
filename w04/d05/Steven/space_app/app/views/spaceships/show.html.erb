@@ -1,0 +1,12 @@
+<!-- show.html.erb -->
+
+<h1><%= @spaceship.name %></h1>
+<ul>
+  <li> <img src="<%= @spaceship.photo_url %>" width="500"/> </li>
+  <li> Capacity: <%= @spaceship.capacity %> </li>
+  <li> Purpose: <%= @spaceship.purpose %> </li>
+  <li> Origin: <%= @spaceship.origin %> </lie>
+</ul>
+<a href="/spaceships"> List all spaceships </a>
+
+<a href="/spaceships/<%= @spaceship.id %>/aliens/new"> Add a new alien </a>

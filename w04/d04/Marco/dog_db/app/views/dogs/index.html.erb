@@ -1,0 +1,10 @@
+<h1>WHO LET THE DOGS OUT?!</h1>
+
+<ul>
+  <% @dogs.each do |dog| %>
+    <li><a href="/dogs/<%=dog.id%>"><%= dog.name%></a></li>
+    <!-- <li><%= dog.breed%></li>
+    <li><%= dog.age%></li> -->
+  <% end %>
+
+</ul>

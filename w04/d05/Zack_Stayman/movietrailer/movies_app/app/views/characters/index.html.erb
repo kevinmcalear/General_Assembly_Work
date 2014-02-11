@@ -1,0 +1,8 @@
+<h1>CHARACTERS</h1>
+<ul>
+  <% @characters.each do |character| %>
+  <li><a href="/characters/<%= character.id %>"><%= character.name %></a></li>
+  <% end %>
+</ul>
+
+<a href="/characters/new">Add a Character</a>
