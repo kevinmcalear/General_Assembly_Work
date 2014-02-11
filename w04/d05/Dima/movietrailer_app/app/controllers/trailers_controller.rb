@@ -1,3 +1,5 @@
 class TrailersController < ApplicationController
-  # write out actions beginning with new trailer
+  def new
+    render(:new)
+  end
 end

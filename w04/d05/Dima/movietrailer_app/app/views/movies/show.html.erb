@@ -1,8 +1,10 @@
 <h1><%= @movie.title %></h2>
   <p>It was made in <%= @movie.year.to_s %></p>
+  <a href="/movies/<%= params[:id] %>/edit">Edit date and name of the movie<a/>
   <h2>Here are the characters of this movie</h2>
   <ul><% @movie.characters.each do |char| %>
     <li><h3><%= char.name %></h3>
+      <a href="/movies/<%= char.movie_id %>/characters/<%= char.id %>/edit">Edit a character</a>
     <img src="<%= char.photo_url %>" /></li>
     <% end %>
   </ul>

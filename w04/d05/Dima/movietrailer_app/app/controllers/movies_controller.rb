@@ -19,8 +19,22 @@ class MoviesController < ApplicationController
     redirect_to("/movies")
   end
 
+  def edit
+    render(:edit)
+  end
+
+  def update
+    @movie.update(movie_params)
+    redirect_to("/movies/#{params[:movie_id]}")
+  end
+
   def load_movie
     @movie = Movie.find(params[:id])
+  end
+
+  def destroy
+    @movie.destroy
+    redirect_to("/movies")
   end
 
   def movie_params
