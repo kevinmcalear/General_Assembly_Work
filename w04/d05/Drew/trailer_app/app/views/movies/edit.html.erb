@@ -1,0 +1,21 @@
+<h1>Edit <%=@movie.title %></h1>
+
+<form action="/movies/<%=@movie.id%>" method="POST">
+<input type="hidden" name="_method" value="PUT">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    Title: 
+    <input type="text" name="title" value="<%=@movie.title %>">
+  </label>
+  <label>
+    Year:
+    <input type="integer" name="year" value="<%=@movie.year %>">
+  </label>
+  <label>
+    Poster URL:
+    <input type="text" name="poster_url" value="<%=@movie.poster_url %>">
+  </label>
+
+  <button>Submit!</button>
+
+</form>

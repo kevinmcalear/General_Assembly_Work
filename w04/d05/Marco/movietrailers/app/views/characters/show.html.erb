@@ -1,0 +1,13 @@
+<h3><%= @char.name%></h3>
+
+<ul>
+    <li><a href="/movies/<%= @char.movie_id %>/characters/<%= @char.id %>/edit">Update This Character</a></li>
+    <li>
+      <form action="/movies/<%= @char.movie_id%>/characters/<%= @char.id%>" method="POST">
+          <input type="hidden" name="_method" value="DELETE" />
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+          <button>Delete Character</button>
+      </form></li>
+    <img src="<%= @char.photo_url%>"/>
+
+  </ul>

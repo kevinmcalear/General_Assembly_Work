@@ -27,7 +27,7 @@ Here's here you find the video_id:
 ![video_id](youtube_id.png)
 
 ## Part 1 - Database
-* Start by setting up your database schema and creating your database. Test it to make sure it works!
+* Start by setting up your database schema and creating sub database. Test it to make sure it works!
 
 ## Part 2 - Models & ActiveRecord
 * Set up your models using ActiveRecord. Test them to make sure they work and they are associated correctly.

@@ -1,0 +1,14 @@
+<h1>View all the characters in this movie</h1>
+
+<!-- <h2>Click <a href="/movies/new">here</a> to enter a new movie</h2> -->
+
+<ul>
+  <% @characters.each do |character| %>
+    <li><a href="/movies/<%= character.movie.id %>/characters/<%= character.id %>"><%= character.name %></a></li>
+  <% end %>
+</ul>
+
+
+<h3>Add a new character <a href="/movies/<%=params[:movie_id] %>/characters/new"> here</a></h3>
+
+<h3>Go Home<a href="/movies/"> here</a></h3>

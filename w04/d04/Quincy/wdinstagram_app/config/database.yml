@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: wdinstagram_app_development
+  pool: 5
+  username: QBreezy
+  password: sparky129

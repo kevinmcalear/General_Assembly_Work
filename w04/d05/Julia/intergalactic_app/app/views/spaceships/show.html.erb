@@ -1,0 +1,15 @@
+<h1><%=@spaceships.name%> Info</h1>
+
+<ul>
+	<li>Spaceship Name: <%= @spaceships.name%></li>
+	<li>Spaceship Capacity: <%= @spaceships.capacity%></li>
+	<li>Spaceship Origin: <%= @spaceships.origin %></li>
+	<li>Spaceship Photo: <img src="<%= @spaceships.photo_url %>" width="200"></li>
+	<li>Spaceship Purpose: <%= @spaceships.purpose %></li>
+</ul>
+
+<a href="/spaceships/<%=@spaceships.id%>/aliens"><button>View all Aliens in this Ship</button></a>
+
+<a href="/spaceships"><button>View all Spaceships</button></a>
+
+<a href="/spaceships/<%=@spaceships.id%>/aliens/new"><button>Add an Alien to the Ship</button></a>

@@ -27,7 +27,7 @@ def create
     strength: params[:strength],
     spaceship_id: params[:spaceship_id],
     })
-  redirect_to("/spaceships/#{params[:spaceship_id]}")
+  redirect_to("/spaceships/#{params[:spaceship_id]}/aliens")
 end
 def edit
   @alien = Alien.find(params[:id])

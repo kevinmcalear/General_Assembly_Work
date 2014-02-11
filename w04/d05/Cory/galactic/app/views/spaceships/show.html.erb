@@ -1,0 +1,15 @@
+<a href="/spaceships">View all of the spaceships!</a><br><br>
+
+<h1> Ship Name: <%= @spaceship.name %></h1>
+
+<img src="<%= @spaceship.photo_url %>"> 
+
+<h2>Capacity: <%= @spaceship.capacity %></h2>
+
+<h2>Origin: <%= @spaceship.origin %></h2>
+
+<h2>Species Allowed: <%= @spaceship.species_allowed %></h2>
+
+<h2>Purpose: <%= @spaceship.purpose %></h2>
+
+<h2>Create a new alien for this ship <a href="/spaceships/<%=@spaceship.id %>/aliens">here</a></h2>

@@ -1,0 +1,20 @@
+<body>
+  <h1> Create an actor! </h1>
+  <form action="/movies/<%= @movie %>/actors" method="POST">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+    <label>
+      What's the name of this actor?
+      <input type="text" name="name" />
+    </label>
+
+    <label>
+      Paste in a URL for this actor's headshot:
+      <input type="text" name="photo_url" />
+    </label>
+
+    <button>Upload your actor. Click here!</button>
+
+  </form>
+
+</body>
