@@ -1,0 +1,18 @@
+<form class="form" action="/movies/<%=@movie.id %>/characters/" method="POST">
+  <div class="top">
+    <h1>Add A Character</h1>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/movies/<%=@movie.id %>/characters/">Go Back Home</a>
+  </div>
+  <br>
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    <input class="input" type="text" name="name" placeholder="The Character's Name" />
+  </label>
+  <p>
+    <label>
+      <input  class="input" type="text" name="photo_url" placeholder="A Photo URL Of Them" />
+    </label>
+  </p>  
+  <button class="button">Add That Character!</button>
+</form>

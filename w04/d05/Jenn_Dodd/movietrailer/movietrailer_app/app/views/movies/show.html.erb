@@ -1,0 +1,15 @@
+<h1> <%= @movie.title %> </h1>
+<button><a href="/movies">Go Back to Movies</a></button>
+<button><a href="/movies/<%= @movie.id%>/characters">See Character List</a></button>
+<button><a href="/movies/<%= @movie.id%>/trailers">View Trailers</a></button>
+<br>
+<img src="<%= @movie.poster_url %>">
+<p><%= @movie.title %></p>
+<p><%= @movie.year %></p>
+<button><a href="/movies/<%= @movie.id%>/edit">Edit this Movie</a></button>
+
+<form action="/movies/<%= @movie.id %>" method="POST">
+  <input type="hidden" name="_method" value="delete">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Delete this Movie</button>
+</form>

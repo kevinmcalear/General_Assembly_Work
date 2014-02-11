@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: movietrailers_app
+  pool: 5
+  username: rorybudnick
+  host: localhost
+  timeout: 5000

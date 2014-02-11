@@ -1,0 +1,17 @@
+<h1> Create a new trailer </h1>
+
+<form action="/movies/<%= params[:movie_id] %>/trailers" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    Name:
+    <input type="text" name="title" />
+  </label>
+
+  <label>
+    Embed URL:
+    <input type="text" name="embed_url" />
+  </label>
+
+
+  <button>CREATE TRAILER</button>
+</form>

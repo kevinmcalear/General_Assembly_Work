@@ -1,0 +1,9 @@
+<h1>Index of Galactic Spaceships!!!</h1>
+
+<h2>Click <a href="/spaceships/new">here</a> to enter a new spaceship</h2>
+
+<ul>
+  <% @spaceships.each do |spaceship| %>
+    <li><a href="/spaceships/<%= spaceship.id %>"><%= spaceship.name %></li>
+  <% end %>
+</ul>

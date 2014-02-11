@@ -1,0 +1,18 @@
+<form class="form" action="/movies/<%=@movie.id %>/trailers/" method="POST">
+
+  <div class="top">
+  <h1>Add A Trailer</h1>
+  <a href="/movies/<%=@movie.id %>/trailers/">Go Back Home</a>
+</div>
+<br>
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    <input class="input" type="text" name="name" placeholder="The trailer's Name" />
+  </label>
+  <p>
+  <label>
+    <input  class="input" type="text" name="embed_url" placeholder="11 Digit YouTube Code" />
+  </label>
+  </p>  
+  <button class="button">Add That Trailer!</button>
+</form>

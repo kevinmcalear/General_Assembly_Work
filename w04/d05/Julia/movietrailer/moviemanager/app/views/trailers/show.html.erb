@@ -1,0 +1,15 @@
+<h1><%= @movies.title%>'s Trailer Details </h1> 
+<a href="/movies"><button>Back to Movies</button></a>
+
+<form action="/movies/<%=@movies.id%>/trailers/<%=@trailers.id%>/" method="POST">
+<input type="hidden" name="_method" value="DELETE"/>
+<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+<button>Delete Trailer</button>
+</form>
+
+<h3>Trailer Title: <%=@trailers.title%></h3>
+<iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="<%= @trailers.embed_url%>"
+  frameborder="0"/>	
+

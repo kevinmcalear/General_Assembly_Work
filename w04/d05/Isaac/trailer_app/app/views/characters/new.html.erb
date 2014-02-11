@@ -1,0 +1,17 @@
+<h1> Create a new Character </h1>
+
+<form action="/movies/<%= params[:movie_id] %>/characters" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    Name:
+    <input type="text" name="name" />
+  </label>
+
+  <label>
+    Photo URL:
+    <input type="text" name="photo_url" />
+  </label>
+
+
+  <button>CREATE Character</button>
+</form>

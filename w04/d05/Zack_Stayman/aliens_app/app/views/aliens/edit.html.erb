@@ -35,11 +35,13 @@
 
   <label>
     Spaceship
-    <input type="text" name="spaceship" value="<%= Spaceship.find_by(id: params[:spaceship_id]).name %>"/>
-    <p><% Spaceship.all.each do |ship| %>
+    <select name="spaceship">
+     <% Spaceship.all.each do |ship| %>
+     <option value="<%= Spaceship.find_by(id: params[:spaceship_id]).name %>">
       <%= ship.name %>
-      <% end %></p>
+    </option>
+    <% end %>
   </label>
 
-  <button>Update your alien</button>
+  <input type="submit" value="Update your alien" />
 </form>

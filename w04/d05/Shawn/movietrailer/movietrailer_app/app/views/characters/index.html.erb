@@ -1,0 +1,17 @@
+<!-- index.html.erb -->
+<header>
+  <ul> 
+    <li><a href="/movies"> List all movies </a></li>
+    <li><a href="/movies/new"> Add a movie </a> </li>
+    <li><a href="/movies/<%= @movie.id %>/characters/new"> Add Characters </a></li>
+  </ul>
+</header>
+
+
+<h1> Characters in <%= @movie.title %> </h1>
+<ul>
+  <% @characters.each do |character| %>
+  <li><%=  character.name %></li>
+  <ul><li><img src="<%= character.photo_url %>"></li></ul>
+  <% end %>
+</ul>
