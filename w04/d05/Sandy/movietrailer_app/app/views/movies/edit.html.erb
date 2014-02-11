@@ -1,0 +1,19 @@
+<h1> Update Movie: <%=@movie.title %></h1>
+
+<form action= "/movies/<%=@movie.id %>" method="POST">
+
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <label> Edit Title:
+      <input type="text" name="title"/>
+    </label>
+
+    <label> Edit Year:
+      <input type="text" name="year"/>
+    </label>
+
+    <label> Edit Poster URL:
+      <input type="text" name="poster_url"/>
+    </label>
+
+    <button> Submit </button>

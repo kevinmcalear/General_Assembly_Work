@@ -1,0 +1,19 @@
+<form action="/movies/<%= @movie.id %>/characters/<%= @character.id %>" method="POST"/>
+  <input type="hidden" name="_method" value="PUT" />
+
+  <label>
+    Name:
+    <input type="text" name="name" value="<%= @character.name %>" />
+  </label>
+
+  <br/>
+  
+  <label>
+    Photo URL:
+    <input type="url" name="photo_url" value="<%= @character.photo_url %>" />
+  </label>
+  
+
+
+  <button>Update character</button>
+</form>

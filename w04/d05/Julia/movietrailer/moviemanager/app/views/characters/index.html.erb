@@ -1,0 +1,9 @@
+<h1>Movie Characters</h1>
+
+<ul>
+<% @movie_characters.each do |character| %>
+<li><a href="/movies/<%=character.movie_id%>/characters/<%=character.id%>"><%= character.name %></a></li>
+<% end %>
+</ul>
+
+<a href="/movies"><button>Back to All Moves</button></a>

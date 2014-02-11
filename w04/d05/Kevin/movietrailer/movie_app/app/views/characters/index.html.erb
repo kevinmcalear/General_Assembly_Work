@@ -1,0 +1,19 @@
+<header class="clearfix center">
+<h1><%=@movie.name %>'s Characters</h1>
+<a href="/movies/<%=@movie.id %>">Go Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="/movies/<%= @movie.id %>/characters/new">Add A New Character</a>
+</header>
+<br>
+<br>
+<div class="main">
+  <ul class="cbp-ig-grid">
+    <% @characters.each do |character| %>
+    <li>
+      <a href="/movies/<%=@movie.id %>/characters/<%=character.id %>">
+        <span class="cbp-ig-icon <%= @icons.sample %>"></span>
+        <h3 class="cbp-ig-title"><%= character.name %></h3>
+        <span class="cbp-ig-category"><%= @movie.name %></span>
+      </a>
+      <% end %>
+    </ul>
+  </div>

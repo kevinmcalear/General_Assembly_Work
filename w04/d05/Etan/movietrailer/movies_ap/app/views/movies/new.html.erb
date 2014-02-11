@@ -1,0 +1,25 @@
+<body>
+  <h1> Create a movie! </h1>
+  <form action="/movies" method="POST">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+    <label>
+      What's the title of the movie?
+      <input type="text" name="title" />
+    </label>
+
+    <label>
+      What year was the movie made?
+      <input type="integer" name="year" />
+    </label>
+
+    <label>
+      Paste in a URL for post of this movie:
+      <input type="text" name="poster_url" />
+    </label>
+
+    <button>Upload your movie. Click here!</button>
+
+  </form>
+
+</body>
