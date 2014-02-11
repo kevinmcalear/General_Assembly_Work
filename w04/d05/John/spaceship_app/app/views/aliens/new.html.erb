@@ -1,0 +1,23 @@
+<h1>New alien for <%= @spaceship.name %>:</h1>
+
+<form action="/spaceships/<%= @spaceship.id%>/aliens" method="POST" />
+
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>" />
+
+  <label>
+    Name:
+    <input type="text" name="name">
+  </label>
+
+  <label>
+    Species:
+    <input type="text" name="species">
+  </label>
+
+  <label>
+    Strength:
+    <input type="text" name="strength">
+  </label>
+
+  <button>Birth Alien!</button>
+</form>
