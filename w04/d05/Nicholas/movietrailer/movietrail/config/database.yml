@@ -1,0 +1,10 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: movietrail_db
+  pool: 5
+  username: nicholasbundy
+  password:
+
+
