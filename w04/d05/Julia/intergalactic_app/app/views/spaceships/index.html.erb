@@ -1,0 +1,7 @@
+<h1>These are all the spaceships!</h1>
+
+<% @spaceships.each do |spaceship| %>
+	<li><a href="/spaceships/<%=spaceship.id%>"><%=spaceship.name%></a></li>
+	<%end%>
+</ul>
+

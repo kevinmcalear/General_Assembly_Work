@@ -1,0 +1,19 @@
+<!-- edit.html.erb -->
+
+<h1> Edit <%= @movie.title %></h1>
+
+<form action="/movies/<%= @movie.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch" />
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <label>Movie Title:
+    <input type="text" name="title" /> </label>
+
+    <label>Year:
+      <input type="int" name="year" /></label>
+
+      <label>Poster URL:
+        <input type="url" name="poster_url" /></label>
+
+        <button>Submit</button>
+      </form>
