@@ -1,0 +1,24 @@
+<h1> Add your photos here! </h1>
+
+<form action="/entry" method="POST">
+
+  <input name= "authenticity_token" type= "hidden" value= "<%= form_authenticity_token %>" />
+
+  <label>
+  Your Name: 
+  <input type="text" name="author"/>
+</label>
+
+<label>
+  Photo URL:
+  <input type="text" name="photo_url"/>
+</label>
+
+<label>
+  Date Taken 
+  <input type="date" name="date_taken"/>
+</label>
+
+<button> Submit </button>
+  
+  </form>

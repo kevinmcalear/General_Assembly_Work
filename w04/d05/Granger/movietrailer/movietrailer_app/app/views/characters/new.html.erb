@@ -1,0 +1,16 @@
+<h1> Create a new character for <%= @movie.title %>.</h1>
+
+<form action="/movies/<%= @movie.id %>/characters" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+   <label>Name</label>
+  <input type="text" name="name">
+
+
+  <label>Photo URL</label>
+  <input type="text" name="photo_url">
+
+  <button>Submit</button>
+
+
+</form>

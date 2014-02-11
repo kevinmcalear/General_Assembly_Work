@@ -1,0 +1,33 @@
+<div class="top">
+  <h1>Add A Ship</h1>
+  <a href="/spaceships">Go Back Home</a>
+</div>
+
+<form action="/spaceships" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    <input class="input" type="text" name="name" placeholder="Your Name" />
+  </label>
+  <p>
+  <label>
+    <input  class="input" type="text" name="photo_url" placeholder="Your URL Here" />
+  </label>
+  </p>
+  <label>
+    <input  class="input" type="text" name="capacity" placeholder="Capacity"/>
+  </label>
+  <p>  
+  <label>
+    <input  class="input" type="text" name="origin" placeholder="Origin"/>
+  </label>
+  </p>    
+  <label>
+    <input  class="input" type="text" name="species_allow" placeholder="Species Allowed"/>
+  </label>
+  <p>
+  <label>
+    <input  class="input" type="text" name="purpose" placeholder="Purpose"/>
+  </label>
+  </p>     
+  <button class="button">Upload Your Photo</button>
+</form>

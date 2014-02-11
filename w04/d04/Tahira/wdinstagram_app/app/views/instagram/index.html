@@ -1,0 +1,9 @@
+<h1> Home stream </h1>
+
+<ul>
+  <% @photos.each do |photo| %>
+    <img src="<%=photo.photo_url%>"/>
+    <div><%= photo.author + " " + photo.date_taken.to_s %></div>
+    <div><%= photo.caption %> </div>
+  <%end%>
+</ul>

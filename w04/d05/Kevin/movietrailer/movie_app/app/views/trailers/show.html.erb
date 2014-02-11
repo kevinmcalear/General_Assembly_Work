@@ -1,0 +1,20 @@
+<div class="center">
+  <h1><%= @trailer.name %></h1>
+  <a href="/movies/<%= @movie.id %>/trailers">Go Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="/movies/<%= @movie.id %>/characters">View Characters</a>
+  <br>
+  <br>
+  <p>
+    Title: <%= @trailer.name %>
+  </p>
+
+
+  <iframe width="853" height="480" src="//www.youtube.com/embed/<%= @trailer.embed_url %>?rel=0" frameborder="0" allowfullscreen></iframe>
+
+<br>
+<form action="/movies/<%= @movie.id %>/trailers/<%= @trailer.id %>" method="POST" >
+  <input type="hidden" name="_method" value="DELETE" />
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Delete this Trailer!</button>
+</form>
+</div>
