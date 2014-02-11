@@ -18,16 +18,16 @@ Your Rails app should have the following controller actions:
 
 ### Instructions
 
-1. Create a new rails app called wdinstagram_app `rails new wdinstagram_app -d postgresql`
-2. Configure your "config/database.yml file" (add your username, and add localhost as a host)
-3. Create a database for your app using psql
-4. Create a migration file that will help you create your entries table
-5. Run `rake db:migrate` to actually create that table
-6. Create your entry model 
-7. Create routes for your app using resources (make sure there are only routes for the actions that we need!)
-8. Create a controller with the required controller actions (listed above)
-9. Define the method for a controller action, then create any corresponding views for that action.
-10. Move on to the next controller action until you are done.
+x 1. Create a new rails app called wdinstagram_app `rails new wdinstagram_app -d postgresql`
+x 2. Configure your "config/database.yml file" (add your username, and add localhost as a host)
+x 3. Create a database for your app using psql
+x 4. Create a migration file that will help you create your entries table
+x 5. Run `rake db:migrate` to actually create that table
+x 6. Create your entry model 
+x 7. Create routes for your app using resources (make sure there are only routes for the actions that we need!)
+x 8. Create a controller with the required controller actions (listed above)
+x 9. Define the method for a controller action, then create any corresponding views for that action.
+x 10. Move on to the next controller action until you are done.
 
 ### Bonus
 

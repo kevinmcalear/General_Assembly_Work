@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: space_db
+  user: stevenweiss
+  host: localhost
+  pool: 5
+  timeout: 5000

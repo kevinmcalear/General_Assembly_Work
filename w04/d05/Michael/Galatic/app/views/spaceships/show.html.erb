@@ -1,0 +1,40 @@
+<h1><%= @spaceship.name%></h1>
+
+<p>
+capacity: <%=@spaceship.capacity%>
+<br>
+<img src="<%=@spaceship.photo_url%>" >
+</p>
+
+<form action="/spaceships/<%=@spaceship.id%>" method="POST">
+<input type="hidden" name"_method" value="DELETE" />
+<button>DELETE</button>
+</form>
+
+
+<ul>
+  <% @aliens.each do |alien| %>
+  <li> <a href="/spaceships/<%=@spaceship.id%>/aliens/<%=alien.id%>"><%=alien.name%></a></li>
+  <% end %>
+</ul>
+
+<form action="/spaceships/<%=@spaceship.id%>/aliens" method="POST">
+<input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>" />
+<label>
+  Alien Name:
+  <input type="text" name="name"/>
+</label>
+
+<label>
+  Origin:
+  <input type="integer" name="origin"/>
+</label>
+  
+<label>
+  Spaceship id:
+  <input type="integer" name="spaceships_id" />
+</label>  
+
+<button>Add Alien</button>
+</form>
+

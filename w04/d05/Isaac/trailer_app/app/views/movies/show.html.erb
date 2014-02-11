@@ -1,0 +1,35 @@
+<h1><%= @movie.title %> </h1>
+
+<img src="<%= @movie.poster_url %>" height="300"> 
+
+<ul>
+  <li><%= @movie.title %></li>
+  <li><%= @movie.year %></li>
+</ul>
+
+<h3>Trailer</h3>
+
+<p><a href="/movies/<%= @movie.id %>/trailers/new">Add a new trailer</a></p>
+
+<% @movie.trailers.each do |trailer| %>
+<p><a href="/movies/<%= @movie.id %>/trailers/<%= trailer.id %>"><%= trailer.title %></a> <br>
+<% end %>
+
+<h3>Characters:</h3>
+
+<p><a href="/movies/<%= @movie.id %>/characters/new">Add a new character</a></p>
+
+<% @movie.characters.each do |character| %>
+<p><a href="/movies/<%= @movie.id %>/characters/<%= character.id %>"><%= character.name %></a> <br>
+<% end %>
+
+<p><a href="/movies/<%= @movie.id %>/edit">Edit this movie</a>
+
+<p>
+<form action="/movies/<%= @movie.id %>" method="POST" >
+  <input type="hidden" name="_method" value="DELETE" />
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>DELETE THIS MOVIE</button>
+</form>
+<a href="/movies">MOVIES</a>
+

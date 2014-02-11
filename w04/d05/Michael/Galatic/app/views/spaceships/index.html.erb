@@ -1,0 +1,31 @@
+<h1> List of Spaceships</h1>
+
+
+<ul>
+  <% @spaceship.each do |spaceship| %>
+  <li> <a href="/spaceships/<%=spaceship.id%>"> <%=spaceship.name%></a></li>
+  <% end %>
+</ul>
+
+
+<form action="/spaceships" method="POST">
+<input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>" />
+<label>
+  Spaceship Name:
+  <input type="text" name="name"/>
+</label>
+
+<label>
+  Capacity:
+  <input type="integer" name="capacity"/>
+</label>
+
+<label>
+  Photo URL:
+  <input type="url" name="photo_url"/>
+</label>
+
+
+
+<button>Add Spaceship</button>
+</form>

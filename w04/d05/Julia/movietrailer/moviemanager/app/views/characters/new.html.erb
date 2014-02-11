@@ -1,0 +1,18 @@
+<h1>Add a Character</h1>
+
+<form action="/movies/<%=@movies.id%>/characters" method="POST">
+	<input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>"/>
+
+<label>
+	Character Name:
+	<input type="text" name="name">
+</label>
+
+<label>
+	Photo URL:
+	<input type="text" name="photo_url">
+</label>
+
+<button>Create Character</button>
+
+</form>

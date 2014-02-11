@@ -1,0 +1,24 @@
+<div>
+<button class='characters'><a href="/movies">Home</a></button><button class='characters'><a href="/movies/<%= @movie.id %>/trailers">Trailer</a></button>
+
+<h2>Characters in <%= @movie.title %> </h2>
+
+
+<button class='characters'><a href="/movies/<%= @movie.id %>/characters/new">Add a Character</a></button>
+</div>
+<div>
+<ul>
+  <% @characters.each do |character| %>
+    <p><%= character.name %></p>
+    <img src="<%= character.photo_url %>" />
+    <li><button><a href="/movies/<%=character.movie_id %>/characters/<%=character.id%>/edit"> Edit</a></button> 
+
+    <form action="/movies/<%= character.movie_id %>/characters/<%= character.id %>" method="POST" >
+      <input type="hidden" name="_method" value="DELETE" />
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+      <button class='del'>Delete</button>
+    </form>
+  </li>
+  <% end %>
+</ul>
+</div>

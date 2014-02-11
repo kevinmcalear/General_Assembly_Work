@@ -50,3 +50,4 @@ elsif first_country == :France && second_country == :Italy || first_country == :
 else 
 	puts "You haven't been there!"
 end
+
