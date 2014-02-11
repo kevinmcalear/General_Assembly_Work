@@ -1,0 +1,17 @@
+<body>
+  <h1>Actor List</h1>
+  <% @actors.each do |actor| %>
+    <div>Name: <%= actor.name %></div>
+    <br />
+    <div>Headshot: <img src = "<%= actor.photo_url %>" height = "100" width "70"/>
+    <br />
+  <% end %>  
+<form action="/movies/<%= @movie %>/actors/new">
+    <input type="submit" value="Submit an actor for this movie!">
+</form>
+
+<form action="/movies/<%= @movie %>" method="GET">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Go back to the movie page</button>
+</form>
+</body>

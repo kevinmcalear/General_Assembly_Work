@@ -11,7 +11,7 @@ the converted temperature.
 =end 
 
 def convert_to_farenheit(celsius_temp)
-	puts "Your temperature in Farenheit is: #{celsius_temp * (9/5) + 32}º"
+	puts "Your temperature in Farenheit is: #{celsius_temp * (9/5) + 32and}º"
 	return celsius_temp * ((9/5) + 32)
 end
 

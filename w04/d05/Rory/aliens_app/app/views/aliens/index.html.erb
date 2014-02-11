@@ -1,0 +1,8 @@
+<h1>ALL THE Aliens</h1>
+<ul>
+<% @aliens.each do |alien| %>
+  <li><a href="/spaceships/<%= alien.spaceship_id %>/aliens/<%= alien.id %>"><%= alien.name %></a></li>
+  <% end %>
+</ul>
+<a href="/spaceships/<%= params[:spaceship_id] %>/aliens/new">Create an alien</a>
+<a href="/spaceships/<%= params[:spaceship_id] %>"> To the ship</a>

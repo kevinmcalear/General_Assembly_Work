@@ -1,0 +1,26 @@
+
+DROP TABLE IF EXISTS journals;
+
+CREATE TABLE journals (
+  id serial PRIMARY KEY,
+  name varchar(50) NOT NULL
+);
+
+DROP TABLE IF EXISTS places;
+
+CREATE TABLE places (
+  id serial PRIMARY KEY,
+  city varchar(50) NOT NULL,
+  country varchar(50) NOT NULL,
+  journal_id integer references journals(id)
+);
+
+DROP TABLE IF EXISTS entries;
+
+CREATE TABLE entries (
+  id serial PRIMARY KEY,
+  date date NOT NULL,
+  travel_note varchar(300) NOT NULL,
+  place_id integer references places(id)
+  );
+

@@ -1,0 +1,10 @@
+
+development:
+  adapter: postgresql
+  database: spaceship
+  user: "dmitryjum"
+  host: "localhost"
+  pool: 5
+  timeout: 5000
+
+

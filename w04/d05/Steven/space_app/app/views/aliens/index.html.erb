@@ -1,0 +1,11 @@
+<!-- index.html.erb -->
+
+<h1> Aliens </h1>
+<ul><%@aliens.each do |alien|%>
+  <li>Name: <%=alien.name%></li>
+  <li>Origin: <%= alien.origin %></li>
+  <li># Of Appendages: <%= alien.appendages %></li>
+  <li> Spaceship ID: <%= alien.spaceship_id %></li>
+ 
+  <%end%>
+</ul>
