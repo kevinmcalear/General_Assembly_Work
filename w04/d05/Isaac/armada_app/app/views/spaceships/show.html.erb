@@ -1,0 +1,28 @@
+<h1>SHOWING SPACESHIP</H1>
+
+  <p><a href="/spaceships/">SHOW ALL SPACESHIPS</a>
+    <p>
+
+Name: <%= @spaceship.name %>
+<br>
+Capacity: <%= @spaceship.capacity %>
+<br>
+Origin: <%= @spaceship.origin %>
+<br>
+Species allowed: <%= @spaceship.species_allowed %>
+<br>
+Purpose: <%= @spaceship.purpose %>
+<br>
+Aliens:
+<br>
+<ul>
+  <% @spaceship.aliens.each do |alien| %>
+  <a href="/spaceships/<%= @spaceship.id %>/aliens/<%= alien.id %>"><%= alien.name %></a>
+  <li></li>
+<% end %>
+</ul>
+<p>
+  <%= button_to "DESTROY SPACESHIP", "/spaceships/#{@spaceship.id}", class: "button", method: :delete %>
+<p>
+  <img src="<%= @spaceship.photo_url %>"
+</p>

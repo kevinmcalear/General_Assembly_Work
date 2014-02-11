@@ -1,0 +1,6 @@
+<h1>Trailer Index for <%= @movie.title %></h1>
+<ul>
+<% @trailers.each do |trailer| %>
+  <li><%= trailer.title %></li>
+<% end %>
+</ul>

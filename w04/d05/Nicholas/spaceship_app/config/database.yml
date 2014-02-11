@@ -1,0 +1,9 @@
+
+development:
+  adapter: postgresql
+  database: spaceship_db
+  pool: 5
+  username: nicholasbundy
+  host: localhost
+  timeout: 5000
+

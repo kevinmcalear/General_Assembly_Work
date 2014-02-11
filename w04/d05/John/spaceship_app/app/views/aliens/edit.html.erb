@@ -1,0 +1,23 @@
+<h1>Edit <%= @alien.name %>:</h1>
+
+<form action="/spaceships/<%= @spaceship.id %>/aliens/<%= @alien.id %>" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+
+  <label>
+    Name:
+    <input type="text" name="name" value="<%= @alien.name %>" />
+  </label>
+
+  <label>
+    Species:
+    <input type="text" name="species" value="<%= @alien.species %>" />
+  </label>
+
+  <label>
+    Strength:
+    <input type="text" name="strength" value="<%= @alien.strength %>" />
+  </label>
+
+
+  <button>Update Alien</button>
+</form>

@@ -1,0 +1,19 @@
+<h3>Update <%= @trailer.title%>'s Information</h3>
+
+<form action="/movies/<%= params[:movie_id]%>/trailers/<%= @trailer.id%>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <label>
+    Trailer Title: <input type="text" name="title" value="<%= @trailer.title %>"/>
+
+  </label>
+
+  <label>
+    YouTube Video URL: <input type="text" name="embed_url" value="<%= @trailer.embed_url %>"/>
+
+  </label>
+
+  <button>Submit</button>
+
+</form>

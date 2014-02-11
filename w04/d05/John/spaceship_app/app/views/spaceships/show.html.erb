@@ -1,0 +1,18 @@
+<h1>Spaceship: <%= @spaceship.name %></h1>
+<img src="<%=@spaceship.photo_url%>" />
+
+<p>Capacity: <%= @spaceship.capacity %></p>
+<p>Origin: <%= @spaceship.origin %></p>
+<p>Purpose: <%= @spaceship.purpose %></p>
+
+
+<a href="/spaceships/<%= @spaceship.id %>/edit">Edit spaceship</a><br/>
+<a href="/spaceships/<%= @spaceship.id %>/aliens">View aliens on this spaceship</a><br/>
+<a href="/spaceships/<%= @spaceship.id %>/aliens/new">Create alien for this spaceship</a><br/>
+<a href="/spaceships">Spaceships Home</a><br/>
+<br/><br/><br/><br/>
+<form action="/spaceships/<%= @spaceship.id %>" method="POST" />
+  <input type="hidden" name="_method" value="DELETE" />
+  <button>Destroy spaceship</button>
+</form>
+
