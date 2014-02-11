@@ -1,0 +1,24 @@
+<h1>Enter a new movie!</h1>
+
+<div class="center">
+<form action="/movies" method="POST">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+  <label>
+    Title: 
+  <input type="text" name="title">
+  </label>
+  
+  <label>
+    Year:
+  <input type="integer" name="year">
+  </label>
+
+  <label>
+    Poster URL:
+  <input type="text" name="poster_url">
+</label>
+
+  <button>Enter Movie</button>
+
+</form>
+</div>
