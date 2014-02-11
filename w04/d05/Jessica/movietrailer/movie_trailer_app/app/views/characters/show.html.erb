@@ -1,0 +1,13 @@
+
+<h1><%= @character.name %></h1>
+<ul>
+  <li>Name: <%= @character.name %> </li>
+  <li>Photo: <img src="<%= @character.photo_url %>" %> </li>
+
+</ul>
+
+<form action="/movies/<%= @character.movie_id %>/characters/<%= @character.id %>" method="POST" >
+<input type="hidden" name="_method" value="DELETE" />
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Delete this Character!</button>
+</form>

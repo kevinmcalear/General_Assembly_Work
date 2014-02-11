@@ -1,0 +1,17 @@
+<h3>Here you can update current character</h3>
+<br/>
+<form action="/movies/<%= params[:movie_id] %>/characters/<%= @character.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch" />
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <label>
+    New name:
+    <input type="text" name="name" value="<% @character.name %>"/>
+  </lable>
+
+  <label>
+    New Photo:
+    <input type="text" name="photo_url" value="<%= @character.photo_url %>"/>
+  </label>
+  <button>Update the character</button>
+</form>

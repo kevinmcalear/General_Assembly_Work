@@ -1,0 +1,9 @@
+# PostgreSQL. Versions 8.2 and up are supported.
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: movietrailer_db
+  host: localhost
+  pool: 5
+  username: michaelwagner
+  password:

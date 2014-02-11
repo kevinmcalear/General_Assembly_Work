@@ -1,0 +1,23 @@
+<h1>Create a New Movie</h1>
+
+<form action="/movies" method="POST">
+	<input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>"/>
+
+	<label>
+		Movie Title: 
+		<input type="text" name="title">
+	</label>
+
+	<label>
+		Year Made:
+		<input type="integer" name="year">
+	</label>
+
+	<label>
+		Movie Poster URL:
+		<input type="text" name="poster_url">
+	</label>
+
+	<button>Create Movie</button>
+
+</form>

@@ -1,0 +1,16 @@
+<h1> Edit <%=@character.name%> </h1>
+
+<form action="/movies/<%=@movie.id%>/characters/<%= @character.id%>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <input name ="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+  <label>
+    Name:
+    <input type="text" name="name" value="<%=@character.name%>">
+  </label>
+
+  <label>
+    Picture URL:
+    <input type="text" name="photo_url" value="<%=@character.photo_url%>">
+  </label>
+  <button>Update character</button>
+</form>

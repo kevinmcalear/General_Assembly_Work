@@ -1,0 +1,15 @@
+<!-- Show list of clowns with links to their profiles -->
+
+<a href="/clowns"><h1>Check out our totally not-creepy clowns</h1></a>
+
+<a href="/clowns/new">Create a New Clown</a>
+
+<ul>
+  <% @clowns.each do |clown| %>
+    <li>
+      <a href="/clowns/<%= clown.id %>"><%= clown.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
