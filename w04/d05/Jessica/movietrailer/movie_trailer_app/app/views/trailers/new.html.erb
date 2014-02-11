@@ -1,0 +1,17 @@
+<h1>Input a Trailer</h1>
+<form action="/movies/<%= @movie.id %>/trailers" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+  
+  <label>
+      Title:
+      <input type="string" name="title">
+  </label>
+
+  <label>
+      Embeded URL:
+      <input type="text" name="embed_url">
+  </label>
+
+  <button>Create Trailer</button>
+
+</form>
