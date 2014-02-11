@@ -1,0 +1,20 @@
+<h1>Edit <%=@song.title %></h1>
+
+<form action="/artists/<%= params[:artist_id] %>/songs/<%=@song.id%>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    Title:
+    <input type="text" name="title" value="<%=@song.title%>"/>
+  </label>
+
+  <label>
+    Year:
+    <input type="integer" name="year" value="<%=@song.year%>" />
+  </label>
+
+  <button>Update</button>
+</form>
+
+@artist = Artist.find_by(id: params[:id])
+@artist = Artist.find_by(id: params[:artist_id])
