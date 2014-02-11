@@ -1,0 +1,16 @@
+<h1><%= @alien.name %> of spaceship <%= @spaceship.name %></h1>
+
+<p>Species: <%= @alien.species %></p>
+<p>Strength: <%= @alien.strength %></p>
+
+
+<a href="/spaceships/<%= @spaceship.id %>/aliens/<%= @alien.id %>/edit">Update Alien</a><br/>
+
+<a href="/spaceships/<%= @spaceship.id %>/aliens">All aliens on <%= @spaceship.name %></a>
+
+<br/><br/><br/>
+
+<form action="/spaceships/<%= @spaceship.id %>/aliens/<%= @alien.id %>" method="POST" />
+  <input type="hidden" name="_method" value="DELETE" />
+  <button>Retire Alien</button>
+</form>

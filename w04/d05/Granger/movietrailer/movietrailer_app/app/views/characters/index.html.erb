@@ -1,0 +1,6 @@
+<h1>Character Index for <%= @movie.title %></h1>
+<ul>
+<% @characters.each do |character| %>
+  <li><%= character.name %></li>
+<% end %>
+</ul>

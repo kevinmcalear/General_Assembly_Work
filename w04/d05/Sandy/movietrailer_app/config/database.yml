@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: assignments_db
+  user: syu
+  host: localhost
+  pool: 5
+  # username: movietrailer_app
+  # password:

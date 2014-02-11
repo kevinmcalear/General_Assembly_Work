@@ -1,0 +1,27 @@
+<div class="center"
+<a href="/movies">View all of the movies!</a>
+</div>
+
+<h1> Movie Title: <%= @movie.title %></h1>
+
+<h2>Year: <%= @movie.year %></h2>
+
+<img src="<%= @movie.poster_url %>">
+
+
+
+<h3>Update movie info <a href="/movies/<%=@movie.id %>/edit">here</a></h3>
+
+<h3>View trailers <a href="/movies/<%= @movie.id %>/trailers">here</a></h3>
+
+<h3>View characters <a href="/movies/<%=@movie.id %>/characters">here</a></h3>
+
+<form action="/movies/<%= params[:id]%>" method="POST">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+
+  <div class="center">
+  <button>Delete Movie</button>
+</div>
+
+</form>

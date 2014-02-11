@@ -1,0 +1,31 @@
+<form action="/spaceships" method="POST" >
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>
+    Name:
+    <input type="text" name="name" />
+  </label>
+
+  <label>
+    Capacity:
+    <input type="number" name="capacity" />
+  </label>
+
+  <label>
+    Photo URL:
+    <input type="text" name="photo_url" />
+  </label>
+
+  <label>
+    Origin:
+    <input type="text" name="origin" />
+  </label>
+
+  <label>
+    Purpose:
+    <input type="text" name="purpose" />
+  </label>
+
+
+  <button>Forge Spaceship</button>
+</form>

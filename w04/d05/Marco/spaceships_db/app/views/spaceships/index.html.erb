@@ -1,0 +1,12 @@
+<h1>Spaceship Database</h1>
+
+<% @spaceships.each do |ss| %>
+  
+  <ul>
+    <li>Vessel Name: <a href="/spaceships/<%=ss.id%>"><%= ss.name%></a></li>
+    <li>Capacity: <%= ss.capacity%></li>
+    <li>Origin: <%= ss.origin%></li>
+    <li>Class: <%= ss.purpose%></li>
+    <img src="<%= ss.photo_url%>"/>
+  </ul>
+  <% end %>

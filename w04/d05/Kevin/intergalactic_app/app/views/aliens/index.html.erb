@@ -1,0 +1,10 @@
+  <h1>Hello I'm The Aliens Index</h1>
+<a href="/spaceships/<%=@spaceship.id %>">Go Back To The Ship</a>
+
+<ul>
+  <% @aliens.each do |alien| %>
+    <li>
+      <a href="/spaceships/<%=@spaceship.id %>/aliens/<%=alien.id %>"><%= alien.name %></a>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,19 @@
+<iframe width="560" height="315" src="<%= @trailer.embed_url %>" frameborder="0" allowfullscreen></iframe>
+
+<br/>
+
+<p>"<%= @trailer.title %>"</p>
+
+<a href="/movies/<%= @movie.id %>/trailers/<%= @trailer.id %>/edit">Edit trailer</a>
+
+<br/><br/>
+
+<a href="/movies/<%= @movie.id %>/trailers">Back to trailers</a>
+
+<br/><br/><br/><br/>
+
+<form action="/movies/<%= @movie.id %>/trailers/<%= @trailer.id %>" method="POST" />
+  <input type="hidden" name="_method" value="DELETE" />
+  
+  <button>Remove this trailer</button>
+</form>

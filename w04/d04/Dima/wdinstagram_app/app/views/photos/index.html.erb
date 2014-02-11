@@ -1,0 +1,8 @@
+<h1> My photos </h1>
+<ul>
+  <% @photos.each do |i| %>
+    <li><a href="photos/<%= i.id %>"><img src="<%= i.photo_url %>"/></a></li>
+    <% end %>
+</ul>
+
+<p><a href="photos/new">Create a new photo</a></p>

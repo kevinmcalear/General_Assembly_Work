@@ -1,0 +1,10 @@
+<h1>ALL THE Trailers</h1>
+<ul>
+<% @trailers.each do |trailer| %>
+  <iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="http://www.youtube.com/embed/<%= trailer.embed_url %>?autoplay=0&origin=http://example.com"
+  frameborder="0"/>
+  <% end %>
+</ul>
+<a href="/movies/<%= params[:movie_id] %>/trailers/new">Add a trailer</a>
+<a href="/movies/<%= params[:movie_id] %>"> To the movie</a>

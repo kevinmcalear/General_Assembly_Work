@@ -1,0 +1,27 @@
+A database is where the bits and bytes of data are physically stored.  
+A DBMS is the interface into the database.  
+SQL is the language that interfaces with the database.  
+
+ACID compliance ensures that all database procedures are completed fully.  A database that is not ACID compliant would allow part of a process to run (and a few records to be deleted) before fully completing.  
+
+The Object Relational Mapper allows the developer to create records via meta-programming from objects that are instantiated from within a program.   The newly created records have their attributes properly mapped to the table columns as well as have their referential integrity validated from within the application. 
+
+Active Record is an example of an ORM. 
+
+
+Data that is stored in memory will be lost once the server session is ended.  
+Data stored in the database persist can be accessed across session.  An example would be an object instantiated: 
+Object.new
+
+The object could be passed to the DB: 
+Object.new
+Object.save
+
+or the object could be created and passed to the DB: 
+Object.create
+
+Countries has many athletes (athletes belong to countries)
+Athletes has many medals (medals belong to athletes)
+
+Events and athletes have a many to many relationship. 
+

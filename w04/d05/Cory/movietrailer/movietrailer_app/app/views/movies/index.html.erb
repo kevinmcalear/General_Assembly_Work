@@ -1,0 +1,11 @@
+<h1>Welcome to the Movie DB!</h1>
+
+<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTUaQiptVfdPTF_SLTv2oCSEJCDA0v89d_5aOVaMkO6ZVPSu56JgvrFgC_l">
+
+<h2>Click <a href="/movies/new">here</a> to enter a new movie</h2>
+
+<ul>
+  <% @movies.each do |movie| %>
+    <li><a href="/movies/<%= movie.id %>"><%= movie.title %></li>
+  <% end %>
+</ul>

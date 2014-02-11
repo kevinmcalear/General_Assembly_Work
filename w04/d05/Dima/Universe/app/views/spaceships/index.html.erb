@@ -1,0 +1,7 @@
+<h1>Here will be our spaceships!</h1>
+<br/>
+<ul>
+  <% @ship.each do |i| %>
+    <li> <img src="<%= i.photo_url %>"/> </li>
+  <% end %>
+</ul>
