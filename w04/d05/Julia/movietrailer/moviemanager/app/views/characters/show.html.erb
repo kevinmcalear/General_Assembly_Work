@@ -1,0 +1,12 @@
+<h1><%= @characters.name %></h1>
+<img src="<%=@characters.photo_url%>" width="200">
+
+<a href="/movies/<%=@movies.id%>/characters/<%=@characters.id%>/edit"><button>Update Character</button></a>
+
+<a href="/movies/<%=@movies.id%>"><button>Back to <%=@movies.title%></button></a>
+
+<form action="/movies/<%=@movies.id%>/characters/<%=@characters.id%>" method="POST">
+	<input type="hidden" name="_method" value="DELETE"/>
+	 <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+	 <button>Delete this Character!</button>
+</form>

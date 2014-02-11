@@ -1,0 +1,32 @@
+<div class="clearfix center">
+  <h1><%= @movie.name %></h1>
+  <a href="/movies">Go Back</a>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <a href="/movies/<%=@movie.id %>/edit">Edit Movie</a>
+  <br>
+  <br>
+  <br>
+  <h3>
+    Title: <%= @movie.name %>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Year: <%= @movie.year %>
+  </h3>
+  <div>
+    <a href="/movies/<%= @movie.id %>/characters">View Characters</a>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <a href="/movies/<%= @movie.id %>/trailers">View Trailers</a>
+  </div>
+  <br>
+  <img src="<%= @movie.poster_url %>">
+
+
+  <form action="/movies/<%= @movie.id %>" method="POST" >
+    <input type="hidden" name="_method" value="DELETE" />
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+    <button>Delete this Movie!</button>
+  </form>
+</div>

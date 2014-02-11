@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: movietrailer_db
+  pool: 5
+  username: dmitryjum
+  host: localhost
+  timeout: 5000

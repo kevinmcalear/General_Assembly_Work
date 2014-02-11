@@ -1,0 +1,17 @@
+<h1>Add a Trailer</h1>
+<button><a href="/movies/<%= @movie.id %>/trailers">Go Back to Trailer List</a></button>
+</div>
+
+<form action="/movies/<%= @movie.id %>/trailers" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <label>
+    <input class="input" type="text" name="title" placeholder="Trailer Name" />
+  </label>
+  
+  <label>
+    <input  class="input" type="text" name="embed_url" placeholder="Embed URL" />
+  </label>
+  
+  <button class="button">Add</button>
+</form>
