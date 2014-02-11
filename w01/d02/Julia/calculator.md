@@ -4,7 +4,9 @@
 - Practice with functions, loops, conditions, user-input, switch/case
 
 ###Prompt
-- You will be building a calculator.  A calculator can perform multiple arithmetic operations.  Your function should allow the user to choose which operation is expected, enter in the values to perform the operation on, and ultimately view the result.
+- You will be building a calculator.  A calculator can perform multiple arithmetic operations.  
+Your function should allow the user to choose which operation is expected, enter in the values to perform 
+the operation on, and ultimately view the result.
 - You should make git commits as you finish each phase, so you can see the history
 
 ###Specification:

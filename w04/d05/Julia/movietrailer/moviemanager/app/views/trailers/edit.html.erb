@@ -1,0 +1,19 @@
+<h1>Edit <%=@trailers.title%></h1>
+
+<form action="/movies/<%=@trailers.movie_id%>/trailers/<%=@trailers.id%>" method="POST">
+	<input type="hidden" name="_method" value="patch">
+	 <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+	<label>
+		Trailer Title:
+	<input type="text" name="title" value="<%=@trailers.title%>">
+	</label>
+
+	<label>
+		URL to Embed:
+		<input type="text" name="embed_url" value="<%=@trailers.embed_url%>">
+	</label>
+
+	<button>Update Trailer</button>
+
+</form>
