@@ -1,0 +1,22 @@
+<h1>Trailers for "<%= @movie.title %>"</h1>
+
+<br/>
+
+<a href="/movies/<%= @movie.id %>/trailers/new">Add trailer</a>
+
+<br/><br/>
+
+<% @trailers.each do |trailer| %>
+    <iframe width="560" height="315" src="<%= trailer.embed_url%>" frameborder="0" allowfullscreen></iframe>
+    
+    <br/>
+    
+    <a href="/movies/<%= @movie.id %>/trailers/<%= trailer.id %>">"<%= trailer.title %>"</a>
+
+    <br/><br/>
+
+<% end %>
+
+<br/><br/>
+
+<a href="/movies/<%= @movie.id %>">Back to "<%= @movie.title %>"</a>

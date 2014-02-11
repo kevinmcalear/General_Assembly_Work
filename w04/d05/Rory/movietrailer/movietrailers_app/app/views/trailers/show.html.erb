@@ -1,0 +1,8 @@
+<h1><%= @trailer.title %> </h1>
+
+<iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="http://www.youtube.com/embed/<%=@embed_url%>?autoplay=1"
+  frameborder="0"></iframe>
+
+
+<a href="/movies/<%= @trailer.movie_id %>/trailers"> Back to the movie</a>

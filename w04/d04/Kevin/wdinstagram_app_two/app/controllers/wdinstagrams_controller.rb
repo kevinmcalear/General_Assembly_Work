@@ -16,7 +16,7 @@ class WdinstagramsController < ApplicationController
       photo_url: params[:photo_url],
       date_taken: params[:date_taken]
       )
-    redirect_to("/pics")
+    render(:new)
   end 
 
   def show

@@ -1,0 +1,23 @@
+<div class='pushright'>
+  <h1> Movies </h1>
+  <button><a href="/movies/new">Add a Movie</a></button>
+</div>
+<div>
+  <ul>
+    <% @sorted_movies.each do |movie| %>
+
+    <button><a href='movies/<%= movie.id %>/characters'>Characters</a></button><button><a href='movies/<%= movie.id %>/trailers'> Trailer </a></button>
+
+    <li><img src="<%= movie.poster_url %>" /></li>
+
+    <li><button class='ed'><a href='movies/<%= movie.id %>/edit'>Edit</a></button></li>
+
+    <form action="/movies/<%= movie.id %>" method="POST">
+      <input type="hidden" name="_method" value="delete">
+      <input name='authenticity_token' type='hidden' value='<%= form_authenticity_token %>' />
+      <button class='ed'>Delete</button>
+    </form>
+    <br></br>
+    <% end %>
+  </ul>
+</div>

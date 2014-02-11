@@ -1,0 +1,31 @@
+<form action="/spaceships/<%= @spaceship.id %>" method="POST" >
+  <input type="hidden" name="_method" value="PUT">
+
+  <label>
+    Name:
+    <input type="text" name="name" value="<%= @spaceship.name %>" />
+  </label>
+
+  <label>
+    Capacity:
+    <input type="number" name="capacity" value="<%= @spaceship.capacity %>" />
+  </label>
+
+  <label>
+    Photo URL:
+    <input type="text" name="photo_url" value="<%= @spaceship.photo_url %>" />
+  </label>
+
+  <label>
+    Origin:
+    <input type="text" name="origin" value="<%= @spaceship.origin %>" />
+  </label>
+
+  <label>
+    Purpose:
+    <input type="text" name="purpose" value="<%= @spaceship.purpose %>" />
+  </label>
+
+
+  <button>Relaunch Spaceship</button>
+</form>

@@ -1,0 +1,26 @@
+<h1><%=@character.name%> (Portrayed by <%=@character.actor%>)</h1>
+
+<img src=<%=@character.photo_url%> class="view" height="400" width="300">
+
+
+<form class="action" action="/movies/<%=params[:id]%>/characters/<%=params[:id]%>" method="POST">
+<input type="hidden" name="_method" value="patch">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <legend>Update Character</legend>
+  <label for="name"> Name: </label> <input type="text" name="name" value="<%=@character.name%>"/> <br />
+  <label for="actor"> Portrayed By: </label> <input type="text" name="actor" value="<%=@character.actor%>"/> <br />
+  <label for="photo_url"> Photo URL: </label> <input type="text" name="photo_url" value="<%=@character.photo_url%>"/> <br />
+  <label for="gender"> Gender: </label>
+    <select name="gender">
+      <option  <%= @character.gender.to_i==1 ? "selected='selected'" : "" %> value="1">Male</option>
+      <option <%= @character.gender.to_i==2 ? "selected='selected'" : "" %> value="2">Female</option>
+    </select> <br />
+  <button>Update character</button>
+</form>
+
+<form class="action2" action="/movies/<%=params[:id]%>/characters/<%=params[:id]%>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Delete this character</button>
+</form>
+

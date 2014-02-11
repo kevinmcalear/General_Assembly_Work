@@ -1,0 +1,16 @@
+<h1>CREATE NEW ALIEN</h1>
+
+<form action="/aliens" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+  <label>Name:</label>
+  <input type="text" name="name">
+  <label>Origin:</label>
+  <input type="integer" name="origin">
+  <label>Ship:</label>
+  <select name="spaceship_id">
+  <% @spaceships.each do |spaceship| %>
+   <option value="<%= spaceship.id %>"><%= spaceship.name %></option>
+  <% end %>
+  </select>
+  <button>INCEPT ALIEN</button>
+</form>
