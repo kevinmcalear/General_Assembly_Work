@@ -14,7 +14,7 @@ end
 def create
   @movie = Movie.find(params[:movie_id])
   Character.create(name: params[:name], photo_url: params[:photo_url], movie_id: @movie.id)
-  redirect_to('/movies/#{@movie.id}/characters')
+  redirect_to("/movies/#{@movie.id}/characters")
 end
 
 def edit
@@ -30,8 +30,8 @@ def update
 end
 
 def destroy
-  @movie = Movie.find(params[:movies_id])
-  @character = @movies.characters.find(params[:id])
+  @movie = Movie.find(params[:movie_id])
+  @character = @movie.characters.find(params[:id])
   @character.destroy
   redirect_to("/movies/#{@movie.id}/characters")
 end

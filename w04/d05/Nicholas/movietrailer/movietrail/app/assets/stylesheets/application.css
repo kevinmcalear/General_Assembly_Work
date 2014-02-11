@@ -15,6 +15,9 @@ body {
   background-image: url("http://pxwallpaper.com/wp-content/uploads/2013/08/stars-and-galaxies-hd-163.jpg");
   background-repeat: repeat;
 }
+p {
+  color:white;
+}
 img {
   width: 300px;
   border-radius: 15px;
@@ -23,18 +26,18 @@ iframe {
   width: 640px;
   height: 390px;
 }
-
-.edit_delete {
-  width: 75px;
-  background-color: maroon;
-  font-size: 15px;
+.pushright {
+  margin-left: 40px;
 }
+.del{
+  background-color: maroon;
+}
+
 h1 {
-  text-align: center;
   font-family: palatino;
   font-style: italic;
   font-weight: 100;
-  color: slategrey;
+  color: gold;
   margin-top: 50px;
 
 }
@@ -70,6 +73,9 @@ button {
   width: 150px;
   border-radius: 10px;
 }
+.ed {
+  width: 300px;
+}
 .characters {
   margin-left: 40px;
 }
@@ -83,5 +89,4 @@ a {
 }
 div {
   text-align: center;
-
 }
