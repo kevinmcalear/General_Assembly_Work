@@ -11,43 +11,42 @@
  *= require_self
  *= require_tree .
  */
-body {
-  background-color: #696969;
+BODY {
+  background-color: #c0c0c0;
   font-family: 'Source Sans Pro', sans-serif;
+  font-color: white;
+  padding-left: 10px;
+ }
+
+h2 {
+  font-family: 'Russo One', sans-serif;
+  text-align: center;
+  font-size: 40px;
 }
 
-p {
-  font-size: 20px;
-}
-
-
-h1 {
+h3 {
+  font-family: 'Russo One', sans-serif;
   text-align: center;
 }
 
-form {
-  text-align:center;
-}
-
-h2 {
-  padding-left: 20px;
-  font-size: 35px;
-}
-
-a.link {
-  color: black;
-}
-
-a.visited {
-  color: black;
-  text-decoration: none;
+p {
+  padding-left: 10px;
 }
 
 img {
   width: 300px;
-  border-radius: 20px;
+  float: right;
+  padding-right: 100px;
 }
 
-label {
-  font-size: 20px;
+a:link{
+  color: #000000;
+}
+
+a:visited{
+  color: #000000;
+}
+
+a:hover{
+  color: #FFFFFF;
 }
