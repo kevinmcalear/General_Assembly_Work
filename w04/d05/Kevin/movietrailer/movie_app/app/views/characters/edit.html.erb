@@ -1,0 +1,18 @@
+<form class="form" action="/movies/<%=@movie.id %>/characters/<%= @character.id %>" method="POST">
+  <div class="top">
+    <h1>Edit A Character</h1>
+    <a href="/movies/<%=@movie.id %>/characters/<%= @character.id %>">Go Back Home</a>
+  </div>
+  <br>
+  <input type="hidden" name="_method" value="patch">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    <input class="input" type="text" name="name" value="<%= @character.name %>" />
+  </label>
+  <p >
+    <label>
+      <input  class="input" type="text" name="photo_url" value="<%= @character.photo_url %>" />
+    </label>
+  </p>  
+  <button class="submit">Edit That Character!</button>
+</form>

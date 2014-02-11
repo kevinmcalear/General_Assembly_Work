@@ -1,0 +1,14 @@
+<div class='pushright'>
+<h1> The Trailer for <%= @movie.title %> </h1>
+
+<button><a href="/movies/<%= @movie.id %>/trailers/new">Add a Trailer</a></button>
+</div>
+<div>
+<button class='characters'><a href="/movies">Home</a></button><button class='characters'><a href="/movies/<%= @movie.id %>/characters">Characters</a></button>
+</div>
+
+<div class='trailer'>
+<iframe src="http://www.youtube.com/embed/<%= @trailers.embed_url %>" />
+</iframe>
+</div>
+
