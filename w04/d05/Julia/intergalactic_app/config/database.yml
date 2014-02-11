@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: intergalactic_db
+  user: julia
+  host: localhost
+  pool: 5
+  timeout: 5000

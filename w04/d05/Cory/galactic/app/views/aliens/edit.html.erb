@@ -1,0 +1,38 @@
+<h1>Edit an Alien</h1>
+
+<form action="/spaceships/<%= params[:spaceship_id]%>/aliens/<%= @alien.id%>" method="POST">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="PUT">
+  <label>
+    Name: 
+  <input type="text" name="name" value="<%=@alien.name %>">
+  </label>
+  
+  <label>
+    Appendages:
+  <input type="integer" name="appendages" value="<%=@alien.appendages %>">
+  </label>
+
+  <label>
+    Origin:
+  <input type="text" name="origin" value="<%=@alien.origin %>">
+</label>
+
+  <label>
+    Organic Substrate:
+  <input type="text" name="organic_substrate" value="<%=@alien.organic_substrate %>">
+</label>
+
+  <label>
+    Weakness:
+  <input type="text" name="weakness" value="<%=@alien.weakness %>">
+</label>
+
+  <label>
+    Strength:
+  <input type="text" name="strength" value="<%=@alien.strength %>">
+</label>
+
+  <button>Edit Alien</button>
+
+</form>

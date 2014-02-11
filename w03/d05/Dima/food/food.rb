@@ -10,8 +10,10 @@ ActiveRecord::Base.establish_connection(
   )
 
 class Fridge < ActiveRecord::Base
-  has_many :food
-  has_many :drink
+  has_many :foods
+  has_many :drinks
+  #self.has_many(Foods{:dependent => :destroy})
+  #self.has_many(Drinks{:dependent => :destroy})
 end
 
 class Food < ActiveRecord::Base
@@ -22,41 +24,24 @@ class Drink < ActiveRecord::Base
   belongs_to :fridge
 end
 
-def list_all_fridges
-  Fridge.all.each do |f|
-    if f.brand != nil #doesn't work as I want, doesn't show anything if no fridges
-      puts "#{f.brand} is #{f.volume}cu.ft and at #{f.location}"
-    else
-      puts "There are no fridges yet"
-    end
-  end
+def select_fridge
+  list_all_fridges
+  brand_input = gets.chomp
+  fridge = Fridge.find_by(brand: brand_input)
+  return fridge #!!!!!!! returns string, not an object
 end
 
-def list_all_food(fridge)
-  fridge.food.all.each do |f|
-    if f.vegan == true # works,but gives Deprication warning, gives an example, but don't really understand it yet
-      puts "#{f.name} weighs #{f.weight}lbs and it's vegan" 
-    else
-      puts "#{f.name} weighs #{f.weight}lbs and it's not vegan"
-    end
-  end  
-end
-
-
-
-puts "Welcome to GA Fridge database \n \n"
-
-choice = ""
-while choice != "q"
-
+def menu
+  choice = ""
+  while choice != "q"
   puts "Here's what you can do: 
   * (L) List all the fridges
   * (A) Add a fridge
   * (R) Delete a fridge
   * (F) View food in the fridge
-  * (D) View all drinks in the fridge
   * (O) Add food to the fridge
-  * (E) Eat food from the fridge
+  * (D) View all drinks in the fridge
+  * (X) Add drink to a fridge
   * (C) Consume part of the drink
   * (F) Consume all of the drink
   * (Q) Exit"
@@ -82,42 +67,120 @@ while choice != "q"
     puts "\n\n"
   when "r"
     puts "please enter brand of the fridge you'd like to remove\n\n"
-    list_all_fridges
-    fridge_to_kill = gets.chomp
-    fridge = Fridge.find_by(brand: fridge_to_kill)
+    select_fridge
+    food_from_fridge = Food.all.where(fridge_id: fridge.id)
+    food_from_fridge.destroy_all
     fridge.destroy
-    puts "Your fridge has just been demolished"
+    puts "Your fridge has just been demolished and food in it"
     puts"\n\n"
   when "f"
-    puts "Please choose the fridge you'd like to open"
-    list_all_fridges
-    brand_input = gets.chomp
-    fridge = Fridge.find_by(brand: brand_input)
-    list_all_food(fridge)
-    #finish the refernce to the fridge list
-  when "o"
-    puts "Please choose the fridge you'd like to open"
-    if list_all_fridges != nil #doesn't work...damn :(
-      brand_input = gets.chomp
-      fridge = Fridge.find_by(brand: brand_input)
-      puts "What food would you like to pu in this fridge?"
-      food_name = gets.chomp
-      puts "How heavy is it?"
-      food_weight = gets.chomp.to_i
-      puts "Is it vegan? please answer (true) or (false)"
-      vegan = gets.chomp
-      food = fridge.food.new
-      food.name = food_name
-      food.weight = food_weight
-      food.vegan = vegan
-      food.save
-      puts "\n\n"
+    puts "Please enter brand of the fridge you'd like to open\n\n"
+    list_all_food(select_fridge)
+    puts "Would you like to eat anything?"
+    answer = gets.chomp
+    if answer == "yes"
+      puts "What would you like to eat?"
+      food_choice = gets.chomp
+      food_found = Food.find_by(name: food_choice)
+      food_found.destroy
+      puts "You've just eaten #{food_found.name}"
+    elsif answer == "no"
     else
-      puts "please add fridge first"
+      puts "Please answer yes or no"
     end
-  when "q"
-    puts "Good bye"
-  else
-    puts "Please enter correct letter from the menu"
+  when "d"
+    puts "Please enter brand of the fridge you'd like to open\n\n"
+    list_all_drinks(select_fridge)
+    puts "Would you like to drink anything?"
+    answer = gets.chomp
+    if answer == "yes"
+      puts "What would you like to drink?"
+      drink_choice = gets.chomp
+      drink_found = Drink.find_by(name: drink_choice)
+      puts "how much would you like to drink?"
+      amount = gets.chomp
+    elsif answer == "no"
+    else
+      puts "Please answer yes or no"
+    end
+  when "o"
+    puts "Please enter brand of the fridge you'd like to open\n\n"
+    select_fridge
+    puts "What food would you like to put in this fridge?"
+    food_name = gets.chomp
+    puts "How heavy is it?"
+    food_weight = gets.chomp.to_i
+    puts "Is it vegan? please answer (true) or (false)"
+    vegan = gets.chomp
+    binding.pry
+    food = fridge.create_food(name: food_name, weight: food_weight, vegan: vegan,
+      fridge_id: fridge.id) ### doesn't work, because fridge == nil, because it has string not, object
+    puts "\n\n"
+    when "x"
+    puts "Please enter brand of the fridge you'd like to open\n\n"
+    select_fridge
+    puts "What drink would you like to put in here?"
+    drink_name = gets.chomp
+    puts "What is the size of your drink?"
+    drink_size = gets.chomp
+    puts "Is it alcoholic or not? Please enter true/false"
+    alcoholic = gets.chomp
+    drink = fridge.drink.new
+    drink.name = drink_name
+    drink.size = drink_size
+    drink.alcoholic = alcoholic
+    drink.save 
+    when "q"
+      puts "Good bye"
+      return choice
+    else
+      puts "Please enter correct letter from the menu"
+    end
   end
 end
+
+def list_all_fridges
+  Fridge.all.each do |f|
+    if f.brand != nil #doesn't work as I want, doesn't show anything if no fridges
+     puts "#{f.brand} is #{f.volume}cu.ft and at #{f.location}"
+    else
+      puts "There are no fridges yet"
+    end
+  end
+end
+
+def list_all_food(fridge)
+  vegan_food = fridge.foods.where(vegan: true).to_a
+  not_vegan_food = fridge.foods.where(vegan: false).to_a
+  if vegan_food.length != 0 && not_vegan_food.length != 0
+    if vegan_food.length != 0
+      vegan_food.each {|f| puts "#{f.name} weighs #{f.weight.to_i}lbs and it's vegan"}
+    end
+    if not_vegan_food.length != 0
+      not_vegan_food.each {|f| puts "#{f.name} weighs #{f.weight.to_i}lbs and it's not vegan"}
+    end
+  else
+    puts "There is no food in the fridge, please add some"
+    menu
+  end
+end
+
+def list_all_drinks(fridge)
+  alco_drink = fridge.drinks.where(alcoholic: true).to_a
+  not_alco_drink = fridge.drinks.where(alcoholic: false).to_a
+  if alco_drink.length != 0 && not_alco_drink.length != 0
+    if alco_drink.length != 0
+      alco_drink.each {|d| puts "#{d.name} is #{d.size} ounces and it's acloholic"}
+    end
+    if not_alco_drink.length != 0
+      not_alco_drink.each {|d| puts "#{d.name} is #{d.size} ounces and not alcoholic"}
+    end
+  else
+    puts "There are no drinks in the fridge, please add some"
+    menu
+  end
+end
+
+puts "Welcome to GA Fridge database \n \n"
+
+  menu  

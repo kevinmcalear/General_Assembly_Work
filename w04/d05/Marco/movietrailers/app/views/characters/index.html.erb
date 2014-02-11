@@ -1,0 +1,10 @@
+<h3><%= @character_movie.title%> Character List</h3>
+
+<% @characters.each do |char| %>
+  
+  <ul>
+    <li><a href="/movies/<%= params[:movie_id]%>/characters/<%= char.id%>"><%= char.name%></a></li>
+  </ul>
+  <% end %>
+
+<p><a href="/movies/<%= @character_movie.id %>/characters/new">Add a character</a></p>

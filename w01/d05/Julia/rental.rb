@@ -4,26 +4,17 @@ class Person
     @gender = gender
     @age = age
   end
-  #name setters & getters
-  def name=(name)
-    @name = name
-  end
+  #name getters
   def name
     return @name
   end
 
-  #age setters & getters
-  def age=(age)
-    @age = age
-  end
+  #ageg etters
   def age
     return @age
   end
 
-  #age setters & getters
-  def gender=(gender)
-    @gender = gender
-  end
+  #age getters
   def gender
     @gender
   end
@@ -36,46 +27,29 @@ class Apartment
     @sqft = sqft
     @num_beds = num_beds
     @num_baths = num_baths
-    #@renter = renter
-    @apartment = apartment
   end
 
-  #set & get name
-  def name=(name)
-    @name = name
-  end
+  #get name
   def name
     return @name
   end
 
-  #set & get price
-  def price=(price)
-    @price = price
-  end
+  #get price
   def price
     return @price
   end
 
-  #set & get sqft
-  def sqft=(sqft)
-    @sqft = sqft
-  end
+  #get sqft
   def sqft
     return @sqft
   end
 
-  #set & get num_beds
-  def num_beds
-    @num_beds = num_beds
-  end
+  #sget num_beds
   def num_beds
     return @num_beds
   end
 
-  #set & get num_baths
-  def num_baths
-    @num_baths = num_baths
-  end
+  #get num_baths
   def num_baths
     return @num_baths
   end
@@ -88,95 +62,6 @@ class Apartment
     return @renter
   end
 
-  #set & get apartment
-   def apartment=(apartment)
-    @apartment = apartment
-  end
-  def apartment
-    return @apartment
-  end
-end
-
-class Building
-  def initialize(name, address, num_floors, apartments)
-    @name = name
-    @address = address
-    @num_floors = num_floors
-    @apartments = apartments
-    @all_apartments = []
-    @tenants = []
-  end
-
-  #set & get name
-  def name=(name)
-    @name = name
-  end
-  def name
-    return @name
-  end
-
-  #set & get address
-  def address=(address)
-    @address = address
-  end
-  def address
-    return @address
-  end
-
-  #set & get num floors
-   def num_floors=(num_floors)
-    @num_floors = num_floors
-  end
-  def num_floors
-    return @num_floors
-  end
-
-  #set & get apartments
-  def apartments=(apartments)
-    @apartments = apartments
-  end
-  def apartments
-    return @apartments
-  end
-
-  #view_building_details
-  def view_building_details
-    puts "Building Name: #{self.name()} \nBuilding Address: #{self.address()} \nBNumber of Floors: #{self.num_floors()} \nNumber of Apartments: #{self.apartments()}"
-  end
-
-  #add an apartment – view all apartments
-  def add_apartment(apartment)
-    self.all_apartments().push(apartment)
-  end
-
-  def all_apartments
-    return @all_apartments
-  end
-
-  #all tenants
-  def tenants(tenants)
-    self.tenants().push(tenants)
-  end
-end
-
-def create_apartment
-  puts "What is the apartment name?"
-  apartment_name = gets.chomp
-  puts "What is the apartment price?"
-  apartment_price = gets.chomp.to_i
-  puts "What is the apartment's square footage?"
-  apartment_sqft = gets.chomp.to_i
-  puts "How many bedrooms does it have?"
-  bedrooms = gets.chomp.to_i
-  puts "How many bathrooms does it have?"
-  bathrooms = gets.chomp.to_i
-  puts "Who is the renter?"
-  renter_name = gets.chomp
-  new_apartment = Apartment.new(apartment_name, apartment_price, apartment_sqft, bedrooms, bathrooms)
-end
-
-#puts create_apartment
-
 def create_tenant
   puts "What is the tenant's name?"
   tenant_name = gets.chomp
@@ -185,9 +70,74 @@ def create_tenant
   puts "What is the tenant's gender?"
   tenant_gender = gets.chomp
   new_tenant = Person.new(tenant_name, tenant_age, tenant_gender)
+  self.new_tenant=(new_tenant)
 end
 
-the_post = Building.new("The Post", "1449 Massachusetts Ave. NW", 9, 200)
+def to_s
+  if new_tenant
+    return "#{name} is occupied by #{new_tenant.name}"
+  else 
+    return "#{name} is for rent and costs #{price}"
+  end
+end
+end
+
+class Building
+  def initialize(name, address, num_floors)
+    @name = name
+    @address = address
+    @num_floors = num_floors
+    @apartments = []
+  end
+
+  #get name
+  def name
+    return @name
+  end
+
+  #get address
+  def address
+    return @address
+  end
+
+  #get num floors
+  def num_floors
+    return @num_floors
+  end
+
+  #get apartments
+  def apartments
+    return @apartments
+  end
+
+  #add apartment
+  def create_apartment
+    puts "What is the apartment name?"
+    name = gets.chomp
+    puts "What is the apartment price?"
+    price = gets.chomp.to_i
+    puts "What is the apartment's square footage?"
+    sqft = gets.chomp.to_i
+    puts "How many bedrooms does it have?"
+    num_beds = gets.chomp.to_i
+    puts "How many bathrooms does it have?"
+    num_baths = gets.chomp.to_i
+    apartment = Apartment.new(name, price, sqft, num_beds, num_baths)
+    self.apartments().push(apartment)
+  end
+
+
+  #view_building_details
+  def view_building_details
+    puts "Building Name: #{self.name()} \nBuilding Address: #{self.address()} \nBNumber of Floors: #{self.num_floors()} \nNumber of Apartments: #{self.apartments()}"
+  end
+end
+
+#puts create_apartment
+
+
+
+the_post = Building.new("The Post", "1449 Massachusetts Ave. NW", 9)
 puts "Welcome to #{the_post.name}"
 puts "What would you like to do?"
 

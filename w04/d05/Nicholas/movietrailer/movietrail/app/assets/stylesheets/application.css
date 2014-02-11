@@ -1,0 +1,92 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+body {
+  background-image: url("http://pxwallpaper.com/wp-content/uploads/2013/08/stars-and-galaxies-hd-163.jpg");
+  background-repeat: repeat;
+}
+p {
+  color:white;
+}
+img {
+  width: 300px;
+  border-radius: 15px;
+}
+iframe {
+  width: 640px;
+  height: 390px;
+}
+.pushright {
+  margin-left: 40px;
+}
+.del{
+  background-color: maroon;
+}
+
+h1 {
+  font-family: palatino;
+  font-style: italic;
+  font-weight: 100;
+  color: gold;
+  margin-top: 50px;
+
+}
+h2 {
+
+  font-family: palatino;
+  font-style: italic;
+  font-weight: 100;
+  color: slategrey;
+  margin-top: 50px;
+}
+
+li {
+
+  list-style-type: none;
+  text-align: center;
+  color: white;
+}
+label {
+  color: white;
+}
+
+.addmovie {
+  margin-left: 140px;
+  width: 300px;
+}
+button {
+  font-size: 18px;
+  background-color: black;
+  text-align: center;
+  color: white;
+  padding: 5px;
+  width: 150px;
+  border-radius: 10px;
+}
+.ed {
+  width: 300px;
+}
+.characters {
+  margin-left: 40px;
+}
+.trailer {
+  margin-left: 20px;
+  padding: 10px;
+}
+a {
+  color: silver;
+  font-family: helvetica;
+}
+div {
+  text-align: center;
+}

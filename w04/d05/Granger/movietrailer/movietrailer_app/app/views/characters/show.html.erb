@@ -1,0 +1,12 @@
+<h1>Character:</h1>
+
+Movie: <%= @character.movie.title %>
+<br>
+Name: <%= @character.name %>
+<br>
+
+<%= button_to "Destroy character", "/movies/#{@character.movie.id}/trailers/#{@chracter.id}", class: "button", method: :delete %>
+<br>
+<p>
+  <img src="<%= @character.photo_url %>"
+</p>

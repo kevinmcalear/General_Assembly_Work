@@ -1,0 +1,16 @@
+<h1> Create a new trailer for <%= @movie.title %>.</h1>
+
+<form action="/movies/<%= @movie.id %>/trailers" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+   <label>Name</label>
+  <input type="text" name="title">
+
+conro
+  <label>Embed URL</label>
+  <input type="text" name="embed_url">
+
+  <button>Submit</button>
+
+
+</form>

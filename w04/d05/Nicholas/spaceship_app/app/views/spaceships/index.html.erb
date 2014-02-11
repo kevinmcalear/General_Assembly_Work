@@ -1,0 +1,11 @@
+<h1> SPACESHIP WORLD!</h1>
+<div>
+<button><a href='/spaceships/new'>Create A New Ship</a></button>
+</div>
+<br></br>
+<h3> Click on a ship below to see more!</h3>
+<ul>
+  <% @spaceships.each do |ship| %>
+    <li><a href="/spaceships/<%=ship.id %>"><%=ship.name %></a></li>
+  <% end %>
+</ul>

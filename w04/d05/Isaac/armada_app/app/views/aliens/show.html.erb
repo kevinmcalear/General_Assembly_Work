@@ -1,0 +1,16 @@
+<h1>SHOWING ALIEN</H1>
+
+  <p><a href="/spaceships/aliens">SHOW ALL ALIENS</a>
+    <p>
+
+Name: <%= @alien.name %>
+<br>
+Origin: <%= @alien.origin %>
+<br>
+Spaceship this alien is on: <%= @spaceship.name %>
+<br>
+<%= button_to "DESTROY ALIEN", "/spaceships/#{@spaceship.id}/aliens/#{@alien.id}", class: "button", method: :delete %>
+<br>
+<p>
+  <img src="<%= @spaceship.photo_url %>"
+</p>
