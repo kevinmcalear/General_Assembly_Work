@@ -7,16 +7,21 @@
   <li>Year: <%=@movie.year%></li>
 </ul>
 
-<a href="/movies/<%=@movie.id%>/characters">Characters</a>
-<a href="/movies/<%=@movie.id%>/trailers">Trailers</a>
+<ul>
+<li><a href="/movies/<%=@movie.id%>/characters">Characters</a></li>
+<li><a href="/movies/<%=@movie.id%>/trailers">Trailers</a></li>
 
 
-<a href="/movies/<%=@movie.id%>/characters/new">Add a new character's information to this film.</a>
-<a href="/movies/<%=@movie.id%>/edit">Change information</a>
+<li><a href="/movies/<%=@movie.id%>/characters/new">Add a new character's information to this film.</a></li>
+<li><a href="/movies/<%=@movie.id%>/edit">Change information</a></li>
 
-<form action="/movies/<%=@movie.id%>" method="POST" >
+<li><form action="/movies/<%=@movie.id%>" method="POST" >
   <input type="hidden" name="_method" value="DELETE" />
-  <input name="authenticity_token" type "hidden" value="<%= form_authenticity_token %>" />
+  
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  
   <button>Remove this movie from the database</button>
+</form></li>
 
-  <a href="/movies">Return to index</a>
+  <li><a href="/movies">Return to index</a></li>
+</ul>

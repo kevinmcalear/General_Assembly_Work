@@ -1,6 +1,6 @@
 <h1>Add a New Character</h1>
 
-<form action="/movies/<%=params[:id]%>/characters" method="POST">
+<form action="/movies/<%=params[:movie_id]%>/characters" method="POST">
   <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>" />
 
   <label>
@@ -14,5 +14,4 @@
   </label>
 
   <button>Submit</button>
-
 </form>

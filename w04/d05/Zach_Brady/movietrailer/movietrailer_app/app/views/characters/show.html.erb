@@ -5,11 +5,13 @@
   <figcaption><%= @character.name %></figcaption>
 </figure>
 
-<a href="/movies/<%= @character.movie_id %>/characters"> Return</a>
-<a href="/movies/<%= @character.movie_id %>/character/<%= @character.id %>/edit">Update Information</a>
+<ul>
+<li><a href="/movies/<%= @character.movie_id %>/characters"> Return</a></li>
+<li><a href="/movies/<%= @character.movie_id %>/characters/<%= @character.id %>/edit">Update Information</a></li>
 
-<form action="/movies/<%= @character.movie_id %>/characters/<%= @character.id %>" method="POST" >
+<li><form action="/movies/<%= @character.movie_id %>/characters/<%= @character.id %>" method="POST" >
 <input type="hidden" name="_method" value="DELETE" />
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
   <button>Remove character from database</button>
-</form>
+</form></li>
+</ul>

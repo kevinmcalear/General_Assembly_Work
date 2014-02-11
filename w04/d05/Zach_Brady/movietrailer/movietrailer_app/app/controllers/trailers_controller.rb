@@ -1,6 +1,6 @@
 class TrailersController < ApplicationController
   def index
-    @trailers = Trailer.all
+    @trailers = Trailer.where(movie_id: params[:movie_id].to_i)
     render(:index)
   end
 

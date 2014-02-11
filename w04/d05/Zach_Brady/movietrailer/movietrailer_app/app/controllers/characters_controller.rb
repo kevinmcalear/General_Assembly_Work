@@ -15,7 +15,7 @@ class CharactersController < ApplicationController
       photo_url: params[:photo_url], 
       movie_id: params[:movie_id]
       } )
-    redirect_to("/movies/#{params[:movie_id]}")
+    redirect_to("/movies/#{params[:movie_id]}/characters")
   end
 
   def edit
@@ -28,7 +28,7 @@ class CharactersController < ApplicationController
     @character.update({
       name: params[:name],
       photo_url: params[:photo_url],
-      movie_id: Movie.find_by(name: params[:movie]).id
+      movie_id: Movie.find_by(title: params[:movie]).id
       })
     redirect_to("/movies/#{@character.movie_id}/characters")
   end
