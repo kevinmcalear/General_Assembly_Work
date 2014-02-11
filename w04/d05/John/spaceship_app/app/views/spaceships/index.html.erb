@@ -1,0 +1,11 @@
+<h1>Spaceships</h1>
+<a href="/spaceships/new">Create spaceship</a><br/><br/>
+
+<% @spaceships.each do |spaceship| %>
+  <img src="<%=spaceship.photo_url%>" /><br/>
+  <a href="/spaceships/<%= spaceship.id %>">Name: <%= spaceship.name %></a>
+  <p>Capacity: <%= spaceship.capacity %></p>
+  <p>Origin: <%= spaceship.origin %></p>
+  <p>Purpose: <%= spaceship.purpose %></p>
+  <br/>
+<% end %>

@@ -1,0 +1,20 @@
+<h1> Welcome to MovieTrail.er </h1>
+
+
+    
+  <table>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><img src="<%= movie.poster_url%>" width ="400"/></td> <%end%>
+
+    <% @trailers.each do |trailer| %>
+      <td><iframe width="560" height="315" src="<%= trailer.embed_url%>" frameborder="0"></iframe></td> <%end%>
+   
+   </tr>
+</table>
+
+
+
+
+
+

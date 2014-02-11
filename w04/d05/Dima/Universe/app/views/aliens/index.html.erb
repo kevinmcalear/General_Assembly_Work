@@ -1,0 +1,7 @@
+h1>Here will be our aleins!</h1>
+<br/>
+<ul>
+  <% @alien.each do |i| %>
+    <li> Alien by the name: <%= i.name %> and he's coming from <%= i.origin %> and his special force is <%= i.strength %> </li>
+  <% end %>
+</ul>

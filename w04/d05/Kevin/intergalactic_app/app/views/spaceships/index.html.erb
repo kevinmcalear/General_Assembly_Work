@@ -1,0 +1,10 @@
+  <h1>Hello I'm The Spaceships Index</h1>
+<a href="/spaceships/new">Add A Ship</a>
+<ul>
+  <% @spaceships.each do |spaceship| %>
+    <li>
+      <img src="<%= spaceship.photo_url %>">
+      <a href="/spaceships/<%=spaceship.id %>"><%= spaceship.name %></a>
+    </li>
+  <% end %>
+</ul>

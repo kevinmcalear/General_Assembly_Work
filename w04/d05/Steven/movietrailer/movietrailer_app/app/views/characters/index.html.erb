@@ -1,0 +1,16 @@
+<h1>Characters </h1>
+<a href="/movies/<%= @movie.id %>/characters/new">Add A New Character for <%= @movie.title %></br>
+<a href="/movies/<%= @movie.id %>">Back To <%= @movie.title %></a>
+
+
+<ul><%@characters.each do |character| %>
+  <a href="/movies/<%= @movie.id %>/characters/<%=  character.id%>">
+  <li><%= character.name %></li> 
+  <li><img src="<%= character.photo_url %>" width=500 /></li>
+  </a>
+  <%end %>
+
+
+
+</ul>
+

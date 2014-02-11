@@ -1,0 +1,12 @@
+<h1>Movie:</h1>
+
+Title: <%= @movie.title %>
+<br>
+Year: <%= @movie.year %>
+
+<br>
+<%= button_to "Destroy movie", "/movies/#{@movie.id}", class: "button", method: :delete %>
+<br>
+<p>
+  <img src="<%= @movie.poster_url %>"
+</p>

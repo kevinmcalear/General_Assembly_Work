@@ -67,6 +67,22 @@ def is_prime?(integer)
 	end
 end
 
+#another approach
+def is_prime?(number)
+	if number < 1
+		return false
+	end
+
+	divisor = 2
+	while number % divisor != 0
+		divisor += 1
+		if number == divisor
+			return true
+		end
+	end
+	return false
+end
+
 =begin
 Write a method `twisted_fizzbuzz` that takes a single number as an argument.
 

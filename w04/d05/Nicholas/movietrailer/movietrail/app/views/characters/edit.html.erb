@@ -1,0 +1,17 @@
+<h1> Edit Character </h1>
+
+<form action="/movies/<%= params[:movie_id] %>/characters/<%= params[:id] %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input name='authenticity_token' type='hidden' value='<%= form_authenticity_token %>' />
+  <label>
+    Name: 
+    <input type='text' name='name' value="<%= @character.name%>" />
+  </label>
+
+  <label>
+    Photo Url:
+    <input type='text' name='photo_url' value="<%=@character.photo_url%>"/>
+  </label>
+
+  <button class='addmovie'> Click to Edit Character </button>
+</form>
