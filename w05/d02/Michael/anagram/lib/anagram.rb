@@ -13,8 +13,7 @@ class Anagram
     @matches = []
     @matches = word_list.select do |word| 
         Anagram.is_anagram(word1,word)
-        # word.split("").sort==@word1_arry
-      end 
+      end
     return @matches.each{|match| puts match}
   end 
 end 

@@ -8,7 +8,7 @@ describe Anagram do
   end 
 
   it "#select_anagram"do 
-    expect(Anagram.select_anagram("listen", ["enlists","google","inlets","banana"]   ) ).to eq(["inlets"])
+    expect(Anagram.select_anagram("listen", ["enlists","google","inlets","banana"]   ) ).to eq("inlets")
   end 
 end 
 
