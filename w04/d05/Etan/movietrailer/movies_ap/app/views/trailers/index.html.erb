@@ -1,0 +1,24 @@
+<body>
+  <h1>Trailer List</h1>
+  <% @trailers.each do |trailer| %>
+    <div>Trailer Title: <%= trailer.title %></div>
+    <br />
+    <div>Trailer: 
+      <iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="http://www.youtube.com/embed/<%= trailer.embed_url %>"
+  frameborder="0"></iframe>
+    <br />
+  <% end %>  
+<form action="/movies/<%= @movie %>/trailers/new">
+    <input type="submit" value="Submit a trailer for this movie!">
+</form>
+
+
+<form action="/movies/<%= @movie %>" method="GET">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Go back to the movie page</button>
+</form>
+</body>
+
+
+

@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: movietrailer_db
+  pool: 5
+  username: coryhaber
+  password:
+  host: localhost 

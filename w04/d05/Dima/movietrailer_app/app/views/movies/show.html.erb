@@ -1,0 +1,18 @@
+<h1><%= @movie.title %></h2>
+  <p>It was made in <%= @movie.year.to_s %></p>
+  <a href="/movies/<%= params[:id] %>/edit">Edit date and name of the movie<a/>
+  <h2>Here are the characters of this movie</h2>
+  <ul><% @movie.characters.each do |char| %>
+    <li><h3><%= char.name %></h3>
+      <a href="/movies/<%= char.movie_id %>/characters/<%= char.id %>/edit">Edit a character</a>
+    <img src="<%= char.photo_url %>" /></li>
+    <% end %>
+  </ul>
+  <h4><a href="/movies/<%= params[:id] %>/characters/new">Here you can add another character</a></h4>
+  <br />
+  <h2> And this is the trailer for the movie </h2>
+  <% trailer= Trailer.all.where(movie_id: @movie.id) %>
+  <% trailer.each do |i| %>
+  <iframe width="560" height="315" src="<%= i.embed_url %>" frameborder="0" allowfullscreen></iframe>
+    <% end %>
+<p><a href="/movies"> Back to main page</a></p>

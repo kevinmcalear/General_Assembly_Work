@@ -1,0 +1,98 @@
+<h1><%=@movie.title%> (<%=@movie.year_released%> )</h1>
+<div class="separator">Movie Information</div>
+
+<img src="<%=@movie.poster_url%>" class="view" height="400" width="300"  />
+
+<form class="action" action="/movies/<%=@movie.id%>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <legend>Update Movie</legend>
+  <label for "title">Movie Title: </label> <input type="text" name="title" value="<%=@movie.title%>"/> <br />
+  <label for "year_released" >Year Released: </label> <input type="text" name="year_released" value="<%=@movie.year_released%>"/> <br />
+  <label for "genre">Genre: </label> <input type="text" name="genre" value="<%=@movie.genre%>"/> <br />
+  <label for "director"> Director: </label> <input type="text" name="director" value="<%=@movie.director%>"/> <br />
+  <label for "poster_url">Poster_URL: </label> <input type="text" name="poster_url" value="<%=@movie.poster_url%>"/> <br />
+  <button>Update Movie</button>  
+</form>
+
+<form class="action2" action="/movies/<%=@movie.id%>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Delete this movie</button>
+</form>
+
+<div class="separator">Trailer</div>
+
+<%if @trailer.nil? %>
+  <form class="view" action="/movies/<%=@movie.id%>/trailers" method="POST">
+    <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>" />
+    <input type="hidden" name="movies_id" value="<%=@movie.id%>"/>
+      <legend>Enter a Trailer</legend>
+      <label for="title">Title</label> <input type="text" name="title"/> <br />
+      <label for="embed_url">YouTube ID</label> <input type="text" name="embed_url"/> <br />
+    <button>Add Trailer</button>
+  </form>
+<%elsif%>   
+  <iframe class="view" type ="text/html" width="640" height="390" src="http://www.youtube.com/embed/<%=@trailer.embed_url%>"></iframe>
+  <form class="action" action="/movies/<%=@movie.id%>/trailers/<%=@trailer.id%>" method="POST">
+    <input type="hidden" name="_method" value="patch">
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+      <legend>Update Trailer</legend>
+      <label for="embed_url">Youtube ID:</label> <input type="text" name="embed_url" value="<%=@trailer.embed_url%>"/> <br />
+    <button>Update Trailer</button>   
+  </form>
+  
+ <form class="action2" action="/movies/<%=@movie.id%>/trailers/<%=@trailer.id%>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token%>" />
+    <button>Delete trailer</button>
+  </form>
+<%end%>
+
+<div class="separator">Cast</div>
+
+<table class="view" >
+  <tr>
+    <th></th>
+    <th>Character </th>
+    <th>Portrayed By</th>
+    <th></th>
+  </tr>
+  <% @characters.each do |character| %>
+  <tr>
+    <td><img src="<%=character.photo_url%>" height="75" width="50"/></td>
+    <td><a href="/movies/<%=@movie.id%>/characters/<%=character.id%>"><%=character.name%></a></td>
+    <td><%=character.actor%></td>
+    <td>
+      <form action="/movies/<%=@movie.id%>/characters/<%=character.id%>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+      <button>Delete</button>
+      </form>
+    </td>
+  </tr> 
+  <% end %>
+</table>
+
+<form class="action" action="/movies/<%=@movie.id%>/characters" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>" />
+  <input type="hidden" name="movies_id" value="<%=@movie.id%>"/>
+  <legend>Create a Character</legend>
+  <label for="name">Name: </label> <input type="text" name="name"/> <br />
+  <label for="actor">Portrayed By: </label> <input type="text" name="actor"/> <br />
+  <label for="photo_url"> Photo URL: </label> <input type="text" name="photo_url"/> <br />
+  <label for="gender"> Gender: </label>
+  <select name="gender">
+    <option value="1">Male</option>
+    <option value="2">Female</option>
+  </select> <br />
+
+  <button>Add Character</button>
+</form>
+
+<div class="separator"></div>
+
+
+
+
+

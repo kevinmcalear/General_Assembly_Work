@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: moviemanager_db
+  # user: julia
+  # host: localhost
+  pool: 5
+  password: 
+  # timeout: 5000

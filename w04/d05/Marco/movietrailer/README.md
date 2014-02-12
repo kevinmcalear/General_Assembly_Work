@@ -23,7 +23,7 @@ NOTE: Check out [how to embed a youtube video](https://developers.google.com/you
 Here's what the url looks like:
 ![youtube_url](youtube_url.png)
 
-Here's here you find the video_id:
+Here's where you find the video_id:
 ![video_id](youtube_id.png)
 
 ## Part 1 - Database

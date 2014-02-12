@@ -1,0 +1,22 @@
+<form class="form" action="/movies" method="POST">
+  <div class="top">
+    <h1>Add A Movie</h1>
+    <a href="/movies">Go Back Home</a>
+  </div>
+  <br>
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    <input class="input" type="text" name="name" placeholder="The Movie's Name" />
+  </label>
+  <p>
+    <label>
+      <input  class="input" type="text" name="poster_url" placeholder="A Poster URL" />
+    </label>
+  </p>
+  <p>
+    <label>
+      <input  class="input" type="text" name="year" placeholder="The Movie's Year"/>
+    </label>
+  </p>     
+  <button class="button">Add That Movie!</button>
+</form>
