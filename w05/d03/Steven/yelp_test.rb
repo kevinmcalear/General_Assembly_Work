@@ -34,7 +34,7 @@ end
 
 
 
-yelp_call("brussel sprouts", "carroll gardens")
+yelp_call("french onion soup", "carroll gardens")
 
 puts results
 
