@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BitTrade</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="user-widget">
+
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+
+</div>
+
+<%= yield %>
+
+</body>
+</html>
