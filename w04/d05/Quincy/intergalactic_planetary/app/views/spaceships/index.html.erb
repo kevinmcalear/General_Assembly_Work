@@ -1,0 +1,7 @@
+<h1>Spaceship Database<h1>
+
+<ul>
+  <% @spaceships.each do |sship| %>
+    <li><a href="/spaceships/<%= sship.id %>"><%= sship.name %></a></li>
+  <% end %>
+</ul>

@@ -1,1 +1,4 @@
-John Hinrichs
+{
+  "completeness": "4",
+  "comfortability": "3"
+}
