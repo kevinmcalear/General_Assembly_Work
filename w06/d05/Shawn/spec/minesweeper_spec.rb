@@ -46,8 +46,8 @@ describe Minesweeper do
   end
 
   describe "mine_checker" do 
-    it "ends game if mine is clicked" do 
-      minesweeper.board[0][1][0].click
+    minesweeper.board[0][1][0].click
+    it "ends game if mine is clicked" do  
       minesweeper.mine_checker(minesweeper.board[0][1][0])
       if minesweeper.board[0][1][0].mine?
         minesweeper.game.destroy
@@ -58,7 +58,8 @@ describe Minesweeper do
   
   it "returns the number of neighbors which are bombs if a mine isn't clicked" do 
     if !minesweeper.board[0][1][0].mine? 
-      expect(minesweeper.mine_neighbors).to be > 0
+      # binding.pry
+      expect(minesweeper.mine_neighbors).to be >= 0
     end
   end
 end

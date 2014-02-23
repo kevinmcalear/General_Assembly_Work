@@ -73,10 +73,21 @@ class Minesweeper
 
 
   def mine_checker(cell)
+    neighbors = []
     if cell.mine?
       game.destroy
     else
-      
+      flat_board = @board.flatten
+      cell_index = flat_board.index(cell)
+      neighbors << [flat_board[cell_index + 1], flat_board[cell_index - 1],flat_board[cell_index - cols - 1], flat_board[cell_index - cols], flat_board[cell_index - cols + 1], flat_board[cell_index - cols - 1], flat_board[cell_index + cols ], flat_board[cell_index + cols + 1]]
+      binding.pry
+      neighbors.each do |neighbor|
+        neighbor.each do |cell|
+          if cell.mine?
+            @mine_neighbors += 1
+          end
+        end
+      end
     end
   end
 
@@ -125,4 +136,4 @@ class Game
 
 end
 
-binding.pry
+# binding.pry
