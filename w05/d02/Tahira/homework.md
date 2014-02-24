@@ -1,3 +1,5 @@
+Tahira Adaya
+
 # Refactoring your Rails app
 
 Use the following documentation to DRY up your Tunr app.

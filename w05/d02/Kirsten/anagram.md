@@ -8,3 +8,4 @@ Think about: What are some scenarios we should test for?
 
 What makes something an anagram? The two words have the same letters...
 How can we check to see if they have exactly the same letters?
+
