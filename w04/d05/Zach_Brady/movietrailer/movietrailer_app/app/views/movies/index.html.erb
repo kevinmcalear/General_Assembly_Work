@@ -1,0 +1,19 @@
+<h1>Brach's Internet Movie Database</h1>
+
+<h3>Movie Directory</h3>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Poster</th>
+  </tr>
+
+  <%  @movies.each do |movie| %>
+  <tr> 
+    <th><a href="/movies/<%=movie.id%>"><%=movie.title%></a></th>
+    <th><%=movie.year%></th>
+    <th><img src="<%=movie.poster_url%>" alt="Poster for <%=movie.title%>" height="400"/></th>
+  </tr>
+  <%end%>
+
+</table>
