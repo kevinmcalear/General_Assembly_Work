@@ -1,0 +1,29 @@
+
+<h1> Title: <%= @trailer.title %></h1>
+
+<h3>Edit this trailer <a href="/movies/<%= params[:movie_id] %>/trailers/<%= params[:id]%>/edit">here</a></h3>
+
+<h3>View trailers <a href="/movies/<%= params[:movie_id] %>/trailers">here</a></h3>
+
+<form action="/movies/<%= params[:movie_id]%>/trailers/<%= params[:id]%>" method="POST">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+
+  <div class="center"> 
+  <button>Delete trailer</button>
+</div>
+</form>
+
+
+<!-- <h3>Delete this trailer <a href="/movies/<%=@movie_id %>">here</a></h3> -->
+
+
+<h2>Video:</h2> 
+
+<div class="center">
+<iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="http://www.youtube.com/embed/<%= @trailer.embed_url %>?autoplay=1&origin=http://example.com"
+  frameborder="0"/>
+</div>
+
+

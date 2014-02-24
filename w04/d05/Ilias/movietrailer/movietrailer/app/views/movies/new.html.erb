@@ -1,0 +1,24 @@
+<h1>List a Movie</h1>
+
+<form action="/movies" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>"/>
+
+    <label>Title:
+      <input type="text" name="title" />
+    </label>
+
+    <label>Year:
+      <input type="int" name="year" />
+    </label>
+
+    <label>Movie Poster:
+      <input type="url" name="poster_url" />
+    </label>
+
+    <label>Trailer:
+      <input type="url" name="embed_url" />
+    </label>
+
+  <button>Post</button>
+
+</form>

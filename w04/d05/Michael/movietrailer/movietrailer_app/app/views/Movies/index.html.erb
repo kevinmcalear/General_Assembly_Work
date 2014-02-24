@@ -1,0 +1,41 @@
+<h1>List of Movies</h1>
+
+<table class="view">
+  <tr>
+    <th>Poster </th>
+    <th>Title </th>
+    <th>Director </th>
+    <th>Genre </th>
+    <th>Year Released </th>
+    <th></th>
+  </tr>
+  <% @movies.each do |movie| %>
+  <tr>
+    <td><img src="<%=movie.poster_url%>" width="50" height="75"></td>
+    </td>  
+    <td><a href="/movies/<%=movie.id%>"><%=movie.title%></a></td>
+    <td><%=movie.director%></td>
+    <td><%=movie.genre%></td>
+    <td><%=movie.year_released%></td>
+    <td>
+      <form action="/movies/<%=movie.id%>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+      <button>Delete</button>
+      </form>
+  </tr> 
+  <% end %>
+</table>
+
+<form class= "action" action="/movies" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>" />
+  <legend>Create a Movie</legend>
+  <p>
+  <label for="title"> Title: </label>  <input type="text" name="title"/> <br />
+  <label for "year_released"> Release Year: </label> <input type="text" name="year_released"/> <br />
+  <label for "genre">Genre: </label> <input type="text" name="genre"/> <br />
+  <label for "director"> Director: </label> <input type="text" name="director"/> <br />
+  <label for "poster_url"> Poster URL: 
+  </label> <input type="text" name="poster_url"/><br />
+  <button>Add Movie</button>
+</form>

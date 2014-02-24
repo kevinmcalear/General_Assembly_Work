@@ -1,0 +1,12 @@
+<h1>MOVIES INDEX</h1>
+
+<h2><a href="/movies/new">CREATE NEW MOVIE</a></h2>
+
+<% @movies.each do |movie| %>
+<a href="/movies/<%= movie.id %>"><%= movie.title %></a>  <%= movie.year %> <br>
+Characters: 
+<% movie.characters.each do |character| %>
+<%= character.name %>  
+<% end %>
+<br>
+<% end %>

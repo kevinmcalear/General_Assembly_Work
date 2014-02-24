@@ -1,0 +1,27 @@
+<h1>"<%= @movie.title %>"</h1>
+<h2><%= @movie.year %></h2>
+<img src="<%= @movie.poster_url %>" />
+
+<br/><br/>
+
+<a href="/movies/<%= @movie.id %>/edit">Edit this movie</a>
+
+<br/>
+
+<a href="/movies/<%= @movie.id %>/characters">View Characters</a>
+
+<br/>
+
+<a href="/movies/<%= @movie.id %>/trailers">View Trailers</a>
+
+<br/><br/>
+
+<form action="/movies/<%= @movie.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE" />
+  
+  <button>Delete this movie</button>
+</form>
+
+<br/><br/><br/>
+
+<a href="/movies">Movies Home</a>

@@ -1,0 +1,12 @@
+<h1> <%= @spaceship.name %>'s Aliens </h1>
+
+<button><a href="/spaceships/<%=@spaceship.id%>/aliens/new">Add another alien!</a></button>
+
+<ul>
+  <% @aliens.each do |alien| %>
+    <li>
+      <img src="<%= alien.photo_url %>">
+      <p><a href="/spaceships/<%=@spaceship.id%>/aliens/<%=alien.id %>"><%= alien.name %></a></p>
+    </li>
+  <% end %>
+</ul>

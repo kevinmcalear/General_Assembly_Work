@@ -2,7 +2,7 @@
 
 Write a program that, given a word and a list of possible anagrams, selects the correct one(s).
 
-In other words, given: `"listen"` and `%w(enlists google inlets banana)` the program should return "inlets".
+In other words, given: `"listen"` and `%w(enlists google inlets banana)%w(enlists google inlets banana)` the program should return "inlets".
 
 Think about: What are some scenarios we should test for?
 

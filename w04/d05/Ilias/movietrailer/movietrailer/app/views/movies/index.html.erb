@@ -1,0 +1,11 @@
+<h1>Scarlett's Favorite Movies</h1>
+<h2><a href="/movies/new">Create a Movie!</a></h2>
+
+<ul>
+  <%@movies.each do |movie|%>
+  <li>
+    <%=movie.title%>
+  </li>
+  <a href="/movies/<%=movie.id%>"><img src="<%=movie.poster_url%>" width="300"/></a>
+  <%end%>
+</ul>

@@ -1,0 +1,25 @@
+<h1>Edit a Movie</h1>
+<button><a href="/movies">Go Back to Movies</a></button>
+</div>
+
+<form action="/movies/<%= @movie.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <label>
+    Title:
+    <input class="input" type="text" name="title" value="<%= @movie.title %>" />
+  </label>
+  
+  <label>
+    Year:
+    <input  class="input" type="text" name="year" value="<%= @movie.year %>" />
+  </label>
+
+  <label>
+    Poster URL:
+    <input  class="input" type="text" name="poster_url" value="<%= @movie.poster_url %>" />
+  </label>
+  
+  <button class="button">Edit</button>
+</form>

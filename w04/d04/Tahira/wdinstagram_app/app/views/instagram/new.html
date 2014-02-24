@@ -1,0 +1,27 @@
+<h1> Add a photo </h1>
+
+<form action="/instagram" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>"/>
+  <label>
+    Author:
+    <input type="text" name="author"/>
+  </label>
+
+  <label>
+    URL: 
+    <input type= "text" name="photo_url"/> 
+  </label>
+
+  <label>
+    Date:
+    <input type="text" name="date_taken"/>
+  </label>
+
+  <label>
+    Caption:
+    <input type="text" name="caption"/>
+  </label>
+
+  <button>Upload photo!</button>
+</form>
+

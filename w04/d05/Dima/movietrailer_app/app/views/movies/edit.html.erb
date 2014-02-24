@@ -1,0 +1,23 @@
+<h3>You can enter new title and a year for this movie below in this form. And the movie <%= @movie.title %> will never be the same.</h3>
+<br/>
+<h1>Edit this artist</h1>
+
+<form action="/movies/<%= @movie.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch" />
+<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+<label>
+    New Title:
+    <input type="text" name="title" value="<%= @movie.title %>"/>
+  </label>
+
+  <label>
+    New Year of production:
+  <input type="text" name="year" value="<%= @movie.year %>"/>
+  </label>
+  <label>
+    New poster
+    <input type="text" name="poster_url" value="<%= @movie.poster_url %>"/>
+  </label>
+  <button>Change the movie</button>
+</form>

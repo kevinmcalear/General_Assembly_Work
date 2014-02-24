@@ -1,0 +1,9 @@
+<h1>Trailer</h1>
+
+<ul>
+<% @trailers.each do |trailer| %>
+  <li><a href="/movies/<%= trailer.movie_id %>/trailers/<%= trailer.id %>"><%= trailer.title %></a></li>
+  <% end %>
+</ul>
+
+<a href="/movies/<%= params[:movie_id] %>"> Back to movie</a>

@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: space_travel_db
+  pool: 5
+  username: johnhinrichs
+  host: localhost
