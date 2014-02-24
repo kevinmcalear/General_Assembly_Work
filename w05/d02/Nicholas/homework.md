@@ -1,5 +1,7 @@
 # Refactoring your Rails app
 
+***Edit the README.md so that you can submit a pull request with the comfortability info****
+
 Use the following documentation to DRY up your Tunr app.
 
 ## Path and URL helpers
