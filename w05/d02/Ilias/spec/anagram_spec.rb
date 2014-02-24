@@ -16,12 +16,6 @@ subject (:anagram) {Anagram.new}
     end
   end
 
-  describe "#comparator" do
-    it "returns true if there is an anagram of the word in the array" do
-      expect(anagram.comparator("listen", %w(enlists google inlets banana))).to be_true
-    end
-  end
-
   describe "#solution" do
     it "returns the anagram" do
       expect(anagram.solution("listen", %w(enlists google inlets banana))).to eq("inlets")
