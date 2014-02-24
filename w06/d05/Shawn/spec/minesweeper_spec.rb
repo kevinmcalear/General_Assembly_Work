@@ -55,11 +55,18 @@ describe Minesweeper do
       end
     end
   end
+  describe "#cell_neighbors"  do
+    it "returns a cell's neighbors" do 
+      expect(minesweeper.cell_neighbors(minesweeper.board[0][1][0]).count).to eq 5
+    end
+  end
   
   it "returns the number of neighbors which are bombs if a mine isn't clicked" do 
     if !minesweeper.board[0][1][0].mine? 
       # binding.pry
-      expect(minesweeper.mine_neighbors).to be >= 0
+      unless(minesweeper.mine_neighbors.count) == 0
+        expect(minesweeper.mine_neighbors.count).to be >= 0
+      end
     end
   end
 end
@@ -84,8 +91,6 @@ describe Game do
       expect(minesweeper.game.started?).to be_false
     end
   end
-
-
 end
 
 

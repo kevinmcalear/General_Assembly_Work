@@ -8,7 +8,7 @@ class Minesweeper
     @mines = []
     @board = Array.new(rows) { Array.new(cols) {Array.new(1, Cell.new)}}
     @game = Game.new
-    @mine_neighbors = 0
+    @cell_neighbors = []
   end
 
   def cell
@@ -79,20 +79,15 @@ class Minesweeper
     else
       flat_board = @board.flatten
       cell_index = flat_board.index(cell)
-      neighbors << [flat_board[cell_index + 1], flat_board[cell_index - 1],flat_board[cell_index - cols - 1], flat_board[cell_index - cols], flat_board[cell_index - cols + 1], flat_board[cell_index - cols - 1], flat_board[cell_index + cols ], flat_board[cell_index + cols + 1]]
-      binding.pry
-      neighbors.each do |neighbor|
-        neighbor.each do |cell|
-          if cell.mine?
-            @mine_neighbors += 1
-          end
-        end
-      end
+      row = cell_index % rows
+      col = cell_index / rows
+      cell = @board[row][col][0]
+      cell_neighbors(@board[row][col][0])
     end
   end
 
-  def mine_neighbors
-    @mine_neighbors
+  def cell_neighbors(cell)
+    @cell_neighbors 
   end
 end
 
@@ -136,4 +131,4 @@ class Game
 
 end
 
-# binding.pry
+ binding.pry
