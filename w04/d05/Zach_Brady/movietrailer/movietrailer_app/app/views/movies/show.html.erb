@@ -1,0 +1,27 @@
+<h1><%=@movie.title %></h1>
+
+<img src="<%=@movie.poster_url%>" alt="<%=@movie.title%>'s Poster" height="400">
+
+<ul>
+  <li>Title: <%=@movie.title%></li>
+  <li>Year: <%=@movie.year%></li>
+</ul>
+
+<ul>
+<li><a href="/movies/<%=@movie.id%>/characters">Characters</a></li>
+<li><a href="/movies/<%=@movie.id%>/trailers">Trailers</a></li>
+
+
+<li><a href="/movies/<%=@movie.id%>/characters/new">Add a new character's information to this film.</a></li>
+<li><a href="/movies/<%=@movie.id%>/edit">Change information</a></li>
+
+<li><form action="/movies/<%=@movie.id%>" method="POST" >
+  <input type="hidden" name="_method" value="DELETE" />
+  
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  
+  <button>Remove this movie from the database</button>
+</form></li>
+
+  <li><a href="/movies">Return to index</a></li>
+</ul>
