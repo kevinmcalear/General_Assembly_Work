@@ -46,7 +46,7 @@ end
 
 gem 'httparty'
 
-gem 'pry-rails', group: [:development, :test]
+gem 'pry-rails'
 
 gem 'omniauth-facebook'
 
