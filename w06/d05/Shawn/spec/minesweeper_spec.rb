@@ -13,7 +13,7 @@ describe Cell do
 end
 
 describe Minesweeper do 
-  
+  #made some changes
   cell = Cell.new
   minesweeper = Minesweeper.new(3, 3, 4)
   minesweeper.randomly_assign_mines  
