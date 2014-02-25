@@ -1,0 +1,14 @@
+<h1>Intergalactic Planetary Spaceship Registry</h1>
+
+<p>Have you seen anything strange? Click below to document your sighting and contribute to the index. </p>
+
+<FORM METHOD="LINK" ACTION="/spaceships/new">
+<INPUT TYPE="submit" VALUE="I have something to report">
+</FORM>
+
+<h3>Index:</h3>
+<ul>
+  <% @spaceships.each do |spaceship| %>
+    <li><a href="/spaceships/<%= spaceship.id %>"><%=spaceship.name %></a></li>
+  <% end %>
+</ul>
