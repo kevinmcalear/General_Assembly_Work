@@ -301,3 +301,52 @@
 - Create a Rails App with CRUD actions (new, create, index, show, edit, update, destroy)
 - Create a Rails App with multiple models associated correctly
 - Define routes in a RESTful way for nested resources
+
+## Agile Development Process
+
+### Concepts
+- Describe what a user story is, how it is structured, and the benefits of structuring it in this way
+- Describe the agile project management workflow (including what a sprint is and what typically happens during a sprint)
+- Describe what a scrum meeting is, when it happens, and what the structure is.
+
+### Mechanics
+- Write well-written user stories
+- Manage the development of an app using Pivotal Tracker
+
+## Ruby on Rails
+
+### Concepts
+- Debug your Rails app by looking at error messages and using the rails console and pry
+- Explain what `fat models, skinny controllers` means
+- Explain strong parameters / whitelisting in Rails
+- Explain the difference between redirect and render
+
+### Mechanics
+- Define routes in a RESTful way using `resources`
+- Use path helpers & `rake routes` to match routes to controller actions
+- Use partials to DRY up your views
+- Use link helpers to simplify your links
+- Use form helpers to simplify your forms
+- Write custom helper methods for your controllers & views
+- Implement before actions in the controller
+
+## Authentication & Authorization
+
+### Concepts
+- Explain what a session is
+- Explain what a cookie is
+- Explain the difference between Authentication and Authorization
+
+### Mechanics
+- Access and set session variables
+- Write an application with authentication using bcrypt
+- Authorize logged in users to perform certain actions in an application
+
+## Shoulda Matchers
+
+### Concepts
+- Explain what shoulda matchers are and why they are useful
+
+### Mechanics
+- Use shoulda matchers for model validation
+- Use shoulda matchers for ActiveRecord associations
