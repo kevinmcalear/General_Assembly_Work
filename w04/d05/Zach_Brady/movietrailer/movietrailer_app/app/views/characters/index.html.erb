@@ -1,0 +1,17 @@
+<h1>Favorite Film Characters</h1>
+
+<ul>
+  <% @characters.each do |character| %>
+  <li>
+    <figure>
+      <img src="<%=character.photo_url %>" alt="Picture of <%=character.name%>" height="400"/>
+      <figcaption><a href="/movies/<%=character.movie_id %>/characters/<%=character.id%>"><%= character.name %></a></figcaption>
+    </figure>
+  </li>
+  <%end%>
+</ul>
+
+<ul>
+<li><a href="/movies/<%=params[:movie_id]%>/characters/new">Add a character to the database</a></li>
+<li><a href="/movies/<%=params[:movie_id]%>">Return to movie profile</a></li>
+</ul>
