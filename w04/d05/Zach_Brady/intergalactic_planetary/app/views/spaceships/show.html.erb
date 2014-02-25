@@ -1,0 +1,16 @@
+<h1><%= @spaceship.name %> Stat Sheet</h1>
+
+
+<figure>
+  <img src=<%=@spaceship.photo_url%> alt="Image of <%=@spaceship.name%>"/>
+  <figcaption>
+    <ul>
+      <li>Name: <%=@spaceship.name%></li>
+      <li>Capacity: <%=@spaceship.capacity%> persons</li>
+      <li>Origin: <%=@spaceship.origin%></li>
+      <li>Type: <%=@spaceship.purpose%></li>
+    </ul>
+  </figcaption>
+</figure>
+
+<a href="/spaceships">Return to spaceship index</a>
