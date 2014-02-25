@@ -1,0 +1,11 @@
+<h1><%=@trailer.title%></h1>
+
+
+<a href="/movies/<%= @trailer.movie_id %>/characters"> Return</a>
+<a href="/movies/<%= @trailer.movie_id %>/character/<%= @trailer.id %>/edit">Update Information</a>
+
+<form action="/movies/<%= @trailer.movie_id %>/characters/<%= @trailer.id %>" method="POST" >
+<input type="hidden" name="_method" value="DELETE" />
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Remove trailer from database</button>
+</form>
