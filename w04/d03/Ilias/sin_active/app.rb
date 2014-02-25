@@ -45,7 +45,9 @@ post('/clowns') do
   @clown = Clown.create(
   name: params[:name],
   talent: params[:talent],
-  is_singer: params[:is_singer]
+  is_singer: params[:is_singer],
+  happiness_level: params[:happiness_level],
+  creepiness_level: params[:creepiness_level]
   )
   @name = @clown.name
   @talent = @clown.talent

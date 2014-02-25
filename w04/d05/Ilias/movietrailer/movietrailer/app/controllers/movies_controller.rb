@@ -10,12 +10,17 @@ class MoviesController < ApplicationController
   end
 
   def create
-    Movie.create(
+    @movie = Movie.create(
       title: "#{params[:title]}",
       year: "#{params[:year]}",
       poster_url: "#{params[:poster_url]}"
     )
-    redirect_to("/movies")
+    Trailer.create(
+      title: "#{params[:title]}",
+      embed_url: "#{params[:embed_url]}",
+      movie_id: @movie.id
+    )
+    redirect_to("/movies/#{@movie.id}")
   end
 
   def show
@@ -25,6 +30,12 @@ class MoviesController < ApplicationController
     @embed_url = url.split("=")[1]
     @characters = Character.where(movie_id: params[:id])
     render(:show)
+  end
+
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    redirect_to ("/movies")
   end
 
 end

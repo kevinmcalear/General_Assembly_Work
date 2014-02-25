@@ -9,10 +9,6 @@ class Anagram
     sorted_words
   end
 
-  def comparator(word, words_array)
-    splitter_sorter(words_array).include?(word_sort(word))
-  end
-
   def solution(word, words_array)
     index = (splitter_sorter(words_array)).index(word_sort(word))
     words_array[index]

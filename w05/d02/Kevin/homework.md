@@ -33,3 +33,6 @@ You can use form helpers to help DRY up your forms. In particular, focus on the 
 You can use partials to DRY up your views. Learn more about how they work here:
 
 * http://guides.rubyonrails.org/layouts_and_rendering.html#using-partials
+
+
+
