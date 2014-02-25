@@ -1,0 +1,51 @@
+<h1>Add a New Alien to the Registry</h1>
+
+<!-- num_appendages -->
+<!-- origin -->
+<!-- name -->
+<!-- organic_substrate -->
+<!-- weakness -->
+<!-- powers -->
+<!-- spaceship_id -->
+
+
+
+<form action="/aliens" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    Name:
+    <input type="text" name="name" />
+  </label>
+
+  <label>
+    Origin:
+    <input type="text" name="origin" />
+  </label>
+
+  <label>
+    Number of appendages:
+    <input type="integer" name="num_appendages" />
+  </label>
+
+  <label>
+    Organic substrate:
+    <input type="text" name="organic_substrate" />
+  </label>
+
+  <label>
+    Weakness:
+    <input type="text" name="weakness" />
+  </label>
+
+  <label>
+    Powers:
+    <input type="text" name="powers" />
+  </label>
+
+  <label>
+    Passenger aboard: <!-- how to use spaceship name to get spaceship_id -->
+    <input type="text" name="spaceship_id" />
+  </label>
+
+  <button>Combat the Alien Menace: Take the 'U' out of UFO's</button>
+</form>
