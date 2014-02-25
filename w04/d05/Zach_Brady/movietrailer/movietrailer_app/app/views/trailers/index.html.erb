@@ -1,0 +1,15 @@
+<h1>Movie Trailers for <%=Movie.find_by(id: params[:movie_id]).title %></h1>
+
+<ul>
+  <% @trailers.each do |trailer| %>
+  <li>
+    <iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="<%=trailer.embed_url%>"
+  frameborder="0"/>
+    
+  </li>
+  <%end%>
+</ul>
+
+<a href="/movies/<%=params[:movie_id]%>/trailers/new">Add a trailer for <%=Movie.find_by(id: params[:movie_id]).title %> to the database</a>
+<a href="/movies/<%=params[:movie_id]%>">Return to movie profile</a>

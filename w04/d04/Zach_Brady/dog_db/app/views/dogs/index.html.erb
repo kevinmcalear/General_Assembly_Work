@@ -1,0 +1,9 @@
+<h1>Brady Family Dog Database</h1> 
+
+<ul>
+  <% @dogs.each do |dog| %>
+    <li><a href="/dogs/<%=dog.id%>"><%= dog.name %></a></li>
+  <% end %>
+</ul>
+
+<a href="/dogs/new">Click here if somebody went and bought another dog. </a>

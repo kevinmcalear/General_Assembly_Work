@@ -33,3 +33,28 @@ You can use form helpers to help DRY up your forms. In particular, focus on the 
 You can use partials to DRY up your views. Learn more about how they work here:
 
 * http://guides.rubyonrails.org/layouts_and_rendering.html#using-partials
+
+
+ <div class="center" id="stack">
+<%= form_for @user do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+ <%= f.label :date_of_birth %>
+ <%= f.date_field :date_of_birth %>
+  <%= f.label :sex %>
+  <%= f.text_field :sex %>
+  <%= f.label :facebook_link %>
+  <%= f.text_field :facebook_link %>
+  <%= f.submit "Join Tunr" %>
+<% end %>
+</div>
+
+
+
+
