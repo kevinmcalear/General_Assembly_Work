@@ -1,0 +1,14 @@
+<h1>Intergalactic Planetary Alien Registry</h1>
+
+<p>Have you seen anything strange? Click below to document your sighting and contribute to the index. </p>
+
+<FORM METHOD="LINK" ACTION="/aliens/new">
+<INPUT TYPE="submit" VALUE="I have something to report">
+</FORM>
+
+<h3>Index:</h3>
+<ul>
+  <% @aliens.each do |alien| %>
+    <li><a href="/aliens/<%= alien.id %>"><%=alien.name %></a></li>
+  <% end %>
+</ul>
