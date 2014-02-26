@@ -1,0 +1,9 @@
+<%= form_for @student do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :img_url %>
+  <%= f.url_field :img_url %>
+
+  <%= f.submit %>
+<% end %>
