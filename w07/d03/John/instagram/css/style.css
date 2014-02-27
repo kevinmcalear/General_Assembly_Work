@@ -1,0 +1,57 @@
+header {
+  margin-top: -17px;
+  height: 250px;
+  background-color: rgb(62, 97, 134);
+  position: relative;
+  display: block;
+}
+
+header.header {
+  float: right;
+}
+
+.header ul {
+  float: right;
+  padding-right: 300px;
+  padding-top: 70px;
+}
+
+header li {
+  display: inline;
+  padding-left: 60px;
+}
+
+.phone {
+  position: absolute;
+  display: inline-block;
+  margin-top: -170px;
+  padding-left: 280px;
+}
+
+.blurb {
+  width: 430px;
+  float: right;
+  position: absolute;
+  /*display: inline-block;*/
+  margin-top: -70px;
+  padding-left: 690px;
+  background: white;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+li {
+  list-style-type: none;
+}
