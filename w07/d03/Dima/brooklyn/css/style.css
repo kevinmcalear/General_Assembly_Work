@@ -10,3 +10,39 @@ Body Font Size = 12px
 Link Hover Color = #20222a
 
 */
+body {
+  font-family: "Times New Roman", serif;
+  font-size: 12px;
+  color: #656565;
+  line-height: 17px
+}
+
+.wrapper {
+  margin-left: 5%;
+  width: 70% ;
+}
+
+.blue, span {
+  color: blue;
+}
+
+.big_pic img {
+  margin-top: 5px;
+  display: block;
+}
+
+.two {
+  margin-top: 3em;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  display: inline;
+}
+
+li img {
+  border: 5px solid #C7C7C7;
+}

@@ -2,6 +2,7 @@ class TrailersController < ApplicationController
   self.before_action(:load_trailer, {only: [:edit, :update, :destroy]})
   def new
     @trailer = Trailer.new
+    @movie = Movie.find(params[:movie_id])
   end
 
   def edit
@@ -27,10 +28,12 @@ class TrailersController < ApplicationController
   end
 
   def trailer_params
-    return {
-      title: params[:title],
-      embed_url: params[:embed_url],
-      movie_id: params[:movie_id]
-    }
+    # return {
+    #   title: params[:title],
+    #   embed_url: params[:embed_url],
+    #   movie_id: params[:movie_id]
+    # }
+
+    params.require(:trailer).permit(:title, :embed_url, :movie_id)
   end
 end
