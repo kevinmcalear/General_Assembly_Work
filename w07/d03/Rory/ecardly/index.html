@@ -1,14 +1,19 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <link rel="stylesheet" href="reset.css" type="text/css" />
+  <link rel="stylesheet" href="css/style.css" type="text/css"/>
   <style>
   </style>
 </head>
 <body>
   <div id="page-wrapper">
     <header>
-      <img id="background-image" src="images/background.jpg"/>
+      <ul class="background">
+      <li class="background-image"><img class="background-image" src="images/background.jpg"/></li>
+      <li class="background-image"><img class="background-image" src="images/background.jpg"/></li> 
+      <li class="background-image"><img class="background-image" src="images/background.jpg"/></li>
+      <li class="background-image"><img class="background-image" src="images/background.jpg"/></li>
+      </ul>
       <img id="logo-image" src="images/logo.png"/>
     </header>
     <section class="posts">
@@ -19,7 +24,7 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a consectetur purus. Pellentesque at leo erat, id pellentesque sapien. Cras id purus sem. Nulla lacinia consequat nulla, vitae porttitor urna venenatis id. Nam iaculis risus ac mauris vestibulum malesuada. Nulla dolor mi, cursus sed ornare vel, feugiat sed nibh. Suspendisse vitae pulvinar ligula. In eu dui erat. Etiam sit amet malesuada turpis. Duis dapibus feugiat euismod. Suspendisse vitae consequat nunc. Vivamus aliquet vulputate varius.
         </p>
         <span class="red-text">DOWNLOAD</span>
-        <p id="posted-by">
+        <p class="posted-by">
           Posted by  <span class="red-text">Steve Smith</span> on August 2, 2012  /  Comments (<span class="red-text">3</span>)
         </p>
       </div>
@@ -30,7 +35,7 @@
            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a consectetur purus. Pellentesque at leo erat, id pellentesque sapien. Cras id purus sem. Nulla lacinia consequat nulla, vitae porttitor urna venenatis id. Nam iaculis risus ac mauris vestibulum malesuada. Nulla dolor mi, cursus sed ornare vel, feugiat sed nibh. Suspendisse vitae pulvinar ligula. In eu dui erat. Etiam sit amet malesuada turpis. Duis dapibus feugiat euismod. Suspendisse vitae consequat nunc. Vivamus aliquet vulputate varius.
         </p>
         <span class="red-text">DOWNLOAD</span>
-        <p id="posted-by">
+        <p class="posted-by">
           Posted by  <span class="red-text">Melanie Stevens</span> on August 6, 2012  /  Comments (<span class="red-text">3</span>)
         </p>
       </div>
@@ -57,16 +62,18 @@
           <li>Mashable</li>
         </ul>
       </nav>
-      <img src="images/ad-cut-and-paste.gif">
-      <img src="images/ad-postcard-tee.png">
-      <img src="images/ad-submit-your-own.png">
+      <ul class="sidebar-images">
+      <li class="sidebar-images"><img class="sidebar-images" src="images/ad-cut-and-paste.gif"></li>
+      <li class="sidebar-images"><img class="sidebar-images" src="images/ad-postcard-tee.png"></li>
+      <li class="sidebar-images"><img class="sidebar-images" src="images/ad-submit-your-own.png"></li>
+      </ul>
     </section>
     <footer>
       <nav>
-        <ul>
-          <li><a href="http://www.twitter.com"><img src="images/social-icon-twitter.png"></a></li>
-          <li><a href="http://www.facebook.com"><img src="images/social-icon-facebook.png"></a></li>
-          <li><a href="http://www.pinterest.com"><img src="images/social-icon-pinterest.png"></a></li>
+        <ul class=footer>
+          <li class=footer><a class=footer href="http://www.twitter.com"><img src="images/social-icon-twitter.png"></a></li>
+          <li class=footer><a class=footer href="http://www.facebook.com"><img src="images/social-icon-facebook.png"></a></li>
+          <li class=footer><a class=footer href="http://www.pinterest.com"><img src="images/social-icon-pinterest.png"></a></li>
         </ul>
       </nav>
     </footer>
