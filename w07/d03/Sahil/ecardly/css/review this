@@ -1,0 +1,9 @@
+gems
+  capybara
+    lets statement
+      lets (:sahil) {Person.new}
+  factory girl
+BDD wiki
+new feature 
+faker
+shoulda matchers
