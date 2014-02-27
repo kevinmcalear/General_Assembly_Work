@@ -1,0 +1,146 @@
+/*
+ * Reset.
+ */
+
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote,  
+pre, img, form, fieldset, table, th, td { margin: 0; padding: 0; }
+
+
+/*
+ * Basic styles.
+ */
+
+body {
+  background-color: #d7d7d7;
+  font-size: 12px;
+  line-height: 22px;
+}
+
+.content-wrapper {
+  width: 945px;
+  margin: 115px auto 0 auto;
+}
+
+a {
+  color: #cc6633;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+.upcase {
+  text-transform: uppercase;
+}
+
+/*
+ * Header.
+ */
+
+header {
+  background-image: url("../images/background.jpg");
+  height: 162px;
+}
+
+header img {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+
+/*
+ * Content Section.
+ */
+
+section.main-content {
+  background-color: #FFF;
+  display: inline-block;
+  width: 650px;
+}
+
+article {
+  padding: 10px 25px 25px 25px;
+  margin-top: 35px;
+}
+
+article:last-child {
+  padding-bottom: 75px;
+}
+
+article img {
+  margin-top: 20px;
+}
+
+.post {
+  margin-top: 15px;
+  padding-bottom: 20px;
+}
+
+
+.post-info {
+  border-top: 1px dotted #000;
+  border-bottom: 1px solid #000;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+/*
+ * Sidebar Section.
+ */
+
+section.sidebar {
+  background-color: #FFF;
+  display: inline;
+  width: 275px;
+  float: right;
+}
+
+.sidebar ul {
+  padding: 25px 25px 0px 25px;
+  font-weight: bold;
+}
+
+.sidebar ul a {
+  color: #000;
+}
+
+.ads {
+  margin-bottom: 60px;
+}
+
+.ads img {
+  padding: 25px 25px 0 25px;
+}
+
+
+/*
+ * Footer
+ */
+
+footer {
+  text-align: center;
+}
+
+ul.social-links {
+  margin: 50px;
+}
+
+ul.social-links li {
+  display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
