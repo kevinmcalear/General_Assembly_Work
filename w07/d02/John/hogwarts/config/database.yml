@@ -19,8 +19,9 @@ development:
   encoding: unicode
   database: hogwarts_development
   pool: 5
-  username: GA
-  password:
+  # username: jmhinric
+  # host: localhost
+  # password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -48,13 +49,13 @@ test:
   encoding: unicode
   database: hogwarts_test
   pool: 5
-  username: GA
-  password:
+  # username: GA
+  # password:
 
 production:
   adapter: postgresql
   encoding: unicode
   database: hogwarts_production
   pool: 5
-  username: GA
-  password:
+  # username: GA
+  # password:
