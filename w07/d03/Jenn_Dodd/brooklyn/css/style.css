@@ -19,6 +19,7 @@ body {
 
 a {
   color: #5989c2;
+  text-decoration: none;
 }
 
 a:hover {
@@ -30,17 +31,71 @@ a:hover {
   margin: 0 auto;
 }
 
+
+
 /*
  *  Content.
  */
 
-header {
+header, h1 {
   padding-top: 20px;
   padding-bottom: 10px;
 }
 
-article {
-  
+p {
+  padding-bottom: 15px;
 }
+
+p.date {
+  color: #5989c2;
+  padding-bottom: 0px;
+}
+
+/* 
+ *  Press
+ */
+
+li {
+  display: inline;
+}
+
+li img {
+  border: 4px solid #c5c5c5;
+  padding: 2px;
+}
+
+/*
+ *  Footer.
+ */
+
+footer {
+  padding-top: 5px;
+  margin-bottom: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
