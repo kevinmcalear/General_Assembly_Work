@@ -33,6 +33,7 @@ section {
 .posted_by {
   border-top: 1px dotted black;
   border-bottom: 2px solid black;
+  margin-bottom: 65px;
 }
 
 article {
