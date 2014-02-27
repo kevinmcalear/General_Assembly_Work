@@ -1,12 +1,46 @@
-/* 
+/*
+ * Reset.
+ */
 
-## Style Hints: 
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote,  
+pre, img, form, fieldset, table, th, td { margin: 0; padding: 0; }
 
-Body Font Size = 12px
-	 Line Height = 17px
-	 Font Family = "Times New Roman", serif
-	 Font Color = #656565
 
-Link Hover Color = #20222a
+/*
+ * Basic styles.
+ */
 
-*/
+body {
+  color: #4a4a4a;
+  font-size: 12px;
+  line-height: 17px;
+  font-family: "Times New Roman", serif;
+}
+
+a {
+  color: #5989c2;
+}
+
+a:hover {
+  color: #656565;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+/*
+ *  Content.
+ */
+
+header {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+article {
+  
+}
+
+
