@@ -1,9 +1,11 @@
 html {
   background-color: rgb(214,214,214);
-
 }
+
 #header_image {
-background-image: url("../images/background.jpg")
+background-image: url(
+  "~/Users/Quincy_Iheme/dev/wdi/WDI_NYC_12/w07/d03/Quincy/background.jpg"
+  )
 background-repeat: repeat-x;
 }
 
@@ -11,3 +13,22 @@ background-repeat: repeat-x;
   display: block;
   margin: 0 auto;
 }
+
+#soccer {
+height: 200px;
+width: 200px;
+}
+
+#car {
+height: 200px;
+width: 200px;
+}
+
+#cutandpaste{}
+#tee{}
+#submit{}
+
+#facebook{}
+#pinterest{}
+#twitter{}
+
