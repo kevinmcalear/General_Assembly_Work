@@ -30,6 +30,11 @@ section {
  float: left;
 }
 
+.posted_by {
+  border-top: 1px dotted black;
+  border-bottom: 2px solid black;
+}
+
 article {
   padding-left: 5px
 }
