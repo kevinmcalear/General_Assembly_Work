@@ -17,10 +17,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: hogwarts_development
+  database: hogwarts_db
   pool: 5
-  username: GA
-  password:
+  username: mpvazquez
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -46,15 +45,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: hogwarts_test
+  database: hogwarts_db
   pool: 5
-  username: GA
+  username: mpvazquez
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: hogwarts_production
+  database: hogwarts_db
   pool: 5
-  username: GA
+  username: mpvazquez
   password:

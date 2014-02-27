@@ -30,7 +30,7 @@ describe Minesweeper do
   describe "#has_mine?" do
     it "checks it cell has mine" do
       game.set_mines
-      mine = game.mine_positions[0]
+      mine = @mine_positions[0]
       expect(game.board[mine[0]][mine[1]].has_mine?).to be_true
     end
   end
