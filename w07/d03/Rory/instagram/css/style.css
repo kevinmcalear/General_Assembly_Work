@@ -28,7 +28,10 @@ button{
 }
 
 div.phone-image{
-  float: left;
+  position: relative;
+  display: block;
+  margin-top: -420px;
+  margin-left: 100px;
 }
 
 ul.footer{
@@ -49,5 +52,20 @@ li.footer{
   display: inline;
   position: relative;
   color: rgb(162,161,163);
+}
+
+div.text-on-page{
+  position: relative;
+  width: 50%;
+  margin-left: 500px;
+  margin-top: -70px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+div.stores{
+  position: relative;
+  margin-left: 520px;
 }
 
