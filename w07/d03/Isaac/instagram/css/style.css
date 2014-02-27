@@ -54,6 +54,10 @@ div {
 footer {
   text-align: center;
   clear: both;
+
+  border: 1px solid red;
+  display: inline;
+  margin: 0 auto;
 }
 
 ul {
