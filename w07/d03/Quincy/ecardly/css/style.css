@@ -1,0 +1,13 @@
+html {
+  background-color: rgb(214,214,214);
+
+}
+#header_image {
+background-image: url("../images/background.jpg")
+background-repeat: repeat-x;
+}
+
+#logo {
+  display: block;
+  margin: 0 auto;
+}
