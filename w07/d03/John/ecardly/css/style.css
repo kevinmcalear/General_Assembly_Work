@@ -31,10 +31,6 @@ header {
   padding-bottom: 35px;
 }
 
-.post {
-  padding-bottom: 20px;
-}
-
 .sidebar {
   background: white;
   width: 30%;
@@ -43,7 +39,10 @@ header {
   padding: 0 30px;
   padding-top: 18px;
   padding-bottom: 55px;
+}
 
+.post {
+  padding-bottom: 20px;
 }
 
 .post-img {
