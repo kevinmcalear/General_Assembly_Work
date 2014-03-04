@@ -1,0 +1,80 @@
+.everything {
+  background-color: #d6d6d6  ;
+  width: 100%;
+}
+
+#header {
+  background-image: url("../images/background.jpg");
+  width: 100%;
+  overflow: hidden;
+  background-repeat: repeat-x;
+}
+
+#logo {
+  display: block;
+  margin: 10px auto 0 auto;
+}
+
+.content {
+  width: 960px;
+  margin: 50px auto;
+
+}
+
+.display-space {
+  background-color: white;
+}
+
+#blog {
+  width: 615px;
+  float: left;
+  display: inline-block;
+  padding: 15px;
+}
+
+#sidebar {
+  width: 225px;
+  float: right;
+  text-align: left;
+  padding: 25px;
+}
+
+#sidebar img {
+  margin: 10px 0;
+}
+
+#sidebar h6 {
+  padding: 5px;
+}
+
+#sidebar li {
+}
+
+ul {
+  list-style-type: none;
+  position: relative;
+  left: -40px;
+}
+
+footer {
+  padding: 50px 0;
+  clear: both;
+  text-align: center;
+}
+
+#blog a {
+  color: #cc6633  ;
+  font-weight: bold;
+}
+
+.dotted-line {
+  height: 1px;
+  border: 1px dotted gray; 
+  margin: 5px 0;
+}
+
+.solid-line {
+  border: 1px solid black;
+  margin: 5px 0;
+}
+

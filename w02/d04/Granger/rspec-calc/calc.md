@@ -21,11 +21,22 @@ Find those stubs and fill them out by writing the tests. Once you have written t
 ####Step 4 - Reading and revisiting
 
 1. [What is that "#" that we put before each method for?](http://betterspecs.org/#describe)
+
+That indicates an instance method.
+
 2. We had to write "Calculator.new" for every test and my DRY alarm is going off! [Is there a better way?](http://betterspecs.org/#subject)
+
+We could let calc = Calculator.new
+
 3. What else can we test for besides equality?
     * [Expectations in RSpec](https://www.relishapp.com/rspec/rspec-expectations/v/2-14/docs)
     * [Built in matchers with Rspec:](https://www.relishapp.com/rspec/rspec-expectations/v/2-14/docs/built-in-matchers)
+
+    to be false, true, include, raise error, be empty, be within, exist, end with, etc
+
 4. [What is that context thing again and when do we use it?](http://betterspecs.org/#contexts)
+
+Context creates scope to just out the code under certain circumstances. We mark a context heading and end it with an end. Its scope includes everything within like other features or ruby.
 
 ####Bonus
 

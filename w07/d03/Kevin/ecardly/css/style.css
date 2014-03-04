@@ -1,0 +1,88 @@
+/* Setting up standard body and link settings */
+body {
+  background: #d6d6d6; 
+  text-align: center;
+}
+a {
+  color: #cc6633;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+/* Setting my header styles */
+header {
+  background-image: url("../images/background.jpg");
+  background-size: 15em;
+  background-repeat:  repeat-x;
+}
+header img {
+  height: 9em;
+  margin-top: .5em;
+}
+
+/* Setting up the content in the body */
+.wrapper {
+  margin: 2em auto;
+  max-width:  70em;
+  position: relative;
+  min-height: 40em;
+  text-align: left;
+  font-size: .6em;
+}
+.wrapper img {
+  width: 100%;
+  padding: .3em 0;
+  margin-bottom: 1em;
+}
+
+/* Setting up the blog content section */
+section {
+  margin-right: 22.222em;
+  background-color: #fff;
+  padding: 2em;
+}
+
+/* Setting up each article's styling */
+article {
+  border-bottom: .2em #000 solid;
+  padding-bottom: 1em;
+  margin-bottom: 3em;
+  font-size: .9em;
+}
+article p {
+  border-bottom: .2em #000 dotted;
+  padding-bottom: 1em;
+  line-height: 1.6em;
+}
+article p a {
+  text-transform: uppercase;
+}
+
+/* Setting up the nav bar */
+nav {
+  position: absolute;
+  width: 16.667em;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 2em;
+}
+ nav ul {
+  margin-left: -4em;
+  margin-bottom: 2em;
+  font-weight: bolder;
+ }
+ nav ul li {
+  margin: .4em 0;
+ }
+ 
+nav ul li:first-child {
+  text-transform: uppercase;
+  margin: .8em 0;
+}
+
+/* Setting up the footer */
+footer img {
+  width: 1.9em;
+  margin: 1em 0;
+}

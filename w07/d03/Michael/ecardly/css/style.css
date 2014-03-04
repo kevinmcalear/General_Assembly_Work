@@ -1,0 +1,86 @@
+div, ul, li, form, input, img, footer { 
+  border: 1px solid blue;
+}
+
+div#wrapper{
+  background-color: #d6d6d6;
+}
+
+#header_image{
+  background-image: url("../images/background.jpg");
+  background-repeat: repeat-x;
+}
+
+#header_logo{
+  display: block;
+  margin: 0 auto;
+}
+
+div.story-panel{
+  background-color: white;
+  margin-left: 40px;
+  width: 700px;
+  display: inline-block;
+  padding: 16px 8px 8px 8px;
+}
+
+div.story-title{
+  padding-top: 8px;
+  font-weight: bold;
+}
+
+div.story-photo{
+  padding-top: 8px;
+}
+
+div.story-text{
+  padding-top: 8px;
+}
+
+div.story-details{
+  border-style: dotted none solid none;
+  border-width: 1px;
+}
+
+.link{
+  color: #cc6633;
+  font-weight: bold;
+}
+
+
+div.nav-panel{
+  background-color: white;
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+div.nav-cutpaste{
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+div.nav-postcard{
+  padding-left: 40px;
+  padding-right: 40px;  
+}
+
+div.nav-submit{  
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+
+ul{
+  list-style-type: none;
+}
+
+.footer {
+  text-align: center;
+}
+
+li.footer-icon{
+  display: inline;
+}
+

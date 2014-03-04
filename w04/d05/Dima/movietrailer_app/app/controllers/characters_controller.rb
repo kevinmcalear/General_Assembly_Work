@@ -20,7 +20,7 @@ class CharactersController < ApplicationController
 
   def destroy
     @character.destroy
-    redirect_to("/movies#{params[:movie_id]}")
+    redirect_to("/movies/#{params[:movie_id]}")
   end
 
   def load_character
