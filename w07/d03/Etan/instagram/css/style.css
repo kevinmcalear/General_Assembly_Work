@@ -1,0 +1,52 @@
+#top_background {
+	background: -webkit-gradient(linear, left top, left bottom, from(#517fa4), to(#306088));
+
+	width: 100%;
+	height: 330px;
+
+
+}
+
+#bottom_background {
+	background-color: white;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+footer {
+	margin-top: 400px;
+	text-align: center;
+}
+
+#main_column {
+	position: fixed;
+	margin-top: -200px;
+	padding-left: 350px;
+}
+
+#left_panel {
+	display: inline-block;
+}
+
+#right_panel {
+	width: 400px;
+	height: 600px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#popout {
+	
+	background-color: white;
+	border-radius: 6px;
+	-webkit-box-shadow: 0px 0px 14px 0px rgba(50, 50, 50, 0.75);
+
+}
+
+.footer_links {
+	display: inline;
+	color: rgb(65,151,239);
+}
