@@ -1,0 +1,71 @@
+#page-wrapper{
+  font-family: sans-serif;
+}
+header{
+  background-color: rgb(63,97,134);
+  height: 250px;
+}
+
+div.header-images{
+  position: relative;
+  margin-left: 550px;
+  margin-top: 20px;
+  background-color: rgb(63,97,134);
+}
+
+button{
+  background-color: rgb(91,125,159);
+  color: white;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: rgb(26,64,106);
+  display:inline-block;
+  margin-top: -5px;
+}
+
+#house{
+  display: inline;
+}
+
+div.phone-image{
+  position: relative;
+  display: block;
+  margin-top: -420px;
+  margin-left: 100px;
+}
+
+ul.footer{
+  list-style-type: none;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+}
+
+li.footer-link{
+  display: inline;
+  position: relative;
+  color: rgb(63,97,134);
+}
+
+li.footer{
+  display: inline;
+  position: relative;
+  color: rgb(162,161,163);
+}
+
+div.text-on-page{
+  position: relative;
+  width: 50%;
+  margin-left: 500px;
+  margin-top: -70px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+div.stores{
+  position: relative;
+  margin-left: 520px;
+}
+

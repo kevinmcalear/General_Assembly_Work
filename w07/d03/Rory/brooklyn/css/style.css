@@ -10,3 +10,36 @@ Body Font Size = 12px
 Link Hover Color = #20222a
 
 */
+p{
+  color: rgb(82,82,82);
+}
+
+h2{
+  color: rgb(82,82,82);
+}
+
+span{
+  color: rgb(60,131,190);
+}
+ul.press{
+  list-style-type: none;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+}
+
+li.press{
+  display: inline;
+  position: relative;
+}
+
+img.press{
+  border: solid;
+  border-color: rgb(193,193,193);
+  padding: 1px;
+}
+
+footer{
+  color: rgb(82,82,82);
+}

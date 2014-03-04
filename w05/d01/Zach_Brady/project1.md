@@ -1,4 +1,4 @@
-# FIRST PROJECT DESCRIPTION
+	# FIRST PROJECT DESCRIPTION
 
 It's time to put everything that you've learned in the past month together. You will be working **individually** for this project.
 

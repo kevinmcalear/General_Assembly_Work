@@ -1,12 +1,101 @@
+/*
+ * Reset.
+ */
+
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote,  
+pre, img, form, fieldset, table, th, td { margin: 0; padding: 0; }
+
+
+/*
+ * Basic styles.
+ */
+
+body {
+  color: #4a4a4a;
+  font-size: 12px;
+  line-height: 17px;
+  font-family: "Times New Roman", serif;
+}
+
+a {
+  color: #5989c2;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #656565;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+
+
+/*
+ *  Content.
+ */
+
+header, h1 {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+p {
+  padding-bottom: 15px;
+}
+
+p.date {
+  color: #5989c2;
+  padding-bottom: 0px;
+}
+
 /* 
+ *  Press
+ */
 
-## Style Hints: 
+li {
+  display: inline;
+}
 
-Body Font Size = 12px
-	 Line Height = 17px
-	 Font Family = "Times New Roman", serif
-	 Font Color = #656565
+li img {
+  border: 4px solid #c5c5c5;
+  padding: 2px;
+}
 
-Link Hover Color = #20222a
+/*
+ *  Footer.
+ */
 
-*/
+footer {
+  padding-top: 5px;
+  margin-bottom: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
