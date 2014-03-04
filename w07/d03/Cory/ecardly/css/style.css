@@ -1,0 +1,43 @@
+body {
+  background-color: #d6d6d6;
+}
+
+header {
+  background: url('../images/background.jpg');
+  background-repeat: repeat-x;
+  width: 100%;
+}
+
+.content-container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.content {
+  margin: 0 auto;
+  display: inline-block;
+  background-color: #fff;
+  width: 625px;
+  padding: 15px;
+}
+
+.sidebar {
+  float: right;
+  background-color: #fff;
+  padding: 25px;
+
+}
+
+li {
+  list-style-type: none;
+}
+
+.social {
+  text-align: center;
+  margin: 30px;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto;
+}

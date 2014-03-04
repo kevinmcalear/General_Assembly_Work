@@ -1,0 +1,11 @@
+<h1>These are all the songs by <%= Artist.find_by(id: params[:artist_id]).name %><h1>
+
+<ul>
+
+<% @songs.each do |song| %>
+<li> <a href="/artists/<%=song.artist_id%>/songs/<%=song.id%>"><%= song.title %></a> </li>
+<% end %>
+
+</ul>
+
+<a href="/artists/<%=params[:artist_id]%>/songs/new">Add song</a>

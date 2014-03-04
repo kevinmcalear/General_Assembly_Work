@@ -1,0 +1,72 @@
+body {
+  background-color:#d6d6d6;
+}
+
+header {
+  background-image:url('../images/background.jpg');
+  width: 100%;
+  background-repeat: repeat-x;
+}
+
+
+
+
+#logo {
+  display: block;
+  margin: 0 auto;
+}
+
+.left-panel{
+  background-color: white;
+  padding: 20px 5px 20px 5px;
+  float: left;
+  width: 50%;
+  margin-top: 10%;
+  margin-left: 10%;
+  margin-bottom: 10%;
+}
+
+.card {
+
+  position: relative;
+  margin 8% 8%;
+}
+
+.right-panel{
+  background-color: white;
+  padding: 5px;
+  float: right;
+  width: 15%;
+  margin-right: 20%; 
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.sidebar {
+
+}
+
+#footy {
+  width: 29em;
+}
+
+p {
+  color: #000000;
+
+  font-size: small;
+}
+
+a {
+  color: #cc6633;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.social {
+    margin-left: 50%;
+}

@@ -1,0 +1,41 @@
+ 
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+}
+
+header {
+  width: 100%;
+  display: inline-block;
+}     
+.logo_flag {
+  background-color: #bb141a;
+  display: inline-block;
+  width: 150px;
+  height: 60px;
+}
+
+body h1 {
+  color: white;
+  padding-left: 75px;
+  padding-top: 12px;
+}
+
+span {
+  width: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  color: #777;
+}
+
+.hero {
+  height: 400px;
+  width: 100%;
+  background: url('me.jpg');
+  background-size: cover;
+  -webkit-background-size: cover;
+}
+

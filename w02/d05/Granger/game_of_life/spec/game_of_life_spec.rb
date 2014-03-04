@@ -60,6 +60,19 @@ describe "Game of Life" do
     end
   end
 
+  describe "#show_game" do
+    it "display the game without error" do
+      expect(game.show_game).not_to raise_error
+    end
+  end
+
+  describe "#live_neighbors" do
+    it "returns an array of neighbors" do
+      expect(game.live_neighbors(0, 0)).to be_a_kind_of(Array)
+      expect(game.OFFSETS).to include([1,1])
+    end
+  end
+
 
 
 end
