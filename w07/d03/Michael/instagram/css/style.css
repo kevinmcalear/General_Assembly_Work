@@ -1,0 +1,56 @@
+/*div, ul, li, form, input, img, footer { 
+  border: 1px solid blue;
+}
+*/
+div.top{
+  background: -webkit-gradient(linear, left top, left bottom, from(#517fa4), to(#306088)); 
+  height: 280px;
+}
+
+/*div.photo{
+  position: fixed;
+  display: block;
+}
+
+div.title{
+  display: block;
+}
+*/
+
+div.panel {
+  position: fixed;
+  top: 115px;
+  left: 150px;
+  height: 900px;
+  width: 900px;
+}
+
+div.left-panel{
+  display: inline-block;
+}
+
+div.right-panel{
+  display: inline-block;
+  margin-left: 50px;
+  vertical-align: top;
+  width: 500px;
+  height: 400px;
+}
+
+div.text{
+  background-color: white
+}
+
+div.footer {
+  padding-top: 500px;
+  text-align: center;
+}
+
+ul{
+  list-style-type: none;
+}
+
+li.footer-link {
+  display: inline;
+}
+
