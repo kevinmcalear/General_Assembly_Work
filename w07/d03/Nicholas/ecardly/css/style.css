@@ -1,0 +1,63 @@
+body {
+  background-color: #d6d6d6;
+  color: #000000;
+}
+header {
+  text-align: center;
+  height: 100px;
+  background-image: url('../images/background.jpg');
+}
+
+header img{
+  position: relative;
+  top: 20px;
+  width: 175px;
+}
+
+#main_center {
+  margin: 0 auto;
+  margin-top: 125px;
+  width: 70%;
+}
+
+.ecard_container {
+  width: 500px;
+  padding: 1em;
+  background-color: white;
+}
+.ecard_container img {
+  max-width: 100%;
+}
+a {
+  color: #cc6633;
+  text-decoration: none;
+}
+.left {
+  display: inline-block;
+}
+.right {
+  background-color: white;
+  width: 350px;
+  float: right;
+}
+ul {
+  list-style-type: none;
+}
+.photolinks img{
+  margin-top: 15px;
+}
+
+.posted_by {
+  border-top: 1px dotted black;
+  border-bottom: 1px solid black;
+}
+
+#social_links ul li{
+  display: inline;
+}
+#social_links {
+  margin-top: 40px;
+  text-align: center;
+}
+
+
