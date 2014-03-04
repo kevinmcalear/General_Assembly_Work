@@ -1,0 +1,106 @@
+/*
+ * Reset.
+ */
+
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote,  
+pre, img, form, fieldset, table, th, td { margin: 0; padding: 0; }
+
+
+/*
+ * Basic styles.
+ */
+
+ body {
+  background-color: #f7f8fa;
+ }
+
+ .blue-band {
+  background-color: #4e7ba1;
+  background-image: -webkit-linear-gradient(#4e7ba1, #326189);
+  background-image:    -moz-linear-gradient(#4e7ba1, #326189);
+  background-image:     -ms-linear-gradient(#4e7ba1, #326189);
+  background-image:      -o-linear-gradient(#4e7ba1, #326189);
+  background-image:         linear-gradient(#4e7ba1, #326189);
+  height: 300px;
+  width: 100%;
+  top: 0;
+  position: absolute;
+  z-index: -1;
+ }
+
+ .container {
+    width: 960px;
+    margin: 100px auto;
+ }
+
+ a {
+  color: #f4f6f8;
+  text-decoration: none;
+ }
+
+/*
+ * Left
+ */
+
+ section.left {
+  width: 320px;
+  margin-right: 50px;
+  float: left;
+ }
+
+ /*
+  * Right
+  */
+
+ section.right {
+  width: 590px;
+  float: right;
+ }
+
+header {
+  display: block;
+}
+
+button {
+  background-image: linear-gradient(#7b9fbb, #41739c);
+  padding: 5px;
+  border: 1px solid #1c5380;
+  border-radius: 4px;
+  margin: 0px;
+  display: inline-block;
+}
+
+button a {
+  vertical-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
