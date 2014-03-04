@@ -21,6 +21,10 @@ class Minesweeper
     return @mine_positions
   end
 
+  def has_mine?(cell)
+    
+  end
+
 end
  
 class Cell < Minesweeper
