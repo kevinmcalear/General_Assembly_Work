@@ -1,0 +1,6 @@
+<h1>These are all the characters in <%= @movie.title %><h1>
+  <ul>
+  <% @characters.each do |character| %>
+  <li><a href="/movies/<%= @movie.id %>/characters/<%= character.id %>"><%= character.name %></a></li>
+  <% end %>
+  </ul>

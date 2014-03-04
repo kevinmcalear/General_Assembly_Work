@@ -1,0 +1,28 @@
+1. vin = Artist.create(name: "Vincent van Gogh", nationality: "Dutch")
+
+2 vin.paintings.create(title: "The Starry Night")
+
+3 Artist.all
+
+4 Painting.all
+
+5 Artist.find_by_id(2)
+
+6 Artist.find_by_name("Vincent van Gogh")
+
+7 pry(main)> Artist.where(nationality: "Spanish")
+
+8 Painting.find(1)
+
+9 Painting.find_by_title("Guernica")
+
+10 Artist.find_by_name("Pablo Picasso").paintings
+
+11 Artist.find(Painting.find_by_title("Guernica").artist_id)
+
+12 vin = Artist.find_by_name("Vincent van Gogh").nationality = "American"
+vin.nationality = "American"
+vin.save
+
+13  vin.paintings << gu
+

@@ -1,0 +1,15 @@
+<h1>Welcome to the page for <%= @movie.title %> </h1>
+<img src="<%=@movie.poster_url%>">
+<ul>
+<li>Year: <%= @movie.year %></li>
+<li><a href="/movies/<%= @movie.id %>/characters">See Characters</a></li>
+</ul>
+
+
+<form action="/movies/<%= @movie.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE" />
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <button>DESTROY</button>
+</form>
+  <a href="/movies/<%= @movie.id %>/characters/new">Create a character</a>

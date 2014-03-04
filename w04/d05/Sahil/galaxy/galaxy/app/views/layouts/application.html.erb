@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Galaxy</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+<a href="/spaceships">Home</a>
+<a href="/spaceships/new">New Spaceship</a>
+</header>
+<%= yield %>
+
+</body>
+</html>

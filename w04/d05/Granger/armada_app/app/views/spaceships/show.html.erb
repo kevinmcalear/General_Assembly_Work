@@ -13,6 +13,14 @@ Species allowed: <%= @spaceship.species_allowed %>
 <br>
 Purpose: <%= @spaceship.purpose %>
 <br>
+<%= button_to "Destroy Ship", "/spaceships/#{@spaceship.id.to_s}", class: "button", method: :delete %>
+<br>
+Aliens:
+  <ul>
+    <% @spaceship.aliens.each do |alien| %>
+    <li><a href="/spaceships/<%= @spaceship.id%>/aliens/<%= alien.id %> "><%= alien.name %></a> </li>
+    <% end %>
+  </ul>
 <p>
   <img src="<%= @spaceship.photo_url %>"
 </p>
