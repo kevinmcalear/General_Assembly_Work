@@ -1,0 +1,8 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: movie_db
+  pool: 5
+  username: kirsten
+  host: localhost
