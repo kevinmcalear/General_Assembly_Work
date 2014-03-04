@@ -10,3 +10,53 @@ Body Font Size = 12px
 Link Hover Color = #20222a
 
 */
+header {
+  margin-left: 16%;
+  color: #878787;
+}
+
+.page-wrapper {
+  text-align: center;
+}
+
+.banners {
+
+}
+
+h2 {
+  text-align: left;
+  margin-left: 16%;
+  color: #878787;
+  font-size: 1em;
+}
+
+p {
+  text-align: left;
+  margin-left: 16%;
+  margin-right: 16%;
+  color: #878787;
+  font-size: .938em;
+}
+
+#blue{
+  color: #4289c2;
+}
+/*#blue2 {
+  color: #4289c2;
+}*/
+.magazine {
+
+}
+.mag {
+  border: 6px solid;
+  border-color: #C1C1C1;
+  padding: 1px;
+  padding-color: #ffffff;
+}
+
+footer {
+text-align: left;
+margin-left: 16%;
+color: #878787;
+font-size: .938em;
+}
