@@ -11,6 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def new
+    @movie = Movie.new #added that on 15th of Feb at 3:17
     render(:new)
   end
 
@@ -28,13 +29,16 @@ class MoviesController < ApplicationController
     redirect_to("/movies/#{params[:movie_id]}")
   end
 
-  def load_movie
-    @movie = Movie.find(params[:id])
-  end
 
   def destroy
     @movie.destroy
     redirect_to("/movies")
+  end
+
+  private
+
+  def load_movie
+    @movie = Movie.find(params[:id])
   end
 
   def movie_params
