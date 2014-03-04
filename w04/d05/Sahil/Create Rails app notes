@@ -1,0 +1,56 @@
+Create Rails app (in terminal)
+  rails new name_app -d postgresql
+create database in terminal
+  CREATE DATABASE name_of_db
+Configure app to database
+  config/database.yml
+    development:
+    adapter: postgresql
+    database: galaxy_db
+    user: sahiltrikha
+    host: localhost
+    pool: 5
+    timeout: 5000
+Create Tables (in terminal)
+  rails generate model Name_of_table (singular)
+Define attributes/columns of table
+  db/migrate
+      t.string :name
+      t.integer :appendage
+      t.string :weakness
+      t.string :strength
+      t.string :origin
+      t.references :spaceship
+For models with one-to-many relationships, define belongs_to and has_many
+  app/models/___.rb
+Make Seeds
+  db/seeds.rb
+    Spaceship.create(name: "Decepticon", capacity: 500, origin: "Florida", species_allowed: "Squirrels", photo_url: "bit.ly/1g2mVlU", purpose: "Kill Autobots")
+    Spaceship.create(name: "Air Force One", capacity: 100, origin: "DC", species_allowed: "Democrats", photo_url: "bit.ly/1kkPLC0", purpose: "Kill Autobots")
+    Alien.create(name: "Lars", appendage: "Claw", weakness: "Will Smith", strength: "Bitcoins", origin: "Mars", spaceship_id: 1)
+Run rake db:seed
+Define a route
+  config/routes.rb
+      get "/spaceships", to: "spaceships#index"
+Create necessary controllers for routes and their methods
+  app/controllers/spaceships_controller.rb
+        class SpaceshipsController < ApplicationController
+          def index
+            @spaceships = Spaceship.all
+            render(:index)
+          end
+        end
+Create folder within views folder and correspoding erb templates
+  create app/view/spaceships
+  create app/view/spaceships/index.html.erb
+      <h1>These are all the Spaceships<h1>
+    <ul>
+    <% @spaceships.each do |spaceship| %>
+    <li> <%= spaceship.name %> </li>
+    <% end %>
+    </ul>
+
+
+ resources :spaceships do
+    resources :aliens
+  end
