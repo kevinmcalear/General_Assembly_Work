@@ -1,0 +1,141 @@
+body {
+
+background-color: #d6d6d6;
+font-size: 12px;
+}
+
+
+#content-container {
+  position: relative;
+}
+
+a {
+  color: #cc6633;
+}
+
+header#main-header {
+  background-image:url("../images/background.jpg");
+  margin: 0 auto;
+}
+
+#logo {
+  width: 15%;
+  position: fixed;
+  top: 0;
+  display: block;
+  margin: 0 25%;
+  padding-bottom: 25%;
+  }
+
+#card-container {
+  width: 50%;
+  padding: 6%;
+  background: white;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  margin-top: 8%;
+  float: left;
+  margin-left: 8%;
+  margin-bottom: 8%;
+}
+
+h1{
+  padding-left: 1em;
+}
+
+#card-container li {
+  display: block;
+}
+
+.card {
+  width: 95%;
+  display: block;
+  margin: 0 auto;
+
+}
+
+.card-image {
+
+  display: block;
+  margin: 0 auto;
+  width: 95%;
+  padding: 1em;
+}
+
+#side-bar {
+  float: right;
+  width: 25%;
+  background: white;
+  display: block;
+  margin-top: 8%;
+  list-style-type: none;
+  margin-right: 2%;
+  margin-left: 6%;
+  position: absolute;
+  right: 0;
+}
+
+.side-bar-ul {
+  list-style-type: none;
+  list-style-image: none;
+  display: block;
+  margin: 0 auto;
+  font-weight: bold;
+  text-align: left;
+  padding-bottom: 2em;
+  padding-right: 2em;
+  position: relative;
+  margin-right: 10%;
+  margin-top: 8%;
+}
+
+.side-bar-ul-li {
+  padding: 1.5%;
+  width: 95%;
+  display: block;
+  margin: 0 auto;
+}
+
+footer {
+      bottom: 0;
+      width: 100%;
+    }
+
+#page-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 2em;
+  display: inline;
+  margin: 0 auto;
+}
+
+#footer-ul {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.share-buttons-li {
+  display: inline-block;
+}
+
+img {
+  width: 75%;
+  position: relative;
+}
+
+.post-footer {
+  border-top: 1px dotted black;
+  border-bottom: 1px solid black;
+}
+
+#page-footer {
+  width: 100%;
+  /* position: fixed; */
+  /* bottom: 0; */
+  display: block;
+  margin: 0 50%;
+  padding-bottom: 0%
+}

@@ -1,0 +1,7 @@
+
+<% @buildings.each do |building| %>
+    <%=link_to("#{building.name}", building) %><br>
+    </p></div>
+  <%end%>
+
+<%=link_to("Add a new building", new_building_path) %>
