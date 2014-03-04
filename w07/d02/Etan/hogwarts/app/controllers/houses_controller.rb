@@ -1,11 +1,17 @@
 class HousesController < ApplicationController
-
+  before_action :load_house, only: [:show]
+  
   def index
-    @houses = Houses.all
+    @houses = House.all
   end
 
   def show
-    @houses = Houses.all
+  end
+
+  private
+
+  def load_house
+    return @house = House.find(params[:id])
   end
 
 end

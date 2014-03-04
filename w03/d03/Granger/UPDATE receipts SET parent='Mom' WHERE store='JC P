@@ -1,0 +1,9 @@
+UPDATE receipts SET parent='Mom' WHERE store='JC Penny''s';
+
+SELECT parent, SUM(number_of_item), AVG(price::numeric)::money FROM receipts GROUP BY parent;
+
+SELECT parent, item, price FROM receipts ORDER BY parent, price DESC;
+
+UPDATE receipts SET parent= 'Dave' WHERE parent='';
+
+DELETE FROM receipts WHERE store= 'Local Book Store';
