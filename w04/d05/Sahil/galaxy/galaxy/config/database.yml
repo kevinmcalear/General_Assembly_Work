@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  database: galaxy_db
+  user: sahiltrikha
+  host: localhost
+  pool: 5
+  timeout: 5000
+

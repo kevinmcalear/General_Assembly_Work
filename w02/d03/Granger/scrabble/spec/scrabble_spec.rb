@@ -17,7 +17,16 @@ describe ScrabbleWord do
       word = ScrabbleWord.new("SnoWMaN")
       expect( word.score ).to eq 12
     end
+  
+
+
+    it "multiplies a letter's score by a factor or 2" do
+      word = ScrabbleWord.new("c2at")
+      expect( word.score).to eq 6
+    end
+
   end
+
 
   describe "#multiplier_score" do
     it "multiplies score by a factor of 2" do
@@ -30,4 +39,6 @@ describe ScrabbleWord do
       expect( word.multiplier_score(3) ).to eq 27
     end
   end
+
+
 end
