@@ -1,0 +1,25 @@
+<h1> New Dog, dog.<h2>
+
+
+<form action="/dogs" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token  %>"
+  <label>
+    Name:
+    <input type="text" name="name">
+  </label>
+
+
+<label>
+    Breed:
+    <input type="text" name="breed">
+  </label>
+
+  <label>
+    Age
+    <input type="integer" name="age">
+  </label>
+
+
+  <button>Add Dog</button>
+
+</form>

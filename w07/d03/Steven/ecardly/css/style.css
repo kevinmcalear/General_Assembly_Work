@@ -1,0 +1,92 @@
+body {
+  background-color: #d6d6d6;
+}
+
+header {
+  background-image: url("../images/background.jpg");
+  text-align: center;
+  background-repeat: repeat-x;
+}
+a {
+  color: #cc6633;
+}
+
+h2{
+  font-size: 1em;
+}
+
+#page-wrapper {
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 3em;
+  padding-bottom: 1em;
+  position: relative;
+}
+
+#main-content {
+  width: 55%;
+  float: left;
+  padding: 1em;
+  background: white;
+}
+#main-content img {
+  width: 100%;
+}
+
+#sidebar{
+  width: 30%;
+  float:left;
+  margin-left: 20px;
+  padding: 1em;
+  background: white;
+}
+
+#sidebar img {
+  width: 100%;
+  text-align: center;
+}
+#sidebar ul{
+  text-align: left;
+}
+.pic-list {
+  text-align: center;
+}
+.red{
+  color: red;
+}
+ul {
+  list-style-type: none;
+
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+}
+
+.footer-social-media li {
+  padding-top: 4em;
+  padding-bottom: 3em;
+  display: inline-block;
+
+}
+.checked {
+    border-top:1px dotted #000;
+    /*Rest of stuff here*/
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+
