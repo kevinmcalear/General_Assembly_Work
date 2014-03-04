@@ -19,7 +19,8 @@ development:
   encoding: unicode
   database: hogwarts_development
   pool: 5
-  username: GA
+  username: newuser
+  host: localhost
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a

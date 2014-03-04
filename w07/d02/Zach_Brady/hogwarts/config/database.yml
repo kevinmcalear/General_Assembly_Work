@@ -19,8 +19,7 @@ development:
   encoding: unicode
   database: hogwarts_development
   pool: 5
-  username: GA
-  password:
+  username: zzzbra
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
