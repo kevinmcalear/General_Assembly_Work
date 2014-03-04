@@ -1,0 +1,33 @@
+#page-wrapper {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 6em;
+}
+
+#background-color{
+  background-color: #3B648F;
+  width: 100%;
+  height: 300px;
+}
+#header-left{
+  float: left;
+}
+#header-right{
+  float:left;
+  margin-left: 45px;
+  padding-bottom: 24px;
+}
+#login{
+  margin-left: 50px;
+  background-color: #3B648F;
+}
+#button{
+  padding-bottom: 10px;
+}
+#main-content {
+  width: 52%;
+  float: right;
+  padding: 1em;
+  background-color: white;
+  border-radius: 5px;
+}

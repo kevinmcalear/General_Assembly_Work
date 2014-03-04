@@ -1,0 +1,10 @@
+<%=@movie.title%> Main Trailer
+<br>
+
+<a href="/movies/<%= @movie.id%>/trailers/new">Add a new trailer</a><br>
+
+<% @trailers.each do |trailer| %>
+<a href="/movies/<%= @movie.id %>/trailers/<%= trailer.id%>"><%= trailer.title %></a><br>
+  <%end%>
+
+<a href="/movies">Back to the movies<a>

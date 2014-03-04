@@ -10,3 +10,27 @@ Body Font Size = 12px
 Link Hover Color = #20222a
 
 */
+
+/*div, ul, li, form, input, img, footer { 
+  border: 1px solid blue;
+}*/
+
+div.title {
+  padding-left: 45px;
+}
+
+div.photo {
+  padding-left: 45px;
+}
+
+div.paragraph {
+  padding-left: 45px;
+}
+
+div.affiliates {
+  padding-left: 45px;
+}
+
+img.partner {
+  border: 3px solid gray;
+}
