@@ -1,0 +1,22 @@
+queries
+
+1) SELECT item FROM receipts WHERE quantity >= 3;
+
+2) SELECT * FROM receipts WHERE date_bought > '1989-12-22';
+
+3) SELECT DISTINCT store FROM receipts;
+
+4) SELECT store, price/quantity FROM receipts WHERE price/quantity < '15';
+SELECT store, SUM(price) FROM receipts < '15' GROUP BY store;
+
+5) SELECT price, quantity FROM receipts WHERE store != 'Borders' AND store != 'Local Book Store';
+
+
+
+1) SELECT date_bought, SUM(price*quantity) FROM receipts WHERE date_bought = '1989-12-21' GROUP BY date_bought;
+
+2) SELECT store, COUNT(id) FROM receipts WHERE store = 'Sears' GROUP BY store;
+
+3) SELECT item, SUM(quantity) FROM receipts WHERE store = 'Express' GROUP BY store;
+
+4) 

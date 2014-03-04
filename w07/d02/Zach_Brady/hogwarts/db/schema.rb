@@ -18,14 +18,14 @@ ActiveRecord::Schema.define(version: 20131030184440) do
 
   create_table "houses", force: true do |t|
     t.string   "name",       null: false
-    t.string   "img_url",    null: false
+    t.string   "image_url",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "students", force: true do |t|
     t.string   "name",       null: false
-    t.string   "img_url",    null: false
+    t.string   "image_url",  null: false
     t.integer  "house_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
