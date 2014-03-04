@@ -1,0 +1,10 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: tunr_development
+  pool: 5
+  username: sahiltrikha
+  host: localhost
+  timeout: 5000
+  password:
