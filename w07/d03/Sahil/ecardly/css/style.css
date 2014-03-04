@@ -1,0 +1,64 @@
+html, body {
+  margin: 0px;
+  background-color: #D8D8D8;
+}
+
+.banner
+{
+  position: fixed;
+  top: 0;
+  padding-left: 0;
+  height:162px;
+  width: 100%;
+  background-image: url("../images/background.jpg");
+  background-repeat: repeat;
+  text-align: center; 
+} 
+header {
+  background-color: #D8D8D8;
+  height: 230px;
+}
+.whitespace {
+  position: relative;
+  margin-top: 50px;
+  margin-right: auto; 
+  margin-left: auto;
+  padding-bottom: 20px;
+  width: 1000px;
+}
+.left{
+  background-color: white;
+  position: relative;
+  float: left;
+  margin-left: 10px;
+}
+.right {
+  background-color: white;
+  position: relative;
+  float: right;
+  padding: 40px;
+}
+.blogpost {
+  background-color: white;
+  position: relative;
+  padding: 40px;
+}
+footer {
+  padding: 10px;
+  position: static;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+}
+#footlist
+{
+  list-style-type: none;
+  /*display: inline;*/
+  text-decoration: none;
+  padding: .2em 1em;
+  position: relative;
+  text-align: center;
+}
+#footlist li { 
+  display: inline;
+}

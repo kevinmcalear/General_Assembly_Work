@@ -1,0 +1,108 @@
+body {
+  background-image: -webkit-linear-gradient(top, rgb(246,247,249), rgb(255,255,255));
+  height: 100%;
+}
+
+.phonepic {
+  border-radius: 40px;
+}
+
+.blue-background {
+  z-index: 0;
+  background-color: rgb(90,116,148);
+  height: 300px;
+  top: 0;
+  background-image: -webkit-linear-gradient(top, #517fa4, #306088);
+}
+
+.content {
+  width: 855px;
+  display: block;
+  top: -200px;
+  z-index: 4;
+  position: relative;
+  margin: 0 auto; 
+}
+
+.icons {
+  margin-bottom: 10px;
+}
+
+.writing {
+  display: inline-block;
+  width: 490px;
+  margin: 20px;
+  position: relative;
+  top: -75px;
+}
+
+.writing_background {
+  background-color: white;
+  width: 450px;
+  padding: 30px;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 1px 1px rgb(220,220,220);
+}
+
+.login {
+  background-color: rgb(97,122,154);
+  border-radius: 3px;
+  width: 100px;
+  height: 50px;
+  display: inline-block;
+  position: absolute;
+  margin-left: 75px;
+  background-image: -webkit-linear-gradient(top, rgb(121,148,180), rgb(81,113,154));
+  border: 1px solid #375F82;
+  -webkit-box-shadow: 2px 2px 1px 1px #375F82;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.login p {
+  display: inline-block;
+  position: absolute;
+  color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.icon {
+  display: inline-block;
+}
+
+footer {
+  display: block;
+  margin: 0 auto;
+  color: rgb(88,115,150);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 30px;
+  font-size: .7em;
+}
+
+footer li{
+  list-style-type: none;
+  display: inline;
+}
+
+footer ul{
+  width: 36%;
+  display: block;
+  margin: 0 auto;
+}
+
+.copyright{
+  color: rgb(178,178,178);
+}
+
+.clear:before,
+.clear:after {
+    content: " ";
+    display: table;
+}
+
+.clear:after {
+    clear: both;
+}
