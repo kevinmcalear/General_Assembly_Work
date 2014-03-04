@@ -1,0 +1,10 @@
+development:
+  adapter: postgresql
+  database: trailer_db
+  encoding: unicode
+  pool: 5
+  username: sahiltrikha
+  host: localhost
+  timeout: 5000
+
+

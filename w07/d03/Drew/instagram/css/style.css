@@ -1,0 +1,32 @@
+.header{
+  background-color: #517FA4;
+  width: 110%;
+  height: 20em;
+  margin-top: -10px;
+  margin-left: -10px;
+  margin-right: -10px
+}
+
+.body-content{
+  text-align: center;
+  font-family: Georgia;
+  position: absolute;
+  margin: 50px;
+}
+
+.text{
+  float:right;
+}
+
+
+li{
+  list-style-type: none;
+  display: inline-block;
+  position: relative;
+}
+
+ul{
+  text-align: center;
+}
+
+/*display the body inline-block?*/

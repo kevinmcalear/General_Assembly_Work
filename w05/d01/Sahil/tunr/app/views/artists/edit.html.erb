@@ -1,0 +1,23 @@
+<h1>Edit Artist Profile</h1>
+
+<form action="/artists/<%=params[:id]%>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+
+  <label>
+    Name:
+    <input type="text" name="name" value="<%= @artist.name%>"/>
+  </label>
+
+  <label>
+    Genre:
+    <input type="text" name="genre" value="<%=@artist.genre%>" />
+  </label>
+
+  <label>
+    Photo:
+    <input type="text" name="photo_url" value="<%=@artist.photo_url%>"/>
+  </label>
+
+  <button>Update</button>
+</form>

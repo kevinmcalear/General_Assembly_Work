@@ -32,12 +32,32 @@
       },
     }
 
-1. How would you access Jeff's Github handle (i.e. the string "jkonowitch")?
+1. How would you access Jeff's Github handle (i.e. the string "jkonowitch")? 
+users["Jeff"][:github]
+
 2. How would you add the number 7 to PJ's favorite numbers?
+users["PJ"][:favorite_numbers] << 7
+
 3. How would you add yourself to the users hash?
+users["Granger"] = {github: "Cranbury", favorite_numbers: [4]}
+
 4. How would you return the array of Peter's favorite numbers?
+users["Peter"][:favorite_numbers]
+
 5. How would you return the smallest of Jeff's favorite numbers?
+users["Jeff"][:favorite_numbers].min
+
 6. How would you return an array of PJ's favorite numbers that are also even?
+users["PJ"][:favorite_numbers].select {|num| num.even?}
+
 7. How would you return an array of the favorite numbers common to all users?
+users.reduce(users["Peter"][:favorite_numbers]) {|numbers, user| numbers & user[1][:favorite_numbers]}
+
+users.reduce(users.to_a.sample[1][:favorite_numbers]) {|numbers, user| numbers & user[1][:favorite_numbers]}
+
+
 8. How would you return an array containing all users' favorite numbers, sorted, and excluding duplicates?
+users.reduce([]) {|numbers, user| numbers += user[1][:favorite_numbers]}).sort.uniq
+
 9. How would you change Peter's favorite number 12 into the string "12"?
+users["Peter"][:favorite_numbers][users["Peter"][:favorite_numbers].index(12)] = "12"
