@@ -1,6 +1,11 @@
 ArmadaApp::Application.routes.draw do
 
-resources :spaceships
+resources :spaceships do
+  resources :aliens, except: :create, except: :new
+end
+
+post '/aliens', to: 'aliens#create'
+get '/aliens/new' , to: 'aliens#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,74 @@
+header {
+  background-color: rgba(75, 120, 158, 1);
+  height: 280px;
+  width: 100%;
+  position: absolute;
+}
+.white-background {
+  position: absolute;
+}
+
+div {
+  display: block;
+}
+
+.everything {
+  max-height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  width: 880px;
+  margin: 100px auto;
+}
+
+.iphone {
+  float: left;
+}
+.iphone img {
+  border-radius: 60px;
+}
+
+.login {
+  width: 500px;
+  float: right;
+  padding-bottom: 20px;
+}
+
+.text {
+  background-color: white;
+  width: 470px;
+  float: right;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.instabutton {
+  background-color: rgb(67, 117, 157)
+}
+
+
+
+footer {
+  text-align: center;
+  clear: both;
+
+  border: 1px solid red;
+  display: inline;
+  margin: 0 auto;
+}
+
+ul {
+  display: inline-block;
+  list-style-type: none;
+}
+li {
+  display: inline-block;
+}
+li a {
+  font-weight: bold;
+  color: rgb(26, 78, 120);
+  text-decoration: none;
+}

@@ -1,0 +1,16 @@
+<h1>Add Song by <%=Artist.find_by(id: params[:artist_id]).name %></h1>
+
+<form action="/artists/<%= params[:artist_id] %>/songs" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label>
+    Title:
+    <input type="text" name="title" />
+  </label>
+
+  <label>
+    Year:
+    <input type="integer" name="year" />
+  </label>
+
+  <button>Add</button>
+</form>
