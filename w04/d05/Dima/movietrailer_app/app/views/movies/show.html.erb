@@ -5,14 +5,29 @@
   <ul><% @movie.characters.each do |char| %>
     <li><h3><%= char.name %></h3>
       <a href="/movies/<%= char.movie_id %>/characters/<%= char.id %>/edit">Edit a character</a>
+      <form action="/movies/<%= char.movie_id %>/characters/<%= char.id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE" />
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+        <button>Delete this character</button>
+      </form>
     <img src="<%= char.photo_url %>" /></li>
     <% end %>
   </ul>
   <h4><a href="/movies/<%= params[:id] %>/characters/new">Here you can add another character</a></h4>
   <br />
-  <h2> And this is the trailer for the movie </h2>
-  <% trailer= Trailer.all.where(movie_id: @movie.id) %>
-  <% trailer.each do |i| %>
-  <iframe width="560" height="315" src="<%= i.embed_url %>" frameborder="0" allowfullscreen></iframe>
+  
+  <% trailer = Trailer.all.where(movie_id: @movie.id) %>
+  <% if !trailer.empty? %>
+    <% trailer.each do |t| %>
+      <h2> And this is the trailer for the movie </h2>
+      <iframe width="560" height="315" src="<%= t.embed_url %>" frameborder="0" allowfullscreen></iframe>
+      <form action="/movies/<%= t.movie_id %>/trailers/<%= t.id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE" />
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+        <button>Delete this trailer</button>
+      </form>
     <% end %>
+  <% else %>
+    <h4><a href="/movies/<%= params[:id] %>/trailers/new">Here you can add a trailer for this movie</a></h4>
+  <% end %>
 <p><a href="/movies"> Back to main page</a></p>

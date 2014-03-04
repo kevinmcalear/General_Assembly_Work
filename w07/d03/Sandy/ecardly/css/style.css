@@ -1,0 +1,61 @@
+header{
+    background: url("../images/background.jpg");
+    text-align: center;
+}
+
+body {
+  background-color: #CDCDCD;
+}
+
+.column-left, .column-right {
+  background-color: #ffffff;
+}
+
+.column-left{
+  padding: 30px;
+  width: 43%;
+  text-align: justify;
+  margin-left: 15%;
+  margin-top: 5%;
+  display: inline-block;
+}
+
+.column-right {
+  padding: 0px;
+  width: 20%;
+  background-color:#ffffff  ;
+  font-size: .938em;
+  margin-right: 15%;
+  margin-top: 5%;
+  float: right;
+}
+
+img.ecard{
+  height: 50%;
+  width: 100%;
+}
+
+.posted-text{
+  border-top: dotted;
+  border-bottom: solid;
+  margin: 15px;
+  padding: 10px;
+  font-size: .750em;
+  }
+
+.side-bar-content{
+    list-style-type: none;
+    font-weight: bold;
+  }
+
+span{
+  color: red;
+}
+
+footer{
+  clear: both;
+  text-align: center;
+  text-align: center;
+  margin: 25px;
+}
+

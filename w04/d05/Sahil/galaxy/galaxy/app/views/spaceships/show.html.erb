@@ -1,0 +1,13 @@
+<h1>Welcome to the page for <%= @spaceship.name %> </h1>
+<img src="<%=@spaceship.photo_url%>">
+<ul>
+<li>Capacity: <%= @spaceship.capacity %></li>
+<li><a href="/spaceships/<%= @spaceship.id %>/aliens">See Aliens</a></li>
+</ul>
+
+<form action="/spaceships/<%= @spaceship.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE" />
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <button>DESTROY</button>
+</form>

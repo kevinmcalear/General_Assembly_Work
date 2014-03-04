@@ -1,0 +1,20 @@
+A Movie has:
+
+* title
+* year
+* poster_url
+Movie has many characters
+Movie has many trailers
+
+A Character has:
+
+* name
+* photo_url
+character belongs to movie
+
+A Trailer has:
+
+* title
+* embed_url
+
+trailer belongs to movies

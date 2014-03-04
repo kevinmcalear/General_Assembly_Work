@@ -94,7 +94,6 @@ class Building
   end
 
   def remove_tenant
-
     apts = apartments.map {|apt| apt.name}
     apts_str = apts.join(" | ")
     
@@ -115,16 +114,6 @@ class Building
     index_selected = gets.chomp.to_i - 1
 
     apt.renters.delete_at(index_selected)
-
-    # occupied_apts = apartments.select {|apt| !apt.renters.empty?}
-    # tenants = occupied_apts.reduce([]) {|tenants, apt| tenants += apt.renters.flatten}
-    # p tenants
-    # tenants.each_with_index do |tenant, i|
-    #   puts "#{i+1}) #{tenant.name}"
-    # end
-    # choice_i = gets.chomp.to_i - 1
-    # choice = tenants[choice_i]
-    # choice = nil
   end
 
 end

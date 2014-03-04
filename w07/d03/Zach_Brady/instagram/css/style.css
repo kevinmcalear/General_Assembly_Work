@@ -1,0 +1,28 @@
+#container {
+  color: #222222;
+}
+
+h2 {
+  font-size: 27px;
+  line-height: 32px;
+  margin-right: 35%;
+  color: #06365f;
+  font-family: 'freight-sans-pro', 'proxima-nova', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+p {
+  font-family: 'proxima-nova', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+footer a {
+  padding: 8px 6px;
+}
+
+nav {
+  color: #3f729b;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+nav ul {
+  list-style: none;
+  display: inline-block;
+}
