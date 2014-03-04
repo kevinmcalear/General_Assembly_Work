@@ -6,11 +6,26 @@
   <body>
     <h1>Javascript!</h1>
     <script type="text/javascript">
-      var name = "Isaac";
-      var sayMyName = function() {
-        console.log(name + "Torres");
+
+      var dollarsToPounds = function(amt) {
+        var poundValue = (amt / 1.66).toFixed(2);
+        return parseInt(poundValue);
       }
-      sayMyName();
+
+      var poundstoDollars = function(amt) {
+        var dollarValue = (amt * 1.66).toFixed(2);
+        return parseInt(dollarValue);
+      }
+
+      var currencyConverter = function() {
+        var currencyFrom = prompt("What is the initial currency");
+        var currencyTo = prompt("What is the ending currency?");
+        var amount = prompt("How much do you have?");
+
+        if(currencyFrom === "pounds") {return poundstoDollars }
+          else{return dollarsToPounds};
+      };
+
 
 
     </script>
