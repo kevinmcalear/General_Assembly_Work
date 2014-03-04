@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: bit_trade_db
+  user: drewtunney
+  host: localhost
+  pool: 5
+  timeout: 5000

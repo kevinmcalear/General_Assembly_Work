@@ -1,0 +1,36 @@
+<h1>Sign up!</h1>
+<form action="/users" method="POST">
+    <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token%>">
+  <label>
+    First name:
+    <input type="text" name="first_name" />
+  </label>
+  <label>
+    Last name:
+    <input type="text" name="first_name" />
+  </label>
+  <label>
+    Date of Birth:
+    <input type="text" name="date_of_birth" />
+  </label>
+  <label>
+    Sex (M/F):
+    <input type="text" name="sex" />
+  </label>
+  <label>
+    Email:
+    <input type="text" name="email" />
+  </label>
+  <label>
+    Facebook link:
+    <input type="text" name="facebook_link" />
+  </label>
+  <label>
+    Password:
+    <input type="text" name="password" /v>
+  </label>
+
+<button>Sign Up</button>
+</form>
+
+<%= debug  @user %>

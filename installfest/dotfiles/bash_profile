@@ -349,4 +349,4 @@ fi
 # Below here is an area for other commands added by outside programs or
 # commands. Attempt to reserve this area for their use!
 ##########################################################################
-
+export GOOGLE_API_ID=”AIzaSyAWkJ7TK8LOWDle1ABGhp8cxn_ThmctW6c”

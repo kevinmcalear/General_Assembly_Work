@@ -1,0 +1,10 @@
+<h1>Pick yer Player<h1>
+
+<ul>
+  
+<% @artists.each do |artist| %>
+<a href="/artists/<%=artist.id%>"><img src=<%=artist.photo_url%>></a>
+
+<% end %>
+
+</ul>
