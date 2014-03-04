@@ -89,4 +89,3 @@ class Cell #< Minesweeper
   end
 
 end
-
