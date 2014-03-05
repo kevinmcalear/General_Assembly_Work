@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>warmup</title>
-  </head>
-  <body>
-    <h1>warmup</h1>
-    <script type='text/javascript'>
-
+<head>
+  <title>warmup</title>
+</head>
+<body>
+  <h1>warmup</h1>
+  <script type='text/javascript'>
 
 // WORK HERE
+var things = ["Dogs", "Cats", "Not Javascript"];
+var displayThings = function(things){
+  if(things.length === 0) {
+    return;
+  };
+  console.log("One of my favorite things is " + things.pop());
+  return displayThings(things);
+};
 
+var initials = function(name){
+  var name = name.split(" ");
+  var letters = ''
+  for(var i = 0; i < name.length; i++) {
+    letters += (name[i][0].toUpperCase());
+  };
+  return letters
+};
 
-    </script>
-  </body>
+var twoInitials = function(name){
+  var name = name.split(" ");
+  var letters = new Array
+  for(var i = 0; i < name.length; i++) {
+    var x = name[i].slice(0,2);
+    
+    letters.push(x)
+
+  };
+  return letters
+};
+
+</script>
+</body>
 </html>
