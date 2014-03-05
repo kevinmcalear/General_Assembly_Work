@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 require 'spec_helper'
 require_relative '../lib/minesweeper'
 require 'pry'
@@ -58,6 +59,8 @@ end
 
 
 =======
+=======
+>>>>>>> 08c49673e36cdf443d068febc43d0ea1a3918f7f
 require 'pry'
 require 'spec_helper'
 require_relative '../lib/minesweeper'
@@ -216,6 +219,7 @@ describe Cell do
 
 
 
+<<<<<<< HEAD
 end
 
 
@@ -243,3 +247,6 @@ end
 
 
 >>>>>>> a40a683dd7ba638820877a95afe30fe2502dbd99
+=======
+end
+>>>>>>> 08c49673e36cdf443d068febc43d0ea1a3918f7f

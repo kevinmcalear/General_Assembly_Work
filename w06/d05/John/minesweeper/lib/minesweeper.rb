@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 require 'pry'
 
 class Minesweeper
@@ -41,6 +42,8 @@ end
 
 game = Minesweeper.new
 =======
+=======
+>>>>>>> 08c49673e36cdf443d068febc43d0ea1a3918f7f
 class Minesweeper
   def initialize(rows, columns, mines)
     @board = Array.new(rows) {Array.new(columns)}
@@ -131,6 +134,10 @@ class Cell #< Minesweeper
     @flipped = true
   end
 
+<<<<<<< HEAD
 end
 
 >>>>>>> a40a683dd7ba638820877a95afe30fe2502dbd99
+=======
+end
+>>>>>>> 08c49673e36cdf443d068febc43d0ea1a3918f7f
