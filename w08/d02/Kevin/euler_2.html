@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8"> 
+<head>
+</head>
+<body>
+  <script type="text/javascript">
+    var fibSum = function() {
+      var currentNumber = 1;
+      var lastNumber = 0;
+      var total = 0;
+
+      while(currentNumber < 4000000) {
+        var placeHolder = currentNumber;
+        currentNumber += lastNumber;
+        lastNumber = placeHolder;
+        
+        if( currentNumber % 2 === 0 ) {
+          total += currentNumber;
+        }
+      }
+        return total;
+    };
+  </script>
+</body>
+</html>
