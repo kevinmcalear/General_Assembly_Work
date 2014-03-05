@@ -6,11 +6,20 @@
   <body>
     <h1>warmup</h1>
     <script type='text/javascript'>
-
-
-// WORK HERE
-
-
+    var favorites = ["red", "enchiladas", "radiohead"]
+    for (var i=0;i<favorites.length;i++){
+      document.write("My #" + [i+1] + " favorite thing is " + favorites[i] + "<br>");
+    }
+    var initials = function(name){
+      var initials = [];
+      var words = name.split(" ");
+      for (var i=0;i<words.length;i++){
+        var word = words[i];
+        var letters = word.split("");
+        initials.push(letters[0]);
+      }
+      return initials.join("");
+    }
     </script>
   </body>
 </html>
