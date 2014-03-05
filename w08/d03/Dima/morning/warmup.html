@@ -6,11 +6,30 @@
   <body>
     <h1>warmup</h1>
     <script type='text/javascript'>
+    var list = function() {
+      var favorite = ["Dos Toros", "Pirates Booty", "Oatmeal"];
+      for (var i = 0; i < favorite.length; i++) {
+      console.log("My #" + (i+1) + "favorite thins is " + favorite[i])
+      };
+    };
 
-
-// WORK HERE
-
-
+    var name = prompt("Enter your name");
+    var initials = function(name) {
+      var words = name.split(" ");
+      var init = ''
+      for (i = 0; i < words.length; i++) {
+        init += words[i].charAt(0);
+      }
+      return init;
+    }
+    var twoletters = function(name) {
+      var words = name.split(" ");
+      var twolet = ''
+      for (i = 0; i < words.length; i++) {
+        twolet = twolet + words[i].substr(0,2) + ","
+      }
+      return twolet;
+    }
     </script>
   </body>
 </html>
