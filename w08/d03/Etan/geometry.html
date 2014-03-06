@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GEO</title>
+  </head>
+  <body>
+    <h1>Geometry</h1>
+    <script type='text/javascript'>  
+
+
+	var Rectangle = function(height, width) {
+		this.height = height;
+
+		this.width = width;
+	};
+
+	Rectangle.prototype.isSquare = function() {
+		if(self.height === self.width) {
+			console.log("This is a square, yo!");
+		} else {
+			console.log("This is definitely no square!");
+		};
+	};
+
+	Rectangle.prototype.area = function() {
+		console.log(this.height * this.width);
+	};
+
+	Rectangle.prototype.perimeter = function() {
+		console.log(this.height + this.height + this.width + this.width);
+	};
+
+	var recOne = new Rectangle(10, 5);
+	var recTwo = new Rectangle(10, 20);
+	var recThree = new Rectangle(15, 15);
+
+
+	function Triangle(sideA, sideB, sideC) {
+	  this.sideA = sideA;
+	  this.sideB = sideB;
+	  this.sideC = sideC;
+	};
+
+	Triangle.prototype.isEquilateral = function() {
+		if(this.sideA === this.sideB && this.sideA === this.sideC) {
+			console.log("This triangle is equilateral dawg!")
+		} else {
+			console.log("This triangle is NOT equilateral.")
+		};
+	};
+	// var isIsosceles = function(sideA, sideB, sideC) {
+	// 	if()
+	// }
+	// var isObtuse
+
+	var triOne = new Triangle(6, 6, 6)
+	var triTwo = new Triangle(6, 6, 10)
+	var triThree = new Triangle()
+
+    </script>
+  </body>
+</html>

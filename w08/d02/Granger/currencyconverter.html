@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Currency Conversion </title>
+  </head>
+  <body>
+    <h1>Money!  &#163</h1>
+    <script type="text/javascript">
+
+    var dollarsToPounds = function(dollars) {
+      return (dollars*1.6674);
+    };
+
+    var poundsToDollars = function(pounds) {
+      return (pounds/1.6674);
+    };
+
+    var currencyConverter = function(convertingFrom, convertingTo, amount) {
+      if (convertingFrom === "pounds") {
+        return poundsToDollars(amount);
+      }
+      else {
+        return dollarsToPounds(amount);
+      };
+    };
+
+    alert("Yo");
+    var convertingFrom = prompt("What are you converting from");
+    var convertingTo = prompt("What are you converting to?");
+
+    var amount = prompt("What is the initial amount?");
+
+    var newAmount = currencyConverter(convertingFrom, convertingTo, amount);
+    alert(newAmount);
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,8 @@
+div.logo_flag {
+  border: 1px;
+  border-style: solid;
+  margin-right: 5000px;
+  content-color: red;
+  padding: 5px 50px 5px 5px;
+  text-align: left;
+}
