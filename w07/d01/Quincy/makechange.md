@@ -5,7 +5,7 @@
 
 ## Bonus
 
-* Write a method make_cents that takes  a set of coins as input (pennies, nickels, dimes and quarters) and returns the total number of cents that they add up to
+* Write a method make_cents that takes a set of coins as input (pennies, nickels, dimes and quarters) and returns the total number of cents that they add up to
 
 ## Note
 

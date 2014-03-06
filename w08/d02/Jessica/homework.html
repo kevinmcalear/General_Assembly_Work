@@ -1,0 +1,41 @@
+<!-- # Homework - Intro to JS
+
+## Project Euler
+
+* Complete Project Euler #2 using JavaScript in your Project Euler repo and push your work up to Github
+* http://projecteuler.net/problem=2 -->
+
+
+<script type = "text/javascript">
+
+
+var fib = [0, 1]; 
+var i = 2;
+var fibArray = new Array();
+
+
+while ( fib[i-1] < 4000000) { 
+  fib[i] =  fib[i - 2] + fib[i - 1]
+  if (fib[i] % 2 === 0){
+    fibArray.push(fib[i]);
+  };
+  i++;
+};
+
+sum = 0
+for (i = 0; i < fibArray.length; i++ ){
+  sum += fibArray[i]
+};
+
+console.log(sum)
+
+
+</script>
+
+
+  
+
+<!-- ## Reading
+
+* Read Chapers 1 - 3 of Eloquent JavaScript
+* http://eloquentjavascript.net/contents.html -->

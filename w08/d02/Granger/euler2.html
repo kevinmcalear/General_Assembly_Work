@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Euler2</title>
+  </head>
+  <body>
+    <h1>Euler 2</h1>
+    <script type="text/javascript">
+    var eulerTwo = function() {
+      var sum = 0;
+      var first = 0;
+      var second = 1;
+
+      while  (second <= 4000000)
+      {
+        if (second% 2 === 0) {
+          sum += second; 
+        };
+        var holder = second;
+        second = first + second;
+        first = holder;
+      };
+
+      return sum;
+    }
+    </script>
+  </body>
+
+</html>

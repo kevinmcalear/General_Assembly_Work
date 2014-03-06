@@ -6,10 +6,48 @@
   <body>
     <h1>warmup</h1>
     <script type='text/javascript'>
+      var favoritesArray = ["puppies", "kittens", "rainbows"];
+      var favorite = function() {
+        var count = 0;
+        while (count < favoritesArray.length) {
+          console.log ("My #"+ (count+1) + " favorite is " + favoritesArray[count]);
+          count += 1; 
+        };
+      };
+
+      // var i = 0;
+      // favoritesArray.forEach(finction(entry)){
+      //   i += 1;
+      //   console.log(i + " me likey "+ entry);
+      // });
+
+      // var favsPrint = function(favoritesArray){
+      //   for(var i = 0; i < favoritesArray.length; i++){
+      //     console.log("My #"+ (i+1) + " favorite is " + favoritesArray[i]);
+      //   };
+      // };
+    
+      var secondInitials = function(name){
+        var nameArray = name.split(" ");
+        var count = 0;
+        var initialsArray = [];
+        while (count < nameArray.length) {
+          initialsArray.push(nameArray[count][0]);
+          initialsArray.push(nameArray[count][nameArray[count].length-1]);
+          count += 1;
+        };
+        return ( initialsArray.join("") );
+      };
 
 
-// WORK HERE
-
+      var initials = function(name){
+        var nameArray = name.split(" ");
+        var initialsString = "";
+        for ( var i = 0; i < nameArray.length; i++ ){
+          initialsString += (nameArray[i][0])
+        };
+        return ( initialsString );
+      };
 
     </script>
   </body>

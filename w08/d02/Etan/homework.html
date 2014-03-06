@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FIBONICCI TESTING GROUND</title>
+	</head>
+	<body>
+		<h1>FIBONICCI TESTING GROUND</h1>
+		<script>
+
+		var X = 0;
+		var Y = 1;
+
+		var fibonacciSeq = [];
+
+		var evenFibonacciSeq = [];
+
+		while (Y < 4000000) 
+		{
+			var Z = X + Y;
+			fibonacciSeq.push(Z);
+			X = Z - X;
+			Y = Z;
+		};
+
+		fibonacciSeq.forEach(function(number) {
+			if(number % 2 === 0) {
+				evenFibonacciSeq.push(number)
+			}
+		})
+
+		var fibonacciAdded = evenFibonacciSeq.reduce(function(previousValue, currentValue){
+  return previousValue + currentValue;
+});
+
+
+		console.log(fibonacciAdded);
+
+		</script>
+	</body>
+</html>
