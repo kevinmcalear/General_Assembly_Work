@@ -1,0 +1,65 @@
+html {
+  background-color: rgb(214,214,214);
+}
+
+#header_image {
+background-image: url(
+  "~/Users/Quincy_Iheme/dev/wdi/WDI_NYC_12/w07/d03/Quincy/background.jpg"
+  )
+background-repeat: repeat-x;
+}
+
+#logo {
+  display: block;
+  margin: 0 auto;
+}
+
+#soccer {
+height: 200px;
+width: 200px;
+}
+
+#car {
+height: 200px;
+width: 200px;
+}
+
+#cutandpaste{
+  position:relative;
+  height: 116px;
+  width: 220px
+}
+#tee{
+  position:absolute;
+  height: 116px;
+  width: 220px
+}
+#submit{
+  position:relative;
+  height: 75px;
+  width: 220px
+}
+
+#facebook{
+  position:absolute;
+  height: 45px;
+  width: 45px
+
+}
+#pinterest{
+  position:relative;
+  height: 45px;
+  width: 45px
+}
+#twitter{
+  position:relative;
+  height: 45px;
+  width: 45px
+}
+
+#body{
+
+}
+
+
+
