@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cipher</title>
+  </head>
+  <body>
+    <h1>Vinegar Cipher</h1>
+    <h2>It's Salty</h2>
+    <script type='text/javascript'>  
+
+    	var alph = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t", "u","v","w","x","y","z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t", "u","v","w","x","y","z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t", "u","v","w","x","y","z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t", "u","v","w","x","y","z"];
+
+    	var InputWordsForEncode = function(word, cipherword) {
+    		this.word = word;
+    		this.cipherword = cipherword;
+    	};
+
+    	var InputWordsForDecode = function(encodedword, cipherword) {
+    		this.encodedword = encodedword;
+    		this.cipherword = cipherword;
+    	};
+
+// This cipher is used to ENCODE
+
+    	InputWordsForEncode.prototype.cipherEncode = function() {
+    		var secretCipher = [];
+    		var x = this.word.length;
+
+    		for(var i = 0; i < x; i++) {
+    		secretCipher.push(this.cipherword)
+			};
+			var cipherNeedsShortening = secretCipher.join("");
+			var cipherShortened = [];
+			for(var i = 0; i < this.word.length; i++) {
+				cipherShortened.push(cipherNeedsShortening.charAt(i));
+			};
+			var cipherFinale = cipherShortened.join("");
+			var wordIndexArray = [];
+			for(var i = 0; i < this.word.length; i++) {
+				wordIndexArray.push(alph.indexOf(this.word.charAt(i)));
+			};
+			var cipherIndexArray = [];
+			for(var i = 0; i < this.word.length; i++) {
+				cipherIndexArray.push(alph.indexOf(cipherFinale.charAt(i)));
+			};
+			var cipherIndexTotals = [];
+			for(var i = 0; i < this.word.length; i++) {
+				cipherIndexTotals.push(wordIndexArray[i] + cipherIndexArray[i]);
+			};
+			var scrambledCipherArray = [];
+			for(var i = 0; i < this.word.length; i++) {
+				scrambledCipherArray.push(alph[(cipherIndexTotals[i])]);
+			};
+			scrambledCipher = scrambledCipherArray.join("");
+			console.log(scrambledCipher);
+
+    	};
+
+// This cipher is used to DECODE
+
+    	InputWordsForDecode.prototype.cipherDecode = function() {
+    		var secretCipher = [];
+    		var x = this.encodedword.length;
+
+    		for(var i = 0; i < x; i++) {
+    		secretCipher.push(this.cipherword)
+			};
+			var cipherNeedsShortening = secretCipher.join("");
+			var cipherShortened = [];
+			for(var i = 0; i < this.encodedword.length; i++) {
+				cipherShortened.push(cipherNeedsShortening.charAt(i));
+			};
+
+			var cipherFinale = cipherShortened.join("");
+			var wordIndexArray = [];
+			for(var i = 0; i < this.encodedword.length; i++) {
+				wordIndexArray.push(alph.indexOf(this.encodedword.charAt(i)));
+			};
+			var cipherIndexArray = [];
+			for(var i = 0; i < this.encodedword.length; i++) {
+				cipherIndexArray.push(alph.indexOf(cipherFinale.charAt(i)));
+			};
+			var cipherIndexTotals = [];
+			for(var i = 0; i < this.encodedword.length; i++) {
+				cipherIndexTotals.push(wordIndexArray[i] - cipherIndexArray[i] + 26);
+			};
+			var scrambledCipherArray = [];
+			for(var i = 0; i < this.encodedword.length; i++) {
+				scrambledCipherArray.push(alph[(cipherIndexTotals[i])]);
+			};
+			scrambledCipher = scrambledCipherArray.join("");
+			console.log(scrambledCipher);
+
+    	};
+
+    	
+    	var pairTwo = new InputWordsForDecode("lxfopvefrnhr", "lemon");
+
+    	var pairOne = new InputWordsForEncode("attackatdawn", "lemon");
+    </script>
+  </body>
+</html>
