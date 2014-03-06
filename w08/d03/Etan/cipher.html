@@ -71,26 +71,25 @@
 				cipherShortened.push(cipherNeedsShortening.charAt(i));
 			};
 
-			console.log(cipherShortened);
-			// var cipherFinale = cipherShortened.join("");
-			// var wordIndexArray = [];
-			// for(var i = 0; i < this.word.length; i++) {
-			// 	wordIndexArray.push(alph.indexOf(this.word.charAt(i)));
-			// };
-			// var cipherIndexArray = [];
-			// for(var i = 0; i < this.word.length; i++) {
-			// 	cipherIndexArray.push(alph.indexOf(cipherFinale.charAt(i)));
-			// };
-			// var cipherIndexTotals = [];
-			// for(var i = 0; i < this.word.length; i++) {
-			// 	cipherIndexTotals.push(wordIndexArray[i] + cipherIndexArray[i]);
-			// };
-			// var scrambledCipherArray = [];
-			// for(var i = 0; i < this.word.length; i++) {
-			// 	scrambledCipherArray.push(alph[(cipherIndexTotals[i])]);
-			// };
-			// scrambledCipher = scrambledCipherArray.join("");
-			// console.log(scrambledCipher);
+			var cipherFinale = cipherShortened.join("");
+			var wordIndexArray = [];
+			for(var i = 0; i < this.encodedword.length; i++) {
+				wordIndexArray.push(alph.indexOf(this.encodedword.charAt(i)));
+			};
+			var cipherIndexArray = [];
+			for(var i = 0; i < this.encodedword.length; i++) {
+				cipherIndexArray.push(alph.indexOf(cipherFinale.charAt(i)));
+			};
+			var cipherIndexTotals = [];
+			for(var i = 0; i < this.encodedword.length; i++) {
+				cipherIndexTotals.push(wordIndexArray[i] - cipherIndexArray[i] + 26);
+			};
+			var scrambledCipherArray = [];
+			for(var i = 0; i < this.encodedword.length; i++) {
+				scrambledCipherArray.push(alph[(cipherIndexTotals[i])]);
+			};
+			scrambledCipher = scrambledCipherArray.join("");
+			console.log(scrambledCipher);
 
     	};
 
