@@ -25,29 +25,20 @@ var changeMessageToKeyword = function(message, keyword){
 };
 
 var cipherIndex = function(message, keyword){
-  var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+  var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
   var cipher_index_array = [];
   var message_indices = letterIndex(message);
   var keyword_indices = letterIndex(keyword);
   for ( var counter = 0; counter < message.length; counter++ ) {
   cipher_index_array.push(message_indices[counter]+keyword_indices[counter])
   }
+  //console.log(cipher_index_array)//
   var cipher_text_array = [];
   for ( var counter = 0; counter < cipher_index_array.length; counter++ ) {
-    if 
-    cipher_text_array.push(alphabet[cipher_index_array[counter]]);
-  }
-  console.log(cipher_text_array);
+    if (cipher_index_array[counter] > 26)
+      cipher_text_array.push(alphabet[(cipher_index_array[counter] - 26)])
+    else
+      cipher_text_array.push(alphabet[cipher_index_array[counter]]);
+  };
+  console.log(cipher_text_array.join(""));
 };
-
-/*var cipherText = function(message, keyword){
-  var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-  var cipher_text_array = [];
-  for ( var counter = 0; counter < cipher_index_array.length; counter++ ) {
-    cipher_text_array.push(alphabet[cipher_index_array[counter]]);
-  }
-  console.log(cipher_text_array);
-};*/
-
-
-
