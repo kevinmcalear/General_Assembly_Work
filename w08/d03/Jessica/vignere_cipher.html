@@ -1,0 +1,58 @@
+<script type="text/javascript">
+  // message: attackatdawn
+  // keyword: lemonlemonle
+  // ciphertext: lxfopvefrnhr
+
+  var a = 97;
+  var charArray = [];
+  for (var i = 0; i<26; i++) {
+    charArray.push(String.fromCharCode(a + i));
+  }
+
+  var sums = [];
+  var letters = [];
+  var cipherEncode = function(message, keyword) {
+    for (var i = 0; i < message.length; i++) {
+      messageValues = charArray.indexOf(message[i]);
+      keywordValues = charArray.indexOf(keyword[i]);
+      if (messageValues + keywordValues <= 26) {
+        sums.push(messageValues + keywordValues);
+      }
+      else {
+        sums.push((messageValues + keywordValues) - 26)
+      }
+    };
+    for (var i = 0; i < sums.length; i++) {
+      letters.push(charArray[sums[i]])
+    };
+    letters.join('');
+    console.log(letters);
+  };
+
+  diffs = [];
+  lettersDecode = [];
+  var cipherDecode = function(word, keyword) {
+    for (var i = 0; i < word.length; i++) {
+      wordValues = charArray.indexOf(word[i]);
+      keywordValues = charArray.indexOf(keyword[i]);
+      if (wordValues - keywordValues < 0) {
+        diffs.push(wordValues - keywordValues + 26);
+      }
+      else {
+        diffs.push(wordValues - keywordValues)
+      }
+    };
+    for (var i = 0; i < diffs.length; i++) {
+      lettersDecode.push(charArray[diffs[i]])
+      };
+      lettersDecode.join('');
+      console.log(lettersDecode);
+  };
+
+
+// keywordArray = []
+// for (var i = 0; i < message.length; i++)
+//   keywordArray.push(keyword.split(""));
+//   keywordArray.push(keyword[i]);
+// };
+</script>
