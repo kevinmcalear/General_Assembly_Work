@@ -6,10 +6,38 @@
   <body>
     <h1>warmup</h1>
     <script type='text/javascript'>
+      var favorites = ["phone", "bed", "money"]
 
+      var favoritesPrint = function(favorites) {
+        for(i=0; i < favorites.length; i++) {
+          console.log("My #" + (i+1) + " favorite thing is " + favorites[i] + ".")
+        };
+      };
 
-// WORK HERE
+      favoritesPrint(favorites);
 
+      var name = prompt("Enter your name:")
+
+      var initials = function(name) {
+        nameArray = name.split(" ");
+        initialLetters = ""
+        for(i=0; i < nameArray.length; i++) {
+          initialLetters += (nameArray[i][0])
+        };
+        console.log(initialLetters)
+      };
+
+      var initialsAndLast = function(name) {
+        nameArray = name.split(" ");
+        letters = "";
+        for(i=0; i < nameArray.length; i++) {
+          letters = letters + nameArray[i][0] + nameArray[i][nameArray[i].length-1] + ", "
+        };
+        console.log(letters)
+      };
+
+      initials(name);
+      initialsAndLast(name);
 
     </script>
   </body>
