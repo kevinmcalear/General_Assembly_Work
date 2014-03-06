@@ -1,45 +1,51 @@
-var encodeKeyword = function(message, keyword) {
-  var encrypted = "";
-  for (i=0; i < message.length; i++) {
-    var messChar = i % keyword.length;
-    var keywordChars = keyword.split("");
-    encrypted += keywordChars[messChar];
-  }
-  return encrypted;
-};
+// var encodeKeyword = function(message, keyword) {
+//   var encrypted = "";
+//   for (i=0; i < message.length; i++) {
+//     var messChar = i % keyword.length;
+//     var keywordChars = keyword.split("");
+//     encrypted += keywordChars[messChar];
+//   }
+//   return encrypted;
+// };
 
-var alphabet = function() {
-  alphabet = "abcdefghijklmnopqrstuvwxyz";
-  return alphabet.split("");
-};
+// encodeKeyword uses a vignere cipher to encode a message using 
+//  a keyword
+function encodeKeyword(message, keyword) {
+  return message.split("").map(function(value, index) {
+      return keyword.split("")[index % keyword.length];
+  }).join("");
+}
 
 var encode = function(message, keyword) {
-  encodedText = "";
-  mess_keyword = encodeKeyword(message, keyword);
-  alphabet = alphabet();
+  var encodedText = "";
+  var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+  var messKeyword = encodeKeyword(message, keyword);
   for (i = 0; i < message.length; i++) {
-    message_index = alphabet.indexOf(message.charAt(i));
-    keywordIndex = alphabet.indexOf(mess_keyword.charAt(i));
-    encodedText += alphabet[((message_index + keywordIndex) % 26)];
+    var messageCharIndex = alphabet.indexOf(message[i]);
+    var keywordCharIndex = alphabet.indexOf(messKeyword[i]);
+    encodedText += alphabet[((messageCharIndex + keywordCharIndex) % 26)];
   }
   return encodedText;
 };
 
 var decode = function(text, keyword) {
-  decodedMessage = "";
-  alphabet = alphabet();
-  mess_keyword = encodeKeyword(text, keyword);
+  var decodedText = "";
+  var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+  var messKeyword = encodeKeyword(text, keyword);
 
   for (i = 0; i < text.length; i++ ) {
-    textIndex = alphabet.indexOf(text.charAt(i));
-    keywordIndex = alphabet.indexOf(mess_keyword.charAt(i));
-    messageIndex = textIndex - keywordIndex;
+    var textIndex = alphabet.indexOf(text[i]);
+    var keywordCharIndex = alphabet.indexOf(messKeyword[i]);
+    var messageCharIndex = textIndex - keywordCharIndex;
 
-    if (messageIndex < 0) {
-      messageIndex += 26;
+    if (messageCharIndex < 0) {
+      messageCharIndex += 26;
     }
-
-    decodedMessage += alphabet[messageIndex];
+    decodedText += alphabet[messageCharIndex];
   }
-  return decodedMessage;
+  return decodedText;
+};
+
+var encode2 = function(message, keyword) {
+
 };
