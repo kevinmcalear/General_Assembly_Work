@@ -6,10 +6,23 @@
   <body>
     <h1>warmup</h1>
     <script type='text/javascript'>
-
-
-// WORK HERE
-
+      var sport = ["Football", "Basketball", "Fencing", "Paintball"];
+      var team = ["New York Giants", "Brooklyn Nets", "New York Yankees"];
+      var favorites = function (arrName) {
+        for (var i = 0; i < arrName.length; i++){
+          console.log(
+            "My number #" + (i+1) + " favorite " + arrName.name + " is " + arrName[i]
+          );
+        };
+      };
+      function initials(fullName) {
+        var names = fullName.split(" ");
+        var initials = "";
+        for (var i = 0; i < names.length; i++) {
+          initials += names[i][0];
+        }
+        console.log(initials);
+      }
 
     </script>
   </body>
