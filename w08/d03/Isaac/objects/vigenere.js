@@ -1,15 +1,15 @@
 var encrypt = function(message, keyword){
   var longKeyword = [];
   var result = [];
-  var keywordArray = keyword.split("")
+  var keywordArray = keyword.split("");
   var messageArray = message.split("");
   var messageLength = message.length;
   var alph = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t", "u","v","w","x","y","z"];
-  var i=0
+  var i=0;
 
   while(longKeyword.length<messageLength){
     longKeyword.push(keywordArray[i])
-    i++
+    i++;
     if (i === keywordArray.length){
       i=0;
     };
