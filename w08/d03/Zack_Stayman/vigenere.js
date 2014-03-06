@@ -1,13 +1,12 @@
 var vigenereEncode = function(message, keyword, method) {
   // set the keyword to the appropriate length
-  
+  var array = alphabet();
 
   // get the alphabet as an array
-  
+  var fixedKeyword = keywordLength();
 
 
   var encrypt = "";
-  return message.split("").map(encode(message, fixedKeyword)).join("");
 
   for( var i = 0; i<message.length; i++){
     var messageIndex = array.indexOf(message[i]);
