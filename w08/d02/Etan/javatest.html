@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JAVASCRIPT YO SUPER COOL</title>
+	</head>
+	<body>
+		<h1>JAVASCRIPT FOR KOOL KATS</h1>
+		<script>
+			var money = 10;
+
+			
+			var convert_from_usd_to_gbp = function(){
+				console.log("$" + money + " is equivalent to " + "\u00A3" + (money * .6));
+			};
+			convert_from_usd_to_gbp();
+
+
+			var convert_from_gbp_to_usd = function(){
+				console.log("\u00A3" + money + " is equivalent to " + "$" + (money * 1.6));
+			};
+			convert_from_gbp_to_usd();
+
+
+			var currencyConvert=prompt("Converting from GBP or USD?");
+			var currencyAmount=prompt("How much would you like to convert?");
+
+			if (currencyConvert === "GBP") {
+				var convert_from_gbp_to_usd = function(){
+				console.log("\u00A3" + currencyAmount + " is equivalent to " + "$" + (currencyAmount * 1.6));
+			};
+			convert_from_gbp_to_usd();
+			} else {
+				var convert_from_usd_to_gbp = function(){
+				console.log("$" + currencyAmount + " is equivalent to " + "\u00A3" + (currencyAmount * .6));
+			};
+			convert_from_usd_to_gbp();
+		};
+
+
+		</script>
+	</body>
+</html>

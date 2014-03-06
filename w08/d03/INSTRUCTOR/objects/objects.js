@@ -23,10 +23,6 @@ var speak = function() {
 
 var Monkey = function(name) {
   this.name = name;
-
-  this.climb = function() {
-    return this.level = this.level + 1;
-  }
 };
 
 Monkey.prototype.speak = function() {
