@@ -1,0 +1,37 @@
+<script type = "text/javascript">
+# Currency Converter
+
+* [Find the exchange rate between dollars and pounds](http://www.bloomberg.com/quote/GBPUSD:CUR)
+
+* Write a function dollarsToPounds that takes a dollar number as input and outputs a string of what the pound equivalent is.
+
+var dollarsToPounds = function(dollars){ return (dollars/1.6673).toFixed(2)};
+
+`"$NN is £NN".`
+
+* Write a function poundsToDollars that takes a pound number as input and outputs a string of what the dollar equivalent is.
+
+var poundsToDollars = function(pounds){ return (1.6673 * pounds).toFixed(2)};
+
+
+`"£NN is $NN".`
+
+* Write a function currencyConverter that takes 3 arguments: the currency it is converting from, the currency you are converting to, and the amount. It should output the appropriate string.
+
+var currencyFrom = prompt("What currency are you converting from?");
+var currencyTo = prompt("What currency are you converting to?");
+var amount = prompt("What is the amount you are converting?");
+
+var currencyConverter = function(){
+  if (currencyFrom === pounds) {
+    return poundsToDollars(amount);
+  }
+  else (currencyTo === dollars) {
+    return dollarsToPounds(amount);
+  };
+}
+</script>
+
+* You can get user input using the `prompt` function.
+
+* Can you make sure the output is only 2 decimal places?
