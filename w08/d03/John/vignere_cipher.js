@@ -1,4 +1,4 @@
-var messageToKeyword = function(message, keyword) {
+var encodeKeyword = function(message, keyword) {
   var encrypted = "";
   for (i=0; i < message.length; i++) {
     var messChar = i % keyword.length;
@@ -14,19 +14,32 @@ var alphabet = function() {
 };
 
 var encode = function(message, keyword) {
-  encoded_text = "";
-  mess_keyword = messageToKeyword(message, keyword);
+  encodedText = "";
+  mess_keyword = encodeKeyword(message, keyword);
   alphabet = alphabet();
-  // console.log(alphabet);
-  // console.log(mess_keyword)
   for (i = 0; i < message.length; i++) {
-    // console.log("#" + i);
     message_index = alphabet.indexOf(message.charAt(i));
-    keyword_index = alphabet.indexOf(mess_keyword.charAt(i));
-    // console.log(message_index);
-    // console.log(keyword_index);
-    encoded_text += alphabet[((message_index + keyword_index) % 26)];
-    // console.log(encoded_text)
+    keywordIndex = alphabet.indexOf(mess_keyword.charAt(i));
+    encodedText += alphabet[((message_index + keywordIndex) % 26)];
   }
-  return encoded_text;
+  return encodedText;
+};
+
+var decode = function(text, keyword) {
+  decodedMessage = "";
+  alphabet = alphabet();
+  mess_keyword = encodeKeyword(text, keyword);
+
+  for (i = 0; i < text.length; i++ ) {
+    textIndex = alphabet.indexOf(text.charAt(i));
+    keywordIndex = alphabet.indexOf(mess_keyword.charAt(i));
+    messageIndex = textIndex - keywordIndex;
+
+    if (messageIndex < 0) {
+      messageIndex += 26;
+    }
+
+    decodedMessage += alphabet[messageIndex];
+  }
+  return decodedMessage;
 };
