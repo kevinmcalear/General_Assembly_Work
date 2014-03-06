@@ -6,7 +6,39 @@
   <body>
     <h1>warmup</h1>
     <script type='text/javascript'>
+    var favs = function() {
+      var favorites = new Array();
+      favorites[0] = "Dig Inn";
+      favorites[1] = "GA";
+      favorites[2] = "House of Cards";
+      favorites[3] = "women in touch with their goals but willing to compromise "
 
+      for (var i = 0; i < favorites.length; i++) {
+        console.log((i+1) +"I love " + favorites[i]);
+      };
+    };
+
+    var initials = function(name) {
+      var names = name.split(" ");
+      var initials = "";
+
+      for (var i = 0; i < names.length; i++) {
+        initials += names[i][0];
+      };
+
+      return initials;
+    }
+
+    var doubleInitials = function(name) {
+      var names = name.split(" ");
+      var initials = "";
+
+      for (var i = 0; i < names.length; i++) {
+        initials += names[i][0] + names[i].slice(-1) + ",";
+      };
+
+      return initials;
+    }
 
 // WORK HERE
 
