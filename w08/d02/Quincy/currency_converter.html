@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Javascript Ninja 2014</title>
+  </head>
+  <body>
+    <h1>Dial **QUINCYI for more details</h1>
+    <script type="text/javascript">
+    var fxRate = 1.6673
+    var poundsToDollars = function(pounds) {
+      return (pounds*fxRate).toFixed(2)
+      ;
+    };
+    var dollarsToPounds = function(dollars) {
+      return (pounds/fxRate).toFixed(2)
+      ;
+    };
+    var currencyConverter = function()
+    {
+      var currencyFrom = prompt("What is the initial currency?");
+      var currencyTo = prompt("What is the ending currency?");
+      var amount = prompt("How much do you have?");
+
+      if(currencyFrom === "pounds") {
+        return poundsToDollars();
+      } else {
+        return dollarsToPounds();
+      };
+    };
+    </script>
+  </body>
+</html>
