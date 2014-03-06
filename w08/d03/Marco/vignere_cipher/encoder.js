@@ -1,15 +1,15 @@
 // Get imputed message from user to cipher
 
 // var message = prompt("Please Enter A Message");
-var message = "attackatdawn"
+var message = "attackatdawn";
 
 // Get keyword from user
 // Make sure keyword does not have repeating letters
 
 // var keyword = prompt("Please Enter Keyword With No Repeating Letters");
-var keyword = "lemon"
+var keyword = "lemon";
 
-function cipher(message, keyword) {
+function encode(message, keyword) {
   var wholeAlphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t", "u","v","w","x","y","z"];
   var originalMessage = message.split("");
   var originalKeyword = keyword.split("");
@@ -27,11 +27,15 @@ function cipher(message, keyword) {
   };
 
   for (i = 0; i < addedIndexesHolder.length; i++) {
-    var x = (wholeAlphabet[ addedIndexesHolder[i]%wholeAlphabet.length]);
-    cipherHolder.push(x)
+    var cipher = (wholeAlphabet[ addedIndexesHolder[i] % wholeAlphabet.length ]);
+    cipherHolder.push(cipher);
   };
 
-  var cipherText = cipherHolder.join("")
+  console.log(keywordRewriteHolder);
+  console.log(addedIndexesHolder);
+  console.log(cipherHolder);
+
+  var cipherText = cipherHolder.join("");
   console.log(cipherText);
 };
 
