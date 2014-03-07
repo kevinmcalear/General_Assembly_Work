@@ -24,10 +24,10 @@ function makeMiddleEarth(lands) {
   for (var i = 0; i < lands.length; i++) {
     var article = document.createElement("article");
     article.id = lands[i].replace(/ /g,"");
-    var heading = document.createElement("h1");
-    heading.innerText = lands[i];
+    var h1 = document.createElement("h1");
+    h1.innerText = lands[i];
 
-    article.appendChild(heading);
+    article.appendChild(h1);
     middleEarth.appendChild(article);
   };
   document.body.appendChild(middleEarth);
@@ -40,6 +40,7 @@ function makeHobbits(hobbits) {
   for (var i = 0; i < hobbits.length; i++) {
     var li = document.createElement("li");
     li.className = "hobbit";
+    li.id = hobbits[i].replace(/ /g,"");
     li.innerText = hobbits[i];
     ul.appendChild(li);
 
@@ -52,7 +53,10 @@ makeHobbits(hobbits);
 function keepItSecretKeepItSafe() {
   var div = document.createElement("div");
   div.className = "the-ring";
-  var Frodo = document.querySelector("#")
+  var frodo = document.querySelector("#FrodoBaggins");
+  var ring = document.querySelector(".the-ring")
+  frodo.appendChild(ring);
+
 
 };
 
