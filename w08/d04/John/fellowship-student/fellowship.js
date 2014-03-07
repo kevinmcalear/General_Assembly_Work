@@ -18,6 +18,7 @@ var buddies = [
 var lands = ["The Shire", "Rivendell", "Mordor"];
 
 function makeMiddleEarth(lands) {
+<<<<<<< HEAD
   // create a section tag with an id of middle-earth
   var section = document.createElement("section");
   section.id = "middle-earth";
@@ -139,3 +140,21 @@ forgeTheFellowShip();
 
 
 
+=======
+}
+
+function makeHobbits(hobbits) {
+}
+
+function keepItSecretKeepItSafe() {
+}
+
+function makeBuddies(buddies) {
+}
+
+function beautifulStranger() {
+}
+
+function forgeTheFellowShip() {
+}
+>>>>>>> 0c2ec161d776e96cbe96741fe4b44960f9205967
