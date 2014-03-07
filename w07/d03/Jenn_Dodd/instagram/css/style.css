@@ -1,90 +1,100 @@
-/*
- * Reset.
- */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote,  
-pre, img, form, fieldset, table, th, td { margin: 0; padding: 0; }
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
 
 
-/*
- * Basic styles.
- */
-
- body {
-  background-color: #f7f8fa;
- }
-
- .blue-band {
-  background-color: #4e7ba1;
-  background-image: -webkit-linear-gradient(#4e7ba1, #326189);
-  background-image:    -moz-linear-gradient(#4e7ba1, #326189);
-  background-image:     -ms-linear-gradient(#4e7ba1, #326189);
-  background-image:      -o-linear-gradient(#4e7ba1, #326189);
-  background-image:         linear-gradient(#4e7ba1, #326189);
-  height: 300px;
+#bg-color {
   width: 100%;
+  background: -webkit-linear-gradient(top, rgb(121,148,180), rgb(81,113,154));
+  height: 250px;
   top: 0;
   position: absolute;
   z-index: -1;
- }
-
- .container {
-    width: 960px;
-    margin: 100px auto;
- }
-
- a {
-  color: #f4f6f8;
-  text-decoration: none;
- }
-
-/*
- * Left
- */
-
- section.left {
-  width: 320px;
-  margin-right: 50px;
-  float: left;
- }
-
- /*
-  * Right
-  */
-
- section.right {
-  width: 590px;
-  float: right;
- }
-
-header {
-  display: block;
 }
 
-button {
-  background-image: linear-gradient(#7b9fbb, #41739c);
-  padding: 5px;
-  border: 1px solid #1c5380;
-  border-radius: 4px;
-  margin: 0px;
+#page-container {
+  text-align: center;
+}
+
+div.centered-content {
+  width: 1100px;
+  margin: 50px auto;
+}
+
+#main-content {
+  width: 50%;
   display: inline-block;
+  padding: 20px 60px;
+  vertical-align: top;
+  position: relative;
+  top: 10px;
 }
 
-button a {
-  vertical-align: center;
+#main-content * {
+  line-height: 1.5em;
+}
+
+#main-content>img {
+  float: left;
 }
 
 
 
+#log-in {
+  display: inline-block;
+  float: right;
+  width: 100px;
+  height: 60px;
+  border-radius: 4px;
+  border: 1px solid #666;
+  background: -webkit-linear-gradient(top, rgb(121,148,180), rgb(81,113,154))
+}
 
+#log-in span {
+  color: #FFF;
+  font-weight: semi-bold;
+  vertical-align: top;
+  margin-top: 10px;
+}
 
+.text {
+  clear: both;
+  background-color: #FFF;
+  -webkit-box-shadow: 0px -3px 13px 1px rgba(50, 50, 50, 0.32);
+  -moz-box-shadow:    0px -3px 13px 1px rgba(50, 50, 50, 0.32);
+  box-shadow:        0px -3px 13px 1px rgba(50, 50, 50, 0.32);
+  border-radius: 8px;
+}
 
+footer {
+  border: 1px solid red;
+  display: inline;
+}
 
+nav {
+  border: 1px solid green;
+  display: inline;
+}
 
+nav ul {
+  display: inline;
+  padding: 0;
+}
 
+li {
+  display: inline;
+  margin: 0 0.6em;
+}
 
-
-
+.links {
+  margin-top: 25px;
+}
 
 
 
