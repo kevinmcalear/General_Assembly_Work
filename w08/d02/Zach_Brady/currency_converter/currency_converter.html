@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Currency Converter</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function dollarsToPounds(dollars) {
+        console.log( "$" + dollars + " is \u00A3" + Math.round(100*(dollars/1.6671)) / 100);
+      };
+      dollarsToPounds(22);
+
+      function poundsToDollars(pounds) {
+        console.log("\u00A3" + pounds + " is $" + Math.round(100 * (pounds * 1.6671)) /100);
+      };
+      poundsToDollars(10);
+    </script>
+
+  </body>
+</html>
