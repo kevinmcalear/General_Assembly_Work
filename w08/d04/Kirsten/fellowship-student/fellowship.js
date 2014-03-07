@@ -77,7 +77,11 @@ function makeBuddies(buddies) {
 makeBuddies(buddies);
 
 function beautifulStranger() {
+  var strider = document.querySelectorAll("li")[3];
+  strider.innerText = "Aragorn";
 }
+
+beautifulStranger();
 
 function forgeTheFellowShip() {
 }
