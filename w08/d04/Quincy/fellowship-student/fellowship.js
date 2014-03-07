@@ -34,7 +34,7 @@ makeMiddleEarth(lands);
 
 function makeHobbits(hobbits) {
   var section = document.querySelector("#middle-earth");
-  var ul = document.createElement('ul');
+  var ul = section.createElement('ul');
   for (var i = 0; i < hobbits.length; i++ )
     var h1 = document.createElement('h1');
     h1.innerHTML = hobbits[i];
@@ -42,17 +42,31 @@ function makeHobbits(hobbits) {
   }
 }
 
-// function keepItSecretKeepItSafe() {
-//   var section = document.querySelector("section");
-//   document.section.createElement('div id=the-ring')
-//   // child of frodo??
-// }
+makeHobbits(hobbits);
 
-// function makeBuddies(buddies) {
-//   var section = document.querySelector("section");
-//    document.section.createElement('aside');
-//    for (var i = 0; i < hobbits.length; i++ )
-//     document.section.createElement('ul')
+function keepItSecretKeepItSafe() {
+  var section = document.querySelector("#middle-earth");
+  var div = section.createElement('div');
+  div.id = 'the-ring';
+  var frodo = document.querySelector("#Frodo Baggins");
+  frodo.appendChild('#the-ring');
+}
+
+keepItSecretKeepItSafe(hobbits);
+
+function makeBuddies(buddies) {
+  var section = document.querySelector("#middle-earth");
+  var aside = section.createElement('aside');
+  var ul = aside.createElement('ul');
+   for (var i = 0; i < hobbits.length; i++ ) {
+    var h1 = document.createElement('h1');
+    h1.innerHTML = buddies[i];
+  }
+  h1.appendChild('ul');
+  ul.appendChild('aside');
+};
+
+makeBuddies(buddies)
 
 
 // }
