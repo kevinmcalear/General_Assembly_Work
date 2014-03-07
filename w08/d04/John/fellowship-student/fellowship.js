@@ -111,6 +111,9 @@ function forgeTheFellowShip() {
   // create a new div called 'the-fellowship'
   var div = document.createElement("div");
   div.id = "the-fellowship";
+  var newUl = document.createElement("ul");
+  newUl.id = "final";
+  div.appendChild(newUl);
   var mordor = document.querySelector("h1#Mordor");
   mordor.appendChild(div);
 
@@ -118,18 +121,18 @@ function forgeTheFellowShip() {
 
   for (var i = 0; i < hobbits.length; i++) {
     var hobbit = document.querySelector(".hobbit");
-    div.appendChild(hobbit);
+    newUl.appendChild(hobbit);
     alert(hobbits[i] + " has come to the fellowship!");
   }
 
   for (var j = 0; j < buddies.length; j++) {
     var buddy = document.querySelector(".buddy");
     div.appendChild(buddy);
+    // after each character is added make an alert that they have joined your party
     alert(buddies[j] + " has come to the fellowship!");
   }
 
 
-  // after each character is added make an alert that they have joined your party
 
 }
 forgeTheFellowShip();
