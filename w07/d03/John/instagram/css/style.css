@@ -4,6 +4,7 @@ header {
   background-color: rgb(62, 97, 134);
   position: relative;
   display: block;
+  z-index: 0;
 }
 
 header.header {
@@ -26,17 +27,21 @@ header li {
   display: inline-block;
   margin-top: -170px;
   padding-left: 280px;
+  z-index: 1;
 }
 
 .blurb {
-  width: 430px;
+  /*width: 430px;*/
+  width: 31%;
   float: right;
   position: absolute;
-  /*display: inline-block;*/
+  display: block;
   margin-top: -70px;
-  padding-left: 690px;
+  /*padding-left: 690px;*/
+  /*padding-right: 320px;*/
   background: white;
   border-radius: 5px;
+  z-index: 1;
 }
 
 

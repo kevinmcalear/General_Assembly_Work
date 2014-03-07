@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Objects are fun!</title>
+  </head>
+  <body>
+    <h1>Objects are fun!</h1>
+    <!--* Let's put our script tags right before our body tags*/-->
+    <!--this is kind of like yield in Rails-->
+    
+    <script type='text/javascript'>
+
+
+// WORK HERE
+    var rectangle = function(length, width) {
+      this.length = length;
+      this.width = width;
+      this.isSquare = function() {
+        if(length === width) {
+          return "It's a square"
+        }
+        else{
+          return "It's not a square"
+        }
+      };
+
+      this.area = function() {
+        var area = length * width
+        return "The area is " + area
+      };
+
+      this.perimeter = function() {
+        var perimeter = ((length * 2) + (width * 2))
+        return "The perimeter is " + perimeter
+      };
+
+    };
+
+    var triangle = function(x, y, z) {
+      this.x = x;
+      this.y = y;
+      this.z = z;
+
+      this.isEquilateral = function() {
+        if(x === y && x === z && z === y) {
+          return "It's an equilateral triangle"
+        }
+        else{
+          return "It's not an equilateral triangle"
+          }
+      };
+
+      this.isIsosceles = function() {
+        if (x === y && x !== z) {
+          return "It's an isosceles triangle!"
+        }
+        else if(x === z && x !== y) {
+          return "It's an isosceles triangle"
+        }
+        else if (z == y && z !== x) {
+          return "It's an isoceles triangle"
+        }
+        else{
+          return "It's not an isoceles triangle"
+        }
+      };
+
+      this.area = function() {
+        perimeter = x + y + z;
+        perimeterHalf = perimeter/2;
+        insideSq = (perimeterHalf * (perimeterHalf - x) + (perimeterHalf - y) + (perimeterHalf - z))
+        area = Math.sqrt(insideSq)
+        return area
+      };
+
+      // this.obtuse = function() {
+      //   if (((Math.pow(x, 2) + (Math.pow(y, 2)) > (Math.pow(z, 2)) {
+      //     return "The triangle is obtuse"
+      //   }
+      //   else if((Math.pow(x, 2) + (Math.pow(z, 2) > (Math.pow(y, 2)) {
+      //     return "The triangle is obtuse"
+      //   }
+      //   else if((Math.pow(y, 2) + (Math.pow(z, 2) > (Math.pow(x, 2)){
+      //     return "The triangle is obtuse"
+      //   }
+      //   else{
+      //     return "The triangle is not obtuse!"
+      //   }
+
+      // };
+
+    };
+
+    </script>
+  </body>
+</html>
