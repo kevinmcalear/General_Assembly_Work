@@ -8,9 +8,29 @@
     <script type='text/javascript'>
 
 
-// WORK HERE
+      var faveThings = ["raindrops on roses", "whiskers on kittens", "bright copper kettles", "warm woolen mittens", "brown paper packages tied up with string"];
 
+      for(var i = 0; i < faveThings.length; i++ ) {
+        document.write("<p>My #" + (i+1) + " favorite thing is " + faveThings[i]+ ".</p>")
+      };
 
+      var name = prompt("What's your name?");
+
+      var nameArray = name.split(" ");
+
+      var initials = new Array;
+      var firstLast = new Array;
+
+      for(var i = 0; i < nameArray.length; i++ ) {
+        initials.push(nameArray[i][0]);
+      };
+
+      for(var i = 0; i < nameArray.length; i++ ) {
+        firstLast.push(nameArray[i][0] + nameArray[i].slice(-1));
+      };
+
+      document.write("<p>By: " + initials.join("") + "</p>" );
+      document.write("<p>By: " + firstLast.join(", ") + "</p>");
     </script>
   </body>
 </html>

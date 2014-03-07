@@ -1,5 +1,9 @@
 <h1><%= @student.name %></h1>
-<h2><%= @student.house %></h2>
+<h2><%= @student.house.name %></h2>
 <div class="student">
-  <%= image_tag @student.img_url />
+  <%= image_tag @student.img_url %>
+
+  <%= form_tag student_path(@student), method: "delete" do %>
+    <%= submit_tag("Ex-spell") %>
+  <% end %>
 </div>
