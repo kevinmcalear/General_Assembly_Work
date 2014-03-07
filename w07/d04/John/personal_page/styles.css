@@ -1,0 +1,44 @@
+/*header {
+  height: 50px;
+}
+*/
+header h1 {
+  display: inline;
+  color: white;
+}
+
+.logo_flag {
+  display: inline-block;
+  background: rgb(173, 0, 14);
+  padding: 10px 15px 10px 135px;
+  /*padding-left: 75px;
+  padding-top: 20px;
+  padding-bottom: 20px;*/
+}
+
+header span {
+  color: rgb(130, 132, 135);
+  /*display: inline-block;*/
+  width: 5px;
+  font-size: 0.9em;
+  padding-left: 10px;
+}
+
+/*.logo_class {
+  display: inline;
+}*/
+
+.hero {
+  background-image: url("me.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+
+span {
+  display: inline-block;
+}
+
+footer {
+
+}

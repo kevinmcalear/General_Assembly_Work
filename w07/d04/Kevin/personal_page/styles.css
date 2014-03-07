@@ -1,0 +1,25 @@
+.contain {
+
+/*vertical-align: baseline;*/
+
+}
+
+.content section.contact a[href*="pinterest"]
+
+
+header {
+  
+  height: .1em;
+
+
+}
+
+
+.hero {
+  height: 300px;
+  background: url("me.jpg");
+  background-size: cover;
+  width: 111.55%;
+  margin-left: -6%;
+}
+
