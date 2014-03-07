@@ -1,3 +1,49 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+require 'pry'
+
+class Minesweeper
+  def initialize 
+    @board = Array.new(8, Cell.new) {Array.new(8, Cell.new)}
+    @mine_positions = []
+  end
+
+  def board
+    @board
+  end
+
+  def set_mines
+    while @mine_positions.uniq.length < 10
+      @mine_positions << [rand(8), rand(8)]
+    end
+    @mine_positions.uniq!
+  end
+
+  def mine_positions
+    return @mine_positions
+  end
+
+end
+ 
+class Cell < Minesweeper
+  def initialize
+    @clicked = false
+  end
+
+  def is_clicked?
+    @clicked
+  end
+
+  def neighbor_mines
+    
+  end
+
+end 
+
+game = Minesweeper.new
+=======
+=======
+>>>>>>> 08c49673e36cdf443d068febc43d0ea1a3918f7f
 class Minesweeper
   def initialize(rows, columns, mines)
     @board = Array.new(rows) {Array.new(columns)}
@@ -88,4 +134,10 @@ class Cell #< Minesweeper
     @flipped = true
   end
 
+<<<<<<< HEAD
 end
+
+>>>>>>> a40a683dd7ba638820877a95afe30fe2502dbd99
+=======
+end
+>>>>>>> 08c49673e36cdf443d068febc43d0ea1a3918f7f

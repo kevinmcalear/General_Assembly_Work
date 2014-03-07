@@ -75,8 +75,8 @@ li {
   display: inline-block;
 }
 
-ul {
-  position: fixed;
+nav {
+  position: relative;
   bottom:0;
   list-style-type: none;
 }
