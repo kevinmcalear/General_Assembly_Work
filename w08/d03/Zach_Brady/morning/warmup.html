@@ -7,9 +7,24 @@
     <h1>warmup</h1>
     <script type='text/javascript'>
 
+    // Array of my favorite things
+    var aFewOfMyFavoriteThings = ["mornings", "good wine", "books", "the ladies", "learning", "running", "vinyl"]
 
-// WORK HERE
+    // Print them out
+    for (i=0; i<aFewOfMyFavoriteThings.length;i++) {
+      console.log("My #" + (parseInt(i) + 1) + " favorite thing is " + aFewOfMyFavoriteThings[i]);
+    };
 
+    function initials(fullName) { 
+      var theInitials = "";
+      theInitials += fullName[0]
+      for (i = 0; i < fullName.length; i++) {
+        if (fullName[i] === " ") {
+          theInitials += fullName[i+1];
+        };
+      };
+      console.log(theInitials);
+    };
 
     </script>
   </body>

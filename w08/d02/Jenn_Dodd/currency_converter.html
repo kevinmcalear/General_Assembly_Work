@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Currency Converter</title>
+  </head>
+  <body>
+    <h1>Currency Converter</h1>
+    <script type="text/javascript">
+
+      var fXrate = { "pounds": 1.6673, "euros": 1.37, "pesos": .075 }
+
+      var exchangeToDollars = function( currency, currencyTo, amount) {
+        return ( amount * fXrate[currency] ).toFixed(2);
+      }
+
+      var exchangeFromDollars = function( currency, amount) {
+        return (amount / fXrate[currency]).toFixed(2);
+      }
+
+      var currencyConverter = function() {
+        var currencyFrom = prompt("Currency you would like to convert:");
+        var currencyTo = prompt("Currency you would like to convert to:");
+        var amount = prompt("Amount you want converted:");
+
+        if (currencyFrom === "dollars") {
+          return exchangeFromDollars( currencyTo, amount);
+        } else {
+          return exchangeToDollars( currencyFrom, amount);
+        };
+      };
+    </script>
+  </body>
+</html>
