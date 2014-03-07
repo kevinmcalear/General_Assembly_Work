@@ -47,13 +47,12 @@ function makeHobbits(hobbits) {
     var li = document.createElement("li");
 
     // give each hobbit a class of hobbit
-    li.className = hobbits[i];
+    li.id = hobbits[i];
     li.innerText = hobbits[i];
     ul.appendChild(li);
   }
-  
+
   var shireID = document.getElementById("The Shire");
-  console.log(shireID);
   shireID.appendChild(ul);
   
 }
@@ -61,10 +60,30 @@ function makeHobbits(hobbits) {
 makeHobbits(hobbits);
 
 function keepItSecretKeepItSafe() {
+  // create a div with an id of 'the-ring'
+  var ring = document.createElement("div");
+  ring.innerText = "The Ring"
+  ring.id = "the-ring";
+
+  // add the ring as a child of Frodo
+  var frodo = document.getElementById("Frodo Baggins");
+  frodo.appendChild(ring);
 }
 
+keepItSecretKeepItSafe();
+
 function makeBuddies(buddies) {
+  // create an aside tag
+  var aside = document.createElement("aside");
+  // display an unordered list of buddies in the aside
+  var ul = document.createElement("ul");
+  aside.appendChild(ul);
+  // insert your aside before rivendell
+  var rivendell = document.getElementById("Rivendell");
+  rivendell.insertAdjacentElement("beforeBegin", aside);
 }
+
+makeBuddies(buddies);
 
 function beautifulStranger() {
 }
