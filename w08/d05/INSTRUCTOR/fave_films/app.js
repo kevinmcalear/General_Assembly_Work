@@ -15,19 +15,16 @@ var addMovie = function(eventObject){
   ul.appendChild(li);
 
   this.reset();
-
-  var strike = function() {
-    if (checkbox.checked) {
-      li.style.textDecoration = "line-through";
-    } else {
-      li.style.textDecoration = "none";
-    };
-  };
-  checkbox.addEventListener("change", strike);
 };
 
 form.addEventListener("submit", addMovie);
-
+ul.addEventListener("change", function(eventObject) {
+  if (eventObject.target.checked) {
+    eventObject.target.parentElement.style.textDecoration = "line-through";
+  } else {
+    eventObject.target.parentElement.style.textDecoration = "none";
+  }
+});
 /*
 var guessNumberGameGenerator = function() {
   var secretNumber = Math.floor(Math.random() * 10);
