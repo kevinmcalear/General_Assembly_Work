@@ -18,6 +18,7 @@ var buddies = [
 var lands = ["The Shire", "Rivendell", "Mordor"];
 
 function makeMiddleEarth(lands) {
+<<<<<<< HEAD
   // create a section tag with an id of middle-earth
   var middleEarth = document.createElement("section");
   middleEarth.id = "middle-earth"; 
@@ -112,3 +113,21 @@ function forgeTheFellowShip() {
   // add each hobbit and buddy one at a time to 'the-fellowship'
   // after each character is added make an alert that they have joined your party
 }
+=======
+}
+
+function makeHobbits(hobbits) {
+}
+
+function keepItSecretKeepItSafe() {
+}
+
+function makeBuddies(buddies) {
+}
+
+function beautifulStranger() {
+}
+
+function forgeTheFellowShip() {
+}
+>>>>>>> 0c2ec161d776e96cbe96741fe4b44960f9205967

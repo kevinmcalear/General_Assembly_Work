@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8"> 
+<head>
+</head>
+<body>
+  <script type="text/javascript">
+    // var fibSum = function() {
+    //   var currentNumber = 1;
+    //   var lastNumber = 0;
+    //   var total = 0;
+
+    //   while(currentNumber < 4000000) {
+    //     var placeHolder = currentNumber;
+    //     currentNumber += lastNumber;
+    //     lastNumber = placeHolder;
+        
+    //     if( currentNumber % 2 === 0 ) {
+    //       total += currentNumber;
+    //     }
+    //   }
+    //     return total;
+    // };
+// var recfib = function(num1, num2, total){
+    
+//     if (num2 > 4000000) {
+//       return document.write(total);
+//     };
+//     var test = num1 + num2;
+//     if (test % 2 === 0) {
+//       var sum = total + test;
+//     } else {
+//       var sum = total;
+//     };
+//     recfib(num2, test, sum);
+//   };
+var recfib = function(num1, num2, total){
+    console.log(total)
+    if (num2 > 4000000) {
+       total;
+    };
+    var test = num1 + num2;
+    if (test % 2 === 0) {
+      var sum = total + test;
+    } else {
+      var sum = total;
+    };
+   recfib(num2, test, sum);
+  };
+  </script>
+</body>
+</html>

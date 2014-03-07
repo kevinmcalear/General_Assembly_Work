@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Vegnere Cipher</title>
+
+</head>
+<body>
+  <h1>Vignere Ciphering like a BOSS.</h1>
+  <script type="text/javascript">
+    var encodeWord = function(message, keyword) {
+      var alphabet = "abcdefghigklmnopqrstuvwxyz".split('');
+      var message = message;
+      var repeatedKeyword = keyword;
+      var encodedWord = '';
+
+      for(i = 0; i < message.length; i++) {
+        if(keyword.length < message.length){
+          repeatedKeyword += keyword;
+        } else {
+          i == message.length;
+        }
+      }
+
+      for(i = 0; i < message.length; i++) {
+       encodedWord += alphabet.splice(-(alphabet.indexOf(message[i]) + alphabet.indexOf(repeatedKeyword[i])))[0];
+       var alphabet = "abcdefghigklmnopqrstuvwxyzabcdefghigklmnopqrstuvwxyz".split('');
+    }
+    return encodedWord;
+  };
+
+  var message = prompt("Give Me A Message (alllowercaseinoneword) To Decode");
+  var keyword = prompt("Now give me one, lowercase word to decode it with");
+  document.write("<p><strong>This is your encoded word:</strong> " + encodeWord(message, keyword) + "</p>" );
+  document.write("<p><strong>This is your keyword:</strong> " + keyword + "</p>" );
+  document.write("<p><strong>This is your un-encoded word:</strong> " + encodeWord(encodeWord(message, keyword), keyword) + "</p>" );
+  </script>
+</body>
+</html>
