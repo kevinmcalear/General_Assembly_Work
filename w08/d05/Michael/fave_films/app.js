@@ -4,8 +4,6 @@
 
 //Step 1:  Find the list : 
 var ul = document.querySelector("ul");
-
-
   
 //Step 2:  Find the Form
 var form = document.querySelector("form.new-movie")
@@ -16,21 +14,26 @@ var form = document.querySelector("form.new-movie")
 //Step 3c:  Clear the form
 //Step 3d:  Nest function to do cross out
 //Step 3e:  Create event listener for crossout. 
+
+
+
+
+
 var addMovie = function(eventObject){
-  var crossOutText = function(){
-    if(checkbox.checked===true){
-      li.style.textDecoration = "line-through" 
-    } 
-    if(checkbox.checked===false) {
-      li.style.textDecoration = "none"
-    }
-  };
+  // var crossOutText = function(){
+  //   if(checkbox.checked===true){
+  //     li.style.textDecoration = "line-through" 
+  //   } 
+  //   if(checkbox.checked===false) {
+  //     li.style.textDecoration = "none"
+  //   }
+  // };
 
   eventObject.preventDefault();
   var li = document.createElement("li");
   var checkbox = document.createElement("input")
   checkbox.type = "checkbox"
-  checkbox.addEventListener("change",crossOutText);
+  // checkbox.addEventListener("change",crossOutText);
 
   li.innerText = this.elements["title"].value;
   li.id = this.elements["title"].value.replace(/ /g,"-");
@@ -41,4 +44,14 @@ var addMovie = function(eventObject){
 
 //Step 4:  Create EventListener for the form. 
 form.addEventListener("submit",addMovie)
+
+
+///Other option
+ul.addEventListener("change", function(eventObject) {
+  if(eventObject.target.checked){
+    eventObject.target.parentElement.style.textDecoration = "line-through"
+  } else {
+    eventObject.target.parentElement.style.textDecoration = "none"
+  }
+});
 
