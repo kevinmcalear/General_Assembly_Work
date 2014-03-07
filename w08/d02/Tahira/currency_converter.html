@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Currency Converter</title>
+</head>
+<body>
+  <h1>Currency Converter</h1>
+  <script type="text/javascript">
+    var fxRate = 1.6673
+    var poundsToDollars = function(pounds) {
+      return (pounds*fxRate).toFixed(2)
+      ;
+    };
+    var dollarsToPounds = function(dollars) {
+      return (dollars/fxRate).toFixed(2);
+    };
+    var currencyConverter = function() {
+      currencyFrom = prompt("Currency converting from:");
+      currencyTo = prompt("Currency converting to:");
+      amount = prompt("Enter amount:");
+
+      if (currencyFrom === "pounds") {
+        return poundsToDollars(amount);
+      } else {
+        return dollarsToPounds(amount);
+      };
+    };
+  </script>
+</body>
+</html>
