@@ -13,3 +13,4 @@ for(var i = 0; i < colors.length; i++) {
   li.style.color = colors[i];
   ul.appendChild(li);
 };
+        
