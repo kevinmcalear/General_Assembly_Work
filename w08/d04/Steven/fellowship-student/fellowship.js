@@ -67,7 +67,7 @@ function makeBuddies() {
   }
   aside.appendChild(ul);
   var rivendell = document.querySelector("#Rivendell");
-  rivendell.appendChild(aside);
+  rivendell.insertAdjacentElement("beforebegin", aside);
 }
 makeBuddies();
 
