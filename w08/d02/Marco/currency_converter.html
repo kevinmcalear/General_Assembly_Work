@@ -1,0 +1,27 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Currency Converter</title>
+</head>
+<body>
+  <h1>Convert USD to GBP</h1>
+
+  <script>
+
+    var fxRate = { gbp: 1.6671, eur: .006, usd: 1, pesos: .03 }
+
+    fxRate.exchange = function(currencyFrom, currencyTo, amount) {
+        var dollars = (amount * this[currencyFrom]);
+        return (dollars / this[currencyTo]).toFixed(2);
+        }
+    
+    var currencyConverter = function() {
+      var currencyFrom = prompt("Please enter a Currency for Conversion");
+      var currencyTo = prompt("Please enter a Currency to Convert to");
+      var amount = prompt("Please enter a Currency amount for conversion");
+
+      fxRate.currencyConverter();
+    };
+  </script>
+</body>
+</html>

@@ -24,9 +24,7 @@ a {
   margin-top: 100px;
 }
 
-.wrapper > div img {
 
-}
 .litte-wrapper {
   padding: 0 30px;
 }
@@ -57,7 +55,7 @@ a {
   background-image: -webkit-linear-gradient(top, #6F97B6, #3F729B);
   border-radius: 3px;
   border: 1px solid #1C5380;
-  padding: 0 .5em;
+  padding: 0 .7em;
   display: inline-block;
 }
 
@@ -75,7 +73,7 @@ a {
 }
 
 .login img {
-  height: 50px;
+  height: 40px;
   vertical-align: middle;
 }
 
@@ -86,22 +84,24 @@ a {
   position: absolute;
   top: 0;
   margin-top: 200px;
-  border-top: 1px solid rgba(0, 0, 0, 0.17);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0, 0, 0, 0.17)), to(transparent));
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.17), transparent);
+  border-top: 1px solid black;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ddd), to(transparent));
+  background-image: -webkit-linear-gradient(#ddd, transparent);
   background-image:
-  -moz-linear-gradient(rgba(0, 0, 0, 0.17), transparent),
-  -moz-linear-gradient(rgba(0, 0, 0, 0.17), transparent);
+      -moz-linear-gradient(#ddd, transparent),
+      -moz-linear-gradient(#ddd, transparent);
   background-image:
-  -o-linear-gradient(rgba(0, 0, 0, 0.17), transparent),
-  -o-linear-gradient(rgba(0, 0, 0, 0.17), transparent);
+      -o-linear-gradient(#ddd, transparent),
+      -o-linear-gradient(#ddd, transparent);
   background-image: 
-  linear-gradient(rgba(0, 0, 0, 0.17), transparent),
-  linear-gradient(rgba(0, 0, 0, 0.17), transparent);
+      linear-gradient(#ddd, transparent),
+      linear-gradient(#ddd, transparent);
   -moz-background-size: 1px 100%;
   background-size: 1px 100%;
   background-position: 0 0, 100% 0;
   background-repeat: no-repeat;
+
+ 
 }
 .white-box h1 {
   font-size: 27px;

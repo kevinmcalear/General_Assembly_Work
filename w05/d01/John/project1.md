@@ -19,7 +19,7 @@ Tip: Work on something you ***like***
 * Submit your User Stories and track your progress on them with Pivotal Tracker.
 * Submit an ERD (data model).
 
-* Use TDD to develop the logic of your app and achieve >85% "test coverage."
+<!-- * Use TDD to develop the logic of your app and achieve >85% "test coverage." -->
 * Build an app that performs CRUD operations on a minimum of 3-models.
 * Build an app that implements authentication & authorization.
 * Use a technology (Gem/API) not explicitly covered in class (not including JavaScript or CSS Framework).

@@ -4,6 +4,8 @@
 
 * Write a function dollarsToPounds that takes a dollar number as input and outputs a string of what the pound equivalent is.
 
+1 pound = 1.6671 dollars
+
 `"$NN is £NN".`
 
 * Write a function poundsToDollars that takes a pound number as input and outputs a string of what the dollar equivalent is.

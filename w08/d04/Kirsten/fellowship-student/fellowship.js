@@ -16,6 +16,7 @@ var buddies = [
 ];
 
 var lands = ["The Shire", "Rivendell", "Mordor"];
+
 var body = document.querySelector("body");
 
 function makeMiddleEarth(lands){
