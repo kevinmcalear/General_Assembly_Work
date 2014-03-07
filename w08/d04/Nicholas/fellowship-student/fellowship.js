@@ -80,7 +80,8 @@ function beautifulStranger() {
 beautifulStranger();
 
 function forgeTheFellowShip() {
-
+  shire = getElementById("");
 }
+
 
 
