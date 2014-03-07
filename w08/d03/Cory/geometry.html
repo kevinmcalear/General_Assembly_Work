@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise</title>
+  </head>
+  <body>
+    <h1>Geometry</h1>
+    <script type='text/javascript'>
+      function isSquare(length, width) {
+        if (length === width) {
+          return true;
+        }
+        else {
+          return false;
+       }
+      };
+
+      function area(length, width) {
+        return length * width;
+      };
+
+      function perimeter(length, width) {
+        return (length*2) + (width*2);
+      };
+
+      function isEquilateral(sideA, sideB, sideC) {
+        if (sideA === sideB && sideB === sideC) {
+          return true;
+        }
+        else {
+          return false;
+        }
+      };
+
+      function isIsosceles(sideA, sideB, sideC) {
+        if (sideA === sideB || sideA === sideC || sideB === sideC) {
+          return true;
+        }
+        else {
+          return false;
+        }
+      };
+
+      function tArea(base, height) {
+        return (base*height)*0.5;
+      };
+
+    </script>
+  </body>
+</html>
