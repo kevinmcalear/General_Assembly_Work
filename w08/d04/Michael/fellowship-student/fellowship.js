@@ -110,7 +110,7 @@ function forgeTheFellowShip() {
   var buddiesx = document.querySelector("aside ul")
   var middleEarth = document.querySelector("section");
   var rivendell = middleEarth.children[1]; 
-  rivendell.appendChild(hobbits); 
+  rivendell.appendChild(hobbitsx); 
 
   // Step 2: create a new div called 'the-fellowship'
   var div = document.createElement("div")
@@ -124,11 +124,14 @@ function forgeTheFellowShip() {
   for (var i=0; i < hobbits.length; i++){
     var hobbit_person = document.querySelector(".hobbit");
     ul.appendChild(hobbit_person);
+    alert(hobbit_person.innerText+" has moved")
   };
   for (var i=0; i < buddies.length; i++){
     var buddy_person = document.querySelector("aside ul li");
     ul.appendChild(buddy_person);
+    alert(buddy_person.innerText+" has moved")
   };
+
 
 
   // Step 4: after each character is added make an alert that they have joined your party
