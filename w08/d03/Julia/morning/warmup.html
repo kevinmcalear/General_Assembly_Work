@@ -6,6 +6,39 @@
   <body>
     <h1>warmup</h1>
     <script type='text/javascript'>
+    var favoriteFruits = ["apples", "oranges", "pineapples", "grapes", "strawberries", "raspberries"]
+    var i = 0;
+    while(i < favoriteFruits.length) {
+    	console.log("My #"+[i] + " Favorite Fruits are " +favoriteFruits[i]);
+    	i++;
+    };
+
+    var initials = function(name) {
+    	var name = name;
+    	var splitName = name.split(' ');
+    	var initials = [];
+    	var x = 0;
+    	while(x < splitName.length) {
+    		initials.push(splitName[x][0])
+    		x++;
+    	};
+    	var letterInitials = initials.join("");
+    	return letterInitials;
+    };
+
+    var doubleLetters = function(fullName) {
+    	var fullName = fullName;
+    	var splitFullName = fullName.split(' ');
+    	var doubleInitials = [];
+    	var y = 0;
+    	while(y < splitFullName.length) {
+    		doubleInitials.push(splitFullName[y][0]);
+    		doubleInitials.push(splitFullName[y][(splitFullName[y].length - 1)]);
+    		y++;
+    	};
+    	var doubleLetters = doubleInitials.join(",");
+    	return doubleLetters;
+    };
 
 
 // WORK HERE
