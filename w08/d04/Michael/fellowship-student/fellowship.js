@@ -61,7 +61,7 @@ function keepItSecretKeepItSafe() {
   // Step 2: add the ring as a child of Frodo 
   var theRing = document.createElement("div")
   theRing.id = "the-ring"
-  hobbits = document.querySelector("ul") 
+  var hobbits = document.querySelector("ul") 
   frodo = hobbits.children[0]
   frodo.appendChild(theRing)
 };
@@ -106,8 +106,8 @@ beautifulStranger()
 
 function forgeTheFellowShip() {
   // Step 1: move the hobbits and the buddies to Rivendell
-  var hobbits = document.querySelector("article ul") 
-  var buddies = document.querySelector("aside ul")
+  var hobbitsx = document.querySelector("article ul") 
+  var buddiesx = document.querySelector("aside ul")
   var middleEarth = document.querySelector("section");
   var rivendell = middleEarth.children[1]; 
   rivendell.appendChild(hobbits); 
@@ -121,12 +121,12 @@ function forgeTheFellowShip() {
   div.appendChild(ul)
   // Step 3: add each hobbit and buddy one at a time to 'the-fellowship'
 
-  for (var i=0; i < hobbits.children.length; i++){
-    var hobbit_person = document.querySelector(".hobbit")
+  for (var i=0; i < hobbits.length; i++){
+    var hobbit_person = document.querySelector(".hobbit");
     ul.appendChild(hobbit_person);
   };
-  for (var i=0; i < buddies.children.length; i++){
-    var buddy_person = document.querySelector("aside ul li")
+  for (var i=0; i < buddies.length; i++){
+    var buddy_person = document.querySelector("aside ul li");
     ul.appendChild(buddy_person);
   };
 
