@@ -6,9 +6,26 @@
   <body>
     <h1>warmup</h1>
     <script type='text/javascript'>
+    // WORK HERE
 
+    var favoriteThings = ["pizza", "tacos", "gummy bears"];
 
-// WORK HERE
+    var listFavoriteThings = function() {
+      
+      for ( var i= 0; i<favoriteThings.length; i++ ) 
+        { console.log("My number "+ (i+1) +" favorite thing is "+ favoriteThings[i]; ) }
+    };
+
+    
+    var initials = function(name) {
+      var initialsArray = [ ]
+      initialsArray.push( name[0].toUpperCase() )
+      for( var i = 0; i<name.length; i++) { 
+        if(name[i] === " ")
+          initialsArray.push( name[i+1].toUpperCase() )
+        }
+      return initialsArray.join("")
+    }
 
 
     </script>
