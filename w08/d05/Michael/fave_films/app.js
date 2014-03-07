@@ -1,5 +1,6 @@
+//Functionality
 //Add New Movies to the List from the Input
-
+//Checkbox to Cross Out Movies
 
 //Step 1:  Find the list : 
 var ul = document.querySelector("ul");
@@ -13,11 +14,8 @@ var form = document.querySelector("form.new-movie")
 //Step 3a:  Add the Li to the UL with innertext. 
 //Step 3b:  Add the LI
 //Step 3c:  Clear the form
-
-
-
-
-
+//Step 3d:  Nest function to do cross out
+//Step 3e:  Create event listener for crossout. 
 var addMovie = function(eventObject){
   var crossOutText = function(){
     if(checkbox.checked===true){
@@ -27,40 +25,20 @@ var addMovie = function(eventObject){
       li.style.textDecoration = "none"
     }
   };
+
   eventObject.preventDefault();
   var li = document.createElement("li");
   var checkbox = document.createElement("input")
   checkbox.type = "checkbox"
   checkbox.addEventListener("change",crossOutText);
 
-  // li.innerText = form.value;
   li.innerText = this.elements["title"].value;
   li.id = this.elements["title"].value.replace(/ /g,"-");
   li.insertAdjacentElement("beforeend", checkbox);
   ul.insertAdjacentElement("beforeend", li);
-  // form.value = ""
   this.reset()
 };
 
 //Step 4:  Create EventListener for the form. 
-// form.addEventListener("change",addMovie)
 form.addEventListener("submit",addMovie)
-
-
-///checkbox after each Movies
-///checking the box, cross out the Movies
-
-
-//Step 1:  Add input type= checkbox
-
-
-//Step 2:  Create Function to Cross Out Text
-
-
-
-//Step 3:  Create Event Listener to Cross out Text. 
-// var ul = document.querySelector("ul");
-// var checkboxes = document.querySelectorAll("input[type='checkbox']")
-
-// checkboxes.addEventListener("CheckboxStateChange", crossOutText)
 
