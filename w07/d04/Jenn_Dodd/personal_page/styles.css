@@ -1,0 +1,75 @@
+/*
+ * Reset.
+ */
+
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote,  
+pre, img, form, fieldset, table, th, td { margin: 0; padding: 0; }
+
+
+/*
+ * Basic styles.
+ */
+
+body {
+  font: normal 1.25em/1.6 Helvetica, Arial, Verdana, sans-serif;
+}
+
+/*
+ *  Header.
+ */
+
+header {
+  height: 70px;  display: inline;
+}
+
+.logo_flag {
+  background-color: #bb141a;
+  display: inline-block;
+  height: 65px;
+}
+
+h1 {
+  color: #FFF;
+  padding-left: 70px;
+  padding-right: 15px;
+}
+
+span {
+  width: 60px;
+  font-size: 15px;
+  color: #949699;
+  display: inline-block;
+  line-height: 15px;
+  padding-left: 10px;
+}
+
+.hero {
+  background: url("me.jpg") center center no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+}
+
+
+/*
+ * Post Layout.
+ */
+
+
+
+.content {
+  text-align: center;
+}
+
+.about {
+  width: 700px;
+  margin: 0 auto;
+}
+
+
+
+
+
+
