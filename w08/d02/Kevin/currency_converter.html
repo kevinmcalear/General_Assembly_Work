@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8"> 
+<head>
+</head>
+<body>
+  <script type="text/javascript">
+  
+  var poundsToDollars = function(dollars) {
+    var convertedDollars = (dollars / 1.6672).toFixed(2)
+    return console.log("$" + dollars + " is £" + convertedDollars); 
+  };
+  // var result = poundsToDollars(dollars);
+  
+  
+  var dollarsToPounds = function(pounds) {
+    var convertedPounds = (pounds * 1.6672).toFixed(2)
+    return console.log("£" + pounds + " is $" + convertedPounds); 
+  };
+  // var otherResult = poundsToDollars(pounds);
+
+  var currencyConverter = function() {
+    var currencyFrom = prompt("What currency do you have?");
+    var amount = prompt("How much do you have?");
+    if (currencyFrom === "pounds") {
+      return poundsToDollars(amount);
+    } else {
+      return dollarsToPounds(amount);
+    };
+  };
+
+  </script>
+</body>
+</html>

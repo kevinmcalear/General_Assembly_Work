@@ -1,0 +1,31 @@
+<!DOCTYPE <html>
+<head>
+  <title>Currency Converter</title>
+</head>
+<body>
+  <h1>$ to &pound;</h1>
+  <script type="text/javascript">
+    var fxRate = { pounds: 1.6673, euros: 1.37, pesos: .075, ruble: .028};
+
+    var exchangeToDollars = function(currency, amount){ 
+      return (amount * fxRate[currency]).toFixed(2);
+    };
+
+    var exchangeFromDollars = function(currency, amount){
+      return (amount / fxRate[currency]).toFixed(2);
+    };
+
+    var currencyConverter = function(){
+      
+      var currencyFrom = prompt("What is the initial currency?");
+      var currencyTo = prompt("What is the ending currency?");
+      var amount = prompt("How much do you have?");
+      if(currencyFrom === "dollars"){
+        return exchangeFromDollars(currencyTo, amount);
+      } else{
+        return exchangeToDollars(currencyFrom, amount);
+      };
+    };
+  </script>
+</body>
+</html>

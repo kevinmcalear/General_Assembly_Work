@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Objects are fun!</title>
+</head>
+<body>
+  <h1>Yay.js</h1>
+  <script type="text/javascript">
+
+  function Rectangle(length, width) {
+  this.length = length;
+  this.width = width;
+  }
+  var rect1 = new Rectangle(6, 5);
+  var rect2 = new Rectangle(8, 8);
+
+
+  Rectangle.prototype.isSquare = function(){
+    if (this.length === this.width){
+      return true} else {
+      return false };
+    };
+
+  // Rectangle.prototype.area = function
+
+  Rectangle.prototype.area = function(){
+    return (this.length * this.width);
+  };
+
+  // Rectangle.prototype.area = function
+
+  Rectangle.prototype.perimeter = function(){
+    return (this.length*2 + this.width*2);
+  };
+
+  function Triangle(sideA, sideB, sideC) {
+  this.sideA = sideA;
+  this.sideB = sideB;
+  this.sideC = sideC;
+  };
+
+  var tri1 = new Triangle(5, 5, 5);
+  var tri2 = new Triangle(6, 5, 6);
+  var tri3 = new Triangle(3, 12, 6);
+
+  Triangle.prototype.isEquilateral = function(){
+    if((this.sideA === this.sideB) && (this.sideA === this.sideC)){
+      return true} else{
+        return false };
+  };
+
+  Triangle.prototype.isIsosoceles = function(){
+    if((this.sideA === this.sideB) || (this.sideA === this.sideC)){
+      return true} else{
+        return false };
+  };
+
+  Triangle.prototype.area = function(){
+    var s = ((this.sideA + this.sideB + this.sideC) / 2);
+    return Math.sqrt((s-this.sideA)*(s-this.sideB)*(s-this.sideB)).toFixed(2);
+  };
+
+  Triangle.prototype.isObtuse = function(){
+    if((this.sideA.Math.pow(2) + (this.sideB.Math.pow(2)) < (this.sideC.Math.pow(2)){
+      return true }
+      else if ((this.sideB.Math.pow(2) + (this.sideC.Math.pow(2)) < (this.sideA.Math.pow(2)){return true }
+        else if ((this.sideC.Math.pow(2) + (this.sideA.Math.pow(2)) < (this.sideB.Math.pow(2)){
+          return true }
+          else {return false};
+  };
+
+
+
+
+
+  </script>
+</body>
+</html>
