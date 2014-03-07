@@ -15,28 +15,33 @@ var cipher = function(){
   var final_word = [];
 
   for(var i = 0; i < split_message.length; i++){
-   original_letter_indexes.push(original.indexOf(split_message[i],0))
-  };
+   original_letter_indexes.push(original.indexOf(split_message[i],0));
+  }
 
-  for(var i = 0; i < split_key.length; i++){
-    code_letter_indexes.push(original.indexOf(split_key[i],0))
-  };
+  for(i = 0; i < split_key.length; i++){
+    code_letter_indexes.push(original.indexOf(split_key[i],0));
+  }
 
-  for(var i = 0; i < original_letter_indexes.length; i++){
-  var coded = original_letter_indexes[i] + code_letter_indexes[i]
+  for(i = 0; i < original_letter_indexes.length; i++){
+  var coded = original_letter_indexes[i] + code_letter_indexes[i];
   if(coded > 26){
     new_nums.push(coded - 26);
   }
   else {
-    new_nums.push(coded)
-  };
-
-};
+    new_nums.push(coded);
+  }
+  }
 
  new_nums.forEach(function(letter){
   final_word.push(original[letter]);
  });
- document.getElementById("answer").innerHTML=("Your ciphered word is " + final_word.join(""))
+ document.getElementById("answer").innerHTML=("Your ciphered word is " + final_word.join(""));
 };
 
 
+// if(i > key.length){
+//   i = 0;
+// }
+// else {
+//   i = i + 1;
+// }
