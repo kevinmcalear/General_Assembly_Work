@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Project Euler</title>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      
+      fibSet=[1,2]
+      fibSetEven=[2]
+
+      var fibonacciEvenSum = function(max_value) { 
+        // Step 1: Get Fib Array
+        i = max_value
+        fibSet.reverse()
+        while ( i > fibSet[0]+fibSet[1] )  
+          {
+            { fibSet.unshift( fibSet[0]+fibSet[1] ) } 
+        // Step 2:  Get Even Values
+            { if(fibSet[0] % 2===0) 
+              {fibSetEven.push( fibSet[0] )  } 
+            }
+          };
+        fibSet.reverse()
+        // Step 3: Get Sum
+        var total = 0
+        for( var i=0; i<fibSetEven.length; i++ ) {
+          
+          total = fibSetEven[i] + total;
+        }
+        console.log( total )
+      }
+      
+    </script>
+  </body>
+
+</html>

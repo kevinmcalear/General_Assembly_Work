@@ -9,8 +9,39 @@
 
 
 // WORK HERE
+      var favorites = ["Cancer", "Getting Punched In The Face", "Getting Set On Fire", "Bees", "Rashes"];
 
+      for(var i = 0; i < favorites.length; i++) {
+          n = i + 1
+        document.write("<p>My #" + n + " favorite thing is " + favorites[i] + ".</p>");
+      };
 
+     var name = prompt("Tell me your name Yo.");
+      
+      var initials = function(name) {
+         var words = name.split(' ');
+         var letters = ''
+         for(var i = 0; i < words.length; i++) {
+          letters += words[i][0]
+         };
+         document.write("<p><strong>Initials:</strong> " + letters + "</p>"); 
+      };
+
+      var firstAndLast = function(name) {
+         var words = name.split(' ');
+         var letters = ''
+         for(var i = 0; i < words.length; i++) {
+          if(i === words.length - 1) {
+            letters += words[i][0] + words[i].slice(-1)
+          } else {
+            letters += words[i][0] + words[i].slice(-1) + ", "
+          };
+         };
+         document.write("<p><strong>Wierd First & Last Initials:</strong> " + letters + "</p>"); 
+      };
+      initials(name);
+      firstAndLast(name);
+      
     </script>
   </body>
 </html>
