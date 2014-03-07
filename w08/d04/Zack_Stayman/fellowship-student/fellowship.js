@@ -44,6 +44,7 @@ makeMiddleEarth(lands);
 function makeHobbits(hobbits) {
   // display an unordered list of hobbits in the shire
   var ul = document.createElement("ul");
+  ul.id = "hobbits"
   // give each hobbit a class of hobbit
   hobbits.forEach(function(element){
     // create hobbit constructor
@@ -86,7 +87,7 @@ function makeBuddies(buddies) {
   buddies.forEach(function(element){
     var li = document.createElement("li");
     li.innerText = element;
-    li.id = element;
+    li.id = element.split(" ")[0].toLowerCase();
     ul.appendChild(li);
   });
   
@@ -100,16 +101,18 @@ makeBuddies(buddies);
 
 function beautifulStranger() {
   // change the buddy 'Strider' textnode to "Aragorn"
-  console.log(document.body.childNodes);
-
-
+  var strider = document.getElementById("strider");
+  strider.innerText = "Aragorn";
 }
 
 beautifulStranger();
 
 function forgeTheFellowShip() {
   // move the hobbits and the buddies to Rivendell
+  var aside = document.querySelector("aside");
+  var hobbits = document.querySelector("#hobbits");
 
+  
   
   // create a new div called 'the-fellowship'
 
