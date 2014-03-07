@@ -1,0 +1,92 @@
+/*
+ * Reset.
+ */
+
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote,  
+pre, img, form, fieldset, table, th, td { margin: 0; padding: 0; }
+
+
+/*
+ * Basic styles.
+ */
+
+body {
+  font: normal 16px Arial, Verdana, sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+/*
+ * Header.
+ */
+
+header {
+  background-color: #00d6dd;
+  color: #FFF;
+  width: 100%;
+  height: 240px;
+}
+
+header a {
+  color: #FFF;
+}
+
+.logo {
+  display: inline-block;
+  padding-top: 40px;
+}
+
+header nav {
+  display: inline-block;
+  text-align: right;
+}
+
+header nav li a {
+  text-decoration: none;
+}
+
+.callout {
+  display: inline-block;
+  width: 240px;
+  font-size: 14px;
+}
+
+.search {
+  display: inline-block;
+  width: 200px;
+}
+
+input {
+  width: 200px;
+  margin: 10px;
+}
+
+input[type="text-field"] {
+  border: none;
+  border-radius: 12px;
+  padding: 6px;
+  width: 188px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

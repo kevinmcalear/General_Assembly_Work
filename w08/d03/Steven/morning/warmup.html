@@ -6,9 +6,37 @@
   <body>
     <h1>warmup</h1>
     <script type='text/javascript'>
+    var favorites = ["Chicken Sandwiches", "Fried Chicken", "Scotch"];
+    // console.log("My #1 favorite thing is " + favorites[0]);
+    // console.log("My #2 favorite thing is " + favorites[1]);
+    // console.log("My #3 favorite thing is " + favorites[2]);
+    // var i = 0
+    // favorites.forEach(function(entry){
+    //   i+= 1;
+    //   console.log(i + " i love" + entry);
+    // });
+
+    var favoritesPrint = function(favorites){
+      for(var i=0; i<favorites.length; i++){
+        console.log("My #" + (i+1) + " favorite thing is " + favorites[i]);
+      };
+    };
+
+    favoritesPrint(favorites);
 
 
-// WORK HERE
+
+    function initials(name){
+      var name = prompt("Whats your name?");
+      var initialsArray = [];
+      var splitName = name.split(" ");
+      for(var i=0; i < splitName.length; i++) {
+        initialsArray.push(splitName[i][0]);
+      };
+      console.log(initialsArray.join(" "));
+    };
+    initials();
+
 
 
     </script>
