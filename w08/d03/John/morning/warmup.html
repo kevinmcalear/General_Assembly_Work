@@ -7,9 +7,36 @@
     <h1>warmup</h1>
     <script type='text/javascript'>
 
+      // Version 1:
 
-// WORK HERE
+      var favThings = ["coffee", "italian food", "exercise", "blue"];
 
+      for (i=0; i < favThings.length; i++) {
+        console.log("My #" + (i+1) + " favorite thing is " + favThings[i]);
+        }
+
+      // Version 2:
+
+      var newFavThings = ["juice", "mexican food", "running", "green"];
+
+      newFavThings.forEach(function(entry) {
+        console.log("My #" + (newFavThings.indexOf(entry)+1) + " favorite thing is " + entry);
+      });
+
+
+      // *********************************************  
+
+      // Initials
+
+      var initials = function(name) {
+        var inits= name.charAt(0);
+        for (j=0; j < name.length; j++) {
+          if (name.charAt(j) === " ")
+            inits += name.charAt(j-1) + " " + name.charAt(j+1);
+        }
+        inits += name.charAt(name.length-1);
+        console.log(inits)
+      };
 
     </script>
   </body>

@@ -6,9 +6,23 @@
   <body>
     <h1>warmup</h1>
     <script type='text/javascript'>
+      var array = ["apples", "bananas", "green", "blue", "Ohio State Buckeyes"];
+
+      for( var i = 0; i < array.length; i++ ) {
+        
+        document.write("My #" + [i+1] + " favorite thing is " + array[i] + "<br />");
+      };
 
 
-// WORK HERE
+var name = prompt("What is your full name?"); 
+var initials = "";
+var wordArray = name.split(" ");
+for( var i = 0; i < wordArray.length; i++ ) {
+
+    initials += wordArray[i].substring(0,1);
+};
+
+document.write(initials);
 
 
     </script>
