@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS is King</title>
+  </head>
+  <body>
+    <h1>I &lt;3 learning JS!</h1>
+    <script type="text/javascript">
+      var conversionRate = 1.6672
+
+      var initialCurrency = prompt("Enter first currency:");
+      var finalCurrency = prompt("Enter second currency:");
+      var amount = prompt("Enter amount:");
+      
+
+      var dollarsToPounds = function(dollars){
+        console.log("$"+dollars+" is "+ (dollars * conversionRate).toFixed(2));
+      };
+      var poundsToDollars = function(pounds){
+        console.log(pounds / conversionRate).toFixed(2));
+      };
+      
+      var convertCurrency = function(initialCurrency, finalCurrency, amount){
+        
+        if (initialCurrency === "dollars") {
+          return dollarsToPounds(amount);
+        } else {
+          return poundsToDollars(amount);
+        }
+      };
+
+      convertCurrency(initialCurrency, finalCurrency, amount);
+      console.log("$" + dollars + " is " + (
+      console.log("" + pounds + " is " + "$" + 
+
+    </script>
+  </body>
+</html>

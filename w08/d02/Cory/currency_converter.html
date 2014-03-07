@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS4LIFE</title>
+  </head>
+  <body>
+    <h1> </h1>
+    <script type="text/Javascript">
+      var fxRate = 1.6673
+      var dollarsToPounds = function(dollars) {
+        return dollars/fxRate;
+      };
+  
+         var poundsToDollars = function(pounds) {
+        return pounds*fxRate;
+      };
+   
+      var currencyConverter = function() {
+        var currencyFrom = prompt("Inital currenty?");
+        var currencyTo = prompt("Converting to?");
+        var amount = prompt("How much?");
+
+        if(currencyFrom === "pounds") {
+          return poundsToDollars(amount);
+        }
+        else {
+          return dollarsToPounds(amount);
+        };
+      };
+    </script>
+  </body>
+</html>
