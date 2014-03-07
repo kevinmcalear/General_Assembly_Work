@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS4lyfe</title>
+</head>
+  <body>
+    <h1>Javascript!</h1>
+    <script type="text/javascript">
+
+      var dollarsToPounds = function(amt) {
+        var poundValue = (amt / 1.66).toFixed(2);
+        return parseInt(poundValue);
+      }
+
+      var poundstoDollars = function(amt) {
+        var dollarValue = (amt * 1.66).toFixed(2);
+        return parseInt(dollarValue);
+      }
+
+      var currencyConverter = function() {
+        var currencyFrom = prompt("What is the initial currency");
+        var currencyTo = prompt("What is the ending currency?");
+        var amount = prompt("How much do you have?");
+
+        if(currencyFrom === "pounds") {return poundstoDollars }
+          else{return dollarsToPounds};
+      };
+
+
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cipher Fun!</title>
+  </head>
+  <body>
+    <h1>Cipher Fun!</h1>
+    <!--* Let's put our script tags right before our body tags*/-->
+    <!--this is kind of like yield in Rails-->
+    
+    <script type='text/javascript'>
+      
+
+      var encrypter = function(message, keyword) {
+        var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t", "u","v","w","x","y","z"];
+        var message = message;
+        var keyword = keyword;
+
+        var i = 0; 
+        var messageChar = [];
+        while(i < message.length) {
+          messageChar.push(message[i]);
+          i++;
+        };
+
+        //find the values of the letters in the message
+        var x = 0;
+        var messageVal = [];
+        while(x < messageChar.length) {
+          messageVal.push(alphabet.indexOf(messageChar[x]));
+          x++;
+        };
+
+        // return messageVal;
+
+        //figure out the number of times you need to repeat the word
+        var messageLength = message.length;
+        var keywordLength = keyword.length;
+        var lengthDifference = (messageLength - keywordLength);
+        if(lengthDifference > 0) {
+          var timesToRepeatDivided = lengthDifference/keywordLength
+          var timesToRepeatRounded = Math.round(timesToRepeatDivided)
+          var timesToRepeat = timesToRepeatRounded + 1
+        }
+        else{
+          var timesToRepeat = 1
+        }
+
+        // return timesToRepeat;
+
+        //Repeat the keyword enough times to satisfy the length of the message you're trying to encode
+        var j = 0;
+        var keywordRepeatedArray = [];
+        while(j < timesToRepeat) {
+          keywordRepeatedArray.push(keyword)
+          j++;
+        };
+
+        // return keywordRepeatedArray;
+        var keywordRepeated = keywordRepeatedArray.join("");
+
+        // return keywordRepeated;
+
+        //Find the split array 
+        var y = 0; 
+        var encryptArray = [];
+        var splitKeyword = keywordRepeated.split("");
+        while(y < messageChar.length) {
+          encryptArray.push(splitKeyword[y]);
+          y++;
+        };
+
+        // return encryptArray;
+
+        //find the letter values of the encryptArray
+        var t = 0;
+        var keywordVal = [];
+        while(t < messageChar.length) {
+          keywordVal.push(alphabet.indexOf(encryptArray[t]));
+          t++;
+        };
+
+        // return keywordVal;
+
+        //now we need a way to add together the values of the message array and the keyword array
+
+        var m = 0;
+        var sumVals = [];
+        while(m < messageChar.length) {
+          sumVals.push((keywordVal[m]) + (messageVal[m]));
+          m++;
+        };
+
+        // return sumVals;
+
+        //now, we need to put our sumVals array back into the alphabet!
+
+        var p = 0;
+        var encryptedLetters = [];
+        while(p < sumVals.length) {
+          var letter = sumVals[p];
+          if(letter > 25) {
+            letter = letter - 26
+          }
+          else{
+            letter = letter
+          };
+          encryptedLetters.push(alphabet[letter]);
+          // console.log(alphabet[sumvals[p]]);
+          p++;
+        };
+
+        return encryptedLetters;
+
+      };
+
+      var decrypter = function(code, keyword) {
+        var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t", "u","v","w","x","y","z"];
+        var code = code;
+        var keyword = keyword;
+
+        //figure out how long each of them are
+        var codeLength = code.length;
+        var keywordLength = keyword.length;
+        var lengthDifference = ((codeLength - keywordLength));
+
+        //figure out how many times the keyword needs to be repeated
+        if(lengthDifference > 0) {
+          var timesToRepeatDivided = codeLength/keywordLength;
+          var timesToRepeat = Math.round(timesToRepeatDivided) + 1;
+        }
+        else{
+          var timesToRepeat = 1;
+        };
+
+        // return timesToRepeat;
+
+        //make the keyword long enough to match the length of the code
+
+        a = 0;
+        var keywordRepeated = [];
+        while(a < codeLength) {
+          keywordRepeated.push(keyword)
+          a++;
+        };
+
+        var keywordLetters = keywordRepeated.join("");
+        var keywordLettersArray = keywordLetters.split("");
+
+        // return keywordLettersArray;
+
+        //now we need to get the alphabet values of all the keyword letters
+
+        b = 0;
+        var keywordVals = [];
+        while(b < codeLength) {
+          keywordVals.push(alphabet.indexOf(keywordLettersArray[b]));
+          b++;
+        };
+
+        // return keywordVals;
+
+        //alright, now that we have the values of the keyword, we need to do a comparison to the values of the code...so, let's take the code and subtract the values of the keyword
+
+        c = 0;
+        var codeVals = [];
+        while(c < codeLength) {
+          codeVals.push(alphabet.indexOf(code[c]));
+          c++;
+        };
+
+        // return codeVals;
+
+        //okay, now we have the values of those letters, so let's subtract codevals - keywordvals
+
+        d = 0;
+        var codeRemainder = [];
+        while(d < codeLength) {
+          codeRemainder.push((codeVals[d] - keywordVals[d]));
+          d++;
+        };
+
+        // return codeRemainder;
+
+        //alrighty, we've got the remainders, now we've got to convert those values into the alphabet!
+
+        e = 0;
+        var originalWord = [];
+        while(e < codeLength) {
+          var letter = codeRemainder[e];
+          if(letter < 0) {
+            letter = letter + 26
+          }
+          else{
+            letter = letter
+          };
+          originalWord.push((alphabet[letter]));
+          e++;
+        };
+
+        // return originalWord;
+
+        var word = originalWord.join("");
+
+        return word;
+
+
+      };
+
+    </script>
+  </body>
+</html>
