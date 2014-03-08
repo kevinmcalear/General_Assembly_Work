@@ -11,16 +11,22 @@ var savingsAmount = document.getElementById("savings_amount");
 var savingsBalance = document.getElementById("savings_balance");
 
 
-
-// Build Functions for checking
+// Build functions for checking
 var addToChecking = function() {
   checking_balance.innerText = "$" + (parseInt(checking_balance.innerText.replace("$", "")) + 
-  parseInt(checking_amount.value.replace("$", "")));  
+    parseInt(checking_amount.value.replace("$", "")));  
 };
 
 var subtractFromChecking = function() {
+  if((parseInt(checking_balance.innerText.replace("$", "")) - 
+    parseInt(checking_amount.value.replace("$", ""))) >= 0) {
+
   checking_balance.innerText = "$" + (parseInt(checking_balance.innerText.replace("$", "")) - 
-  parseInt(checking_amount.value.replace("$", "")));
+    parseInt(checking_amount.value.replace("$", "")));
+  
+  } else {
+    alert("You can't withdraw more than you have!");
+  }
 };
 
 // Build functions for savings
@@ -30,10 +36,16 @@ var addToSavings = function() {
 };
 
 var subtractFromSavings = function() {
+  if((parseInt(savings_balance.innerText.replace("$", "")) -
+    parseInt(savings_amount.value.replace("$", ""))) >= 0) {
+
   savings_balance.innerText = "$" + (parseInt(savings_balance.innerText.replace("$", "")) -
     parseInt(savings_amount.value.replace("$", "")));
+  
+  } else {
+    alert("You can't withdraw more than you have!");
+  }
 };
-
 
 
 // Add event listeners for checking
