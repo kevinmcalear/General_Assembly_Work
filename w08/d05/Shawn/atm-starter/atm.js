@@ -9,6 +9,8 @@ var savingsBalance = document.querySelector("div.balance#savings_balance");
 var savingsDeposit = document.querySelector("input#savings_deposit");
 var savingsWithdraw = document.querySelector("input#savings_withdraw");
 var savingsInput = document.querySelector("input#savings_amount");
+totalBalance = parseInt(checkingBalance.innerText.split("$")[1]) + parseInt(savingsBalance.innerText.split("$")[1]);
+
 
 
 //add listener to checking account
@@ -26,9 +28,21 @@ accounts[1].addEventListener("click", function(e){
 //account withdraw function  
 var withdraw = function(accountBalance, accountInput) {
   var value = accountBalance.innerText.split("$");
-  var newTotal = parseInt(value[1]) - parseInt(accountInput.value);
+  var newTotal = parseInt(value[1])  - parseInt(accountInput.value);
+  var siblingAccount = accountBalance.parentElement.nextElementSibling.children[1] || accountBalance.parentElement.previousElementSibling.children[1];
+  var siblingAmount = parseInt(siblingAccount.innerText.split("$")[1]);
+
+  
   if(newTotal < 0 ){
-    alert("Invalid");
+    var remainder = Math.abs(newTotal);
+    if(siblingAmount >= remainder){
+      accountBalance.innerText = "$0";
+      var newAmount = siblingAmount-remainder;
+      siblingAccount.innerText = "$" + newAmount;
+    } else {
+      alert("Invalid Withdraw Request");
+    };
+
   } else {
     accountBalance.innerText = "$" + newTotal;
   }
