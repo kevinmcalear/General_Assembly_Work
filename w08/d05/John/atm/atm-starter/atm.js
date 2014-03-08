@@ -16,9 +16,21 @@
       checkingBalance -= amount;
     }
     else if (e.target.id === "checking_withdraw" && (checkingBalance + savingsBalance) >= amount) {
-      var newAmount = amount - checkingBalance;
+      amount -= checkingBalance;
       checkingBalance = 0;
-      savingsBalance -= newAmount;
+      savingsBalance -= amount;
+    }
+
+    if (checkingBalance === 0) {
+      displayChecking.classList.add("zero");
+    } else {
+      displayChecking.classList.remove("zero");
+    }
+
+    if (savingsBalance === 0) {
+      displaySavings.classList.add("zero");
+    } else {
+      displaySavings.classList.remove("zero");
     }
 
     displayChecking.innerText = "$" + checkingBalance;
@@ -42,10 +54,27 @@
       savingsBalance -= amount;
     }
 
+
+    if (checkingBalance === 0) {
+      displayChecking.classList.add("zero");
+    } else {
+      displayChecking.classList.remove("zero");
+    }
+
+    if (savingsBalance === 0) {
+      displaySavings.classList.add("zero");
+    } else {
+      displaySavings.classList.remove("zero");
+    }
+
     displayChecking.innerText = "$" + checkingBalance;
     displaySavings.innerText = "$" + savingsBalance;
     enteredAmount.value = "";
+
   };
+
+
+
 
   var checkingDiv = document.getElementById("account1");
   var savingsDiv = document.getElementById("account2");
@@ -57,15 +86,8 @@
   checkingDiv.addEventListener("click", checking);
   savingsDiv.addEventListener("click", savings);
 
-
-  // checkingDiv.addEventListener("click", function(){
-  //   var amount = document.getElementById("checking_amount").value;
-  //   var displayBalance = document.getElementById("checking_balance");
-  //   // var amount = userAmount.value;
-  //   // if (e.target.id == "checking_deposit" && amount >= 0) {
-  //     checkingBalance += amount;
-  //   // }
-  //   displayBalance.innerText = ("$" + amount);
-  // });
-
+  var displayChecking = document.getElementById("checking_balance");
+  var displaySavings = document.getElementById("savings_balance");
+  displayChecking.classList.add("zero");
+  displaySavings.classList.add("zero");
 
