@@ -25,8 +25,9 @@ var withdrawChecking = function(){
   var xsavings_balance = parseInt(savings_balance.innerText.replace("$",""))
   if (xchecking_amount <= xchecking_balance){
     checking_balance.innerText = "$"+ (xchecking_balance - xchecking_amount ) 
-  }else if(xchecking_amount < xsavings_balance){
-    savings_balance.innerText = "$"+ (xsavings_balance - xchecking_amount )
+  }else if(xchecking_amount <= ( xsavings_balance + xchecking_balance ) ){
+    checking_balance.innerText = "$0",
+    savings_balance.innerText = "$"+ ( ( xsavings_balance + xchecking_balance )  - xchecking_amount )
   };
 
 
@@ -34,7 +35,7 @@ var withdrawChecking = function(){
 var withdrawSavings = function(){
   var xsavings_amount = parseInt(savings_amount.value.replace("$",""))
   var xsavings_balance = parseInt(savings_balance.innerText.replace("$",""))
-  if (xsavings_amount < xsavings_balance){
+  if (xsavings_amount <= xsavings_balance){
     savings_balance.innerText = "$"+ (xsavings_balance - xsavings_amount )
   };
 };
@@ -49,7 +50,8 @@ savings_withdraw.addEventListener("click",withdrawSavings)
 
 //User Story:  Overdraft Protection
 //Step 1:  if withdraw is greater than whats in checking, look at Savings
-//Step 2:  If savings is greater than withdraw, remove the additional amount from savings.  
-
+//Step 2:  If savings is greater than withdraw,
+//Step 2a:  add checkings to savings
+//Step 2b:  subtract amount from savings. 
 
 
