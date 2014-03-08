@@ -1,9 +1,11 @@
 ## Mental Models
 
 #### Concepts
-- Describe the idea of encapsulation and why it is so powerful
-- Describe what an interface is
-- Give examples of how encapsulation is manifested in code
+* Describe the idea of encapsulation and why it is so powerful
+* Describe what an interface is
+* Give examples of how encapsulation is manifested in code
+* Describe what a tree is and identify examples of trees.
+* Identify parents, children, and siblings in a particular manifestation of a tree.
 
 ## Computer Effectiveness
 
@@ -166,7 +168,7 @@
 ## Software Design
 
 #### Concepts
-- Explain the following principles of good software design
+- Explain and follow the principles of good software design
   - DRY
   - Naming
   - Test
@@ -280,13 +282,13 @@
 
 ## Sinatra with Forms & Persistence
 
-###Mechanics
+### Mechanics
 - Write an HTML form that formats parameters as expected by the server
 - Create a RESTful Sinatra app backed by a database using ActiveRecord
 
 ## Ruby on Rails
 
-###Concepts
+### Concepts
 - Explain what Ruby on Rails is and its architectural components using a diagram
 - Articulate three benefits of using Ruby on Rails as a web application framework
 - Explain what "convention over configuration" means and how it relates to Ruby on Rails
@@ -350,3 +352,109 @@
 ### Mechanics
 - Use shoulda matchers for model validation
 - Use shoulda matchers for ActiveRecord associations
+
+## Acceptance Testing
+
+### Concepts
+- Explain what acceptance testing is, why it is used, and where it fits in the Agile workflow
+- Explain the difference between acceptance testing and unit testing
+- Explain what Capybara is and how it tests your app
+
+### Mechanics
+- Write acceptance tests for a Rails app using Capybara with Rspec
+- Write unit tests for a Rails app using Rspec
+
+## Other Testing
+
+### Concepts
+- Explain what factory girl does and why it is useful
+- Explain what test coverage is and what it is and isn't useful for
+
+### Mechanics
+- Use factories to create test objects in Rails
+- Measure test coverage for a Rails app using SimpleCov
+
+## CSS & the DOM
+
+### Concepts
+- Explain the DOM, what it is, and how it is structured
+- Name the parts of a DOM (document, nodes, elements), how they differ, and why the exist
+- Explain how to use CSS selectors and declaration to alter the style of an element
+- Explain the difference between an id and a class and when you should use each
+- Explain the difference between display block, inline and inline-block
+- Explain the box model and the relationship between height, width, margin, border and padding.
+- Explain the difference between absolute, relative and fixed positioning
+- Explain how CSS specificity is determined
+- Explain what CSS reset and normalize are used for and how they differ
+- Explain what vendor prefixes (-webkit, -moz, -o) are and when / why we use them
+- Explain what different @ rules are used for, including: @import, @font-face, and @media
+- Explain what pseudo classes are, what they are used for, and give a few examples
+
+###Mechanics
+- Identify a possible HTML structure for a website based on its layout
+- Interperet the HTML stucture of an website and edit it to change an existing layout
+- Use the web inspector to view the styles applied to a web page and make temporary changes
+- Link a CSS stylesheet to an HTML page
+- Select elements using tag, class and id selectors and change their styles
+- Write @media rules to implement a responsive design
+- Implement a mockup
+
+## Rails Assets
+
+### Concepts
+- Explain what the Rails Asset Pipeline is and why it is used
+- Explain which assets go in the lib directory vs the vendor directory
+- Explain what manifest files are and how to determine which files they include
+
+### Mechanics
+- Use asset link helpers to refer to assets in the asset pipeline
+
+## JavaScript
+
+### Concepts
+- Compare and contrast Ruby and JavaScript as programming languages
+- Explain what a "primitive" is
+- Describe the different types of Javascript assignment and automatic type conversion
+- Identify the difference between `==` and `===` in JavaScript and when to use each
+- Differentiate between context and scope
+- Explain `var` and its effect on scope in JavaScript
+- Identify what creates a new scope in JavaScript
+- Explain what the `window` refers to in JavaScript
+- Identify the value of `this` in different contexts.
+- Explain the difference between classical and prototypal inheritance.
+- Explain the difference between calling and referencing a function in JavaScript.
+
+### Mechanics
+- Follow a JavaScript style guide and use the appropriate syntax
+- Create an array, access items in an array, change the value of items in an array
+- Use a for loop for iteration
+- Define a function in JavaScript
+- Create objects using literal notation
+- Define an object and instantiate new copies of it using a constructor function.
+- Access property values in a JavaScript object
+- Explain the difference between defining instance-level behavior and prototype-level behavior and how that relates to inheritance.
+- Use `bind` and `call` to manage execution context.
+
+## Testing & Debugging
+
+### Concepts
+- Explain what Jasmine is and when it is useful
+- Compare Jasmine to Rspec
+- Describe how debuggers work by explaining breakpoints, steps, watched variables, and the call stack.
+
+### Mechanics
+
+- Use Chrome Web Tools to debug JavaScript in the browser
+- Use Jasmine as a BDD testing framework with JavaScript.
+- Use `describe` and `it` blocks with expectations and matchers to write Jasmine tests
+
+## The DOM & Events
+
+### Mechanics
+- Select and target DOM elements using a query selector
+- Change the attributes or content of a DOM element
+- Add and remove elements from the DOM
+  - `appendChild`
+  - `insertAdjacentElement`
+  - `remove`
+- Use a callback function in order to attach behavior to events.
