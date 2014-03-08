@@ -35,7 +35,7 @@ var clickFunc = function(){
 
 var buttonCount = 0;
 var clickCount = function(){
-  if(buttonCount == 9) {
+  if(buttonCount == 9) {`
     this.disabled = true;
   } else {
     buttonCount += 1;
