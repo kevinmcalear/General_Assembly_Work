@@ -1,33 +1,44 @@
-//Open Question 1:  It seems that I dont' need to do querySector for IDs?  Is that correct? 
+//Open Question 1:  It seems that I dont' need to do querySelector for IDs?  Is that correct? 
 //Open Question 2:  How to make more dry? 
+
+//Variables
+var xsavings_balance = parseInt(savings_balance.innerText.replace("$",""))
+var xchecking_balance = parseInt(checking_balance.innerText.replace("$",""))
+var xsavings_amount = parseInt(savings_amount.value.replace("$",""))
+var xchecking_amount = parseInt(checking_amount.value.replace("$",""))
+
 
 //Functions
 var depositChecking = function(){
-  checking_balance.innerText = "$"+ (
-    parseInt(checking_balance.innerText.replace("$","")) + 
-    parseInt(checking_amount.value.replace("$",""))
-    )
+  var xchecking_amount = parseInt(checking_amount.value.replace("$",""))
+  var xchecking_balance = parseInt(checking_balance.innerText.replace("$",""))
+  checking_balance.innerText = "$"+ ( xchecking_balance + xchecking_amount)
 };
 var depositSavings = function(){
-  savings_balance.innerText = "$"+ (
-    parseInt(savings_balance.innerText.replace("$","")) + 
-    parseInt(savings_amount.value.replace("$",""))
-    )
+  var xsavings_balance = parseInt(savings_balance.innerText.replace("$",""))
+  var xsavings_amount = parseInt(savings_amount.value.replace("$",""))
+  savings_balance.innerText = "$"+ ( xsavings_balance + xsavings_amount)
 };
 var withdrawChecking = function(){
-  var balance = parseInt(checking_balance.innerText.replace("$",""))
-  var withdraw = parseInt(checking_amount.value.replace("$",""))
-  if (withdraw < balance){
-    checking_balance.innerText = "$"+ (balance - withdraw ) 
+  var xchecking_balance = parseInt(checking_balance.innerText.replace("$",""))
+  var xchecking_amount = parseInt(checking_amount.value.replace("$",""))  
+  var xsavings_balance = parseInt(savings_balance.innerText.replace("$",""))
+  if (xchecking_amount <= xchecking_balance){
+    checking_balance.innerText = "$"+ (xchecking_balance - xchecking_amount ) 
+  }else if(xchecking_amount < xsavings_balance){
+    savings_balance.innerText = "$"+ (xsavings_balance - xchecking_amount )
   };
+
+
 };
 var withdrawSavings = function(){
-  var balance = parseInt(savings_balance.innerText.replace("$","")) 
-  var withdraw = parseInt(savings_amount.value.replace("$",""))
-  if (withdraw < balance){
-    savings_balance.innerText = "$"+ (balance - withdraw )
+  var xsavings_amount = parseInt(savings_amount.value.replace("$",""))
+  var xsavings_balance = parseInt(savings_balance.innerText.replace("$",""))
+  if (xsavings_amount < xsavings_balance){
+    savings_balance.innerText = "$"+ (xsavings_balance - xsavings_amount )
   };
 };
+
 //Event Listeners
 checking_deposit.addEventListener("click",depositChecking)
 savings_deposit.addEventListener("click",depositSavings)
