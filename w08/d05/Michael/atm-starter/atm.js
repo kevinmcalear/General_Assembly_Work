@@ -21,16 +21,18 @@ var updateSavings = function(){
     )
 };
 var withdrawChecking = function(){
-  checking_balance.innerText = "$"+ (
-    parseInt(checking_balance.innerText.replace("$","")) - 
-    parseInt(checking_amount.value.replace("$",""))
-    )
+  var balance = parseInt(checking_balance.innerText.replace("$",""))
+  var withdraw = parseInt(checking_amount.value.replace("$",""))
+  if (withdraw < balance){
+    checking_balance.innerText = "$"+ (balance - withdraw ) 
+  };
 };
 var withdrawSavings = function(){
-  savings_balance.innerText = "$"+ (
-    parseInt(savings_balance.innerText.replace("$","")) - 
-    parseInt(savings_amount.value.replace("$",""))
-    )
+  var balance = parseInt(savings_balance.innerText.replace("$","")) 
+  var withdraw = parseInt(savings_amount.value.replace("$",""))
+  if (withdraw < balance){
+    savings_balance.innerText = "$"+ (balance - withdraw )
+  };
 };
 //Event Listeners
 checking_deposit.addEventListener("click",updateChecking)
