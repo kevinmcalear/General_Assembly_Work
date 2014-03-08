@@ -21,11 +21,23 @@ var subtractFromChecking = function() {
   if((parseInt(checking_balance.innerText.replace("$", "")) - 
     parseInt(checking_amount.value.replace("$", ""))) >= 0) {
 
-  checking_balance.innerText = "$" + (parseInt(checking_balance.innerText.replace("$", "")) - 
+    checking_balance.innerText = "$" + (parseInt(checking_balance.innerText.replace("$", "")) - 
     parseInt(checking_amount.value.replace("$", "")));
   
+ } else if((parseInt(checking_balance.innerText.replace("$", "")) - 
+    parseInt(checking_amount.value.replace("$", ""))) < 0 && (parseInt(savings_balance.innerText.replace("$", "")) -
+    parseInt(checking_amount.value.replace("$", ""))) >= 0){
+
+    var overdraftBalance = (parseInt(checking_amount.value.replace("$", "")) - 
+    parseInt(checking_balance.innerText.replace("$", "")));
+
+    savings_balance.innerText = "$" + (parseInt(savings_balance.innerText.replace("$", "")) - 
+    overdraftBalance);
+    
+    checking_balance.innerText = "$" + "0";
+
   } else {
-    alert("You can't withdraw more than you have!");
+    alert("You can't withdraw more than you have! Your savings are almost gone :(");
   }
 };
 
