@@ -50,6 +50,7 @@ var withdrawMoneyChecking = function(){
       alert("Sorry! Not enough money!")
       amountSavings.value = "";
     }
+    accountOneBalance.innerText = "$0";
 
   } else {
   accountOneBalance.innerText = "$" + new_amount;
