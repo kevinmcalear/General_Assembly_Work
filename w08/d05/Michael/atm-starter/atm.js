@@ -1,11 +1,5 @@
-//Identify Any Variables
-var checking_amount = document.querySelector("input#checking_amount")
-var savings_amount = document.querySelector("input#savings_amount")
-var checking_deposit = document.querySelector("input#checking_deposit")
-var savings_deposit = document.querySelector("input#savings_deposit")
-var checking_withdraw = document.querySelector("input#checking_withdraw")
-var savings_withdraw = document.querySelector("input#savings_withdraw")
-var checking_balance = document.querySelector("div.balance")
+//Open Question 1:  It seems that I dont' need to do querySector for IDs?  Is that correct? 
+//Open Question 2:  How to make more dry? 
 
 //Functions
 var depositChecking = function(){
