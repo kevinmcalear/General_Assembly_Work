@@ -27,9 +27,14 @@ var withdrawMoneySavings = function(){
   var current_amount = parseInt(accountTwoBalance.innerText.replace("$","") );
   var withdrawAmount = parseInt(amountSavings.value.replace("$","") );
   var new_amount = current_amount -  withdrawAmount;
+  if (new_amount > 0){
   accountTwoBalance.innerText = "$" + new_amount;
   amountSavings.value = "";
   changeColorSavings();
+  } else {
+    alert("Sorry! Not enough money!")
+    amountSavings.value = "";
+  }
 };
 
 var withdrawMoneyChecking = function(){
@@ -39,7 +44,13 @@ var withdrawMoneyChecking = function(){
     var withdrawAmount = Math.abs(new_amount);
     var currentSavingsAmt = parseInt(accountTwoBalance.innerText.replace("$","") );
     var newAmount = currentSavingsAmt - withdrawAmount;
-    accountTwoBalance.innerText = "$" + newAmount;
+    if (newAmount >= 0){
+      accountTwoBalance.innerText = "$" + newAmount;
+    } else {
+      alert("Sorry! Not enough money!")
+      amountSavings.value = "";
+    }
+
   } else {
   accountOneBalance.innerText = "$" + new_amount;
   amount.value = "";
