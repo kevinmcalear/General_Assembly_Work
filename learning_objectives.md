@@ -457,4 +457,5 @@
   - `appendChild`
   - `insertAdjacentElement`
   - `remove`
+- Attach an event listener to a DOM element
 - Use a callback function in order to attach behavior to events.
