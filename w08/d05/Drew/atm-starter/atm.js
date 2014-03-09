@@ -1,0 +1,57 @@
+var checkingDeposit = document.getElementById('checking_deposit');
+var checkingWithdraw = document.getElementById('checking_withdraw');
+
+var deposit = function() {
+  var balance = document.getElementById('checking_balance');
+  var quantity = document.getElementById('checking_amount').value;
+  balance.innerHTML = parseInt(balance.innerHTML.replace(/\$|,/g, '')) + parseInt(quantity);
+  // still need to reset the value to "enter an amount"
+  // quantity.value = quantity.defaultValue;
+};
+
+var withdraw = function() {
+  var balance = document.getElementById('checking_balance');
+  var quantity = document.getElementById('checking_amount').value;
+  // convert to number
+  var numBalance = parseInt(balance.innerHTML.replace(/\$|,/g, ''))
+  var numQuantity = parseInt(quantity)
+
+  // must have sufficient funds 
+  if (numQuantity <= numBalance) {
+    balance.innerHTML = numBalance - numQuantity
+  }
+}
+
+checkingDeposit.addEventListener('click', deposit);
+checkingWithdraw.addEventListener('click', withdraw);
+
+
+
+// SAVINGS ACCOUNT //
+
+var savingsDeposit = document.getElementById('savings_deposit');
+var savingsWithdraw = document.getElementById('savings_withdraw');
+
+var savDeposit = function() {
+  var balance = document.getElementById('savings_balance');
+  var quantity = document.getElementById('savings_amount').value;
+  balance.innerHTML = parseInt(balance.innerHTML.replace(/\$|,/g, '')) + parseInt(quantity);
+  // still need to reset the value to "enter an amount"
+  // quantity.value = quantity.defaultValue;
+};
+
+var savWithdraw = function() {
+  var balance = document.getElementById('savings_balance');
+  var quantity = document.getElementById('savings_amount').value;
+  // convert to number
+  var numBalance = parseInt(balance.innerHTML.replace(/\$|,/g, ''))
+  var numQuantity = parseInt(quantity)
+
+  // must have sufficient funds 
+  if (numQuantity <= numBalance) {
+    balance.innerHTML = numBalance - numQuantity
+  }
+}
+
+savingsDeposit.addEventListener('click', savDeposit);
+savingsWithdraw.addEventListener('click', savWithdraw);
