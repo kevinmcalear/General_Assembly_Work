@@ -48,6 +48,7 @@ form.addEventListener("submit",addMovie)
 
 ///Other option
 ul.addEventListener("change", function(eventObject) {
+  debugger; 
   if(eventObject.target.checked){
     eventObject.target.parentElement.style.textDecoration = "line-through"
   } else {
