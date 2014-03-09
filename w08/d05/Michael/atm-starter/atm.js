@@ -7,6 +7,7 @@ var xchecking_balance = parseInt(checking_balance.innerText.replace("$",""))
 var xsavings_amount = parseInt(savings_amount.value.replace("$",""))
 var xchecking_amount = parseInt(checking_amount.value.replace("$",""))
 
+var accounts = document.querySelectorAll(".account")
 
 //Functions
 var depositChecking = function(){
@@ -53,5 +54,47 @@ savings_withdraw.addEventListener("click",withdrawSavings)
 //Step 2:  If savings is greater than withdraw,
 //Step 2a:  add checkings to savings
 //Step 2b:  subtract amount from savings. 
+
+
+//User Story:  Change the color of the panel
+//REQ 1:  if the balance is zero, change the class
+//Step 1:  Create an event listener for when either div changes
+//Step 2: Create a function that will change the class to include "zero
+
+
+
+
+
+checking_withdraw.addEventListener("click",function(eventObject){
+  if(checking_balance.innerText === "$0"){
+    checking_balance.className = "balance zero"
+  }else if(checking_balance.innerText != "$0"){
+    checking_balance.className = "balance"
+  }
+});
+
+savings_withdraw.addEventListener("click",function(eventObject){
+  if(savings_balance.innerText === "$0"){
+    savings_balance.className = "balance zero"
+  }else if(savings_balance.innerText != "$0"){
+    savings_balance.className = "balance"
+  }
+});
+
+checking_deposit.addEventListener("click",function(eventObject){
+  if(checking_balance.innerText === "$0"){
+    checking_balance.className = "balance zero"
+  }else if(checking_balance.innerText != "$0"){
+    checking_balance.className = "balance"
+  }
+});
+
+savings_deposit.addEventListener("click",function(eventObject){
+  if(checking_balance.innerText === "$0"){
+    checking_balance.className = "balance zero"
+  }else if(checking_balance.innerText != "$0"){
+    checking_balance.className = "balance"
+  }
+});
 
 
