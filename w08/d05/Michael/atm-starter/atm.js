@@ -41,8 +41,11 @@ var withdrawChecking = function(){
 var withdrawSavings = function(){
   var xsavings_amount = parseInt(savings_amount.value.replace("$",""))
   var xsavings_balance = parseInt(savings_balance.innerText.replace("$",""))
-  if (xsavings_amount <= xsavings_balance){
+  if (xsavings_amount < xsavings_balance){
     savings_balance.innerText = "$"+ (xsavings_balance - xsavings_amount )
+  }else if(xsavings_amount === xsavings_balance){
+    savings_balance.innerText = "$"+ (xsavings_balance - xsavings_amount )
+    savings_balance.classList.add("zero")
   }
 };
 
@@ -51,4 +54,3 @@ checking_deposit.addEventListener("click",depositChecking)
 savings_deposit.addEventListener("click",depositSavings)
 checking_withdraw.addEventListener("click",withdrawChecking)
 savings_withdraw.addEventListener("click",withdrawSavings)
-
