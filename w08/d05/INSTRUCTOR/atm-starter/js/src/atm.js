@@ -15,11 +15,11 @@ function ATM(initialAmounts){
         this[otherAccount] -= amount;  
       }
     }
-    return this[account];
+    return true;
   }
 
   this.deposit = function(account, amount) {
     this[account] += amount;
-    return this[account];
+    return true;
   }
 }

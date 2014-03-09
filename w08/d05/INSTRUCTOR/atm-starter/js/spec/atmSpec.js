@@ -44,12 +44,12 @@ describe("ATM", function(){
       atm.withdraw("checking", 100);
       expect(atm.checking).toBe(100);
     });
-    it("shifts money from other atms in the Account object", function(){
+    it("shifts money from other accounts in the ATM object", function(){
       atm.withdraw("checking", 250);
       expect(atm.checking).toBe(0);
       expect(atm.savings).toBe(50);
     });
-    it("can't remove more money than is in the whole Account", function(){
+    it("can't remove more money than is in the whole ATM", function(){
       atm.withdraw("checking", 350);
       expect(atm.checking).toBe(200);
     });
@@ -62,6 +62,24 @@ describe("ATM", function(){
       var atm = new ATM();
       atm.deposit("savings", 100);
       expect(atm.savings).toBe(100);
+    });
+
+  });
+
+  describe("ensures withdrawal/deposit only performed on good input",function(){
+
+    it("returns true when the action is performed", function(){
+      var atm = new ATM();
+      expect(atm.deposit("savings", 100)).toBe(true);
+    });
+    xit("returns false and doesn't perform action when amount is negative", function(){
+
+    });
+    xit("returns false and doesn't perform action when the amount is not a number", function(){
+
+    });
+    xit("returns false and doesn't perform action when the account doesn't exist", function(){
+
     });
 
   });
