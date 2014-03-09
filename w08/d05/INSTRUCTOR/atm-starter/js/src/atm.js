@@ -1,6 +1,7 @@
-function Account(){
-  this.checking = 0;
-  this.savings = 0;
+function ATM(initialAmounts){
+  initialAmounts = initialAmounts || {}; //ensure defined...
+  this.checking = initialAmounts.checking || 0;
+  this.savings = initialAmounts.savings || 0;
 
   this.withdraw = function(account, amount) {
     if (this[account] >= amount) {
