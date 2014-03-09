@@ -10,12 +10,9 @@ var savingsWithdrawButton = document.getElementById("savings_withdraw");
 var savingsAmount = document.getElementById("savings_amount");
 var savingsBalance = document.getElementById("savings_balance");
 
-
 // Starts balance with class zero
 var checkingBalanceClass = checkingBalance.classList.add("zero");
 var savingsBalanceClass = savingsBalance.classList.add("zero");
-
-
 
 
 // Build functions for checking
@@ -49,7 +46,6 @@ var subtractFromChecking = function() {
   
     alert("You can't withdraw more than you have!");
   }
-    // checkingBalanceClass = checkingBalance.classList.add("zero");
 };
 
 var addZeroChecking = function() {
@@ -82,7 +78,6 @@ var subtractFromSavings = function() {
   } else {
     alert("You can't withdraw more than you have!");
   }
-  // savingsBalanceClass = savingsBalance.classList.add("zero");
 };
 
 var addZeroSavings = function() {
@@ -102,6 +97,5 @@ withdrawButton.addEventListener("click", addZeroSavingsFromChecking);
 savingsDepositButton.addEventListener("click", addToSavings);
 savingsWithdrawButton.addEventListener("click", subtractFromSavings);
 savingsWithdrawButton.addEventListener("click", addZeroSavings);
-
 
 
