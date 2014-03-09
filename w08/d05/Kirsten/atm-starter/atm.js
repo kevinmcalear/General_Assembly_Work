@@ -17,12 +17,24 @@ var addDollar = function(value) {
   value.innerText = ("$" + value.innerText);
 };
 
+var red = function(balance){
+  if(balance.innerText === "$0") {
+    balance.classList.add("zero");
+  } else {
+    balance.classList.remove("zero");
+  }
+};
+
+window.addEventListener("load", red(checkingBalance));
+window.addEventListener("load", red(savingsBalance));
+
 savingsDeposit.addEventListener("click", function(){
   removeDollar(savingsBalance);
   var originalAmount = parseInt(savingsBalance.innerText);
   var depositAmount = parseInt(inputSavings.value);
   savingsBalance.innerText = (originalAmount+depositAmount);
   addDollar(savingsBalance);
+  red(savingsBalance);
   inputSavings.value = null;
 });
 
@@ -30,9 +42,11 @@ savingsWithdraw.addEventListener("click", function(){
   removeDollar(savingsBalance);
   var originalAmount = parseInt(savingsBalance.innerText);
   var withdrawAmount = parseInt(inputSavings.value);
-  if (originalAmount > withdrawAmount){
-    savingsBalance.innerText = (originalAmount-withdrawAmount)};
-    addDollar(savingsBalance);
+  if (originalAmount >= withdrawAmount){
+    savingsBalance.innerText = (originalAmount-withdrawAmount)
+  };
+  addDollar(savingsBalance);
+  red(savingsBalance);
   inputSavings.value = null;
 });
 
@@ -43,6 +57,7 @@ checkingDeposit.addEventListener("click", function(){
   checkingBalance.innerText = (originalAmount+depositAmount);
   addDollar(checkingBalance);
   inputChecking.value = null;
+  red(checkingBalance);
 });
 
 checkingWithdraw.addEventListener("click", function(){
@@ -64,14 +79,7 @@ checkingWithdraw.addEventListener("click", function(){
     addDollar(checkingBalance);
     addDollar(savingsBalance);
   };
+  red(savingsBalance);
+  red(checkingBalance);
   inputChecking.value = null;
 });
-
-
-
-
-
-
-
-
-
