@@ -60,7 +60,23 @@ var savWithdraw = function() {
   if (numQuantity <= numBalance) {
     balance.innerHTML = "$" + (numBalance - numQuantity)
   }
-}
+};
 
 savingsDeposit.addEventListener('click', savDeposit);
 savingsWithdraw.addEventListener('click', savWithdraw);
+
+// CSS styling for dollars in bank account //
+
+// var balanceCss = document.getElementsByClassName("balance");
+
+// var redZero = function() {
+//   console.log("hello")
+//   // var balanceCssNumber = parseInt(balanceCss.innerHTML.replace(/\$|,/g, ''));
+//   // console.log('Hey!')
+//   // if (balanceCssNumber === 0) {
+//   //   balanceCss.classList.add("zero")
+//   // }
+// };
+
+// // balanceCss.addEventListener('onload', redZero);
+
