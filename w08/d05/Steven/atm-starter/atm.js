@@ -57,8 +57,9 @@ var savingsWithdrawl = function(){
 
 var redBackground = function(){
   if(savingsBalance.innerText === "$0"){
-    savingsBalance.style.background = "red";
-  } else { savingsBalance.style.background = "E3E3E3";
+    savingsBalance.classList.add("zero");
+  } else {
+    savingsBalance.classList.remove("zero");
   }
 };
 redBackground();
