@@ -8,6 +8,13 @@ function withdraw(account, amount){
     this[account] -= amount;
     return this[account];
   } else {
+    if (this.savings + this.checking >= amount) {
+      amount -= this[account];
+      this[account] = 0;
+      otherAccount = (account === "savings") ?
+        "checking" : "savings";
+      this[otherAccount] -= amount;  
+    }
     return this[account];
   }
 }
