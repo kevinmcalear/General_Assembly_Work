@@ -4,6 +4,7 @@ function ATM(initialAmounts){
   this.savings = initialAmounts.savings || 0;
 
   this.withdraw = function(account, amount) {
+    if (this._isBadInput(account, amount)) return false;
     if (this[account] >= amount) {
       this[account] -= amount;
     } else {
@@ -19,7 +20,18 @@ function ATM(initialAmounts){
   }
 
   this.deposit = function(account, amount) {
+    if (this._isBadInput(account, amount)) return false;
     this[account] += amount;
     return true;
+  }
+
+  this._isBadInput = function(account, amount) {
+    if ( isNaN(amount) ||
+         (amount < 0)  ||
+         (account !== "savings" && account !== "checking") ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

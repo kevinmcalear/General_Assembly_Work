@@ -67,19 +67,25 @@ describe("ATM", function(){
   });
 
   describe("ensures withdrawal/deposit only performed on good input",function(){
+    var atm;
+
+    beforeEach(function(){
+      atm = new ATM();
+    });
 
     it("returns true when the action is performed", function(){
-      var atm = new ATM();
       expect(atm.deposit("savings", 100)).toBe(true);
     });
-    xit("returns false and doesn't perform action when amount is negative", function(){
-
+    it("returns false and doesn't perform action when amount is negative", function(){
+      expect(atm.deposit("savings", -100)).toBe(false);
+      expect(atm.savings).toBe(0);
     });
-    xit("returns false and doesn't perform action when the amount is not a number", function(){
-
+    it("returns false and doesn't perform action when the amount is not a number", function(){
+      expect(atm.deposit("savings", "cash!")).toBe(false);
+      expect(atm.savings).toBe(0);
     });
-    xit("returns false and doesn't perform action when the account doesn't exist", function(){
-
+    it("returns false and doesn't perform action when the account doesn't exist", function(){
+      expect(atm.deposit("shlavings", 100)).toBe(false);
     });
 
   });
