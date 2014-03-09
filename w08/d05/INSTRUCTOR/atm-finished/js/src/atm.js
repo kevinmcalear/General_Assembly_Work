@@ -1,10 +1,13 @@
 function ATM(initialAmounts){
   initialAmounts = initialAmounts || {}; //ensure defined...
   this.checking = initialAmounts.checking || 0;
-  this.savings = initialAmounts.savings || 0;
+  this.checking = parseInt(this.checking); //ensure it's an int
+  this.savings  = initialAmounts.savings || 0;
+  this.savings  = parseInt(this.savings);
 
   this.withdraw = function(account, amount) {
     if (this._isBadInput(account, amount)) return false;
+    amount = parseInt(amount);
     if (this[account] >= amount) {
       this[account] -= amount;
     } else {
@@ -20,6 +23,7 @@ function ATM(initialAmounts){
   }
 
   this.deposit = function(account, amount) {
+    amount = parseInt(amount);
     if (this._isBadInput(account, amount)) return false;
     this[account] += amount;
     return true;

@@ -1,19 +1,23 @@
 describe("ATM", function(){
 
   describe("has ", function(){
-    var atm = new ATM();
+    var atm = new ATM({savings: "100"});
 
-    it("a checking property", function(){
+    it("a checking property that is always a number", function(){
       expect(atm.checking).toBeDefined();
+      atm.deposit("checking", "100");
+      expect(atm.checking).toBe(100);
     });
-    it("has a savings property", function(){
+    it("a savings property that is always a number", function(){
       expect(atm.savings).toBeDefined();
+      atm.withdraw("savings", "100");
+      expect(atm.savings).toBe(0);
     });
-    it("has a withdraw function", function(){
+    it("a withdraw method", function(){
       expect(atm.hasOwnProperty("withdraw")).toBe(true);
       expect(atm.withdraw).toEqual(jasmine.any(Function));
     });
-    it("has a deposit function", function(){
+    it("a deposit method", function(){
       expect(atm.hasOwnProperty("deposit")).toBe(true);
       expect(atm.deposit).toEqual(jasmine.any(Function));
     });

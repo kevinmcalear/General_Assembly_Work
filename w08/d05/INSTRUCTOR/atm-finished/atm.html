@@ -40,25 +40,25 @@
 
       document.querySelector("#checking_deposit").addEventListener("click", function(){
         console.log("DEPOSIT " + checking_amount.value + " TO CHECKING");
-        atm.deposit("checking", parseInt(checking_amount.value));
+        atm.deposit("checking", checking_amount.value);
         updateBalances();
       });
 
       document.querySelector("#checking_withdraw").addEventListener("click", function(){
         console.log("WITHDRAW " + checking_amount.value+ " FROM CHECKING");
-        atm.withdraw("checking", parseInt(checking_amount.value));
+        atm.withdraw("checking", checking_amount.value);
         updateBalances();
       });
 
       document.querySelector("#savings_deposit").addEventListener("click", function(){
         console.log("DEPOSIT " + savings_amount.value + " TO SAVINGS");
-        atm.deposit("savings", parseInt(savings_amount.value));
+        atm.deposit("savings", savings_amount.value);
         updateBalances();
       });
 
       document.querySelector("#savings_withdraw").addEventListener("click", function(){
         console.log("WITHDRAW " + savings_amount.value + " FROM SAVINGS");
-        atm.withdraw("savings", parseInt(savings_amount.value));
+        atm.withdraw("savings", savings_amount.value);
         updateBalances();
       });
     </script>
