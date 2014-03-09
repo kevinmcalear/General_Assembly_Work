@@ -1,41 +1,73 @@
 //Open Question 1:  It seems that I dont' need to do querySelector for IDs?  Is that correct? 
 
 //Functions
+var depositChecking = function(){
+  var xchecking_amount = parseInt(checking_amount.value.replace("$",""))
+  var xchecking_balance = parseInt(checking_balance.innerText.replace("$",""))
+    checking_balance.innerText = "$"+ ( xchecking_balance + xchecking_amount);
+};
+
+ var depositSavings = function(){
+  var xsavings_balance = parseInt(savings_balance.innerText.replace("$",""))
+  var xsavings_amount = parseInt(savings_amount.value.replace("$",""))
+  savings_balance.innerText = "$"+ ( xsavings_balance + xsavings_amount)
+};
+
 var withdrawChecking = function(){
   var xchecking_balance = parseInt(checking_balance.innerText.replace("$",""))
   var xchecking_amount = parseInt(checking_amount.value.replace("$",""))  
   var xsavings_balance = parseInt(savings_balance.innerText.replace("$",""))
-  if (xchecking_amount =< xchecking_balance){
+  if(xchecking_amount >= xchecking_balance){
     checking_balance.innerText = "$"+ (xchecking_balance - xchecking_amount ) 
-  }else if(xchecking_amount =< ( xsavings_balance + xchecking_balance ) ){
+  }else if(xchecking_amount <= ( xsavings_balance + xchecking_balance ) ){
     checking_balance.innerText = "$0",
     savings_balance.innerText = "$"+ ( xsavings_balance + xchecking_balance )
+  };
 };
 var withdrawSavings = function(){
   var xsavings_amount = parseInt(savings_amount.value.replace("$",""))
   var xsavings_balance = parseInt(savings_balance.innerText.replace("$",""))
-  if (xsavings_amount =< xsavings_balance){
+  if (xsavings_amount <= xsavings_balance){
     savings_balance.innerText = "$"+ (xsavings_balance - xsavings_amount )
-  }
+  };
 };
 
-var deposits = function(eventObject){
+var balanceZero = function(){
+  if(checking_balance.innerText === "$0"){
+    checking_balance.classList.add("zero")
+  }else if (checking_balance.innerText != "$0"){
+    checking_balance.classList.remove("zero")
+  };
+  if(savings_balance.innerText === "$0"){
+    savings_balance.classList.add("zero")
+  }else if(savings_balance.innerText != "$0"){
+    savings_balance.classList.remove("zero")
+  };
+};
+
+var deposits = function(eventObject){ 
   var amount = parseInt( eventObject.value.replace("$","") ) 
   var balance = parseInt( eventObject.innerText.replace("$","") )
   eventObject.innerText = "$" + ( balance + amount)
-}
-
-var balanceZero = function(eventObject){
-  if(eventObject.innerText=== "$0"){
-    eventObject.classList.add("zero")
-  }else if (eventObject.innerText!= "$0"){
-    eventObject.classList.remove("zero")
-  }
 };
 
+// var withdraws = function(eventObject){
+//   var amount = parseInt( eventObject.value.replace("$","") ) 
+//   var balance = parseInt (eventObject.innerText.replace("$","") )
+//   eventObject.innerText = "$" + (balance - amount)
+//   if (eventObject.id = "account1" && amount > balance){
+
+//   }
+// };
+
 //Event Listeners
-window.onload = balanceZero
-content.addEventListener("change",balanceZero)
-content.addEventListener("click",deposits)
+window.onload = balanceZero()
+
+// content.addEventListener("click",deposits)
+// content.addEventListener("click",withdraws)
+checking_deposit.addEventListener("click",depositChecking)
+savings_deposit.addEventListener("click",depositSavings)
 checking_withdraw.addEventListener("click",withdrawChecking)
 savings_withdraw.addEventListener("click",withdrawSavings)
+checking_balance.addEventListener("click",balanceZero)
+
