@@ -20,13 +20,13 @@ describe("ATM", function(){
     it("removes money from an account", function(){
       var account = new Account();
       account.checking = 200;
-      account.checking = withdraw(account.checking,100);
+      account.checking = withdraw.call(account, "checking", 100);
       expect(account.checking).toBe(100);
     });
     it("can't remove more money than is in the account", function(){
       var account = new Account();
       account.checking = 100;
-      account.checking = withdraw(account.checking, 200);
+      account.checking = withdraw.call(account, "checking", 200);
       expect(account.checking).toBe(100);
     });
 
@@ -36,7 +36,7 @@ describe("ATM", function(){
 
     it("adds money to an account", function(){
       var account = new Account();
-      account.savings = deposit(account.savings,100);
+      account.savings = deposit.call(account, "savings", 100);
       expect(account.savings).toBe(100);
     });
 

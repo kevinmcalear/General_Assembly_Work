@@ -4,14 +4,15 @@ function Account(){
 }
 
 function withdraw(account, amount){
-  if (account >= amount) {
-    return account - amount;
+  if (this[account] >= amount) {
+    this[account] -= amount;
+    return this[account];
   } else {
-    //throw "Overdraft";
-    return account;
+    return this[account];
   }
 }
 
 function deposit(account, amount){
-  return account + amount;
+  this[account] += amount;
+  return this[account];
 }
