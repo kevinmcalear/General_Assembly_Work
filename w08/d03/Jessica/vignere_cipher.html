@@ -3,15 +3,17 @@
   // keyword: lemonlemonle
   // ciphertext: lxfopvefrnhr
 
-  var a = 97;
-  var charArray = [];
-  for (var i = 0; i<26; i++) {
-    charArray.push(String.fromCharCode(a + i));
-  }
+  var cipherEncode = function(message, keyword){
+    
+    var a = 97;
+    var charArray = [];
+    for (var i = 0; i < 26; i++) {
+      charArray.push(String.fromCharCode(a + i));
+    };
 
-  var sums = [];
-  var letters = [];
-  var cipherEncode = function(message, keyword) {
+    var sums = [];
+    var letters = [];
+
     for (var i = 0; i < message.length; i++) {
       messageValues = charArray.indexOf(message[i]);
       keywordValues = charArray.indexOf(keyword[i]);
@@ -29,9 +31,16 @@
     console.log(letters);
   };
 
-  diffs = [];
-  lettersDecode = [];
   var cipherDecode = function(word, keyword) {
+    var a = 97;
+    var charArray = [];
+    for (var i = 0; i < 26; i++) {
+      charArray.push(String.fromCharCode(a + i));
+    };
+
+    diffs = [];
+    lettersDecode = [];
+
     for (var i = 0; i < word.length; i++) {
       wordValues = charArray.indexOf(word[i]);
       keywordValues = charArray.indexOf(keyword[i]);
@@ -48,6 +57,19 @@
       lettersDecode.join('');
       console.log(lettersDecode);
   };
+
+  function repeatUntil(keyword, length){
+    var keywordFullLengthArray = new Array(length);
+
+    var index = 0
+    while( index < length)
+      keywordFullLengthArray[index] = keyword[index];
+    index = index + 1
+
+      var keywordFullLength = keywordFullLength(length).join("");
+    
+    return keywordFullLength
+  }
 
 
 // keywordArray = []

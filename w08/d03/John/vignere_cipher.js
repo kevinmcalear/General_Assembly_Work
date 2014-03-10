@@ -1,20 +1,20 @@
-// var encodeKeyword = function(message, keyword) {
-//   var encrypted = "";
-//   for (i=0; i < message.length; i++) {
-//     var messChar = i % keyword.length;
-//     var keywordChars = keyword.split("");
-//     encrypted += keywordChars[messChar];
-//   }
-//   return encrypted;
-// };
+var encodeKeyword = function(message, keyword) {
+  var encrypted = "";
+  for (i=0; i < message.length; i++) {
+    var messChar = i % keyword.length;
+    var keywordChars = keyword.split("");
+    encrypted += keywordChars[messChar];
+  }
+  return encrypted;
+};
 
 // encodeKeyword uses a vignere cipher to encode a message using 
 //  a keyword
-function encodeKeyword(message, keyword) {
-  return message.split("").map(function(value, index) {
-      return keyword.split("")[index % keyword.length];
-  }).join("");
-}
+// function encodeKeyword(message, keyword) {
+//   return message.split("").map(function(value, index) {
+//       return keyword.split("")[index % keyword.length];
+//   }).join("");
+// }
 
 var encode = function(message, keyword) {
   var encodedText = "";
