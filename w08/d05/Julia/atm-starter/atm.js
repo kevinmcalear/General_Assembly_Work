@@ -3,13 +3,12 @@ var checkingBalance = document.querySelector("div.balance");
 var depositOrWithdrawInput = document.querySelector("input#checking_amount");
 var depositButton = document.querySelector("input#checking_deposit");
 var checkingWithdrawButton = document.querySelector("input#checking_withdraw");
-
+var checkBal = parseInt(checkingBalance.innerText.replace("$", ""));
 //Savings Account Queries
 var savingsDepositOrWithdraw = document.querySelector("input#savings_amount");
 var savingsDepositButton = document.querySelector("input#savings_deposit");
 var savingsWithdrawButton = document.querySelector("input#savings_withdraw");
 var savingsBalance = document.querySelector("div#savings_balance");
-
 
 //Checking Account Deposits
 depositButton.addEventListener("click", function(){
