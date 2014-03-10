@@ -46,6 +46,7 @@ describe ("Hangman", function(){
       hangman.checkGuess("d");
       expect(hangman.spaces[0]).toEqual("d");
       expect(hangman.spaces[1]).toEqual("_");
+      expect(hangman.guessedLetters).toContain("d");
     });
 
     it ("checks if the guess is wrong", function(){
@@ -54,6 +55,28 @@ describe ("Hangman", function(){
       expect(hangman.wrongGuesses).toEqual(6);
       expect(hangman.guessedLetters).toContain("s");
     });
-
   });
+
+  describe("gameOverTest", function(){
+    var hangman = new Hangman("animals");
+    beforeEach(function(){
+      spyOn(Math, "random").and.returnValue(0.5);
+    });
+    it ("user wins", function() {
+      hangman.makeLetters();
+      hangman.makeSpaces();
+      hangman.spaces = ["d", "o", "l", "p", "h", "i", "_"];
+      hangman.checkGuess("n");
+      hangman.checkGuess("z");
+      expect(hangman.wrongGuesses).toEqual(7);
+    });
+
+    it ("user loses", function() {
+      hangman.wrongGuesses = 1;
+      hangman.checkGuess("z");
+      expect(hangman.spaces).toEqual(["d", "o", "l", "p", "h", "i", "n"]);
+      expect(hangman.gameinProgress).toBeFalsy;
+    });
+  });
+
 });

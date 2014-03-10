@@ -8,6 +8,7 @@ function Hangman(category){
   this.spaces = [];
   this.wrongGuesses = 7;
   this.guessedLetters = [];
+  this.gameInProgress = true;
 
   this.getWord = function() {
     var rand = Math.floor(Math.random() * words[category].length);
@@ -24,17 +25,33 @@ function Hangman(category){
     };
   };
 
-  this.checkGuess = function(letter) {
-    var shouldDecrementGuesses = true;
-    for (var i = 0; i < this.spaces.length; i++) {
-      if (this.wordLetters[i] === letter) {
-        this.spaces[i] = letter;
-        shouldDecrementGuesses = false;
-      };
+  this.gameOverTest = function() {
+    this.gameInProgress = false;
+    for (var j = 0; j < this.spaces.length; j++) {
+      if (this.spaces[j] === "_") {
+        this.gameInProgress = true;
+      }
+    };
+
+    if (this.wrongGuesses === 0) {
+      this.spaces = this.wordLetters;
     }
-    if (shouldDecrementGuesses) {
-      this.wrongGuesses -= 1;
+  };
+
+  this.checkGuess = function(letter) {
+    if (this.gameInProgress) {
+      var shouldDecrementGuesses = true;
       this.guessedLetters.push(letter);
+      for (var i = 0; i < this.spaces.length; i++) {
+        if (this.wordLetters[i] === letter) {
+          this.spaces[i] = letter;
+          shouldDecrementGuesses = false;
+        };
+      }
+      if (shouldDecrementGuesses) {
+        this.wrongGuesses -= 1;
+      };
+      this.gameOverTest();  
     };
   };
 
