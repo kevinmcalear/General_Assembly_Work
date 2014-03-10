@@ -1,3 +1,4 @@
+
 //set variables for overall balances and amounts(to take out or deposit)
 var checkingBalance = document.querySelector("#checking_balance");
 var checkingAmount = document.querySelector("#checking_amount");
@@ -69,10 +70,13 @@ checking_withdraw_button.addEventListener("click", function(eventObject) {
   split_two.remove(0);
   var savingsBalanceFinal = parseInt(split_two.join(""));
   var finalNum = checkingBalanceFinal - checkingAmountFinal;
-  if (finalNum > 0)
-    {checking_withdraw_button.onclick = withdrawFromChecking()}
+  if (finalNum >= 0)
+    {checking_withdraw_button.onclick = withdrawFromChecking();}
+  //overdraft protection
   else if ((savingsBalanceFinal + checkingBalanceFinal)> checkingAmountFinal)
-    console.log("nice");
+    {var overdraw = (checkingAmountFinal-checkingBalanceFinal);
+    checkingBalance.innerText = "$0";
+    savingsBalance.innerText = "$" + (savingsBalanceFinal - overdraw)}
   else
     {eventObject.preventDefault();
     };
@@ -88,10 +92,18 @@ savings_withdraw_button.addEventListener("click", function(eventObject){
   split.remove(0);
   var savingsBalanceFinal = parseInt(split.join(""));
   var savingsAmountFinal = parseInt(savingsAmount.value);
+  var split_two = checkingBalance.innerText.split("");
+  split_two.remove(0);
+  var checkingBalanceFinal = parseInt(split_two.join(""));
   var finalNum = savingsBalanceFinal - savingsAmountFinal;
 
   if (finalNum > 0)
     {savings_withdraw_button.onclick = withdrawFromSavings()}
+  //overdraft protection
+  else if ((checkingBalanceFinal + savingsBalanceFinal)>savingsAmountFinal)
+    {var overdraw = (savingsAmountFinal - savingsBalanceFinal);
+      savingsBalance.innerText = "$0";
+      checkingBalance.innerText = "$" + (checkingBalanceFinal - overdraw)}
   else
     {eventObject.preventDefault();
     };
@@ -100,5 +112,10 @@ savings_withdraw_button.addEventListener("click", function(eventObject){
 
 };
 
+if (savingsBalance.innerText = "$0")
+  {savingsBalance.style = ".zero"};
+
+if (checkingBalance.innerText = "$0")
+  {checkingBalance.style = ".zero"};
 
 var total = document.querySelector("#checking_balance").innerText + document.querySelector("#savings_balance").innerText;
