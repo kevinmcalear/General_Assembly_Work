@@ -40,6 +40,7 @@
     var guessLetter = document.querySelector("input#letter");
     var guessedLetters = document.querySelector("span.guessed-letters");
     var newGame = document.querySelector("button.button.new-game");
+    var giveUp = document.querySelector("button.button.give-up");
 
     guessesLeft.innerText = game.guessesLeft;
     wordString.innerText = game.blankArray.join(" ");
@@ -54,16 +55,11 @@
     })
 
     newGame.addEventListener("click", function() {
-      var game = new Hangman(pickWord());
-      var guessesLeft = document.querySelector("span.guesses-left");
-      var wordString = document.querySelector("div.game-word");
-      var guessLetter = document.querySelector("input#letter");
-      var guessedLetters = document.querySelector("span.guessed-letters");
-      var newGame = document.querySelector("button.button.new-game");
+      location.reload();
+    })
 
-      guessesLeft.innerText = game.guessesLeft;
-      wordString.innerText = game.blankArray.join(" ");
-      guessedLetters.innerText = game.guesses;
+    giveUp.addEventListener("click", function() {
+      wordString.innerText = "The word is " + game.word;
     })
 
     
