@@ -26,6 +26,7 @@ checkingDeposit.addEventListener('click', function() {
  		savings += parseInt(checkingInput.value); 
  		savingsBalance.innerText = "$" + savings;
  	};
+ 	
 	checkingInput.value = '';
 	zeroClass();
 });
@@ -41,6 +42,7 @@ checkingWithdraw.addEventListener('click', function() {
  		savingsBalance.innerText = "$" + savings;
  		checkingBalance.innerText = "$" + checking;
  	}; 
+
 	checkingInput.value = '';
 	zeroClass();
 });
