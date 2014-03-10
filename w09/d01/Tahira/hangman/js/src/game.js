@@ -1,8 +1,11 @@
 function Game(word){
   this.word = word;
-  this.guessesLeft = 7;
+  this.guessesLeft = 6;
   this.guesses = [];
   this.correctGuesses = [];
+  for(var j=0; j<word.length; j++) {
+      this.correctGuesses[j] = "*";
+  };
   this.incorrectGuesses = [];
   this.end = false;
 };
@@ -11,14 +14,9 @@ Game.prototype.guess = function(letter){
   this.guesses.push(letter);
   wordArray = this.word.split("");
 
-  var i=0;
   var containsLetter = false;
 
   for(var i=0; i<wordArray.length; i++) {
-    if(i === 0) {
-    for(var j=0; j<wordArray.length; j++)
-     this.correctGuesses[j] = "*";
-    };
     if(letter === wordArray[i]) {
       containsLetter = true;
       this.correctGuesses[i] = letter;
@@ -37,6 +35,9 @@ Game.prototype.guess = function(letter){
   if(this.guessesLeft === 1) {
     this.end = true;
   };
-  
 };
 
+function generateWord() {
+  var words = ["hello", "goodbye", "penguin", "cookie", "pizza"];
+  this.word = words[parseInt(Math.random()*words.length)]
+}

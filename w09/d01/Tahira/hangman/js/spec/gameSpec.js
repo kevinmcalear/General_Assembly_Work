@@ -12,7 +12,7 @@ describe("Hangman", function(){
   });
 
   it("always starts with 7 guesses", function(){
-    expect(game.guessesLeft).toEqual(7);
+    expect(game.guessesLeft).toEqual(6);
   });
 
   it("stores guesses in an array", function(){
@@ -26,12 +26,12 @@ describe("Hangman", function(){
 
   it("only decreases guesses left when there is an incorrect guess", function(){
     game.guess("w");
-    expect(game.guessesLeft).toEqual(6);
+    expect(game.guessesLeft).toEqual(5);
   });
 
   it("doesn't decrease guesses left when there is an correct guess", function(){
     game.guess("a");
-    expect(game.guessesLeft).toEqual(7);
+    expect(game.guessesLeft).toEqual(6);
   });
 
   it("adds correct letter to correctGuesses array", function(){
@@ -52,9 +52,7 @@ describe("Hangman", function(){
     game.guess("e");
     game.guess("r");
     game.guess("b");
-    game.guess("o");
     game.guess("a");
-    game.guess("r");
     game.guess("d");
     expect(game.end).toBe(true);
   });
