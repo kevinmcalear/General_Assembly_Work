@@ -50,9 +50,9 @@ class Arena
       return "Both die!"
     elsif 
       beats[:weapon_1] == weapon_2
-      return "#{gladiator_2} wins the fight with a #{weapon_2}!"
+      return "#{gladiator_2.name} wins the fight with a #{weapon_2}!"
     else
-      return "#{gladiator_1} wins the fight with a #{weapon_1}!"
+      return "#{gladiator_1.name} wins the fight with a #{weapon_1}!"
     end
   end
   end

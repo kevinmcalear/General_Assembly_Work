@@ -18,7 +18,7 @@ function playWithScope() {
 
   insideFunc();
 
-  console.log("playWithScope end.")
+  console.log("playWithScope end.");
   console.log(shmee);
   console.log(notQuiteGlobal);
 }
