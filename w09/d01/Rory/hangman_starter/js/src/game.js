@@ -5,6 +5,13 @@ function Hangman() {
   this.correctLetters = [];
 };
 
+var newGame = new Hangman;
+var newGameButton = document.querySelector("button.new-game");
+
+newGameButton.addEventListener("click", newGame);
+
+
+
 
 String.prototype.contains = function(word, letter){
   var i = 0;
