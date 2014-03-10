@@ -16,27 +16,16 @@ describe("Hangman", function() {
     expect(hangman.word).toBe("basketball");
   })
 
-  xdescribe("countLetters", function() {
-    it("takes a work and returns the number of letters", function() {
-      var word = "basketball";    
-      expect(hangman.countLetters(word)).toBe(10);
-    });
-  });
+  it("randomly picks a word from the user selected category", function() {
+    expect(hangman.pickWord("sports")).toEqual('basketball');
+  }) 
+
 
   describe("checkLetter", function() {
-    xit("takes a letter as an argument and returns the number of times that letter appears in the word", function(){
-      expect(hangman.checkLetter('b', hangman.word)).toBe(2);
-    })
     it("reveals the correctly guessed letters positions in an array", function() {
       expect(hangman.checkLetter('b', hangman.word)).toEqual(['b', '_', '_', '_', '_', '_', 'b', '_', '_', '_']);
     })
-    xit("subtracts one from guesses if word does not include guessed letter & includes the letter in misses array", function() {
-      hangman.checkLetter('c', hangman.word);
-      expect(hangman.guessesLeft).toBe(6);
-      expect('c').toContain(hangman.misses);
-      expect('c').toContain(hangman.guesses);
-      console.log(hangman.misses);
-    })
+
     it("won't let you guess a letter which has already been guessed", function() {
       hangman.checkLetter('c', hangman.word);
       expect(hangman.guessesLeft).toBe(6);
