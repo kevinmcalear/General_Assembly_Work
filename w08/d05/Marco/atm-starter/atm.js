@@ -33,6 +33,10 @@ var makeSavingsDeposit = function() {
 var makeSavingsWithdrawl = function() {
   if (parseInt(savingsBalance.innerHTML.substring(1)) >= parseInt(savingsInput.value)) {
     savingsBalance.innerHTML = "$" + (parseInt(savingsBalance.innerHTML.substring(1)) - parseInt(savingsInput.value));
+  } else if ((parseInt(savingsBalance.innerHTML.substring(1)) + parseInt(checkingBalance.innerHTML.substring(1))) >= parseInt(savingsInput.value)) {
+    var overdraftAmount = (parseInt(savingsInput.value) - parseInt(savingsBalance.innerHTML.substring(1)));
+    checkingBalance.innerHTML = "$" + (parseInt(checkingBalance.innerHTML.substring(1)) - overdraftAmount);
+    savingsBalance.innerHTML = "$0";
   };
 };
 
