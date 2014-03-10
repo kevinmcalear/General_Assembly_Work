@@ -69,6 +69,7 @@ checkingWithdraw.addEventListener("click", function(){
   if (originalAmount > withdrawAmount) {
     checkingBalance.innerText = (originalAmount-withdrawAmount)
     addDollar(checkingBalance);
+    addDollar(savingsBalance);
   }
   else if(withdrawAmount > originalAmount && withdrawAmount < totalAmount) {
     checkingBalance.innerText = "$0";
@@ -83,3 +84,49 @@ checkingWithdraw.addEventListener("click", function(){
   red(checkingBalance);
   inputChecking.value = null;
 });
+
+// trying to set the accounts up as objects, couldn't get the event listeners to work.
+// var Account = function(name) {
+//   this.name
+//   this.deposit = document.querySelector("#"+name+"_deposit");
+//   this.withdraw = document.querySelector("#"+name+"_withdraw");
+//   this.balance = document.querySelector("#"+name+"_balance");
+//   this.input = document.querySelector("#"+name+"_amount");
+// };
+
+// var red = function(balance){
+//   if(balance.innerText === "$0") {
+//     balance.classList.add("zero");
+//   } else {
+//     balance.classList.remove("zero");
+//   }
+// };
+
+// var savings = new Account("savings");
+// var checking = new Account("checking");
+
+// window.addEventListener("load", red(savings.balance));
+// window.addEventListener("load", red(checking.balance));
+
+// Account.prototype.makeDeposit = function(){
+//   removeDollar(this.balance);
+//   var originalAmount = parseInt(this.balance.innerText);
+//   var depositAmount = parseInt(this.input.value);
+//   this.balance.innerText = (originalAmount+depositAmount);
+//   addDollar(this.balance);
+//   red(this.balance);
+//   this.input.value = null;
+// };
+
+// (savings.deposit).addEventListener("click", savings.makeDeposit());
+
+// var removeDollar = function(value) {
+//   this.balance.innerText = this.balance.innerText.slice(1);
+// };
+
+// var addDollar = function(value) {
+//   value.innerText = ("$" + value.innerText);
+// };
+
+
+
