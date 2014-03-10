@@ -35,6 +35,7 @@ function Hangman(category){
 
     if (this.wrongGuesses === 0) {
       this.spaces = this.wordLetters;
+      this.gameInProgress = false;
     }
   };
 
@@ -51,8 +52,8 @@ function Hangman(category){
       if (shouldDecrementGuesses) {
         this.wrongGuesses -= 1;
       };
-      this.gameOverTest();  
     };
+    this.gameOverTest();  
   };
 
 };
