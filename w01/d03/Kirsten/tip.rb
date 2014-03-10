@@ -20,4 +20,4 @@ def total(a, b, c)
 end
 
 result = total(price, tax_new, tip_new)
-puts "Your total is $#{result.round(2)} "
+puts "Your total is $#{result.round(2) } "

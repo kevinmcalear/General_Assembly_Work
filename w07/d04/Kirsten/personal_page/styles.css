@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  display: inline-block;
+}
+
+.logo_flag {
+  display: inline-block;
+  background: #bb141a;
+}
+
+.contain {
+  font: normal 1.25em/1.6 Helvetica, Arial, Verdana, sans-serif;
+}
+
+h1 {
+  width: 180px;
+  text-align: right;
+  color: #fff;
+  margin: 0;
+  padding-right: 10px;
+}
+
+#name {
+  display: inline-block;
+  font-size: .75em;
+  color: #777;
+  width: 40px;
+}
+
+.hero {
+  height: 400px;
+  background: url(me.jpg) center;
+  background-size: cover;
+}
+
+.about {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.contact {
+  width: 536px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+#email {
+  width: 495px;
+  background: #999896;
+  border-radius: 6px;
+  margin: 10px 0px 10px 10px;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+#twitter {
+  width: 225px;
+  background: #00a0d1;
+  border-radius: 6px;
+  display: inline-block;
+  padding: 20px 10px;
+  margin: 10px;
+}
+
+#dribble {
+  width: 225px;
+  background: #ea4c89;
+  border-radius: 6px;
+  display: inline-block;
+  padding: 20px 10px;
+  margin: 10px;
+}
+
+#medium {
+  width: 225px;
+  background: #333332;
+  border-radius: 6px;
+  display: inline-block; 
+  padding: 20px 10px;
+  margin: 10px;
+}
+
+#instagram {
+  width: 225px;
+  background: #634d40;
+  border-radius: 6px;
+  display: inline-block;
+  padding: 20px 10px;
+  margin: 10px;
+}
+
+#pinterest {
+  width: 225px;
+  background: #c8232c;
+  border-radius: 6px;
+  display: inline-block;
+  padding: 20px 10px;
+  margin: 10px;
+}
+
+#rdio {
+  width: 225px;
+  background: #008fd5;
+  border-radius: 6px;
+  display: inline-block;
+  padding: 20px 10px;
+  margin: 10px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
