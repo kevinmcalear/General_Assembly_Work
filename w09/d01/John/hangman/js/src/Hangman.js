@@ -42,7 +42,11 @@ function Hangman(category){
   this.checkGuess = function(letter) {
     if (this.gameInProgress) {
       var shouldDecrementGuesses = true;
-      this.guessedLetters.push(letter);
+      if (!this.guessedLetters.some(function(e){
+        return e === letter;
+      })) {
+        this.guessedLetters.push(letter);
+      };
       for (var i = 0; i < this.spaces.length; i++) {
         if (this.wordLetters[i] === letter) {
           this.spaces[i] = letter;

@@ -55,6 +55,12 @@ describe ("Hangman", function(){
       expect(hangman.wrongGuesses).toEqual(6);
       expect(hangman.guessedLetters).toContain("s");
     });
+
+    it ("doesn't let you check letters more than once", function(){
+      hangman.checkGuess("s");
+      expect(hangman.guessedLetters).toEqual(["d","s"]);
+    });
+
   });
 
   describe("gameOverTest", function(){
