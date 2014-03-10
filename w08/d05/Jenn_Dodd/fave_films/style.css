@@ -1,0 +1,29 @@
+ul, li, input {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  text-align: center;
+}
+
+.container {
+  width: 300px;
+  margin: 0 auto;
+}
+
+li {
+  list-style-type: none;
+  text-align: left;
+  line-height: 16px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+ul {
+  padding-top: 20px;
+}
+
+

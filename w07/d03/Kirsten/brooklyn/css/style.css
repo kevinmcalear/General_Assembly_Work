@@ -1,3 +1,37 @@
+
+body {
+  font-size: 12px;
+  line-height: 17px;
+  font-family: "Times New Roman", serif;
+  color: #656565;
+  margin-top: 40px;
+}
+
+h1 {
+  color: rgb(149,149,149);
+}
+
+.content {
+  width: 960px;
+  display: block;
+  margin: 0 auto;
+}
+
+.link_images img {
+  border: 5px solid rgb(203,203,203);
+  width: 23.5%;
+}
+
+.link_images {
+  display: block;
+  width: 100%;
+}
+
+a {
+  color: rgb(84,133,191);
+}
+
+
 /* 
 
 ## Style Hints: 
