@@ -19,18 +19,28 @@ describe("Hangman", function() {
 
     it("has a list of rightly guessed letters", function() {
       hangman1.guess("b");
-      expect(hangman1.rightLetters[0]).toContain("b");
-
+      expect(hangman1.rightLetters[0]).toBe("b");
     });
 
     it("has a game status", function() {
       expect(hangman1.status).toBeDefined();
       expect(hangman1.status).toBe("playing");
     });
+
+    it("has a wordlist", function() {
+      expect(hangman1.wordList).toBeDefined();
+    });
+
+    it("has a secret word without being passed a word", function() {
+      var noGuess = new Hangman({});
+      expect(noGuess.secretWord).toBeDefined();
+    });
   });
 
   describe("guesses", function() {
-    var hangmanGuess = new Hangman({secretWord: "beluga"});
+    beforeEach(function() {
+      hangmanGuess = new Hangman({secretWord: "yellow"});
+    });
 
     it("subtracts one guess when the player makes a guess", function() {
       hangmanGuess.guess("r");
@@ -45,6 +55,11 @@ describe("Hangman", function() {
       expect(hangmanGuess.status).toBe("lost");
     });
 
+    it("does not subtract guesses for correct letters", function() {
+      hangmanGuess.guess("y");
+      expect(hangmanGuess.guessesLeft).toBe(7);
+    });
+
     it("does not keep playing with 0 guesses", function() {
       var stupidGuesses = ["r", "t", "z", "x", "q", "m", "f"];
       for(var i = 0; i < 7; i++) {
@@ -53,5 +68,21 @@ describe("Hangman", function() {
       hangmanGuess.guess("c");
       expect(hangmanGuess.wrongLetters).not.toContain("c");
     });
+
+    it("ends the game when you guess all the letters in the secret word", function() {
+      var goodGuesses = ["y", "e", "l", "o", "w"];
+      for (var i = 0; i < goodGuesses.length; i++) {
+        hangmanGuess.guess(goodGuesses[i])
+      };
+      expect(hangmanGuess.status).toBe("won");
+    });
   });
+
+  // describe("pick word", function() {
+  //   var hangman1 = new Hangman();
+
+  //   it("picks a word from a category", function() {
+  //     expect(hangman1.pickWord("sports")).toMatch(hangman1.secretWord);
+  //   });
+  // });
 });
