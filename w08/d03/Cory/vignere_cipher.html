@@ -6,21 +6,52 @@
   <body>
     <h1>Vigenere Cipher</h1>
     <script type='text/javascript'>
-    var message = "attackatdawn"
-    var key = "lemon"
-    // var keylength = key.length
-    // var cipher = ""
-    // // for( var i = 0; i < message.length; i++ ) {
-    // //   key.repeat()
+    // var message = "attackatdawn"
+    // var key = "lemon"
+    // // var keylength = key.length
+    // // var cipher = ""
+    // // // for( var i = 0; i < message.length; i++ ) {
+    // // //   key.repeat()
+    // // // };
+
+    // // function encrypt(message, key){
+    // //   var cipher = "";
+    // //   for (var i = 0, i < message.length; i++) {
+        
+    // //  }
     // // };
 
-    // function encrypt(message, key){
-    //   var cipher = "";
-    //   for (var i = 0, i < message.length; i++) {
-        
-    //  }
-    // };
-    
+    //we want to take a keyword and message, and return an ecrypted message
+
+    function encrypt(keyword, message) {
+      var encryptedMessage = "";
+      return encryptedMessage;
+    };    
+
+    // we want to repeat a word enough times so that it is a certain length
+
+    function repeatUntil(keyword, length) {
+      // return a string that is length length
+      var keywordFullLengthArray = new Array(length);
+
+      var index = 0;
+      while (index < keyword.length){
+        keywordFullLengthArray[index] = keyword[index];
+        if (index > 4) {
+          index = 0;
+        }
+        else {
+          index = index + 1;
+        }
+    }
+
+      var keywordFullLength = keywordFullLengthArray.join( "" );
+
+
+      //return a strign that is length length, but it is the letters in keyword over and over
+
+      return keywordFullLength;
+    };
 
 
 
