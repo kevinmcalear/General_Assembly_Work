@@ -16,10 +16,6 @@ describe("Hangman", function() {
     expect(hangman.word).toBe("basketball");
   })
 
-  it("randomly picks a word from the user selected category", function() {
-    expect(hangman.pickWord("sports")).toEqual('basketball');
-  }) 
-
 
   describe("checkLetter", function() {
     it("reveals the correctly guessed letters positions in an array", function() {
@@ -56,4 +52,10 @@ describe("Hangman", function() {
   
   }) 
 });
+
+describe("#wordPicker", function() {
+    it("randomly picks a word from the user selected category", function() {
+    expect(pickWord("sports")).toEqual('basketball');
+  }) 
+})
 

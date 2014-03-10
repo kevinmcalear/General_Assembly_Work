@@ -7,15 +7,14 @@ var Hangman = function(word) {
   this.letterCount = word.length;
   this.wordLetters = word.split("");
   this.blankArray = new Array(this.wordLetters.length);
-  this.categories = {
-    sports: ["basketball", "soccer", "football"]
-  }
   
   this.game = function() {
-    return true;
+    this.game = true;
+    return this.game;
   }
 
   this.pickWord = function(category) {
+    var word = Math.random
     return this.categories[category][0];
   }
 
@@ -52,7 +51,13 @@ var Hangman = function(word) {
     }
     
   } 
-
 }
 
+var pickWord = function(category) {
+  this.category = category;
+  var categories = {
+    sports: "basketball"
+  }
+  return categories[this.category];
+}
 
