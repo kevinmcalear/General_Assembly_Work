@@ -35,7 +35,6 @@ var keywordLength = function(message, keyword) {
   return result;
 };
 
-
 var decrypt = function(message, keyword) {
   var keywordString = keywordLength(message, keyword);
   var keywordIndexArray = new Array;
@@ -55,42 +54,5 @@ var decrypt = function(message, keyword) {
     decodedMessage.push(codingArray[index])
   };
   return decodedMessage.join("");
-
 }
-
-// attack
-// lxfopv
-// lemonl
-// 0,19,19,0,2,10
-// 11,4,12,14,13,11
-// 11,13,31,14,15,10,11
-// 11,13,5,14,15,10,11
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var keywordLength = function(){
-// var encryptedWord = [];
-//   var messageArray = message.split("");
-//   var keyWordArray = keyWord.split("");
-
-//   var i=0;
-//   while(encryptedWord.length < messageArray.length){
-//     encryptedWord.push(keyWordArray[i]);
-//     i++;
-//     if (i === keyWordArray.length){
-//       i=0;
-//     }
-//    return encryptedWord
-//   }
-
 
