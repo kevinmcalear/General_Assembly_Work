@@ -23,20 +23,24 @@ potter = piece.map { |info| {:mentions => info[0].to_i, :name => info[1], :house
 
 # Print all the names
 names = piece.map {|name| name[1]}
+puts names
 
 # Everything over 500 mentions
 mentions_500 = potter.select{|position| position[:name] && position[:mentions] > 500}
+puts mentions_500
 
 # An array of houses
 house_all = potter.map {|hash| hash[:house]}
 house_all.uniq!.compact!
+puts houses_all
 
 # everyone with one name
 one_name = potter.select{|hash| !hash[:name].include?" "}
+puts one_name
 
 # number of hufflepuffs
 hufflepuff = potter.select{|hash| hash[:house] == "Hufflepuff"}
-hufflepuff.count
+puts hufflepuff.count
 
 #slytherin names reversed 
 names = potter.map do |names|

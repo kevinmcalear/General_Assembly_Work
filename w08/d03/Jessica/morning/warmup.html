@@ -6,6 +6,25 @@
   <body>
     <h1>warmup</h1>
     <script type='text/javascript'>
+    var favoriteThings = ["toast", "brownies", "pasta", "peanut butter"];
+    
+    for (var i = 0; i < favoriteThings.length; i++){
+      console.log("My # " + (i + 1) + " favorite thing is " + favoriteThings[i]);
+      };
+
+    var concat = ""
+    var initials = function(name) { 
+      var nameSplit = name.split(" ");
+        for ( i = 0; i < nameSplit.length; i++ )
+          { concat += nameSplit[i][0];
+        };
+        console.log(concat);
+      };
+
+    initials("Jessica Rose Simon");
+
+
+
 
 
 // WORK HERE
