@@ -73,7 +73,7 @@ function beautifulStranger() {
 
 ## 6
 
-```
+` ``
 function forgeTheFellowShip() {
   // move the hobbits and the buddies to Rivendell
   // create a new div called 'the-fellowship'
