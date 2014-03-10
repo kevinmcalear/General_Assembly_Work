@@ -1,0 +1,29 @@
+header {
+  clear: both;
+  line-height: 100%;
+  /*height: 100px;*/
+  line-height: 25px;
+}
+
+header .logo_flag {
+  float: left;
+  width: 15%;
+  background-color: #B00;
+  text-align: right;
+  color: white;
+}
+header span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  float: left;
+  font-family: Helvetica;
+  color: #949699;
+  font-weight: 100;
+  font-size: 0.9em;
+  width: 80px;
+}
+
+.hero img {
+  width:100%;
+}
