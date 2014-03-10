@@ -24,9 +24,24 @@ depositButton.addEventListener("click", function(){
 checkingWithdrawButton.addEventListener("click", function(){
 	var checkingBalanceValue = parseInt(checkingBalance.innerText.replace("$", ""));
 	var withdrawAmount = parseInt(depositOrWithdrawInput.value);
-	checkingBalance.innerText = "$" + (checkingBalanceValue - withdrawAmount);
-	checkingBalance.value = (checkingBalanceValue - withdrawAmount);
-	checkingBalanceValue = (checkingBalanceValue - withdrawAmount);
+	var savingsBalanceValue = parseInt(savingsBalance.innerText.replace("$",""));
+	if(withdrawAmount < checkingBalanceValue){
+		checkingBalance.innerText = "$" + (checkingBalanceValue - withdrawAmount);
+		checkingBalance.value = (checkingBalanceValue - withdrawAmount);
+		checkingBalanceValue = (checkingBalanceValue - withdrawAmount);
+	}
+	else if(withdrawAmount < (checkingBalanceValue + savingsBalanceValue)){
+		alert("There aren't sufficient funds in your checking account for that transaction, but we can withdraw it from your savings!");
+		checkingBalance.innerText = "$" + 0;
+		var amountToSubtractFromSavings = (withdrawAmount - checkingBalanceValue);
+		savingsBalance.value = (savingsBalanceValue - amountToSubtractFromSavings);
+		savingsBalance.innerText = "$" + (savingsBalanceValue - amountToSubtractFromSavings);
+		savingsBalanceValue = (savingsBalanceValue - amountToSubtractFromSavings);
+	}
+	else{
+		alert("There aren't sufficient funds in your account for that transaction!");
+	}
+	
 });
 
 //Savings Account Deposits
@@ -42,9 +57,15 @@ savingsDepositButton.addEventListener("click", function(){
 savingsWithdrawButton.addEventListener("click", function(){
 	var savingsBalanceValue = parseInt(savingsBalance.innerText.replace("$",""));
 	var savingsWithdrawAmount = parseInt(savingsDepositOrWithdraw.value);
+	if(savingsWithdrawAmount < savingsBalanceValue){
 	savingsBalance.innerText = "$" + (savingsBalanceValue - savingsWithdrawAmount);
 	savingsBalance.value = (savingsBalanceValue - savingsWithdrawAmount);
 	savingsBalanceValue = (savingsBalanceValue - savingsWithdrawAmount);
+	}
+	else{
+		alert("There aren't sufficient funds in your account for that transaction!");
+		savingsBalanceValue;
+	}
 });
 
 
