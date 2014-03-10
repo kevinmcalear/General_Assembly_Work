@@ -22,31 +22,55 @@ checkingDeposit.addEventListener('click', function() {
 	if((checking + parseInt(checkingInput.value)) >= 0){ 
 		checking += parseInt(checkingInput.value); 
  		checkingBalance.innerText = "$" + checking;
+ 	} else if(((savings + checking) + parseInt(checkingInput.value)) >= 0) {
+ 		savings += parseInt(checkingInput.value); 
+ 		savingsBalance.innerText = "$" + savings;
  	};
 	checkingInput.value = '';
 });
 
 checkingWithdraw.addEventListener('click', function() {
+	
 	if((checking - parseInt(checkingInput.value)) >= 0){ 
 		checking -= parseInt(checkingInput.value); 
  		checkingBalance.innerText = "$" + checking;
- 	};
+ 	} else if(((savings + checking) - parseInt(checkingInput.value)) >= 0) {
+ 		savings = savings - (parseInt(checkingInput.value) - checking); 
+ 		checking = 0;
+ 		savingsBalance.innerText = "$" + savings;
+ 		checkingBalance.innerText = "$" + checking;
+ 	}; 
 	checkingInput.value = '';
 });
+
+
 
 savingsDeposit.addEventListener('click', function() {	
 	
 	if((savings + parseInt(savingsInput.value)) >= 0){ 
 		savings += parseInt(savingsInput.value); 
  		savingsBalance.innerText = "$" + savings;
- 	};
-	savingsInput.value = '';
+ 	} else if((savings + checking + parseInt(savingsInput.value)) >= 0) {
+ 		checking += parseInt(savingsInput.value); 
+ 		checkingBalance.innerText = "$" + checking;
+ 	}; 
+
+ 	savingsInput.value = '';
+	
 });
 
 savingsWithdraw.addEventListener('click', function() {
+	
 	if((savings - parseInt(savingsInput.value)) >= 0){ 
 		savings -= parseInt(savingsInput.value); 
  		savingsBalance.innerText = "$" + savings;
- 	};
-	savingsInput.value = '';
+ 	} else if((savings + checking - parseInt(savingsInput.value)) >= 0) {
+ 		checking = checking - (parseInt(savingsInput.value) - savings);
+ 		savings = 0; 
+ 		checkingBalance.innerText = "$" + checking;
+ 		savingsBalance.innerText = "$" + savings;
+ 	}; 
+
+ 	savingsInput.value = ''; 
+	
 });
