@@ -24,38 +24,38 @@ Hangman.prototype.setAnswer = function(category){
 };
 
 Hangman.prototype.lose = function(){
-  if(hangman.guessesLeft === 0){
-    hangman.gameOver = true;
+  if(this.guessesLeft === 0){
+    this.gameOver = true;
   };
 }
 
-Hangman.prototype.guess = function(){
-  if(((alphabet.indexOf(input.value) >= 0) && (hangman.guessedLetters.indexOf(input.value) < 0))){
-    hangman.guessedLetters.push(input.value);  
-    var reveal = hangman.revealedWord;
-    if(hangman.answer.indexOf(input.value) >= 0){
-      var word = hangman.answer;
-
+Hangman.prototype.guess = function(letter){
+  if(((alphabet.indexOf(letter) >= 0) && (this.guessedLetters.indexOf(letter) < 0))){
+    this.guessedLetters.push(letter);  
+    
+    var reveal = this.revealedWord;
+    if(this.answer.indexOf(letter) >= 0){
+      var word = this.answer;
       word.forEach(function(element, index){
-        if(element === input.value){
-          reveal[index] = input.value;
+        if(element === letter){
+          reveal[index] = letter;
 
         };
       });
-      hangman.revealedWord = reveal;
-
+      console.log(reveal);
+      this.revealedWord = reveal;
     } else {
-      hangman.guessesLeft --;
+      this.guessesLeft --;
     };
-    hangman.revealedWord = reveal;
+    this.revealedWord = reveal;
+  } else {
+    return false;
   };
-  hangman.win();
-  hangman.lose();
-  input.value = "";
 };
 
 Hangman.prototype.win = function(){
-  if(hangman.revealedWord.indexOf("_") < 0){
-    hangman.gameOver = true;
+  if(this.revealedWord.indexOf("_") < 0){
+    this.gameOver = true;
+    alert("You Win!")
   };
 };
