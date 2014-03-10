@@ -14,29 +14,39 @@ var checkingDeposit = document.querySelector("#checking_deposit");
 var checkingWithdraw = document.querySelector("#checking_withdraw");
 
 var savingsDeposit = document.querySelector("#savings_deposit");
-var savingsWithdraw = document.querySelector("#checking_withdraw");
+var savingsWithdraw = document.querySelector("#savings_withdraw");
 
 // I have to set up event listeners on the buttons to actually add and take away money
 checkingDeposit.addEventListener('click', function() {	
-	checking += parseInt(checkingInput.value);
-	checkingBalance.innerText = "$" + checking;
+	
+	if((checking + parseInt(checkingInput.value)) >= 0){ 
+		checking += parseInt(checkingInput.value); 
+ 		checkingBalance.innerText = "$" + checking;
+ 	};
 	checkingInput.value = '';
 });
 
 checkingWithdraw.addEventListener('click', function() {
-	checking -= parseInt(checkingInput.value);
-	checkingBalance.innerText = "$" + checking;
+	if((checking - parseInt(checkingInput.value)) >= 0){ 
+		checking -= parseInt(checkingInput.value); 
+ 		checkingBalance.innerText = "$" + checking;
+ 	};
 	checkingInput.value = '';
 });
 
 savingsDeposit.addEventListener('click', function() {	
-	savings += parseInt(savingsInput.value);
-	savingsBalance.innerText = "$" + savings;
+	
+	if((savings + parseInt(savingsInput.value)) >= 0){ 
+		savings += parseInt(savingsInput.value); 
+ 		savingsBalance.innerText = "$" + savings;
+ 	};
 	savingsInput.value = '';
 });
 
 savingsWithdraw.addEventListener('click', function() {
-	savings -= parseInt(savingsInput.value);
-	savingsBalance.innerText = "$" + savings;
+	if((savings - parseInt(savingsInput.value)) >= 0){ 
+		savings -= parseInt(savingsInput.value); 
+ 		savingsBalance.innerText = "$" + savings;
+ 	};
 	savingsInput.value = '';
 });
