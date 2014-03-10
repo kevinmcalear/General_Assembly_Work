@@ -86,13 +86,49 @@ checkingWithdraw.addEventListener("click", function(){
 });
 
 // trying to set the accounts up as objects, couldn't get the event listeners to work.
+
+// var removeDollar = function(value) {
+//   value.innerText = value.innerText.slice(1);
+// };
+
+// var addDollar = function(value) {
+//   value.innerText = ("$" + value.innerText);
+// };
+
 // var Account = function(name) {
 //   this.name
 //   this.deposit = document.querySelector("#"+name+"_deposit");
 //   this.withdraw = document.querySelector("#"+name+"_withdraw");
 //   this.balance = document.querySelector("#"+name+"_balance");
 //   this.input = document.querySelector("#"+name+"_amount");
+//   this.deposit.addEventListener("click", this.makeDeposit());
+//   this.withdraw.addEventListener("click", this.makeWithdraw());
 // };
+
+// // some kind of scoping problem above. In 104, this.makeDeposit, this is the button. Can't figure out how to make it the account.
+
+// Account.prototype.makeDeposit = function(){
+//   removeDollar(this.balance);
+//   var originalAmount = parseInt(this.balance.innerText);
+//   var depositAmount = parseInt(this.input.value);
+//   this.balance.innerText = (originalAmount+depositAmount);
+//   addDollar(this.balance);
+//   red(this.balance);
+//   this.input.value = null;
+// };
+
+// Account.prototype.makeWithdraw = function() {
+//   removeDollar(this.Balance);
+//   var originalAmount = parseInt(this.balance.innerText);
+//   var withdrawAmount = parseInt(this.input.value);
+//   if (originalAmount >= withdrawAmount){
+//     this.Balance.innerText = (originalAmount-withdrawAmount)
+//   };
+//   addDollar(this.Balance);
+//   red(this.Balance);
+//   this.input.value = null;
+// };
+
 
 // var red = function(balance){
 //   if(balance.innerText === "$0") {
@@ -108,25 +144,10 @@ checkingWithdraw.addEventListener("click", function(){
 // window.addEventListener("load", red(savings.balance));
 // window.addEventListener("load", red(checking.balance));
 
-// Account.prototype.makeDeposit = function(){
-//   removeDollar(this.balance);
-//   var originalAmount = parseInt(this.balance.innerText);
-//   var depositAmount = parseInt(this.input.value);
-//   this.balance.innerText = (originalAmount+depositAmount);
-//   addDollar(this.balance);
-//   red(this.balance);
-//   this.input.value = null;
-// };
 
-// (savings.deposit).addEventListener("click", savings.makeDeposit());
 
-// var removeDollar = function(value) {
-//   this.balance.innerText = this.balance.innerText.slice(1);
-// };
 
-// var addDollar = function(value) {
-//   value.innerText = ("$" + value.innerText);
-// };
+
 
 
 
