@@ -17,6 +17,8 @@ var buddies = [
 
 var lands = ["The Shire", "Rivendell", "Mordor"];
 
+var lands = ["The Shire", "Rivendell", "Mordor"];
+
 function makeMiddleEarth(lands) {
 }
 
