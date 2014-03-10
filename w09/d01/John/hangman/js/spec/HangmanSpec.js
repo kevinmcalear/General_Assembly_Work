@@ -38,17 +38,22 @@ describe ("Hangman", function(){
     var hangman = new Hangman("animals");
     beforeEach(function(){
       spyOn(Math, "random").and.returnValue(0.5);
-      hangman.makeLetters();
-      hangman.makeSpaces();
     });
     
     it ("checks if the guess is right", function(){
-      
+      hangman.makeLetters();
+      hangman.makeSpaces();
       hangman.checkGuess("d");
       expect(hangman.spaces[0]).toEqual("d");
       expect(hangman.spaces[1]).toEqual("_");
     });
 
+    it ("checks if the guess is wrong", function(){
+      hangman.checkGuess("s");
+      expect(hangman.spaces).toEqual(["d", "_", "_", "_", "_", "_", "_"]);
+      expect(hangman.wrongGuesses).toEqual(6);
+      expect(hangman.guessedLetters).toContain("s");
+    });
 
   });
 });

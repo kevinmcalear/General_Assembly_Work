@@ -24,11 +24,16 @@ function Hangman(category){
   };
 
   this.checkGuess = function(letter) {
+    var shouldDecrementGuesses = true;
     for (var i = 0; i < this.spaces.length; i++) {
       if (this.wordLetters[i] === letter) {
         this.spaces[i] = letter;
-      }
+        shouldDecrementGuesses = false;
+      };
     }
+    if (shouldDecrementGuesses) {
+      this.wrongGuesses -= 1;
+    };
   };
 
 };

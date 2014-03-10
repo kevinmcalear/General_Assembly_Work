@@ -38,14 +38,19 @@
     hangman.makeSpaces();
     var gameWord = document.querySelector("div.game-word");
     var letterInput = document.querySelector("#letter");
+    var guessesLeft = document.querySelector(".guesses-left");
+    var guessedLetters = document.querySelector(".guessed-letters");
 
     letterInput.addEventListener("keyup", function() {
       hangman.checkGuess(letterInput.value);
       gameWord.innerText = hangman.spaces.join(" ");
+      guessesLeft.innerText = hangman.wrongGuesses;
+      guessedLetters.innerText = hangman.guessedLetters;
       letterInput.value = "";
     });
 
     gameWord.innerText = hangman.spaces.join(" ");
+    guessesLeft.innerText = hangman.wrongGuesses;
 
 
 
