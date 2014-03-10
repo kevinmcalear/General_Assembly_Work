@@ -51,6 +51,13 @@ describe ("Hangman", function(){
     expect(game3.guess("n")).toBe("You win!");
   });
 
+  var game4 = new Hangman("blue");
+  it("doesn't do anything if you guess the same letter twice", function(){
+    game4.guess("b");
+    game4.guess("b");
+    expect(game4.guessedLetters.length).toBe(1);
+  });
+
 
 
 });

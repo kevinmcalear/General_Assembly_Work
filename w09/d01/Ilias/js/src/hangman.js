@@ -4,24 +4,28 @@ function Hangman(word){
   this.guessedLetters = [];
   this.correctLetters = new Array(this.word.length);
   this.guess = function(letter){
-    this.guessedLetters.push(letter);
-    if (this.guessedLetters.length === 7){
-      return "You lose!";
+    var guessedLettersString = this.guessedLetters.join("");
+    if (guessedLettersString.search(letter) != -1){
     } else {
-      if (this.word.search(letter) === -1 ){
-        return false;
+    this.guessedLetters.push(letter);
+      if (this.guessedLetters.length === 7){
+        return "You lose!";
       } else {
-        var wordArray = word.split("");
-        for (var i = 0; i < this.word.length; i++ ){
-          if (wordArray[i] === letter) {
-            this.correctLetters[i] = letter;
-          }
-        }
-        if (this.correctLetters.join("") === this.word){
-          return "You win!";
+        if (this.word.search(letter) === -1 ){
+          return false;
         } else {
-          console.log(this.correctLetters);
-          return true;
+          var wordArray = word.split("");
+          for (var i = 0; i < this.word.length; i++ ){
+            if (wordArray[i] === letter) {
+              this.correctLetters[i] = letter;
+            }
+          }
+          if (this.correctLetters.join("") === this.word){
+            return "You win!";
+          } else {
+            console.log(this.correctLetters);
+            return true;
+          }
         }
       }
     }
