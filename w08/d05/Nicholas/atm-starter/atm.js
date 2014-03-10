@@ -10,7 +10,11 @@ var withdrawSavingsButton = document.getElementById("savings_withdraw");
 var depositMoneyChecking = function(){
   var current_amount = parseInt(accountOneBalance.innerText.replace("$","") );
   var new_amount = current_amount + parseInt(amount.value.replace("$","") );
+  if (new_amount > 0){
   accountOneBalance.innerText = "$" + new_amount;
+  } else {
+    alert("Cannot deposit a negative amount");
+  } 
   amount.value = "";
   changeColorChecking();
 };
@@ -18,7 +22,11 @@ var depositMoneyChecking = function(){
 var depositMoneySavings = function(){
   var current_amount = parseInt(accountTwoBalance.innerText.replace("$","") );
   var new_amount = current_amount + parseInt(amountSavings.value.replace("$","") );
+  if (new_amount > 0){
   accountTwoBalance.innerText = "$" + new_amount;
+  } else {
+    alert("Cannot deposit a negative amount");
+  }
   amountSavings.value = "";
   changeColorSavings();
 };
@@ -32,7 +40,7 @@ var withdrawMoneySavings = function(){
   amountSavings.value = "";
   changeColorSavings();
   } else {
-    alert("Sorry! Not enough money!")
+    alert("Sorry! Not enough money!");
     amountSavings.value = "";
   }
 };
@@ -47,7 +55,7 @@ var withdrawMoneyChecking = function(){
     if (newAmount >= 0){
       accountTwoBalance.innerText = "$" + newAmount;
     } else {
-      alert("Sorry! Not enough money!")
+      alert("Sorry! Not enough money!");
       amountSavings.value = "";
     }
     accountOneBalance.innerText = "$0";
@@ -56,7 +64,7 @@ var withdrawMoneyChecking = function(){
   accountOneBalance.innerText = "$" + new_amount;
   amount.value = "";
   }
-  amount.value = ""
+  amount.value = "";
   changeColorChecking();
   changeColorSavings();
 };
