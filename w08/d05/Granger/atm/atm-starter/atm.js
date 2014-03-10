@@ -33,7 +33,7 @@ var checkWithdraw = function(){
       checkingBalance.innerText = "$" + result;
     }
     else {
-      savingsBalance.innerText = "$" + (result + parseInt(savingsBalance.innerText.slice(1)));
+      savingsBalance.innerText = "$" + (result + saveBal());
       checkingBalance.innerText = "$" + 0;
     }
       checkingDepositBox.value = "";
@@ -49,7 +49,7 @@ var saveWithdraw = function(){
       savingsBalance.innerText = "$" + result;
     }
     else {
-      checkingBalance.innerText = "$" + (result + parseInt(checkingBalance.innerText.slice(1)));
+      checkingBalance.innerText = "$" + (result + checkBal());
       savingsBalance.innerText = "$" + 0;
     }
       savingsDepositBox.value = "";
