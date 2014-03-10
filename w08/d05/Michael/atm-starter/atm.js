@@ -1,4 +1,7 @@
 //Open Question 1:  It seems that I dont' need to do querySelector for IDs?  Is that correct? 
+//Open Question 2:  What other ways could withdraws be managed with the overdraft protection rules. 
+
+
 
 //Functions
 var balanceZero = function(eventObject){
@@ -12,6 +15,15 @@ var balanceZero = function(eventObject){
   }else{
     savings_balance.classList.remove("zero")
   };
+};
+
+var deposits = function(eventObject){ 
+  var account = eventObject.target.parentElement
+  var amount = parseInt( account.children[2].value.replace("$","") )
+  var balance = parseInt( account.children[1].innerText.replace("$","") )
+  account.children[1].innerText = "$"+ (amount + balance)
+
+  balanceZero(); 
 };
 
 var withdrawChecking = function(){
@@ -37,21 +49,13 @@ var withdrawSavings = function(){
   balanceZero()
 };
 
-var deposits = function(eventObject){ 
-  var account = eventObject.target.parentElement
-  var amount = parseInt( account.children[2].value.replace("$","") )
-  var balance = parseInt( account.children[1].innerText.replace("$","") )
-  account.children[1].innerText = "$"+ (amount + balance)
-
-  balanceZero(); 
-};
-
-
 //Event Listeners
 window.onload = balanceZero()
 content.addEventListener("change",deposits)
 
 checking_withdraw.addEventListener("click",withdrawChecking)
 savings_withdraw.addEventListener("click",withdrawSavings)
-checking_balance.addEventListener("click",balanceZero)
+
+
+
 
