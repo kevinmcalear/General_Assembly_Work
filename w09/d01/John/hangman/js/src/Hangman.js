@@ -24,15 +24,11 @@ function Hangman(category){
   };
 
   this.checkGuess = function(letter) {
-    // var letterInput = document.querySelector("div.input#letter");
-    // var letter = letterInput.value;
     for (var i = 0; i < this.spaces.length; i++) {
       if (this.wordLetters[i] === letter) {
         this.spaces[i] = letter;
       }
     }
-    gameWord.innerText = hangman.spaces.join(" ");
-    letterInput.value = "";
   };
 
 };

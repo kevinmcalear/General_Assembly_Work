@@ -41,10 +41,14 @@ describe ("Hangman", function(){
       hangman.makeLetters();
       hangman.makeSpaces();
     });
+    
     it ("checks if the guess is right", function(){
       
       hangman.checkGuess("d");
       expect(hangman.spaces[0]).toEqual("d");
+      expect(hangman.spaces[1]).toEqual("_");
     });
+
+
   });
 });

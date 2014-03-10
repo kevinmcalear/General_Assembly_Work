@@ -41,9 +41,12 @@
 
     letterInput.addEventListener("keyup", function() {
       hangman.checkGuess(letterInput.value);
+      gameWord.innerText = hangman.spaces.join(" ");
+      letterInput.value = "";
     });
 
     gameWord.innerText = hangman.spaces.join(" ");
+
 
 
 
