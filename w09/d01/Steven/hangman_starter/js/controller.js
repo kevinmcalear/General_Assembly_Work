@@ -31,10 +31,13 @@ game = new Game();
 
   startGame.addEventListener("click", function(){
     gameCounter += 1;
+    player1.classList.remove("player");
+    player2.classList.remove("player");
+
     if(gameCounter % 2 === 0){
       player1.classList.add("player");
     } else {
-      player1.classlist.remove("player");
+      player2.classList.add("player");
     }
     console.log(gameCounter);
     console.log(game.word);
@@ -45,7 +48,7 @@ game = new Game();
     input.value = null;
     var dashes = [];
     for(var i = 0; i < game.word.length; i++){
-      dashes.push("_") };
+      dashes.push("_")};
     gameWord.innerText = dashes.join("");
     });
 
