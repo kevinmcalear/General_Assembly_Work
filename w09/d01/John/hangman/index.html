@@ -45,7 +45,7 @@
       hangman.checkGuess(letterInput.value);
       gameWord.innerText = hangman.spaces.join(" ");
       guessesLeft.innerText = hangman.wrongGuesses;
-      guessedLetters.innerText = hangman.guessedLetters;
+      guessedLetters.innerText = hangman.guessedLetters.join(", ");
       letterInput.value = "";
     });
 

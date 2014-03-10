@@ -7,6 +7,7 @@ function Hangman(category){
   this.wordLetters;
   this.spaces = [];
   this.wrongGuesses = 7;
+  this.guessedLetters = [];
 
   this.getWord = function() {
     var rand = Math.floor(Math.random() * words[category].length);
@@ -33,6 +34,7 @@ function Hangman(category){
     }
     if (shouldDecrementGuesses) {
       this.wrongGuesses -= 1;
+      this.guessedLetters.push(letter);
     };
   };
 
