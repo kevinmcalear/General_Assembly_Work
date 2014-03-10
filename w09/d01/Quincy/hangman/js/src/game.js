@@ -24,10 +24,11 @@ var play = function(  ) {
     gameWord.innerText = hangman1.visibleWord;
     guesses.innerText = hangman1.guessesLeft;
     input.value = "";
-  }
+
   if (hangman1.status === "won") {
     alert("You won!");
   }
+}
 };
 
 var fail = function() {
