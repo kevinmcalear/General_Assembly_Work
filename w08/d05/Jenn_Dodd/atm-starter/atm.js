@@ -12,42 +12,74 @@ var withdrawButtonSavings = document.querySelector("#savings_withdraw");
 var balanceSavings = document.querySelector("#savings_balance");
 
 var enterCheckingDeposit = function() {
-
-  balanceCheck.innerHTML = "$" + (parseInt(balanceCheck.innerHTML.substring(1)) + parseInt(inputCheck.value));
+  if (inputCheck.value.substring(0, 1) === "-") {
+    alert("Can't do that StarFox!");
+  } else {
+    balanceCheck.innerHTML = "$" + (parseInt(balanceCheck.innerHTML.substring(1)) + parseInt(inputCheck.value));
+  };
   inputCheck.value = "";
+  toggleZero();
 };
 
 var enterCheckingWD = function() {
-  var remainder = parseInt(balanceCheck.innerHTML.substring(1)) - parseInt(inputCheck.value)
-  if (parseInt(remainder) < 0 && parseInt(balanceSavings.innerHTML.substring(1)) + parseInt(remainder) < 0) {
+  var remainder = parseInt(balanceCheck.innerHTML.substring(1)) - parseInt(inputCheck.value);
+  var balanceMinusRemainder = parseInt(balanceSavings.innerHTML.substring(1)) + parseInt(remainder);
+  if (inputCheck.value.substring(0, 1) === "-") {
     alert("Can't do that StarFox!");
-  } else if (parseInt(remainder) < 0 && parseInt(balanceSavings.innerHTML.substring(1)) + parseInt(remainder) >= 0){
+  } else if (parseInt(remainder) < 0 && balanceMinusRemainder < 0) {
+    alert("Can't do that StarFox!");
+  } else if (parseInt(remainder) < 0 && balanceMinusRemainder >= 0){
     balanceCheck.innerHTML = "$0";
-    balanceSavings.innerHTML = "$" + (parseInt(balanceSavings.innerHTML.substring(1)) + parseInt(remainder));
+    balanceSavings.innerHTML = "$" + balanceMinusRemainder;
   } else {
-    balanceCheck.innerHTML = "$" + (parseInt(balanceCheck.innerHTML.substring(1)) - parseInt(inputCheck.value) );
+    balanceCheck.innerHTML = "$" + remainder;
   };
   inputCheck.value = "";
+  toggleZero();
 };
 
 var enterSavingsDeposit = function() {
-
-  balanceSavings.innerHTML = "$" + (parseInt(inputSavings.value) + parseInt(balanceSavings.innerHTML.substring(1)));
+  if (inputSavings.value.substring(0, 1) === "-") {
+    alert("Can't do that StarFox!");
+  } else {
+    balanceSavings.innerHTML = "$" + (parseInt(inputSavings.value) + parseInt(balanceSavings.innerHTML.substring(1)));
+  };
   inputSavings.value = "";
+  toggleZero();
 };
 
 var enterSavingsWD = function() {
   var remainder = parseInt(balanceSavings.innerHTML.substring(1)) - parseInt(inputSavings.value)
-  if (parseInt(remainder) < 0 && parseInt(balanceSavings.innerHTML.substring(1)) + parseInt(remainder) < 0) {
+  var balanceMinusRemainder = parseInt(balanceSavings.innerHTML.substring(1)) + parseInt(remainder)
+  if (inputSavings.value.substring(0, 1) === "-") {
     alert("Can't do that StarFox!");
-  } else if (parseInt(remainder) < 0 && parseInt(balanceCheck.innerHTML.substring(1)) + parseInt(remainder) >= 0){
+  } else if (parseInt(remainder) < 0 && balanceMinusRemainder < 0) {
+    alert("Can't do that StarFox!");
+  } else if (parseInt(remainder) < 0 && balanceMinusRemainder >= 0){
     balanceSavings.innerHTML = "$0";
-    balanceCheck.innerHTML = "$" + (parseInt(balanceCheck.innerHTML.substring(1)) + parseInt(remainder));
+    balanceCheck.innerHTML = "$" + balanceMinusRemainder;
   } else {
-    balanceSavings.innerHTML = "$" + (parseInt(balanceSavings.innerHTML.substring(1)) - parseInt(inputSavings.value) );
+    balanceSavings.innerHTML = "$" + remainder;
   };
   inputSavings.value = "";
+  toggleZero();
 };
+
+var toggleZero = function() {
+  if (balanceCheck.innerHTML === "$0") {
+    balanceCheck.classList.add('zero');
+  } else {
+    balanceCheck.classList.remove('zero');
+  };
+
+  if (balanceSavings.innerHTML === "$0") {
+    balanceSavings.classList.add('zero');
+  } else {
+    balanceSavings.classList.remove('zero');
+  };
+};
+
+toggleZero();
 depositButtonCheck.addEventListener("click", enterCheckingDeposit);
 withdrawButtonCheck.addEventListener("click", enterCheckingWD);
 depositButtonSavings.addEventListener("click", enterSavingsDeposit);
