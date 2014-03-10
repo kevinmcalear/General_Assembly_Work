@@ -6,7 +6,25 @@
   <body>
     <h1>warmup</h1>
     <script type='text/javascript'>
+    var favs = ["broccoli","pomegranates","brick oven pizza","whiskey","the color blue"];
+    var items = 0;
 
+    favs.forEach(function(entry) {
+      items += 1;
+      return ("My favorite thing is " + entry);
+      });
+
+
+    var initials = function()
+    {
+      var name = prompt("What is your full name?");
+      var splitname = name.split(" ")
+      var inits = []
+      for( var i = 0; i < splitname.length; i++){
+        inits.push(splitname[i][0]);
+      };
+      console.log(inits.join(""))
+    };
 
 // WORK HERE
 
