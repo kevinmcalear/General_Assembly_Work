@@ -15,9 +15,11 @@ var makeCheckingDeposit = function() {
 };
 
 var makeCheckingWithdrawl = function() {
-  if (parseInt(checkingBalance.innerHTML.substring(1)) >= parseInt(checkingInput.value)) {
+  var positiveNumberCheck = parseInt(checkingInput.value) > 0;
+
+  if ((parseInt(checkingBalance.innerHTML.substring(1)) >= parseInt(checkingInput.value)) && positiveNumberCheck === true) {
     checkingBalance.innerHTML = "$" + (parseInt(checkingBalance.innerHTML.substring(1)) - parseInt(checkingInput.value));
-  } else if ((parseInt(checkingBalance.innerHTML.substring(1)) + parseInt(savingsBalance.innerHTML.substring(1))) >= parseInt(checkingInput.value)) {
+  } else if ((parseInt(checkingBalance.innerHTML.substring(1)) + parseInt(savingsBalance.innerHTML.substring(1))) >= parseInt(checkingInput.value) && positiveNumberCheck === true) {
     var overdraftAmount = (parseInt(checkingInput.value) - parseInt(checkingBalance.innerHTML.substring(1)));
     savingsBalance.innerHTML = "$" + (parseInt(savingsBalance.innerHTML.substring(1)) - overdraftAmount);
     checkingBalance.innerHTML = "$0";
@@ -31,9 +33,11 @@ var makeSavingsDeposit = function() {
 };
 
 var makeSavingsWithdrawl = function() {
-  if (parseInt(savingsBalance.innerHTML.substring(1)) >= parseInt(savingsInput.value)) {
+  var positiveNumberCheck = parseInt(savingsInput.value) > 0;
+
+  if (parseInt(savingsBalance.innerHTML.substring(1)) >= parseInt(savingsInput.value) && positiveNumberCheck === true) {
     savingsBalance.innerHTML = "$" + (parseInt(savingsBalance.innerHTML.substring(1)) - parseInt(savingsInput.value));
-  } else if ((parseInt(savingsBalance.innerHTML.substring(1)) + parseInt(checkingBalance.innerHTML.substring(1))) >= parseInt(savingsInput.value)) {
+  } else if ((parseInt(savingsBalance.innerHTML.substring(1)) + parseInt(checkingBalance.innerHTML.substring(1))) >= parseInt(savingsInput.value) && positiveNumberCheck === true) {
     var overdraftAmount = (parseInt(savingsInput.value) - parseInt(savingsBalance.innerHTML.substring(1)));
     checkingBalance.innerHTML = "$" + (parseInt(checkingBalance.innerHTML.substring(1)) - overdraftAmount);
     savingsBalance.innerHTML = "$0";
