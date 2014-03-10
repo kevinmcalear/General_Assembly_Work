@@ -18,7 +18,6 @@ var enterCheckingDeposit = function() {
     balanceCheck.innerHTML = "$" + (parseInt(balanceCheck.innerHTML.substring(1)) + parseInt(inputCheck.value));
   };
   inputCheck.value = "";
-  toggleZero();
 };
 
 var enterCheckingWD = function() {
@@ -45,7 +44,6 @@ var enterSavingsDeposit = function() {
     balanceSavings.innerHTML = "$" + (parseInt(inputSavings.value) + parseInt(balanceSavings.innerHTML.substring(1)));
   };
   inputSavings.value = "";
-  toggleZero();
 };
 
 var enterSavingsWD = function() {
