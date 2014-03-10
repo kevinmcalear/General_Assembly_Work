@@ -37,8 +37,15 @@
     hangman.makeLetters();
     hangman.makeSpaces();
     var gameWord = document.querySelector("div.game-word");
+    var letterInput = document.querySelector("#letter");
+
+    letterInput.addEventListener("keyup", function() {
+      hangman.checkGuess(letterInput.value);
+    });
 
     gameWord.innerText = hangman.spaces.join(" ");
+
+
 
   </script>
 </body>

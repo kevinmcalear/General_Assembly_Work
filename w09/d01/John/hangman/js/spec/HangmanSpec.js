@@ -33,4 +33,18 @@ describe ("Hangman", function(){
       expect(hangman.wrongGuesses).toEqual(7);
     });
   });
+
+  describe("checkGuess", function(){
+    var hangman = new Hangman("animals");
+    beforeEach(function(){
+      spyOn(Math, "random").and.returnValue(0.5);
+      hangman.makeLetters();
+      hangman.makeSpaces();
+    });
+    it ("checks if the guess is right", function(){
+      
+      hangman.checkGuess("d");
+      expect(hangman.spaces[0]).toEqual("d");
+    });
+  });
 });

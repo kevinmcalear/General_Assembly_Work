@@ -7,9 +7,7 @@ function Hangman(category){
   this.wordLetters;
   this.spaces = [];
   this.wrongGuesses = 7;
-  // this.makeLetters();
-  // this.makeSpaces();
-  
+
   this.getWord = function() {
     var rand = Math.floor(Math.random() * words[category].length);
     return words[category][rand];
@@ -23,6 +21,18 @@ function Hangman(category){
     for (var i = 0; i < this.wordLetters.length; i++) {
       this.spaces.push("_");
     };
+  };
+
+  this.checkGuess = function(letter) {
+    // var letterInput = document.querySelector("div.input#letter");
+    // var letter = letterInput.value;
+    for (var i = 0; i < this.spaces.length; i++) {
+      if (this.wordLetters[i] === letter) {
+        this.spaces[i] = letter;
+      }
+    }
+    gameWord.innerText = hangman.spaces.join(" ");
+    letterInput.value = "";
   };
 
 };
