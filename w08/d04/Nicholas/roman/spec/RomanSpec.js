@@ -31,6 +31,10 @@ describe("romanize", function() {
     expect(romanize(10)).toEqual('X');
   });
 
+  it("converts 23", function() {
+    expect(romanize(23)).toEqual('XXIII');
+  });
+
   it("converts 26", function() {
     expect(romanize(26)).toEqual('XXVI');
   });
