@@ -1,0 +1,43 @@
+/* 
+* Header
+*/
+body, h1, p {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  display: inline-block;
+}
+
+.logo_flag {
+  background-color: #287DAE;
+  display: inline-block;
+  width: 150px;
+  height: 60px;
+}
+
+h1 {
+  color: #FFF;
+  padding-left: 75px;
+  padding-top: 12px;
+  
+}
+
+span {
+  width: 50px;
+  display: inline-block;
+  font-size: 14px;
+  color: #777;
+  line-height: 14px;
+  padding-left: 8px;
+}
+
+.hero {
+  height: 500px;
+  background: url("picture-77.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+

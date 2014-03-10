@@ -49,7 +49,7 @@ function makeHobbits(hobbits) {
 ```
 function keepItSecretKeepItSafe() {
   // create a div with an id of 'the-ring'
-  // add the ring as a child of Frodo
+  // add the-ring as a child of Frodo
 }
 ```
 
