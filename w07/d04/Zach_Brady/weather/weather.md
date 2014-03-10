@@ -1,4 +1,4 @@
-# Command Line Weather
+cd# Command Line Weather
 
 * We're going to create a command line tool for checking the weather outside.
 * I used the wunderground API, though you are free to check out whatever weather API you like :)
