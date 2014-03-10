@@ -13,8 +13,8 @@ describe ("Hangman", function(){
     expect(game.wordCount).toBe(6);
   });
 
-  it ("returns the position of the letter if in the word", function(){
-    expect(game.guess("y")).toBe(0);
+  it ("returns true if the letter is in the word", function(){
+    expect(game.guess("y")).toBe(true);
   });
 
   it ("returns false if the letter is not in the word", function(){
@@ -22,8 +22,8 @@ describe ("Hangman", function(){
   });
 
   it ("stores the letters you have guessed", function(){
-    expect(game.incorrectLetters).toContain("y" && "z");
-    expect(game.incorrectLetters).not.toContain("a");
+    expect(game.guessedLetters).toContain("y" && "z");
+    expect(game.guessedLetters).not.toContain("a");
   });
 
   it ("ends the game after they have guessed seven times", function(){
