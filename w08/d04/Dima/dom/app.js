@@ -13,5 +13,23 @@ var colorList = document.createElement("ul");
 
   var h1 = document.querySelector("h1");
   h1.insertAdjacentElement("afterend", colorList);
-  // var green = document.createElement("li");
-  // var blue = document.createElement("li");
+
+var button = document.querySelector("button");
+
+var clickFunc = function() {
+  var body = document.querySelector("body");
+  body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+  console.log("I have been clicked!");
+};
+
+button.addEventListener("click", clickFunc);
+
+var input = document.createElement("input");
+input.type = 'text';
+button.insertAdjacentElement("afterend", input)
+var div = document.createElement("div");
+input.insertAdjacentElement("afterend", div);
+
+input.addEventListener('keyup', function(){
+  div.innerText = this.value;
+})
