@@ -27,6 +27,7 @@ checkingDeposit.addEventListener('click', function() {
  		savingsBalance.innerText = "$" + savings;
  	};
 	checkingInput.value = '';
+	zeroClass();
 });
 
 checkingWithdraw.addEventListener('click', function() {
@@ -41,6 +42,7 @@ checkingWithdraw.addEventListener('click', function() {
  		checkingBalance.innerText = "$" + checking;
  	}; 
 	checkingInput.value = '';
+	zeroClass();
 });
 
 
@@ -56,7 +58,7 @@ savingsDeposit.addEventListener('click', function() {
  	}; 
 
  	savingsInput.value = '';
-	
+	zeroClass();
 });
 
 savingsWithdraw.addEventListener('click', function() {
@@ -72,5 +74,23 @@ savingsWithdraw.addEventListener('click', function() {
  	}; 
 
  	savingsInput.value = ''; 
-	
+	zeroClass();
 });
+
+
+// Adding the zero class for the zeros
+var zeroClass = function() {
+	if(checking === 0) {
+		checkingBalance.classList.add('zero'); 
+	} else {
+		checkingBalance.classList.remove('zero'); 
+	};
+
+	if(savings === 0) {
+		savingsBalance.classList.add('zero'); 
+	} else {
+		savingsBalance.classList.remove('zero'); 
+	};
+};
+
+zeroClass();
