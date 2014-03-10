@@ -34,25 +34,37 @@
   </section>
   <script type="text/javascript">
     
-    var game = new Hangman("basketball");
-    
+    var game = new Hangman(pickWord());
     var guessesLeft = document.querySelector("span.guesses-left");
     var wordString = document.querySelector("div.game-word");
     var guessLetter = document.querySelector("input#letter");
     var guessedLetters = document.querySelector("span.guessed-letters");
+    var newGame = document.querySelector("button.button.new-game");
 
     guessesLeft.innerText = game.guessesLeft;
     wordString.innerText = game.blankArray.join(" ");
+    guessedLetters.innerText = game.guesses;
     
-    var updateBoard = function() {
-      guessedLeft.innerText = game.guessesLeft;
+    guessLetter.addEventListener("keyup", function() {
+      wordString.innerText = game.checkLetter(guessLetter.value, game.word).join(" ");
+      guessedLetters.innerText = game.guesses.join(" ");
+      guessesLeft.innerText = game.guessesLeft;
+      guessLetter.value = "";
+
+    })
+
+    newGame.addEventListener("click", function() {
+      var game = new Hangman(pickWord());
+      var guessesLeft = document.querySelector("span.guesses-left");
+      var wordString = document.querySelector("div.game-word");
+      var guessLetter = document.querySelector("input#letter");
+      var guessedLetters = document.querySelector("span.guessed-letters");
+      var newGame = document.querySelector("button.button.new-game");
+
+      guessesLeft.innerText = game.guessesLeft;
       wordString.innerText = game.blankArray.join(" ");
-    }
-
-
-guessLetter.addEventListener("keyup", function() {
-  wordString.innerText = game.checkLetter(guessLetter.value, game.word);
-})
+      guessedLetters.innerText = game.guesses;
+    })
 
     
 

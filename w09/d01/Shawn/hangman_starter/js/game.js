@@ -7,6 +7,7 @@ var Hangman = function(word) {
   this.letterCount = word.length;
   this.wordLetters = word.split("");
   this.blankArray = new Array(this.wordLetters.length);
+
   for(var i = 0; i < this.blankArray.length; i++) {
       if(this.blankArray[i] === undefined) {
         this.blankArray[i] = '_';
@@ -26,12 +27,11 @@ var Hangman = function(word) {
 
   this.checkLetter = function(letter, word) {
     var counter = 0;
-
+    this.guesses.push(letter);
     for(var i = 0; i < this.wordLetters.length; i++) {
       if(letter === this.wordLetters[i]){
         counter++;
         this.blankArray[i] = letter;
-        this.guesses.push(letter);
       }
     }
 
@@ -41,7 +41,7 @@ var Hangman = function(word) {
       
       if(this.guessesLeft === 0) {
         this.game = false;
-        return this.game;
+        return ["You Lose"];
       }
     } 
     for(var i = 0; i < this.blankArray.length; i++) {
@@ -52,17 +52,16 @@ var Hangman = function(word) {
     if(this.blankArray.join("").search('_') !== -1){
       return this.blankArray;
     } else {
-      return "You Win.  The word is " + this.word;
+      return ["You Win.  The word is " + this.word];
     }
     
   } 
 }
 
 var pickWord = function(category) {
-  this.category = category;
-  var categories = {
-    sports: "basketball"
-  }
-  return categories[this.category];
+  var hangWords = ["abbey","abruptly","affix","askew","axiom","azure","bagpipes","bandwagon","banjo","bayou","bikini","blitz","bookworm","boxcar","boxful","buckaroo","buffalo","buffoon","cobweb","croquet","daiquiri","disavow","duplex","dwarves","equip","exodus","fishhook","fixable","foxglove","galaxy","galvanize","gazebo","gizmo","glowworm","guffaw","haiku","haphazard","hyphen","icebox","injury","ivory","ivy","jaundice","jawbreaker","jaywalk","jazzy","jigsaw","jiujitsu","jockey","jovial","joyful","juicy","jumbo","kazoo","keyhole","khaki","kilobyte","kiosk","kiwifruit","knapsack","larynx","luxury","marquis","megahertz","microwave","mystify","nightclub","nowadays","numbskull","ovary","oxidize","oxygen","pajama","peekaboo","pixel","pizazz","pneumonia","polka","quartz","quiz","quorum","razzmatazz","rhubarb","rickshaw","schizophrenia","sphinx","spritz","squawk","subway","swivel","topaz","unknown","unworthy","unzip","uptown","vaporize","vixen","vodka","vortex","walkway","waltz","wavy","waxy","wheezy","whiskey","whomever","wimpy","wizard","woozy","xylophone", "yachtsman", "yippee", "youthful", "zephyr", "zigzag","zilch","zodiac","zombie"];
+    
+    var i = Math.floor(Math.random() * hangWords.length);
+    return hangWords[i];
 }
 
