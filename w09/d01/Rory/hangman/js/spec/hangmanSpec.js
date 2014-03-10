@@ -49,7 +49,7 @@ describe("Hangman", function(){
         hangman.guessLetter("a");
         hangman.guessLetter("t");
         expect(hangman.gameStatus()).toBe("You won");
-        expect(hangman.correctLetters).toBe(["c","a","t"]);
+        expect(hangman.correctLetters).toEqual(["c","a","t"]);
 
       });
     });
