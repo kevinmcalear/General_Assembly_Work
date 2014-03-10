@@ -24,6 +24,16 @@ describe("Hangman", function(){
     expect(game.guesses).toEqual(["a"]);
   });
 
+  it("does not accept non-letters"), function(){
+    game.guess("%");
+    expect(game.guesses).toEqual([]);
+  });
+
+  it("does not accept strings"), function(){
+    game.guess("hello");
+    expect(game.guesses).toEqual([]);
+  });
+
   it("only decreases guesses left when there is an incorrect guess", function(){
     game.guess("w");
     expect(game.guessesLeft).toEqual(5);
