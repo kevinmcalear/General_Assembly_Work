@@ -3,43 +3,48 @@ var Hangman = function(word) {
   this.word = word;
   this.guessesLeft = 7;
   this.misses = [];
+  this.guesses = [];
+  this.letterCount = word.length;
+  this.wordLetters = word.split("");
+  this.blankArray = new Array(this.wordLetters.length);
   
   this.game = function() {
     return true;
   }
 
-  this.countLetters = function(word) {
-    var letterCount = word.length;
-    return letterCount;
-  }
 
   this.checkLetter = function(letter, word) {
     var counter = 0;
-    var misses = [];
-    var wordLetters = word.split("");
-    var blankArray = new Array(wordLetters.length);
 
-    for(var i = 0; i < wordLetters.length; i++) {
-      if(letter === wordLetters[i]){
+    for(var i = 0; i < this.wordLetters.length; i++) {
+      if(letter === this.wordLetters[i]){
         counter++;
-        blankArray[i] = letter;
+        this.blankArray[i] = letter;
+        this.guesses.push(letter);
       }
     }
-    if(counter === 0) {
+
+    if(counter === 0 && this.misses.join("").search(letter) === -1) {
       this.guessesLeft -= 1;
       this.misses.push(letter);
+      
       if(this.guessesLeft === 0) {
         this.game = false;
         return this.game;
       }
-    }
-    for(var i = 0; i < blankArray.length; i++) {
-      if(blankArray[i] === undefined) {
-        blankArray[i] = '_';
+    } 
+    for(var i = 0; i < this.blankArray.length; i++) {
+      if(this.blankArray[i] === undefined) {
+        this.blankArray[i] = '_';
       }
     }
-    return blankArray;
-  }
+    if(this.blankArray.join("").search('_') !== -1){
+      return this.blankArray;
+    } else {
+      return "You Win.  The word is " + this.word;
+    }
+    
+  } 
 
 }
 

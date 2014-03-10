@@ -16,7 +16,7 @@ describe("Hangman", function() {
     expect(hangman.word).toBe("basketball");
   })
 
-  describe("countLetters", function() {
+  xdescribe("countLetters", function() {
     it("takes a work and returns the number of letters", function() {
       var word = "basketball";    
       expect(hangman.countLetters(word)).toBe(10);
@@ -34,6 +34,7 @@ describe("Hangman", function() {
       hangman.checkLetter('c', hangman.word);
       expect(hangman.guessesLeft).toBe(6);
       expect('c').toContain(hangman.misses);
+      expect('c').toContain(hangman.guesses);
       console.log(hangman.misses);
     })
     it("won't let you guess a letter which has already been guessed", function() {
@@ -53,6 +54,16 @@ describe("Hangman", function() {
       hangman.checkLetter('f', hangman.word);
       expect(hangman.game).toBe(false);
     })
+
+    it("lets you know if you won the game", function() {
+      hangman.checkLetter('b', hangman.word);
+      hangman.checkLetter('a', hangman.word);
+      hangman.checkLetter('s', hangman.word);
+      hangman.checkLetter('k', hangman.word);
+      hangman.checkLetter('e', hangman.word);
+      hangman.checkLetter('t', hangman.word);
+      expect(hangman.checkLetter('l', hangman.word)).toEqual("You Win.  The word is basketball");
+    }) 
   
   }) 
 });
