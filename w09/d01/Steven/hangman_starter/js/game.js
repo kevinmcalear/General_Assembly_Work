@@ -1,6 +1,5 @@
 
 function Game(word){
-  // this.word = word;
   this.word = hangWords[Math.floor(Math.random()*hangWords.length)];
   this.incorrectGuesses = [];
   this.correctGuesses = [];
