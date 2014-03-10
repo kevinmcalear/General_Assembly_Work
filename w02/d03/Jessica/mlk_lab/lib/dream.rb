@@ -28,8 +28,6 @@ class State
 
   def table_of_brotherhood
     return @table_of_brotherhood
-    # return @table_of_brotherhood
-    # return @sons_of_former_slaves
   end
 
   def sit_at_table(sons_of_former_slaves)
@@ -40,7 +38,7 @@ class State
     return @ringing
   end
 
-  def freedom
+  def free
     @ringing = true
   end
 end
@@ -50,7 +48,7 @@ class Freedom
   end
 
   def ring(state)
-    state.freedom
+    state.free
     array = []
     array << state
   end
