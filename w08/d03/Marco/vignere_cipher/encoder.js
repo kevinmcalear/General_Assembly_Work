@@ -40,8 +40,8 @@ function encode(message, keyword) {
 };
 
 
-// // find the index of each letter in message
-// // find the index of each letter in keyword
-// // map keyword to length of message
-// // add indexes of message letter and keyword letter 
-// // assign new cipher letter according to added indexes
+// find the index of each letter in message
+// find the index of each letter in keyword
+// map keyword to length of message
+// add indexes of message letter and keyword letter 
+// assign new cipher letter according to added indexes
