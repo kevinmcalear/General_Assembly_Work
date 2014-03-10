@@ -15,14 +15,36 @@ function Hangman(initialValues) {
     return wordGroup[1][Math.floor(Math.random() * wordGroup.length)];
   };
 
+
   this.secretWord = initialValues.secretWord || this.pickWord();
   this.category = "";
   this.guessesLeft = 7;
   this.wrongLetters = [];
   this.rightLetters = new Array(this.secretWord.length);
+  this.allGuesses = [];
+  for(var i = 0; i < this.rightLetters.length; i++) {
+    this.rightLetters[i] = "";
+  };
   this.status = "playing";
 
-console.log(this.secretWord);
+  this.visibleWordSpaces = function() {
+    var vis = [];
+    for(var i = 0; i < this.secretWord.length; i++) {
+      if (this.rightLetters[i] === "") {
+        vis.push("_");
+      }
+      else {
+        vis.push(this.rightLetters[i]);
+      };
+    };
+    console.log(vis);
+    console.log(this.secretWord);
+    return vis.join(" ");
+  };
+
+  this.visibleWord = this.visibleWordSpaces();
+
+//console.log(this.secretWord);
 
 
 
@@ -30,6 +52,7 @@ console.log(this.secretWord);
     if ( this.status === "playing" ) {
       if (!this.present(letter)) {
         this.wrongLetters.push(letter);
+        this.allGuesses.push(letter);
         this.guessesLeft--;
       }
       if ( this.guessesLeft === 0 ){
@@ -37,12 +60,16 @@ console.log(this.secretWord);
       };
     };
     this.statusUpdate();
+    this.visibleWord = this.visibleWordSpaces();
   }
 
   this.present = function(letter) {
     var there = false;
     for (var i = 0; i < this.secretWord.length; i++ ){
       if (letter === this.secretWord.charAt(i)) {
+        if (there === false) {
+          this.allGuesses.push(letter);
+        }
         there = true;
         this.rightLetters[i] = letter;
       }
