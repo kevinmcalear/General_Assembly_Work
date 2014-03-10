@@ -7,6 +7,7 @@ header {
 }
 
 #main_box {
+  border: 2px solid red;
   width: 70%;
   margin: 0 auto;
   margin-top: -175px;
@@ -14,6 +15,7 @@ header {
 
 
 .left {
+  border: 2px solid green;
   display: inline-block;
 }
 
@@ -23,13 +25,10 @@ header {
 }
 
 .right {
+  border: 2px solid blue;
   width: 60%;
   float: right;
   
-}
-
-.right img {
-  width: 40%;
 }
 
 .moments_box {
@@ -41,7 +40,7 @@ header {
   border-radius: 5px;
 }
 .icon-right {
-  width: 80px;
+  border: 3px solid teal;
 }
 
 
