@@ -40,6 +40,11 @@
     var letterInput = document.querySelector("#letter");
     var guessesLeft = document.querySelector(".guesses-left");
     var guessedLetters = document.querySelector(".guessed-letters");
+    var giveUpButton = document.querySelector("button.give-up");
+    var newGameButton = document.querySelector("button.new-game");
+
+    gameWord.innerText = hangman.spaces.join(" ");
+    guessesLeft.innerText = hangman.wrongGuesses;
 
     letterInput.addEventListener("keyup", function() {
       hangman.checkGuess(letterInput.value);
@@ -49,8 +54,14 @@
       letterInput.value = "";
     });
 
-    gameWord.innerText = hangman.spaces.join(" ");
-    guessesLeft.innerText = hangman.wrongGuesses;
+    giveUpButton.addEventListener("click", function() {
+      hangman.giveUp();
+      gameWord.innerText = hangman.spaces.join(" ");
+      guessesLeft.innerText = hangman.wrongGuesses;
+      guessedLetters.innerText = hangman.guessedLetters.join(", ");
+      letterInput.value = "";
+    });
+
 
 
 
