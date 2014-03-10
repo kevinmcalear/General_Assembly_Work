@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Hangman</title>
   <link rel="stylesheet" href="style.css">
-  <script type='text/javascript' src='js/game.js'></script>
+  <script type='text/javascript' src='js/src/hangman.js'></script>
 </head>
 <body>
   <section class="game-play">
@@ -34,10 +34,11 @@
   </section>
   <script>
     var hangman = new Hangman("animals");
-
+    hangman.makeLetters();
+    hangman.makeSpaces();
     var gameWord = document.querySelector("div.game-word");
 
-    gameWord.innerText = this.spaces.join(" ");
+    gameWord.innerText = hangman.spaces.join(" ");
 
   </script>
 </body>
