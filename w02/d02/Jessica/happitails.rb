@@ -52,6 +52,15 @@ class Client
 
 end
 
+# class CatLady < Client
+#   def add_pets(pet)
+#     if pet == "cat"
+#       self.pets().push(pet)
+#     else
+#       puts "Only cats sorry!"
+#     end
+#   end
+# end
 
 class Shelter 
   def initialize(name)
