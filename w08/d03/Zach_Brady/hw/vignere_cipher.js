@@ -8,11 +8,13 @@ function encrypt(theMessage, theKey){
   for (i = 0; i < theMessage.length; i++){
     j = 0
     if ( j < theKey.length ) {
-      cipherArray.push(theAlphabet.indexOf(theMessage[i]) + theAlphabet.indexOf(theKey[j]));
+      // cipherArray.push(theAlphabet.indexOf(theMessage[i]) + theAlphabet.indexOf(theKey[j]));
+      getCipherLetter(theMessage[i], theKey[j]);
       ++j;
     } else {
       j = 0;
-      cipherArray.push(theAlphabet.indexOf(theMessage[i]) + theAlphabet.indexOf(theKey[j]));
+      // cipherArray.push(theAlphabet.indexOf(theMessage[i]) + theAlphabet.indexOf(theKey[j]));
+      getCipherLetter(theMessage[i], theKey[j]);
       ++j;
     }
   }
