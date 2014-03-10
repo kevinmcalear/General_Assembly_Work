@@ -12,6 +12,13 @@ depositButton.addEventListener("click", function(){
 	checkingBalanceValue = (checkingBalanceValue + depositAmount);
 });
 
+checkingWithdrawButton.addEventListener("click", function(){
+	var checkingBalanceValue = parseInt(checkingBalance.innerText.replace("$", ""));
+	var withdrawAmount = parseInt(depositOrWithdrawInput.value);
+	checkingBalance.innerText = "$" + (checkingBalanceValue - withdrawAmount);
+	checkingBalance.value = (checkingBalanceValue - withdrawAmount);
+	checkingBalanceValue = (checkingBalanceValue - withdrawAmount);
+});
 
 
 
