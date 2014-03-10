@@ -8,6 +8,22 @@ var savingsDepositButton = document.querySelector("#savings_deposit");
 var savingsWithdrawButton = document.querySelector("#savings_withdraw");
 var savingsBalance = document.querySelector("#savings_balance");
 
+var checkingBackground = function() {
+  if (parseInt(checkingBalance.innerHTML.substring(1)) === 0) {
+    checkingBalance.classList.add("zero");
+  } else if (parseInt(checkingBalance.innerHTML.substring(1)) > 0) {
+    checkingBalance.classList.remove("zero");
+  }
+};
+
+var savingsBackground = function() {
+  if (parseInt(savingsBalance.innerHTML.substring(1)) === 0) {
+    savingsBalance.classList.add("zero");
+  } else if (parseInt(savingsBalance.innerHTML.substring(1)) > 0) {
+    savingsBalance.classList.remove("zero");
+  }
+};
+
 var makeCheckingDeposit = function() {
   if (parseInt(checkingInput.value) > 0) {
     checkingBalance.innerHTML = "$" + (parseInt(checkingBalance.innerHTML.substring(1)) + parseInt(checkingInput.value));
@@ -23,6 +39,8 @@ var makeCheckingWithdrawl = function() {
     var overdraftAmount = (parseInt(checkingInput.value) - parseInt(checkingBalance.innerHTML.substring(1)));
     savingsBalance.innerHTML = "$" + (parseInt(savingsBalance.innerHTML.substring(1)) - overdraftAmount);
     checkingBalance.innerHTML = "$0";
+    checkingBackground(checkingBalance);
+    savingsBackground(savingsBalance);
   };
 };
 
@@ -41,10 +59,20 @@ var makeSavingsWithdrawl = function() {
     var overdraftAmount = (parseInt(savingsInput.value) - parseInt(savingsBalance.innerHTML.substring(1)));
     checkingBalance.innerHTML = "$" + (parseInt(checkingBalance.innerHTML.substring(1)) - overdraftAmount);
     savingsBalance.innerHTML = "$0";
+    checkingBackground(checkingBalance);
+    savingsBackground(savingsBalance);
   };
 };
+
+window.onload = checkingBackground();
+window.onload = savingsBackground();
 
 checkingDepositButton.addEventListener("click", makeCheckingDeposit);
 checkingWithdrawButton.addEventListener("click", makeCheckingWithdrawl);
 savingsDepositButton.addEventListener("click", makeSavingsDeposit);
 savingsWithdrawButton.addEventListener("click", makeSavingsWithdrawl);
+
+checkingDepositButton.addEventListener("click", checkingBackground);
+checkingWithdrawButton.addEventListener("click", checkingBackground);
+savingsDepositButton.addEventListener("click", savingsBackground);
+savingsWithdrawButton.addEventListener("click", savingsBackground);
