@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hangman</title>
+  <link rel="stylesheet" href="style.css">
+  <script type='text/javascript' src='js/src/hangman.js'></script>
+</head>
+<body>
+  <section class="game-play">
+
+    <figure>
+      <span>Guesses Left:</span> <span class="guesses-left"></span>
+    </figure>
+
+    <aside>
+      <div>
+        <span>Letters Guessed Already:</span>
+        <span class="guessed-letters"></span>
+      </div>
+
+      <div>
+        <label for="letter">Guess a Letter:</label>
+        <input type="text" name="letter" id="letter" />
+      </div>
+    </aside>
+  </section>
+
+  <div class="game-word">A B C D</div>
+
+  <section class="game-controls">
+    <button class="button give-up">Give Up</button>
+    <button class="button new-game">New Game</button>
+  </section>
+
+   <script>
+
+    var hangman = new Hangman();
+    hangman.setupGame();
+
+    var guessesLeft = document.querySelector(".guesses-left");
+    var buttonNewGame = document.querySelector("button.new-game");
+    var input = document.querySelector("#letter");
+    var gameWord = document.querySelector(".game-word");
+    var guessedLetters = document.querySelector(".guessed-letters");
+
+    gameWord.innerText = hangman.spaces.join(" ");
+
+    guessedLetters.innerText = hangman.guessedLetters;
+
+    input.addEventListener("keyup", function(){
+      gameWord.innerText = hangman.guessLetter(input.value);
+      guessedLetters.innerText = hangman.guessedLetters.join(", ");
+    })
+
+
+    buttonNewGame.addEventListener("click", function(){
+      var hangman = new Hangman();
+      guessesLeft.innerText = hangman.guesses;
+    })
+
+   </script>
+</body>
+</html>
