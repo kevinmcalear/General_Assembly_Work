@@ -8,18 +8,14 @@
 <body>
   <h1>Pixel Art!</h1>
   <div class="controls">
+    <form>
     <input type="text" id="color-field"></input>
     <button id="set-color">Set Color</button>
     <div class="brush"></div>
+    </input>
   </div>
   <script src="pixart.js">
-  var brush = document.querySelector("div.brush");
-  var textBox = document.querySelector("#color-field");
-  buttonSet = document.querySelector("button#set-color")
-  buttonSet.eventListener("click", function(){
-    brush.style.background = textBox.value;
-    console.log("click");
-  });
+
   </script>
 </body>
 </html>
