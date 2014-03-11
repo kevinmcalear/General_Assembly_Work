@@ -20,6 +20,14 @@ var makeDivs = function(){
   }
 };
 
+
+
 makeDivs();
+
+body.addEventListener("click", function(eventObject) {
+  if (eventObject.target.className === "square") {
+    eventObject.target.style.backgroundColor = "green";
+  }
+});
 
 form.addEventListener("submit", changeColor);
