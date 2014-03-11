@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hangman</title>
+  <link rel="stylesheet" href="style.css">
+  <script type='text/javascript' src='js/src/hangman.js'></script>
+</head>
+<body>
+  <section class="game-play">
+
+    <figure>
+      <span>Guesses Left:</span> <span class="guesses-left"></span>
+    </figure>
+
+    <aside>
+      <div>
+        <span>Letters Guessed Already:</span>
+        <span class="guessed-letters"></span>
+      </div>
+
+      <div>
+        <label for="letter">Guess a Letter:</label>
+        <input type="text" name="letter" id="letter" />
+      </div>
+    </aside>
+  </section>
+
+  <div class="game-word"></div>
+
+  <section class="game-controls">
+    <button class="button give-up">Give Up</button>
+    <button class="button new-game">New Game</button>
+  </section>
+  <script>
+    var gameWord = document.querySelector("div.game-word");
+    var letterInput = document.querySelector("#letter");
+    var guessesLeft = document.querySelector(".guesses-left");
+    var guessedLetters = document.querySelector(".guessed-letters");
+    var giveUpButton = document.querySelector("button.give-up");
+    var newGameButton = document.querySelector("button.new-game");
+
+    var hangman = new Hangman("animals");
+    hangmanSetup();
+    // hangman.makeLetters();
+    // hangman.makeSpaces();
+    gameWord.innerText = hangman.spaces.join(" ");
+    guessesLeft.innerText = hangman.wrongGuesses;
+
+    letterInput.addEventListener("keyup", function() {
+      hangman.checkGuess(letterInput.value);
+      gameWord.innerText = hangman.spaces.join(" ");
+      guessesLeft.innerText = hangman.wrongGuesses;
+      guessedLetters.innerText = hangman.guessedLetters.join(", ");
+      letterInput.value = "";
+    });
+
+    giveUpButton.addEventListener("click", function() {
+      hangman.giveUp();
+      gameWord.innerText = hangman.spaces.join(" ");
+      guessesLeft.innerText = hangman.wrongGuesses;
+      guessedLetters.innerText = hangman.guessedLetters.join(", ");
+      letterInput.value = "";
+    });
+
+    newGameButton.addEventListener("click", function(){
+      hangman = new Hangman("animals");
+      hangman.hangmanSetup();
+      // hangman.guessedLetters = [];
+      // hangman.makeLetters();
+      // hangman.makeSpaces();
+      guessedLetters.innerText = hangman.guessedLetters.join(", ");
+      gameWord.innerText = hangman.spaces.join(" ");
+      guessesLeft.innerText = hangman.wrongGuesses;
+    });
+
+
+
+
+
+  </script>
+</body>
+</html>
