@@ -5,30 +5,6 @@ function Hangman() {
   this.correctLetters = [];
 };
 
-var newGameButton = document.querySelector("button.new-game");
-var guessedLetters = document.querySelector(".guessed-letters");
-
-var wordSpace = document.querySelector(".game-word");
-var guessLetter = document.querySelector("#letter");
-
-guessLetter.addEventListener('keyup', function(){
-  wordSpace.innerText = this.value;});
-
-
-
-String.prototype.contains = function(word, letter){
-  var i = 0;
-  while (i < word.length){
-    if (word.indexOf(letter)!= (-1)){
-      return true
-    }
-    else{
-      return false
-    };
-    i++;
-  };
-
-};
 
 
 Hangman.prototype.guessLetter = function(letter){
