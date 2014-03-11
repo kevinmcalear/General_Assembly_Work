@@ -10,3 +10,11 @@ form.addEventListener("submit", function(e) {
   brush.style.background = color;
   this.reset();
 });
+
+
+var body = document.querySelector("body");
+for (var i = 0; i < 20; i++) {
+  var div = document.createElement("div");
+  div.classList.add("square");
+  body.appendChild(div);
+}
