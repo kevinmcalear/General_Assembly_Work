@@ -2,6 +2,7 @@ var newColorInput = document.querySelector("#color-field");
 var setColorButton = document.querySelector("#set-color");
 var brush = document.querySelector(".brush");
 var enterColor = document.querySelector("enter-color");
+var body = document.querySelector("body");
 
 setColorButton.addEventListener("click", function(){
     brush.style.backgroundColor = newColorInput.value;
@@ -18,3 +19,13 @@ for(i = 0; i < 20; i++){
   square.className += "square";
   document.body.appendChild(square);
 };
+
+square.addEventListener("click", function(){
+  square.style.backgroundColor = "green";
+});
+
+function changeColor(e){
+  e.target.style.backgroundColor = 'green';
+}
+
+body.addEventListener('click', changeColor);
