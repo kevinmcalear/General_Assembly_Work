@@ -18,6 +18,12 @@ var buddies = [
 var lands = ["The Shire", "Rivendell", "Mordor"];
 
 function makeMiddleEarth(lands) {
+  for (i=0; i < lands.length; i++){
+    land = document.createElement("section");
+    land.createAttribute("article");
+    land.article = lands[i];
+    
+  }
 }
 
 function makeHobbits(hobbits) {

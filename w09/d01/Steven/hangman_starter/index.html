@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hangman</title>
+  <link rel="stylesheet" href="style.css">
+  <script type='text/javascript' src='js/game.js'></script>
+</head>
+<body>
+  <section class="game-play">
+
+    <figure>
+      <span>Guesses Left:</span> <span class="guesses-left"></span></br>
+      <div id="player1">
+      <span>Player 1 Games Won:</span><span class="games-won-p1"></span>
+      <span>Games Lost:</span><span class="games-lost-p1"></span>
+      </div>
+      <div id="player2">
+      <span>Player 2 Games Won:</span><span class="games-won-p2"></span>
+      <span>Games Lost:</span><span class="games-lost-p2"></span>
+      </div>
+    </figure>
+
+    <aside>
+      <div>
+        <span>Letters Guessed Already:</span>
+        <span class="guessed-letters"></span>
+      </div>
+
+      <div>
+        <label for="letter">Guess a Letter:</label>
+        <input type="text" name="letter" id="letter" />
+      </div>
+    </aside>
+  </section>
+
+  <div class="game-word">A B C D</div>
+
+  <section class="game-controls">
+    <button class="button give-up">Give Up</button>
+    <button class="button new-game">New Game</button>
+  </section>
+  <script type='text/javascript' src='js/controller.js'></script>
+
+</body>
+</html>

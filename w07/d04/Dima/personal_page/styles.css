@@ -1,0 +1,62 @@
+/*header {
+  display: inline;
+}*/
+
+div, section, header, span, footer, a {
+  border: 1px dotted blue;
+}
+
+body {
+  font-size: 1.25em;
+  line-height: 1.6
+}
+
+.contain {
+
+}
+
+.hero img {
+  width: 100%;
+}
+
+.logo_flag {
+  display: inline-block;
+  background-color: #B71419;
+  color: white;
+  text-align: right;
+  width: 10%;
+}
+
+span {
+  width: 90%;
+}
+
+.about {
+  margin: 0 auto;
+  width: 35%;
+}
+
+.contact {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact a {
+  display: block;
+}
+
+
+.email {
+  width: 35%;
+  background-color: #868487;
+  color: white;
+  padding: 5px;
+  text-decoration: none;
+}
+
+footer {
+  clear: both;
+  background-color: #383838;
+  color: #898989;
+  text-align: center;
+}
