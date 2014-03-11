@@ -20,9 +20,9 @@ var changeToGreen = function(){
   this.style.background = colorChoice.value;
 };
 
-for(var i = 0; i < 20; i ++){
+for(var i = 0; i < 8000; i ++){
   var box = document.createElement('div');
   box.className = 'square';
   document.body.appendChild(box);
-  box.addEventListener('click', changeToGreen);
+  box.addEventListener('mouseover', changeToGreen);
 }
