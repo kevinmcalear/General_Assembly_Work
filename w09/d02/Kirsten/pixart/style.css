@@ -7,12 +7,20 @@
   margin: 15px auto;
 }
 
-.square {
-  float: left;
+.palette {
   width: 100px;
   height: 100px;
+  margin: 10px ;
   background: #E7E5DB;
-  margin: 10px;
+  display: inline-block;
+}
+
+.square {
+  float: left;
+  width: 10px;
+  height: 10px;
+  background: #E7E5DB;
+  margin: 0px;
 }
 
 h1 {
