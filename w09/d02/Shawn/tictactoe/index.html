@@ -11,13 +11,36 @@
   </ul>
 
   <script type="text/javascript">
-    var board = document.querySelector("ul.board");
 
-    for (var i = 1; i <= 9; i++) {
-      var li = document.createElement("li");
-      li.className = (i % 2 ? "x" : "o");
-      board.appendChild(li);
+    var game = new Game();
+    var board = document.querySelector("ul.board");
+    render(); 
+
+    
+   
+    function render() {
+      board.innerHTML = "";
+
+
+      for (var i = 0; i < 9; i++) {
+        var li = document.createElement("li");
+        li.className = game.board[parseInt(i/3)][parseInt(i % 3)];
+        board.appendChild(li);
+      }
     }
+
+    board.addEventListener("click", function(e) {
+      var squares = document.querySelectorAll("li");
+      var indexSquares = Array.prototype.slice.call(squares);
+      var row = parseInt(indexSquares.indexOf(e.target)/3);
+      var column = parseInt(indexSquares.indexOf(e.target)%3);
+      game.mark( game.turn, { row: row, column: column } );
+      render();
+      game.nextTurn();
+    });
+
+    render();
+
   </script>
 </body>
 </html>
