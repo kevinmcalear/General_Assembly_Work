@@ -4,6 +4,7 @@ Game = function(){
   this.board = new Array(new Array(3),new Array(3),new Array(3));
   this.turn = "x";
   this.turnNumber = 0;
+  this.winners = "";
 };
 
 Game.prototype.mark = function(play, location){
@@ -13,8 +14,8 @@ Game.prototype.mark = function(play, location){
     if (!this.playAt(location) && play === this.turn) {
       this.board[location.row][location.column] = play;
       this.nextTurn();
+      this.turnNumber++;
     };
-    this.turnNumber++;
 };
 
 Game.prototype.playAt = function(location) {
@@ -37,6 +38,19 @@ Game.prototype.gameOver = function() {
 
 Game.prototype.checkWinner = function() {
   // for each row in the board, if index0  === index 1 === index 2 then what they equal has won.
+  var flattenedBoard = new Array;
+
+  for(var i = 0; i < 3; i++){
+    flattenedBoard.push(this.board[0][i]);
+  };
+  for(var i = 0; i < 3; i++){
+    flattenedBoard.push(this.board[1][i]);
+  };
+  for(var i = 0; i < 3; i++){
+    flattenedBoard.push(this.board[2][i]);
+  };
+  console.log(flattenedBoard)
+
   for(var i = 0; i < 3; i++){
     if( (this.board[i][0] === this.board[i][1]) &&  
         (this.board[i][1] === this.board[i][2])){
@@ -49,6 +63,7 @@ Game.prototype.checkWinner = function() {
       return this.board[0][i];
     }
   }
+
   if( (this.board[0][0] === this.board[1][1]) &&  
       (this.board[1][1] === this.board[2][2])){
     return this.board[1][1];
@@ -58,16 +73,5 @@ Game.prototype.checkWinner = function() {
     return this.board[1][1];
   }
 };
-
-
-
-
-
-
-
-
-
-
-
 
 

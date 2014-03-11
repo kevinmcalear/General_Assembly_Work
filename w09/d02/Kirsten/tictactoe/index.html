@@ -20,6 +20,13 @@
       render();
     };
 
+    var winner = function(li){
+      if (game.gameOver() === true) {
+        li.classList.add("winning")
+      }
+    }
+
+
     function render(){  
       var board = document.querySelector("ul.board");
       board.innerHTML = "";
@@ -28,12 +35,12 @@
         li.className = game.board[parseInt(i/3)][i%3];
         li.id = i;
         li.addEventListener("click", sendPlay);
+        winner(li);
         board.appendChild(li);
       }
     }
 
     render();
-    if (game.gameOver = true)
 
 
   </script>
