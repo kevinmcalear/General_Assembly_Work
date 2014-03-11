@@ -25,7 +25,8 @@ square.addEventListener("click", function(){
 });
 
 function changeColor(e){
-  e.target.style.backgroundColor = 'green';
-}
-
+  if(e.target.className == "square"){
+    e.target.style.backgroundColor = newColorInput.value;
+  };
+};
 body.addEventListener('click', changeColor);
