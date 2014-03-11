@@ -10,6 +10,17 @@ for(var i=0; i<20; i++){
 };
 
 
+//Step 1:  Identify the Div
+var body = document.querySelector("body")
+//Step 2:  Write the Function
+var changeGreen = function(eventObject){
+  var divChange = eventObject.target
+  divChange.style.background = "green"
+
+}
+//Step 3:  Write the event listener. 
+body.addEventListener("click",changeGreen)
+
 
 //Set Color
 //Step 1:  Identify the div
