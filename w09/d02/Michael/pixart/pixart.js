@@ -1,7 +1,7 @@
 //Create 20 divs of Square Class
 var panel = document.querySelector(".controls")
 
-for(var i=0; i<20; i++){
+for(var i=0; i<8000; i++){
   var panel = document.querySelector(".controls")
   var squareDiv = document.createElement("div")
   squareDiv.className = "square"
@@ -21,7 +21,7 @@ var changeSquare = function(eventObject){
   };
 };
 //Step 3:  Write the event listener. 
-body.addEventListener("click",changeSquare)
+body.addEventListener("mouseover",changeSquare)
 
 
 //Set Color
@@ -33,19 +33,27 @@ var changeColor = function(eventObject){
   eventObject.preventDefault();
   var brush = document.querySelector("div.brush")
   var color = eventObject.target.parentElement.querySelector("#color-field").value
-  // var colorBox = document.createElement("div")
-  // var form = document.querySelector("form")
-  // colorBox.className = "brush"
-  // colorBox.style.background = color
-  // form.insertAdjacentElement("afterend",colorBox)
-  brush.style.background = color
-
-  input.value = ""
+  var colorBox = document.createElement("div")
+  var form = document.querySelector("form")
+  colorBox.className = "brush"
+  colorBox.style.background = color
+  if(color != brush.style.background){
+    form.insertAdjacentElement("afterend",colorBox)  
+  }
+  
+  // brush.style.background = color
 }
 
 //Step 3:  Write the EventListener
 var panel = document.querySelector(".controls")
 panel.addEventListener("submit",changeColor)
+
+
+
+//Color Swatch: 
+//Step 1: Select the 
+
+
 
 
 
