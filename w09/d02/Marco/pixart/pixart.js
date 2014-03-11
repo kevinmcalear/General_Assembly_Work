@@ -1,9 +1,10 @@
-var setColorButton = document.querySelector("button");
+var form = document.querySelector("form");
 var colorBox = document.querySelector(".brush");
 var newColor = document.querySelector("#color-field");
 
-var setColor = function() {
+var setColor = function(e) {
+  e.preventDefault();
   colorBox.style.backgroundColor = newColor.value;
 }
 
-setColorButton.addEventListener("click", setColor);
+form.addEventListener("submit", setColor);
