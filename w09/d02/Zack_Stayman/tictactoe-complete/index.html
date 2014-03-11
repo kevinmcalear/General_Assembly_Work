@@ -18,6 +18,7 @@
   function render(){
 
     board.innerHTML = "";
+    
 
     for (var i = 0; i < 9; i++) {
       var li = document.createElement("li");
@@ -25,15 +26,22 @@
       li.id = parseInt(i/3) + " " + i%3;
       board.appendChild(li);
     }
+
+    if(game.checkWinner() === "x" || game.checkWinner() === "o"){
+      var array = game.winningLine();
+      for(var i = 0; i < array.length; i++){
+        console.log(document.getElementById((array[i][0] + " " + array[i][1]).toString()))
+        document.getElementById((array[i][0] + " " + array[i][1]).toString()).classList.add("winning");
+      };
+    };
   }
 
   render();   
 
   board.addEventListener("click", function(e){
-      game.mark(game.turn, {row: e.target.id[0], column: e.target.id[2]});
-      render();
+    game.mark(game.turn, {row: e.target.id[0], column: e.target.id[2]});
+    render();
   });
-
   </script>
 </body>
 </html>
