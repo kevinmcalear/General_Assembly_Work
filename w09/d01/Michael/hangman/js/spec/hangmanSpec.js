@@ -1,11 +1,8 @@
 describe("#categoryToWord",function() {
-  var dictionary = {
-    "sports": ["basketball"],
-    "food": ["eggs", "nachos"]
-  } 
   
   it("produces a word",function(){
-    expect( categoryToWord("sports") ).toBe("basketball")
+    categoryToWord("test")
+    expect( userGame.word  ).toBe("test")
   });
 
 }); 
@@ -39,10 +36,11 @@ describe("Game", function(){
 describe("User Guesses a Letter", function(){
   var game = new Game("banana")
 
+
   it("#guessAllowed",function(){
-    expect(guessAllowed("A")).toBe(true);
-    expect(guessAllowed("AA")).toBe(false);
-    expect(guessAllowed("2")).toBe(false);
+    expect(game.guessAllowed("A")).toBe(true);
+    expect(game.guessAllowed("AA")).toBe(false);
+    expect(game.guessAllowed("2")).toBe(false);
   });
 
   it("#guessCorrect",function(){
@@ -52,7 +50,7 @@ describe("User Guesses a Letter", function(){
 
   it("#guessIncorrectUpdate",function(){
     game.decrementGuessCount();
-    expect(game.guessCount ).toBe(6);
+    expect(game.guessCount ).toBe(5);
   });
 
 
@@ -64,3 +62,15 @@ describe("User Guesses a Letter", function(){
 
 
 });
+
+
+describe("User wins a Game", function(){
+  var game = new Game("banana")
+
+  it("#determineGame",function(){
+
+  });
+
+
+});
+
