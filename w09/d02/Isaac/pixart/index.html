@@ -12,6 +12,14 @@
     <button id="set-color">Set Color</button>
     <div class="brush"></div>
   </div>
-  <script src="pixart.js"></script>
+  <script src="pixart.js">
+  var brush = document.querySelector("div.brush");
+  var textBox = document.querySelector("#color-field");
+  buttonSet = document.querySelector("button#set-color")
+  buttonSet.eventListener("click", function(){
+    brush.style.background = textBox.value;
+    console.log("click");
+  });
+  </script>
 </body>
 </html>
