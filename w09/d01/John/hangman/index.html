@@ -33,9 +33,6 @@
     <button class="button new-game">New Game</button>
   </section>
   <script>
-    var hangman = new Hangman("animals");
-    hangman.makeLetters();
-    hangman.makeSpaces();
     var gameWord = document.querySelector("div.game-word");
     var letterInput = document.querySelector("#letter");
     var guessesLeft = document.querySelector(".guesses-left");
@@ -43,6 +40,10 @@
     var giveUpButton = document.querySelector("button.give-up");
     var newGameButton = document.querySelector("button.new-game");
 
+    var hangman = new Hangman("animals");
+    hangmanSetup();
+    // hangman.makeLetters();
+    // hangman.makeSpaces();
     gameWord.innerText = hangman.spaces.join(" ");
     guessesLeft.innerText = hangman.wrongGuesses;
 
@@ -60,6 +61,17 @@
       guessesLeft.innerText = hangman.wrongGuesses;
       guessedLetters.innerText = hangman.guessedLetters.join(", ");
       letterInput.value = "";
+    });
+
+    newGameButton.addEventListener("click", function(){
+      hangman = new Hangman("animals");
+      hangman.hangmanSetup();
+      // hangman.guessedLetters = [];
+      // hangman.makeLetters();
+      // hangman.makeSpaces();
+      guessedLetters.innerText = hangman.guessedLetters.join(", ");
+      gameWord.innerText = hangman.spaces.join(" ");
+      guessesLeft.innerText = hangman.wrongGuesses;
     });
 
 

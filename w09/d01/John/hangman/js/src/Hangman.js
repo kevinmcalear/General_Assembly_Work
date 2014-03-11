@@ -67,4 +67,12 @@ function Hangman(category){
     this.gameInProgress = false;
   };
 
+  this.hangmanSetup = function(){
+    this.makeLetters();
+    this.makeSpaces();
+    this.guessedLetters = [];
+    // gameWord.innerText = this.spaces.join(" ");
+    // guessesLeft.innerText = this.wrongGuesses;
+  };
+
 };

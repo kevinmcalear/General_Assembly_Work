@@ -87,15 +87,24 @@ describe ("Hangman", function(){
 
   describe("game controls", function(){
     var hangman = new Hangman("animals");
-    beforeEach(function(){
-      spyOn(Math, "random").and.returnValue(0.5);
-    });
+    // beforeEach(function(){
+    // });
     it ("lets you give up", function(){
+      spyOn(Math, "random").and.returnValue(0.5);
       hangman.makeLetters();
       hangman.makeSpaces();
       hangman.giveUp();
-      expect(hangman.spaces).toEqual(["d", "o", "l", "p", "h", "i", "n"])
+      expect(hangman.spaces).toEqual(["d", "o", "l", "p", "h", "i", "n"]);
       expect(hangman.gameinProgress).toBeFalsy;
+    });
+
+    it ("lets you start a new game", function() {
+      var hangman = new Hangman("animals");
+      spyOn(Math, "random").and.returnValue(0.2);
+      hangman.hangmanSetup();
+      expect(hangman.wordLetters.length).toEqual(8);
+      expect(hangman.spaces).toEqual(["_", "_", "_", "_", "_", "_", "_", "_"]);
+      expect(hangman.guessedLetters.length).toEqual(0);
     });
 
   });
