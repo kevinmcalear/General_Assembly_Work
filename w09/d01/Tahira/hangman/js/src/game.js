@@ -1,5 +1,5 @@
 function Game(word){
-  this.alpha = "abcdefghijlmnopqrstuvwxyz".split("");
+  this.alpha = "abcdefghijklmnopqrstuvwxyz".split("");
   this.word = word;
   this.guessesLeft = 6;
   this.guesses = [];
@@ -12,11 +12,11 @@ function Game(word){
 };
 
 Game.prototype.guess = function(letter){
-  this.guesses.push(letter);
   wordArray = this.word.split("");
 
   var wordContainsLetter = false;
   var isValidInput = false;
+  var alreadyGuessed = false;
 
   for(var k=0; k<this.alpha.length; k++){
     if(this.alpha[k] === letter){
@@ -24,8 +24,15 @@ Game.prototype.guess = function(letter){
     }
   };
 
+  for(var j=0; j<this.guesses.length; j++){
+    if(this.guesses[j] === letter){
+      alreadyGuessed = true;
+    }
+  };
+
 // valid input is only A-Z or a-z; does not decrement guesses if invalid input is entered, it simply ignores invalid input
-  if(isValidInput) {
+  if(isValidInput && !alreadyGuessed) {
+    this.guesses.push(letter);
     for(var i=0; i<wordArray.length; i++) {
       if(letter === wordArray[i]) {
         wordContainsLetter = true;
@@ -48,13 +55,15 @@ Game.prototype.guess = function(letter){
   };
 };
 
+// random word generator from prepopulated words Array
+// TO DO: Add categories!
 function generateWord() {
-  var words = ["hello", "goodbye", "penguin", "cookie", "pizza"];
+  var words = ["hello", "goodbye", "penguin", "cookie", "pizza", "capybara", "what"];
   this.word = words[parseInt(Math.random()*words.length)]
 }
 
-
+// TO DO ----- > 
 // games won lost
 // lose
 // when reset page go to 0/0
-// second player --> still against the computer
+// second player -> still against the computer
