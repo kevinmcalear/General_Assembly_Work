@@ -4,15 +4,15 @@ Warmup to help nail down Event Listeners
 
 ###Commit 1
 
-* When I click the "Set Color" button, it should change the color of the "brush" box to the color I specify in the input field.
+x* When I click the "Set Color" button, it should change the color of the "brush" box to the color I specify in the input field.
 
 ###Commit 2
 
-* The same thing should happen when I press the enter key from inside the input field
+x* The same thing should happen when I press the enter key from inside the input field
 
 ###Commit 3
 
-* Using JavaScript, create 20 divs of the "square" class and append them to the body
+x* Using JavaScript, create 20 divs of the "square" class and append them to the body
 
 ###Commit 4
 
