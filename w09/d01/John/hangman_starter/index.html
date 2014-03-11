@@ -26,11 +26,19 @@
     </aside>
   </section>
 
-  <div class="game-word">A B C D</div>
+  <div class="game-word"></div>
 
   <section class="game-controls">
     <button class="button give-up">Give Up</button>
     <button class="button new-game">New Game</button>
   </section>
+  <script>
+    var hangman = new Hangman("animals");
+
+    var gameWord = document.querySelector("div.game-word");
+
+    gameWord.innerText = this.spaces.join(" ");
+
+  </script>
 </body>
 </html>
