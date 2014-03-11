@@ -18,6 +18,16 @@ while(i < 20){
 	var div = document.createElement("div");
 	div.className = "square";
 	bodyVar.appendChild(div);
+	// var squares = document.querySelector("div.square");
+	// square_i.addEventListener("click", function(){
+	// square_i.style.background = "green";
+	// 	})
 	i++;
 };
 
+var squares = document.querySelectorAll("div.square");
+
+for(var x = 0; x < 20; x++){
+	squares[x].addEventListener("click", function(event){
+	event.target.style.background = "green"; } )
+};
