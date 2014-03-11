@@ -66,23 +66,23 @@ describe("Game", function() {
     });
   });
 
-  // describe("checkWinner", function() {
-  //   it("is true if there are three in a row", function() {
-  //     game.board[0][0] = "x";
-  //     game.board[0][1] = "x";
-  //     game.board[0][2] = "x";
+  describe("checkWinner", function() {
+    it("is true if there are three in a row", function() {
+      game.board[0][0] = "x";
+      game.board[0][1] = "x";
+      game.board[0][2] = "x";
 
 
-  //   });
+    });
 
-  //   it("is true if there are three in a column", function() {
+    xit("is true if there are three in a column", function() {
 
-  //   });
+    });
 
-  //   it("is true if there are three on a diagonal", function() {
+    xit("is true if there are three on a diagonal", function() {
 
-  //   });
-  // });
+    });
+  });
 });
 
 
