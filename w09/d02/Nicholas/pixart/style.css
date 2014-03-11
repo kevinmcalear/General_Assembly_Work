@@ -9,10 +9,10 @@
 
 .square {
   float: left;
-  width: 100px;
-  height: 100px;
+  width: 10px;
+  height: 10px;
   background: #E7E5DB;
-  margin: 10px;
+  margin: 0;
 }
 
 h1 {
