@@ -13,7 +13,7 @@ var changeColor = function(e) {
 };
 
 var changeToGreen = function() {
-  this.style.backgroundColor = "green";
+  this.style.backgroundColor = field.value;
 };
 
 var createDivs = function() {
