@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hangman</title>
+  <link rel="stylesheet" href="style.css">
+  <script type='text/javascript' src='js/src/hangman.js'></script>
+</head>
+<body>
+  <section class="game-play">
+
+    <figure>
+      <span>Guesses Left:</span> <span class="guesses-left"></span>
+    </figure>
+
+    <aside>
+      <div>
+        <span>Letters Guessed Already:</span>
+        <span class="guessed-letters"></span>
+      </div>
+
+      <div>
+        <label for="letter">Guess a Letter:</label>
+        <input type="text" name="letter" id="letter" />
+      </div>
+    </aside>
+  </section>
+
+  <div class="game-word">A B C D</div>
+
+  <section class="game-controls">
+    <button class="button give-up">Give Up</button>
+    <button class="button new-game">New Game</button>
+  </section>
+  <script>
+    var guessesLeft = document.querySelector("span.guesses-left");
+    var input = document.getElementById("letter");
+    var guessedLetters = document.querySelector("span.guessed-letters");
+    var giveUpButton = document.querySelector("button.give-up");
+    var newGameButton = document.querySelector("button.new-game");
+    var revealWord = document.querySelector("div.game-word");
+
+    var hangman = new Hangman("sports");
+
+    var newGame = function(){
+      hangman = new Hangman("sports");
+      check();
+    };
+
+    window.addEventListener("load", newGame);
+    newGameButton.addEventListener("click", newGame);
+    giveUpButton.addEventListener("click", newGame);
+
+    input.addEventListener("keyup", hangman.guess);
+
+    input.addEventListener("keyup", function(){
+      guessesLeft.innerText = hangman.guessesLeft;
+    });
+
+    input.addEventListener("keyup", function(){
+      guessedLetters.innerText = hangman.guessedLetters.join(" ");
+    });
+
+    window.addEventListener("load", function(){
+      revealWord.innerText = hangman.revealedWord.join(" ");
+    });
+
+    input.addEventListener("keyup", function(){
+      revealWord.innerText = hangman.revealedWord.join(" ");
+    })
+
+    var check = function(){
+      guessesLeft.innerText = hangman.guessesLeft;
+      revealWord.innerText = hangman.revealedWord.join(" ");
+      guessedLetters.innerText = "";
+    };
+
+    input.addEventListener("keyup", function(){
+      if(revealWord.innerText.indexOf("_") < 0) {
+        alert("You win!");
+      }
+    });
+
+    input.addEventListener("keyup", function(){
+      if(guessesLeft.innerText === "0"){
+        revealWord.innerText = hangman.answer.join("");
+        alert("You lose!");
+      }
+    });
+
+  </script>
+</body>
+</html>
