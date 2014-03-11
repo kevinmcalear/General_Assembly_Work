@@ -40,28 +40,32 @@ Game.prototype.checkWinner = function() {
 
   // FOR each row in the board
   for(var i = 0; i < 3; i++){
-    if( (this.board[i][0] === this.board[i][1]) &&
-        (this.board[i][1] === this.board[i][2]) ){
+    if( (this.board[i][0] === ("x" || "o")) &&
+        (this.board[i][1] === this.board[i][2]) &&
+        (this.board[i][1] === this.board[i][0]) ){
       return this.board[i][0];
-    }
   }
+}
   // FOR each column in the board
   for(var i = 0; i < 3; i++){
-    if( (this.board[0][i] === this.board[1][i]) &&
+    if( (this.board[0][i] === ("x" || "o")) &&
+        (this.board[0][i] === this.board[1][i]) &&
         (this.board[1][i] === this.board[2][i]) ){
       return this.board[0][i];
-    }
   }
+}
   // diagonal top left
-  if( (this.board[0][0] === this.board[1][1]) &&
+  if( (this.board[0][0] === ("x" || "o")) &&
+      (this.board[0][0] === this.board[1][1]) &&
       (this.board[1][1] === this.board[2][2]) ){
     return this.board[1][1];
-  }
+}
   // diagonal top right
-  if( (this.board[0][2] === this.board[1][1]) &&
-      (this.board[1][1] === this.board[2][0]) ){
+  if( (this.board[0][2] === ("x" || "o")) &&
+    (this.board[0][2] === this.board[1][1]) &&
+    (this.board[1][1] === this.board[2][0]) ){
     return this.board[1][1];
-  }
+};
 
 }
 
