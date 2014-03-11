@@ -26,7 +26,7 @@ makeDivs();
 
 body.addEventListener("click", function(eventObject) {
   if (eventObject.target.className === "square") {
-    eventObject.target.style.backgroundColor = "green";
+    eventObject.target.style.backgroundColor = input.value;
   }
 });
 
