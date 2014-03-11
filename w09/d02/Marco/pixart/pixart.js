@@ -16,7 +16,7 @@ colorDivs = document.querySelectorAll(".square");
 
 for (var i = 0; i < colorDivs.length; i++) {
   colorDivs[i].addEventListener("click", function() {
-    this.style.background = "green";
+    this.style.background = newColor.value || "green";
   });
 }
 
