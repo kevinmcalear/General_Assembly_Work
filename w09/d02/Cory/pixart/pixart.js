@@ -17,17 +17,16 @@ var changeToGreen = function() {
 };
 
 var createDivs = function() {
-  for(var i = 0; i <= 19; i++) {
+  for(var i = 0; i < 8000; i++) {
     var div = document.createElement("div");
     div.className = "square";
     body.appendChild(div);
-    div.addEventListener("click", changeToGreen);
+    div.addEventListener("mouseover", changeToGreen);
   }
 };
 createDivs();
 
 var div = document.querySelector(".square");
-
 
 
 
