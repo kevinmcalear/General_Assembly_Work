@@ -11,9 +11,10 @@ Game.prototype.mark = function(play, location) {
 
   if (!this.playAt(location) && play === this.turn) {
     this.board[location.row][location.column] = play;
+    this.turnNumber++;
     this.nextTurn();
   };
-  this.turnNumber++;
+  
 }
 
 Game.prototype.playAt = function(location) {

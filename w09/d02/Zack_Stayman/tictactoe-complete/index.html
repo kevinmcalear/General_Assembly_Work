@@ -11,29 +11,29 @@
   </ul>
 
   <script type="text/javascript">
-    var game = new Game();
-    var board = document.querySelector("ul.board");
-    
+  var game = new Game();
+  var board = document.querySelector("ul.board");
 
-    function render(){
 
-      board.innerHTML = "";
+  function render(){
 
-      for (var i = 0; i < 9; i++) {
-        var li = document.createElement("li");
-        li.className = game.board[parseInt(i/3)][i%3];
-        li.id = parseInt(i/3) + " " + i%3;
-        board.appendChild(li);
-      }
+    board.innerHTML = "";
+
+    for (var i = 0; i < 9; i++) {
+      var li = document.createElement("li");
+      li.className = game.board[parseInt(i/3)][i%3];
+      li.id = parseInt(i/3) + " " + i%3;
+      board.appendChild(li);
     }
+  }
 
-    render();   
+  render();   
 
-    board.addEventListener("click", function(e){ 
+  board.addEventListener("click", function(e){
       game.mark(game.turn, {row: e.target.id[0], column: e.target.id[2]});
       render();
-    });
-    
+  });
+
   </script>
 </body>
 </html>
