@@ -11,8 +11,11 @@ var changeColor = function(eventObject) {
 
 for(var i=0; i<20; i++){
   square = document.createElement("div");
-  square.class = "square";
+  square.classList.add("square");
   body.insertAdjacentElement("beforeend", square);
+  square.addEventListener("click", function(){
+    this.style.background = "green";
+  });
 }
 
 form.addEventListener("submit", changeColor);
