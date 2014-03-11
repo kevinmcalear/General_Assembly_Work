@@ -12,3 +12,9 @@ newColorInput.addEventListener("keypress", function(e){
     brush.style.backgroundColor = newColorInput.value;
   };
 });
+
+for(i = 0; i < 20; i++){
+  var square = document.createElement("div");
+  square.className += "square";
+  document.body.appendChild(square);
+};
