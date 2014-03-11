@@ -20,5 +20,8 @@ for (var i = 0; i < 20; i++) {
 }
 
 body.addEventListener("click", function(e) {
-  e.target.style.background = "green";
+  var color = colorInput.value;
+  if (e.target.className === "square") {
+    e.target.style.background = color;
+  }
 });
