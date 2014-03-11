@@ -14,7 +14,7 @@ newColorInput.addEventListener("keypress", function(e){
   };
 });
 
-for(i = 0; i < 20; i++){
+for(i = 0; i < 8000; i++){
   var square = document.createElement("div");
   square.className += "square";
   document.body.appendChild(square);
@@ -29,4 +29,4 @@ function changeColor(e){
     e.target.style.backgroundColor = newColorInput.value;
   };
 };
-body.addEventListener('click', changeColor);
+body.addEventListener('mouseover', changeColor);
