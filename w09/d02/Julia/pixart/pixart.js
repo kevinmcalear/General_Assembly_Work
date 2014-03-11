@@ -14,7 +14,7 @@ inputField.addEventListener("keypress", function(event){
 });
 
 var i = 0;
-while(i < 20){
+while(i < 8000){
 	var div = document.createElement("div");
 	div.className = "square";
 	bodyVar.appendChild(div);
@@ -27,7 +27,7 @@ while(i < 20){
 
 var squares = document.querySelectorAll("div.square");
 
-for(var x = 0; x < 20; x++){
-	squares[x].addEventListener("click", function(event){
+for(var x = 0; x < 8000; x++){
+	squares[x].addEventListener("mouseover", function(event){
 	event.target.style.background = inputField.value; } )
 };
