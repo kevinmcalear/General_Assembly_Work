@@ -18,3 +18,7 @@ for (var i = 0; i < 20; i++) {
   div.classList.add("square");
   body.appendChild(div);
 }
+
+body.addEventListener("click", function(e) {
+  e.target.style.background = "green";
+});
