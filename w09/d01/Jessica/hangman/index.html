@@ -38,6 +38,19 @@
     var hangman = new Hangman();
     hangman.setupGame();
 
+    String.prototype.contains = function(word, letter){
+      var i = 0;
+      while (i < word.length){
+        if (word.indexOf(letter)!= (-1)){
+          return true
+        }
+        else{
+          return false
+        };
+        i++;
+      };
+    };
+
     var guessesLeft = document.querySelector(".guesses-left");
     var buttonNewGame = document.querySelector("button.new-game");
     var input = document.querySelector("#letter");
@@ -48,11 +61,15 @@
 
     guessedLetters.innerText = hangman.guessedLetters;
 
-    input.addEventListener("keyup", function(){
-      gameWord.innerText = hangman.guessLetter(input.value);
-      guessedLetters.innerText = hangman.guessedLetters.join(", ");
-    })
-
+      input.addEventListener('keyup', function(){
+      hangman.guessLetter(input.value);
+      if((hangman.word).contains(hangman.word, input.value)){
+        gameWord.innerText = hangman.correctLetters;}
+      else{
+      guessedLetters.innerText = hangman.guessedLetters;
+      guessesLeft.innerText = hangman.guesses;
+    };
+  });
 
     buttonNewGame.addEventListener("click", function(){
       var hangman = new Hangman();

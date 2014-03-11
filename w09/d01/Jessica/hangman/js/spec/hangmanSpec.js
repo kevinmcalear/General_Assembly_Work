@@ -3,7 +3,7 @@ describe("Hangman", function(){
 
   describe("new game", function(){
     
-    var hangman = new Hangman("pets")
+    var hangman = new Hangman()
 
     it("guessed letters is an array of strings", function(){
       hangman.guessLetter("b");
