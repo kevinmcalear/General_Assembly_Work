@@ -13,13 +13,15 @@ for(var i=0; i<20; i++){
 //Step 1:  Identify the Div
 var body = document.querySelector("body")
 //Step 2:  Write the Function
-var changeGreen = function(eventObject){
+var changeSquare = function(eventObject){
   var divChange = eventObject.target
-  divChange.style.background = "green"
-
-}
+  var color = eventObject.target.parentElement.querySelector("#color-field").value
+  if (divChange.className === "square"){
+    divChange.style.background = color  
+  };
+};
 //Step 3:  Write the event listener. 
-body.addEventListener("click",changeGreen)
+body.addEventListener("click",changeSquare)
 
 
 //Set Color
