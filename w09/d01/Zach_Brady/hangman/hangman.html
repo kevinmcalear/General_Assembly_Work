@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hangman</title>
+  <link rel="stylesheet" href="style.css">
+  <script type='text/javascript' src='js/src/hangman.js'></script>
+</head>
+<body>
+  <section class="game-play">
+
+    <figure>
+      <span>Guesses Left:</span> <span class="guesses-left"></span>
+    </figure>
+
+    <aside>
+      <div>
+        <span>Letters Guessed Already:</span>
+        <span class="guessed-letters"></span>
+      </div>
+
+      <div>
+        <label for="letter">Guess a Letter:</label>
+        <input type="text" name="letter" id="letter" />
+      </div>
+    </aside>
+  </section>
+
+  <div class="game-word">A B C D</div>
+
+  <section class="game-controls">
+    <button class="button give-up">Give Up</button>
+    <button class="button new-game">New Game</button>
+  </section>
+  <script>
+    var newGame = new Hangman("Pokemon");
+    var letterInput = document.querySelector("input");
+    var giveUp = document.querySelector(".give-up");
+    var newGameButton = document.querySelector(".new-game"); 
+    var guessedLetters = document.querySelector(".guessed-letters");
+    var guessesLeft = document.querySelector(".guesses-left");
+    var gameWord = document.querySelector(".game-word");
+    gameWord.innerText = newGame.hiddenWord;
+    guessesLeft.innerText = newGame.wrongGuesses;
+
+
+    newGameButton.addEventListener("click", function(){
+      newGame = new Hangman("Pokemon");
+      guessedLetters.innerText = "";
+      gameWord.innerText = newGame.hiddenWord;
+      guessesLeft.innerText = newGame.wrongGuesses;
+    });
+
+    letterInput.addEventListener("keyup", function(){
+      newGame.guess(letterInput.value);
+      gameWord.innerText = newGame.hiddenWord;
+      guessesLeft.innerText = newGame.wrongGuesses;
+      guessedLetters.innerText += letterInput.value;
+      letterInput.value = '';
+    });
+
+    giveUp.addEventListener("click", function(){
+      guessesLeft.innerText = 0;
+      gameWord.innerText = newGame.wordToGuess;
+      newGame = new Hangman("Pokemon");
+    })
+  </script>
+</body>
+</html>
