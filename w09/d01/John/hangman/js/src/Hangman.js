@@ -43,9 +43,11 @@ function Hangman(category){
     if (this.gameInProgress) {
       var shouldDecrementGuesses = true;
 
-      if (!this.guessedLetters.some(function(e){
+      if (this.guessedLetters.some(function(e){
         return e === letter;
       })) {
+        shouldDecrementGuesses = false;
+      } else {
         this.guessedLetters.push(letter);
       };
 
