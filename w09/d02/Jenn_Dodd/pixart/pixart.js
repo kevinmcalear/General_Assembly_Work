@@ -13,9 +13,12 @@ var changeColor = function(eventObject){
 };
 
 var makeDivs = function(){
-  for(i = 0; i <= 20; i++){
+  for(i = 0; i <= 8000; i++){
     var colorPixel = document.createElement("div");
     colorPixel.classList.add("square");
+    colorPixel.style.width = "10px";
+    colorPixel.style.height = "10px";
+    colorPixel.style.margin = "0";
     body.appendChild(colorPixel);
   }
 };
@@ -24,7 +27,7 @@ var makeDivs = function(){
 
 makeDivs();
 
-body.addEventListener("click", function(eventObject) {
+body.addEventListener("mouseover", function(eventObject) {
   if (eventObject.target.className === "square") {
     eventObject.target.style.backgroundColor = input.value;
   }
