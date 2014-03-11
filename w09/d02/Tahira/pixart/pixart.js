@@ -15,11 +15,11 @@ var changeColorToBrush = function(eventObject) {
   this.style.background = color;
 };
 
-for(var i=0; i<20; i++){
+for(var i=0; i<8000; i++){
   square = document.createElement("div");
   square.classList.add("square");
   body.insertAdjacentElement("beforeend", square);
-  square.addEventListener("click", changeColorToBrush);
+  square.addEventListener("mouseover", changeColorToBrush);
 };
 
 form.addEventListener("submit", changeColor);
