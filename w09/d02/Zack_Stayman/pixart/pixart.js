@@ -17,7 +17,7 @@ setColor.addEventListener("click", function(e){
     
     var addEvent = function(div){
       div.addEventListener("click", function(){
-      div.style.background = "green";
+      div.style.background = input.value;
     });  
     };
 
