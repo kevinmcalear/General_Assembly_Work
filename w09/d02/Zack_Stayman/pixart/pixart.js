@@ -3,7 +3,6 @@ var box = document.querySelector("div.brush");
 var input = document.getElementById("color-field");
 var colorForm = document.getElementById("color-form");
 
-
 setColor.addEventListener("click", function(e){
   e.preventDefault();
   box.style.background = input.value;
@@ -15,6 +14,13 @@ setColor.addEventListener("click", function(e){
     var div = document.createElement("div");
     div.className = "square";
     document.body.appendChild(div);
+    
+    var addEvent = function(div){
+      div.addEventListener("click", function(){
+      div.style.background = "green";
+    });  
+    };
+
+    addEvent(div);
   };
 })();
-
