@@ -21,8 +21,18 @@
       for (var i = 0; i < 9; i++) {
         var li = document.createElement("li");
         li.className = game.board[parseInt(i/3)][i%3];
+        li.id = [parseInt(i/3),i%3];
         board.appendChild(li);
+        li.addEventListener("click", function(){
+          this.className = game.turn;
+          game.mark(game.turn, {row: parseInt(this.id[0]), column: parseInt(this.id[2])});
+        });
+
       }
+    }
+
+    function hide(e){
+      e.target.style.visibility = 'hidden';
     }
 
     render();
