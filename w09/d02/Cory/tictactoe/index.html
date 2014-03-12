@@ -10,23 +10,6 @@
   <ul class="board">
   </ul>
 
-  <script type="text/javascript">
-    var game = new Game();
-
-    function render(){
-      var board = document.querySelector("ul.board");
-
-      board.innerHTML = "";
-
-      for (var i = 0; i < 9; i++) {
-        var li = document.createElement("li");
-        li.className = game.board[parseInt(i/3)][i%3];
-        board.appendChild(li);
-      }
-    }
-
-    render();
-    
-  </script>
+  <script type="text/javascript" src="js/src/controller.js"></script>
 </body>
 </html>
