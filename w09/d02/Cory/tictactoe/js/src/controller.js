@@ -11,7 +11,7 @@ function render(){
     li.id = [i];
     board.appendChild(li);
     li.addEventListener("click", function() {
-      li.id = game.turn;
+      
     });
   }
 }
