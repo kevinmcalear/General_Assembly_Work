@@ -103,8 +103,17 @@ function makeBuddies(buddies) {
   // display an unordered list of buddies in the aside
   // Make the Gandalf text node have a grey background
 $( "body" ).append( "<aside>" );
-$( "aside" ).append( "<ul>" );
+$( "aside" ).append( "<ul class='buddies'>" );
 
+  for(var i = 0; i < baddies.length; i++) {
+    $(".buddies").append( "<li class='li-buddies'>" );
+  }
+
+  $( ".li-buddies" ).each(function( i, li ){
+  $(li).text(buddies[i]);
+  }); 
+
+  $(".li-buddies").first().css('background-color', 'grey');
 }
 
 makeBuddies(buddies);
