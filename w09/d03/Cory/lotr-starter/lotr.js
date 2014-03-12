@@ -24,6 +24,9 @@ var baddies = [
 
 var lands = ["The Shire", "Rivendell", "Mordor"];
 
+
+var shire = $('h1:contains("The Shire")');
+
 function makeMiddleEarth(lands) {
   // create a section tag with an id of middle-earth
   $( "body" ).append( "<section id='middle-earth'>" );
@@ -36,7 +39,7 @@ function makeMiddleEarth(lands) {
   $( "article" ).append( "<h1>" );
 
   $( "h1" ).each(function( i, h1 ){
-    $(h1).text(lands[i]);
+  $(h1).text(lands[i]);
   }); 
 
   // inside each article tag include an h1 with the name of the land      
@@ -75,6 +78,36 @@ function keepItSecretKeepItSafe() {
 }
 
 keepItSecretKeepItSafe();
+
+function makeBaddies(baddies) {
+  // display an unordered list of baddies in Mordor
+  $( "h1" ).last().append( "<ul>");
+
+  for(var i = 0; i < baddies.length; i++) {
+    $("ul").last().append( "<li class='mordor'>" );
+  
+  }
+
+  $('h1').last().attr('id', 'mordor');
+
+  $( ".mordor" ).each(function( i, li ){
+  $(li).text(baddies[i]);
+}); 
+}
+
+makeBaddies(baddies);
+
+
+function makeBuddies(buddies) {
+  // create an aside tag
+  // display an unordered list of buddies in the aside
+  // Make the Gandalf text node have a grey background
+$( "body" ).append( "<aside>" );
+$( "aside" ).append( "<ul>" );
+
+}
+
+makeBuddies(buddies);
 
 
 
