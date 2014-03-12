@@ -22,19 +22,19 @@ describe("Game", function() {
 
     it("can't play the same mark twice in a row", function(){
       game.mark("x", {row: 1, column: 1});
-      expect(game.playAt( {row: 1, column: 1} )).toBe(undefined);
+      expect(game.playAt( {row: 1, column: 1} )).toBe('x');
       
       game.mark("o", {row: 1, column: 1});
-      expect(game.playAt( {row: 1, column: 1} )).toBe("o");
+      expect(game.playAt( {row: 1, column: 1} )).toBe("x");
     });
 
     it("only takes valid marks", function() {
-      game.mark("X", {row: 1, column: 1});     
+      game.mark("y", {row: 1, column: 1});     
       game.mark("xo", {row: 1, column: 1});
       game.mark("O", {row: 1, column: 1});
       game.mark("sadf", {row: 1, column: 1});
  
-      expect(game.playAt( {row: 1, column: 1} )).toBe(undefined);
+      expect(game.playAt( {row: 1, column: 1} )).toBe(  undefined);
     });
 
     it("doesn't play if the game is over", function() {
@@ -94,6 +94,16 @@ describe("Game", function() {
 
       expect(game.checkWinner()).toBe("x");
     });
+  });
+
+  describe("winCounter", function() {
+    it("keeps track of wins for 'x' and 'o' ", function(){
+      game.board[0][0] = "x";
+      game.board[1][0] = "x";
+      game.board[2][0] = "x";
+
+      expect(game.winCounter['x']).toBe(1);
+    })
   });
 });
 
