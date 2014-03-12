@@ -9,6 +9,7 @@ h1 {
   font-family: Josefin Slab;
   font-size: 72px;
   text-align: center;
+  position: fixed;
 }
 
 button {
