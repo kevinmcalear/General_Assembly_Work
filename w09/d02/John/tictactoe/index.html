@@ -35,7 +35,7 @@
         var winnerIndex = parseInt(i/3) + "-" + i%3;
         li.className = game.board[parseInt(i/3)][i%3];
         li.id = parseInt(i/3) + "-" + i%3;
-        if (game.gameOver() && (!game.winners.indexOf(winnerIndex) === -1)) {
+        if (game.gameOver() && !(game.winners.indexOf(winnerIndex) === -1)) {
           li.classList.add("winning");
         }
 
@@ -52,7 +52,6 @@
 
     function whoseTurn(){
       var display = document.createElement("h2");
-      var winner = document.createElement("h2");
       if (!game.gameOver()) {
         display.innerText = game.turn + "'s turn";
       } else if (game.checkWinner() === "x" || game.checkWinner() === "o") {
@@ -64,7 +63,6 @@
       }
       
       ul.appendChild(display);
-      // ul.appendChild(winner);
     }
 
     render();

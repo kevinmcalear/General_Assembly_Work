@@ -50,13 +50,13 @@ Game.prototype.checkWinner = function() {
     }
   }
   // FOR each column in the board
-  for(var i = 0; i < 3; i++){
-    if( (this.board[0][i] === "x" ||
-         this.board[0][i] === "o") &&
-        (this.board[0][i] === this.board[1][i]) &&
-        (this.board[1][i] === this.board[2][i]) ){
-      this.winners = ["0-" + i, "1-" + i, "2-" + i];
-      return this.board[0][i];
+  for(var j = 0; j < 3; j++){
+    if( (this.board[0][j] === "x" ||
+         this.board[0][j] === "o") &&
+        (this.board[0][j] === this.board[1][j]) &&
+        (this.board[1][j] === this.board[2][j]) ){
+      this.winners = ["0-" + j, "1-" + j, "2-" + j];
+      return this.board[0][j];
     }
   }
   // diagonal top left
@@ -68,12 +68,13 @@ Game.prototype.checkWinner = function() {
     return this.board[1][1];
   }
   // diagonal top right
-  if( 
+  if( (this.board[0][2] === "x" ||
+       this.board[0][2] === "o") &&
       (this.board[0][2] === this.board[1][1]) &&
       (this.board[1][1] === this.board[2][0]) ){
     this.winners = ["0-2", "1-1", "2-0"];
     return this.board[1][1];
-  };
+  }
 
 };
 
