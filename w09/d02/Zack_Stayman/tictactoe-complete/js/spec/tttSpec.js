@@ -70,7 +70,6 @@ describe("Game", function() {
 
   describe("checkWinner", function() {
     it("is true if there are three in a row", function() {
-      var game = new Game();
       game.board[0][0] = "x";
       game.board[0][1] = "x";
       game.board[0][2] = "x";
@@ -79,7 +78,6 @@ describe("Game", function() {
     });
 
     it("is true if there are three in a column", function() {
-      var game = new Game();
       game.board[0][0] = "x";
       game.board[1][0] = "x";
       game.board[2][0] = "x";
@@ -88,7 +86,6 @@ describe("Game", function() {
     });
 
     it("is true if there are three on a diagonal", function() {
-      var game = new Game();
       game.board[0][0] = "x";
       game.board[1][1] = "x";
       game.board[2][2] = "x";
