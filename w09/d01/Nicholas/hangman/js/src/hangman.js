@@ -12,7 +12,7 @@ function Hangman(){
   this.attemptCounter = 7;
   this.guessedLetters = [];
   this.word = [];
-  guessesLeft.innerText = this.attemptCounter;
+  // guessesLeft.innerText = this.attemptCounter;
 }
 
 Hangman.prototype.guess = function(userGuess) {
@@ -56,11 +56,11 @@ startButton.addEventListener("click", function() {
   game = new Hangman();
 });
 
-giveupButton.addEventListener("click", function(){
+giveupButton.addEventListener("click", function() {
   Hangman.prototype.giveup();
 });
 
-guessLetter.addEventListener("keyup", function(){
+guessLetter.addEventListener("keyup", function() {
   userGuess = guessLetter.value;
   Hangman.prototype.guess(userGuess);
   guessLetter.value = "";
