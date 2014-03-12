@@ -43,8 +43,11 @@ describe("Game", function() {
       expect( function() {game.mark("o", {row: 1, column: 1}); }).toThrowError("game over!");
     });
 
-    xit("increments the turn number", function(){
-      
+    it("increments the turn number", function(){
+      expect(game.turnNumber).toBe(1);
+
+      game.mark("o", {row: 0, column: 1});
+      expect(game.turnNumber).toBe(2);
     });
   });
 
@@ -69,21 +72,35 @@ describe("Game", function() {
 
   describe("checkWinner", function(){
 
-    it("is true if there are 3 in a row", function(){
+    it("is x if there are 3 x's in a row", function(){
       game.board[0][0] = "x";
       game.board[0][1] = "x";
       game.board[0][2] = "x";
       expect(game.checkWinner()).toBe("x");
     });
 
-    it("is true if there are 3 in a column", function(){
+    it("is o if there are 3 o's in a row", function(){
+      game.board[0][0] = "o";
+      game.board[0][1] = "o";
+      game.board[0][2] = "o";
+      expect(game.checkWinner()).toBe("o");
+    });
+
+    it("is x if there are 3 x's in a column", function(){
       game.board[0][0] = "x";
       game.board[1][0] = "x";
       game.board[2][0] = "x";
       expect(game.checkWinner()).toBe("x");
     });
 
-    it("is true if there are 3 on a diagonal", function(){
+    it("is o if there are 3 o's in a column", function(){
+      game.board[0][0] = "o";
+      game.board[1][0] = "o";
+      game.board[2][0] = "o";
+      expect(game.checkWinner()).toBe("o");
+    });
+
+    it("is x if there are 3 x's on a diagonal", function(){
       game.board[0][0] = "x";
       game.board[1][1] = "x";
       game.board[2][2] = "x";
@@ -93,6 +110,44 @@ describe("Game", function() {
       game.board[1][1] = "x";
       game.board[2][0] = "x";
       expect(game.checkWinner()).toBe("x");
+    });
+
+    it("is o if there are 3 o's on a diagonal", function(){
+      game.board[0][0] = "o";
+      game.board[1][1] = "o";
+      game.board[2][2] = "o";
+      expect(game.checkWinner()).toBe("o");
+
+      game.board[0][2] = "o";
+      game.board[1][1] = "o";
+      game.board[2][0] = "o";
+      expect(game.checkWinner()).toBe("o");
+    });
+
+    it("is false if there are 3 undefined in a row", function(){
+      game.board[0][0] = undefined;
+      game.board[0][1] = undefined;
+      game.board[0][2] = undefined;
+      expect(game.checkWinner()).toBe(false);
+    });
+
+    it("is false if there are 3 undefined in a column", function(){
+      game.board[0][0] = undefined;
+      game.board[1][0] = undefined;
+      game.board[2][0] = undefined;
+      expect(game.checkWinner()).toBe(false);
+    });
+
+    it("is false if there are 3 undefined on a diagonal", function(){
+      game.board[0][0] = undefined;
+      game.board[1][1] = undefined;
+      game.board[2][2] = undefined;
+      expect(game.checkWinner()).toBe(false);
+
+      game.board[0][2] = undefined;
+      game.board[1][1] = undefined;
+      game.board[2][0] = undefined;
+      expect(game.checkWinner()).toBe(false);
     });
   });
 }); 
