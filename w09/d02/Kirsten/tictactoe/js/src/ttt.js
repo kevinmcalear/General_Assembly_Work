@@ -28,6 +28,7 @@ Game.prototype.nextTurn = function() {
 
 Game.prototype.gameOver = function() {
   if(this.checkWinner() !== undefined){
+    this.winningCombo();
     return true
   };
   if(this.turnNumber > 8) {
@@ -37,41 +38,89 @@ Game.prototype.gameOver = function() {
 };
 
 Game.prototype.checkWinner = function() {
-  // for each row in the board, if index0  === index 1 === index 2 then what they equal has won.
-  var flattenedBoard = new Array;
-
+  // FOR each row in the board
   for(var i = 0; i < 3; i++){
-    flattenedBoard.push(this.board[0][i]);
-  };
-  for(var i = 0; i < 3; i++){
-    flattenedBoard.push(this.board[1][i]);
-  };
-  for(var i = 0; i < 3; i++){
-    flattenedBoard.push(this.board[2][i]);
-  };
-  console.log(flattenedBoard)
-
-  for(var i = 0; i < 3; i++){
-    if( (this.board[i][0] === this.board[i][1]) &&  
-        (this.board[i][1] === this.board[i][2])){
+    if( 
+        (this.board[i][0] === this.board[i][1]) &&
+        (this.board[i][1] === this.board[i][2]) &&
+        this.board[i][0] !== undefined){
       return this.board[i][0];
+  }
+}
+  // FOR each column in the board
+  for(var i = 0; i < 3; i++){
+    if( 
+        (this.board[0][i] === this.board[1][i]) &&
+        (this.board[1][i] === this.board[2][i]) &&
+        this.board[0][i] !== undefined){
+      return this.board[0][i];
+  }
+}
+  // diagonal top left
+  if( (this.board[0][0] === "x" || "o") &&
+      (this.board[0][0] === this.board[1][1]) &&
+      (this.board[1][1] === this.board[2][2]) ){
+    return this.board[1][1];
+}
+  // diagonal top right
+  if( (this.board[0][2] === ("x" || "o")) &&
+    (this.board[0][2] === this.board[1][1]) &&
+    (this.board[1][1] === this.board[2][0]) ){
+    return this.board[1][1];
+};
+
+}
+
+// Game.prototype.checkWinner = function() {
+//   for(var i = 0; i < 3; i++){
+//     if( (this.board[i][0] === this.board[i][1]) &&  
+//         (this.board[i][1] === this.board[i][2])){
+//       console.log(i)
+//       return this.board[i][0];
+//     }
+//   }
+//   for(var i = 0; i < 3; i++){
+//     if( (this.board[0][i] === this.board[1][i]) &&  
+//         (this.board[1][i] === this.board[2][i])){
+//       return this.board[0][i];
+//     }
+//   }
+
+//   if( (this.board[0][0] === this.board[1][1]) &&  
+//       (this.board[1][1] === this.board[2][2])){
+//     return this.board[1][1];
+//   }
+//   if( (this.board[0][2] === this.board[1][1]) &&  
+//       (this.board[1][1] === this.board[2][0])){
+//     return this.board[1][1];
+//   }
+// };
+
+Game.prototype.winningCombo = function() {
+  for(var i = 0; i < 3; i++){
+    if( (this.board[i][0] === ("x" || "o")) &&
+        (this.board[i][0] === this.board[i][1]) &&  
+        (this.board[i][1] === this.board[i][2])){
+      return [i,0,i,1,i,2];
     }
   }
   for(var i = 0; i < 3; i++){
-    if( (this.board[0][i] === this.board[1][i]) &&  
+    if( (this.board[0][i] === ("x" || "o")) &&
+        (this.board[0][i] === this.board[1][i]) &&  
         (this.board[1][i] === this.board[2][i])){
-      return this.board[0][i];
+      return [0,i,1,i,2,i];
     }
   }
 
   if( (this.board[0][0] === this.board[1][1]) &&  
       (this.board[1][1] === this.board[2][2])){
-    return this.board[1][1];
+    return [0,0,1,1,2,2];
   }
   if( (this.board[0][2] === this.board[1][1]) &&  
       (this.board[1][1] === this.board[2][0])){
-    return this.board[1][1];
-  }
+    return[0,2,1,1,2,0];
+  };
 };
+
 
 

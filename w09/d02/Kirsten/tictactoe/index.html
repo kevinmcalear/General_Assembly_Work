@@ -20,9 +20,26 @@
       render();
     };
 
-    var winner = function(li){
+    var winner = function(){
       if (game.gameOver() === true) {
-        li.classList.add("winning")
+        var numbers = game.winningCombo();
+        var locations = new Array;
+        for(i = 0 ; i < 5; ++i){
+          if(i%2 === 0){
+            if(numbers[i] === 1){
+              locations.push(numbers[i]+numbers[i+1]+2);
+            }
+            if(numbers[i] === 2){
+              locations.push(numbers[i]+numbers[i+1]+4);
+            }
+            if(numbers[i] === 0){
+              locations.push(numbers[i]+numbers[i+1]);
+            }
+          }
+        }
+        document.getElementById(locations[0]).classList.add("winning");
+        document.getElementById(locations[1]).classList.add("winning");
+        document.getElementById(locations[2]).classList.add("winning");
       }
     }
 
@@ -35,7 +52,7 @@
         li.className = game.board[parseInt(i/3)][i%3];
         li.id = i;
         li.addEventListener("click", sendPlay);
-        winner(li);
+        li.addEventListener("click", winner);
         board.appendChild(li);
       }
     }
