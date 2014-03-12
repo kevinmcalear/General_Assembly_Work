@@ -45,38 +45,37 @@ Game.prototype.checkWinner = function() {
          this.board[i][0] === "o") &&
         (this.board[i][1] === this.board[i][2]) &&
         (this.board[i][1] === this.board[i][0]) ){
-      game.winners = [i + "-0", i + "-1", i + "-2"];
+      this.winners = [i + "-0", i + "-1", i + "-2"];
       return this.board[i][0];
+    }
   }
-}
   // FOR each column in the board
   for(var i = 0; i < 3; i++){
     if( (this.board[0][i] === "x" ||
          this.board[0][i] === "o") &&
         (this.board[0][i] === this.board[1][i]) &&
         (this.board[1][i] === this.board[2][i]) ){
-      game.winners = ["0-" + i, "1-" + i, "2-" + i];
+      this.winners = ["0-" + i, "1-" + i, "2-" + i];
       return this.board[0][i];
+    }
   }
-}
   // diagonal top left
   if( (this.board[0][0] === "x" ||
        this.board[0][0] === "o") &&
       (this.board[0][0] === this.board[1][1]) &&
       (this.board[1][1] === this.board[2][2]) ){
-    game.winners = ["0-0", "1-1", "2-2"];
+    this.winners = ["0-0", "1-1", "2-2"];
     return this.board[1][1];
-}
+  }
   // diagonal top right
-  if( (this.board[0][2] === "x" || 
-       this.board[0][2] === "o") &&
+  if( 
       (this.board[0][2] === this.board[1][1]) &&
       (this.board[1][1] === this.board[2][0]) ){
-    game.winners = ["0-2", "1-1", "2-0"];
+    this.winners = ["0-2", "1-1", "2-0"];
     return this.board[1][1];
-};
+  };
 
-}
+};
 
 // Game.prototype.markO = function(location) {
 //  this.mark("o", location);

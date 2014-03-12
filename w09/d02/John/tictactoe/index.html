@@ -35,7 +35,7 @@
         var winnerIndex = parseInt(i/3) + "-" + i%3;
         li.className = game.board[parseInt(i/3)][i%3];
         li.id = parseInt(i/3) + "-" + i%3;
-        if (game.gameOver() && !(game.winners.indexOf(winnerIndex) === -1)) {
+        if (game.gameOver() && (!game.winners.indexOf(winnerIndex) === -1)) {
           li.classList.add("winning");
         }
 

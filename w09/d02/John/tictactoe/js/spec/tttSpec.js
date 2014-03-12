@@ -69,6 +69,7 @@ describe("Game", function() {
   });
 
   describe("checkWinner", function() {
+    // var game;
     beforeEach(function() {
       game = new Game();
     });
@@ -101,6 +102,22 @@ describe("Game", function() {
       game.board[2][0] = "o";
 
       expect(game.checkWinner()).toBe("o");
+    });
+
+    it("ensures that 'undefined' is not a Winner", function() {
+      game.board[2][0] = "x";
+      game.board[2][1] = "x";
+      game.board[2][2] = "x";
+
+      expect(game.checkWinner()).toBe("x");
+    });
+
+    it("ensures that 'undefined' is not a Winner", function() {
+      game.board[0][2] = "x";
+      game.board[1][2] = "x";
+      game.board[2][2] = "x";
+
+      expect(game.checkWinner()).toBe("x");
     });
   });
 });
