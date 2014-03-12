@@ -66,7 +66,15 @@ function makeHobbits(hobbits) {
 makeHobbits(hobbits);
 
 
+function keepItSecretKeepItSafe() {
+  // create a div with an id of 'the-ring'
+  // add the ring as a child of Frodo
 
+  $( "li" ).first().append( "<div>" );
+  $('div').attr('id', 'the-ring');
+}
+
+keepItSecretKeepItSafe();
 
 
 
