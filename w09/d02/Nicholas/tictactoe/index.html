@@ -11,13 +11,41 @@
   </ul>
 
   <script type="text/javascript">
-    var board = document.querySelector("ul.board");
+    var game = new Game();
 
-    for (var i = 1; i <= 9; i++) {
-      var li = document.createElement("li");
-      li.className = (i % 2 ? "x" : "o");
-      board.appendChild(li);
+
+    var marksTheSpot = function(){
+      var row = parseInt(this.id/3);
+      var column = this.id%3;
+      game.mark(game.turn, {row: row, column: column})
+      render();
     }
+
+    function render(){
+    var board = document.querySelector("ul.board");
+    board.innerHTML = "";
+
+    for (var i = 0; i < 9; i++) {
+      var li = document.createElement("li");
+      li.className = game.board[parseInt(i/3)][i%3];
+      li.id = i
+      board.appendChild(li);
+      li.addEventListener("click", marksTheSpot);
+      }
+      if (game.gameOver()){
+        var finalNums = game.assignWinners();
+        if(finalNums){
+        for(var i = 0; i < finalNums.length; i++){
+          var change = document.getElementById(finalNums[i]); 
+          change.className = "winning";
+        };
+      }
+    }
+};
+  render();
+  
+ 
+
   </script>
 </body>
 </html>
