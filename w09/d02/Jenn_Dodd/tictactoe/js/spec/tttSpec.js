@@ -71,7 +71,10 @@ describe("Game", function() {
   });
 
   describe("checkWinner", function() {
-    it("is true if there are three in a row", function() {
+    spyOn(game, 'winClass').and.callFake(function(){
+        return "<div></div>";
+      });
+    it("is x if there are three x's in a row", function() {
       game.board[0][0] = "x";
       game.board[0][1] = "x";
       game.board[0][2] = "x";
@@ -79,7 +82,7 @@ describe("Game", function() {
       expect(game.checkWinner()).toBe("x");
     });
 
-    it("is true if there are three in a column", function() {
+    it("is x if there are three x's in a column", function() {
       game.board[0][0] = "x";
       game.board[1][0] = "x";
       game.board[2][0] = "x";
@@ -87,31 +90,23 @@ describe("Game", function() {
       expect(game.checkWinner()).toBe("x");
     });
 
-    it("is true if there are three on a diagonal", function() {
+    it("is x if there are three x's on a diagonal", function() {
       game.board[0][0] = "x";
       game.board[1][1] = "x";
       game.board[2][2] = "x";
 
       expect(game.checkWinner()).toBe("x");
+    });
 
+    it("is o if there are three o's on a diagonal", function(){
       game.board[0][2] = "o";
       game.board[1][1] = "o";
       game.board[2][0] = "o";
 
       expect(game.checkWinner()).toBe("o");
     });
+
   });
-
-  // xdescribe("winClass", function() {
-  //   it("it applies the winning class", function(){
-  //     game.board[0][0] = "x";
-  //     game.board[1][1] = "x";
-  //     game.board[2][2] = "x";
-
-  //     expect
-
-  //   }):
-  // }):
 
 });
 

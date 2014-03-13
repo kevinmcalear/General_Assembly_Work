@@ -5,7 +5,6 @@ var Game = function(){
 }
 
 Game.prototype.hashIt = function(idToHash) {
-
   idArray = idToHash.slice(1).split("-");
   r = parseInt(idArray[0]);
   c = parseInt(idArray[1]);
