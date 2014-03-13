@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
-  def index
-    render :index
+  def new
+    render :new
   end
 
   def create
