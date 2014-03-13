@@ -3,6 +3,7 @@
 .controls {
   margin: 50px;
   text-align: center;
+  clear: both;
 }
 
 h1 {
