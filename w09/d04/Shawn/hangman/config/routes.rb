@@ -1,6 +1,7 @@
 Hangman::Application.routes.draw do
-  root 'hangman#index'
+  root 'games#new'
 
+  resources :games, only: [:create] 
   resources :words, only: [] do 
     collection do 
       get "random"

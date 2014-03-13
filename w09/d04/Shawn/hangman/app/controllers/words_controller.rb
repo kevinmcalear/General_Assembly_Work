@@ -4,3 +4,4 @@ class WordsController < ApplicationController
     render json: Word.order("RANDOM()").first
   end
 end
+
