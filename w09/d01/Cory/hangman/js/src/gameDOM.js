@@ -1,5 +1,9 @@
+var wordList = ['ruby', 'rails', 'javascript', 'array', 'hash', 'sinatra', 'model', 'controller', 'view', 'devise', 'authentication', 'capybara', 'jasmine', 'cache', 'sublime', 'terminal', 'system', 'twitter', 'facebook', 'function', 'google', 'amazon', 'development', 'data', 'design', 'inheritance', 'prototype', 'gist', 'github', 'agile', 'fizzbuzz', 'route', 'gem', 'deployment', 'database'];
+function randomWord() {
+  return wordList[ Math.floor(Math.random() * (wordList.length + 1)) ]
+}
 // Find elements
-var game = new Game("motherboard");
+var game = new Game(randomWord());
 var guessesLeftDisplay = document.querySelector(".guesses-left");
 var form = document.querySelector("form.letterForm");
 var gameWord = document.querySelector(".game-word");
@@ -8,6 +12,8 @@ var newGame = document.querySelector(".new-game");
 var giveUpButton = document.querySelector(".give-up");
 
 // Build functions
+
+
 var numGuessesLeft = function() {
   guessesLeftDisplay.innerText = game.guessesLeft + 1;
 };
