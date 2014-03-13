@@ -89,7 +89,7 @@ makeBuddies(buddies);
 
 function leaveTheShire() {
   var rivendell = $("h1:contains('Rivendell')");
-  var hobbitsDetach = $("#all-hobbits").detach();
+  var hobbitsDetach = $("ul#all-hobbits").detach();
   $(hobbitsDetach).appendTo(rivendell);
   // assemble the hobbits and move them to Rivendell
 }
@@ -134,12 +134,13 @@ function forgeTheFellowShip() {
 forgeTheFellowShip();
 
 function theBalrog() {
-$("li:contains('Gandalf')").text("Gandalf The White").css("background", "white").css("border", "2px solid grey"); 
+$("li:contains('Gandalf')").text("Gandalf The White").css("background", "white").css("border", "2px solid grey");
 // $("li:contains('Gandalf')").css("background", "white");
   // change the 'Gandalf' textNode to 'Gandalf the White'
   // apply style to the element
   // make the background 'white', add a grey border
 }
+theBalrog();
 
 function hornOfGondor() {
   $("<footer>").appendTo("body");
@@ -157,5 +158,46 @@ function hornOfGondor() {
   // Put Boromir in the Footer
 }
 hornOfGondor();
+
+function itsDangerousToGoAlone(){
+  var mordor = $("h1:contains('Mordor')");
+  var frodo = $("li:contains('Frodo Baggins')");
+  var sam = $("li:contains('Samwise 'Sam' Gamgee')");
+  $(sam).appendTo(mordor);
+  $(frodo).appendTo(mordor);
+  var mtDoom = $("<div id='mount-doom'>");
+  $(mtDoom).appendTo(mordor);
+
+  // take Frodo and Sam out of the fellowship and move them to Mordor
+  // add a div with an id of 'mount-doom' to Mordor
+}
+itsDangerousToGoAlone();
+
+function weWantsIt() {
+  var mordor = $("h1:contains('Mordor')");
+  var gollumDiv = $("<div id='gollum'>");
+  var divRing = $("div#the-ring");
+  $(gollumDiv).appendTo(mordor);
+  divRing.detach();
+  divRing.appendTo(gollumDiv);
+  // Create a div with an id of 'gollum' and add it to Mordor
+  // Remove the ring from Frodo and give it to Gollum
+  // Move Gollum into Mount Doom
+}
+weWantsIt();
+
+function thereAndBackAgain() {
+  var shire = $("h1:contains('The Shire')");
+  $("<div id='gollum'>").remove();
+  $("li.baddies").remove();
+  var hobbitsClass = $( ".hobbit" );
+  hobbitsClass.detach();
+  hobbitsClass.appendTo(shire);
+  
+  // remove Gollum and the Ring from the document
+  // remove all the baddies from the document
+  // Move all the hobbits back to the shire
+}
+thereAndBackAgain();
 
 
