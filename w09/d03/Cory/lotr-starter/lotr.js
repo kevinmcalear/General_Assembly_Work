@@ -46,6 +46,7 @@ function makeMiddleEarth(lands) {
 };
 
 makeMiddleEarth(lands);
+
 var article = $("article");
 var shire = article[0]
 var rivendell = article[1];
@@ -135,9 +136,25 @@ leaveTheShire();
 function beautifulStranger() {
   // change the buddy 'Strider' textnode to "Aragorn"
   $(".li-buddies").last().replaceWith("Aragorn");
+
 }
 
 beautifulStranger()
+
+var aside = $("aside");
+
+function forgeTheFellowShip() {
+  // move the hobbits and the buddies to Rivendell
+  // create a new div called 'the-fellowship'
+  // add each hobbit and buddy one at a time to 'the-fellowship'
+  // after each character is added make an alert that they have joined your party
+    var buddies = $(aside);
+    $(rivendell).append(buddies);
+    $( rivendell ).append( "<div> the-fellowship </div>" );
+
+}
+
+forgeTheFellowShip();
 
 
 
