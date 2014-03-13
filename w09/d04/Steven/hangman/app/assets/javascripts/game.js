@@ -39,7 +39,7 @@ Game.prototype.wordDisplay = function(cheat) {
         display += "_";
       }
 
-      display += " ";  
+      display += " "; 
     }.bind(this));
   };
 
