@@ -26,14 +26,17 @@
 </section>
 
 <script>
-  var wordList = ['ruby', 'rails', 'javascript', 'array', 'hash', 'sinatra', 'model', 'controller', 'view', 'devise', 'authentication', 'capybara', 'jasmine', 'cache', 'sublime', 'terminal', 'system', 'twitter', 'facebook', 'function', 'google', 'amazon', 'development', 'data', 'design', 'inheritance', 'prototype', 'gist', 'github', 'agile', 'fizzbuzz', 'route', 'gem', 'deployment', 'database'];
+(function(){
+    var game;
 
-  function randomWord() {
-    return wordList[ Math.floor(Math.random() * (wordList.length + 1)) ]
-  }
+    function startGame() {
+      $.getJSON("/words/random", function(response) {
+        game = new Game(response.word, 8);
+        render();
+      });
+    };
 
-  (function(){
-    var game = new Game(randomWord(), 8);
+    startGame();
 
     var guessesLeft    = document.querySelector(".guesses-left");
     var guessInput     = document.querySelector("input[name='letter']");
@@ -51,8 +54,10 @@
     });
 
     newGame.addEventListener("click", function() {
-      game = new Game(randomWord(), 8);
-      render();
+      $.getJSON("/words/random", function(response) {
+        game = new Game(response.word, 8);
+        render();
+      });
     });
 
     giveUp.addEventListener("click", function() {
@@ -70,6 +75,5 @@
       };
     };
 
-    render();
   })();
 </script>
