@@ -10,6 +10,7 @@
   <section class="game-play">
 
     <figure>
+      <span>Games Won/Lost: </span> <span class="games-won">0</span>/<span class="games-lost">0</span><br>
       <span>Guesses Left:</span> <span class="guesses-left"></span>
     </figure>
 
@@ -40,6 +41,8 @@
     var guessedLetters = document.querySelector(".guessed-letters");
     var guessesLeft = document.querySelector(".guesses-left");
     var gameWord = document.querySelector(".game-word");
+    var gamesWon = document.querySelector(".games-won");
+    var gamesLost = document.querySelector(".games-lost");
     gameWord.innerText = newGame.hiddenWord;
     guessesLeft.innerText = newGame.wrongGuesses;
 
@@ -57,10 +60,18 @@
       guessesLeft.innerText = newGame.wrongGuesses;
       guessedLetters.innerText += letterInput.value;
       letterInput.value = '';
+      if(gameWord.innerText.indexOf("_") == -1){
+        gamesWon.innerText = parseInt(gamesWon.innerText) + 1;
+      };
+      if(guessesLeft.innerText == 0 && gameWord.innerText.indexOf("_") != -1) {
+        gamesLost.innerText = parseInt(gamesLost.innerText) + 1;
+        
+      };
     });
 
     giveUp.addEventListener("click", function(){
       guessesLeft.innerText = 0;
+      gamesLost.innerText = parseInt(gamesLost.innerText) + 1;
       gameWord.innerText = newGame.wordToGuess;
       newGame = new Hangman("Pokemon");
     })

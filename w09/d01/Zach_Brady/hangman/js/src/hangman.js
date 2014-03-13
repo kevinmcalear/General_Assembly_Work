@@ -1,6 +1,6 @@
 function Hangman(category){
   this.categories = {
-    Pokemon: ["PIKACHU", "BULBASAUR", "CHARMELEON", "MACHOP"],
+    Pokemon: ["PIKACHU", "BULBASAUR", "VENUSAUR", "CHARMELEON", "MACHOP", "MACHAMP", "RAICHU", "MEW", "TOKEPEE", "SNORLAX"],
     Pirates: [],
     Ninjas: [],
     FecalMatterSynonyms: []
