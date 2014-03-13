@@ -55,3 +55,12 @@ Game.prototype.won = function() {
 
   return true;
 };
+
+var game;
+
+  function startGame() {
+    $.getJSON("/words/random", function(response) {
+      game = new Game(response.word, 8);
+      render();
+    });
+  };
