@@ -96,7 +96,7 @@ function forgeTheFellowShip() {
   $("li.buddies").parent().appendTo("article:contains('Rivendell')");
 
   // create a new div called 'the-fellowship'
-  $("div").attr("id", "the-fellowship").appendTo("article:contains('Rivendell')");
+  $("<div>").attr("id", "the-fellowship").appendTo("article:contains('Rivendell')");
 
   // add each hobbit and buddy one at a time to 'the-fellowship'
   var hobs = $("li.hobbits");
@@ -127,14 +127,52 @@ theBalrog();
 function hornOfGondor() {
   // pop up an alert that the horn of gondor has been blown
   alert("The Horn of Gondor has been blown");
+
   // Boromir's been killed by the Uruk-hai!
   // put a linethrough on boromir's name
   $("li:contains('Boromir')").css("text-decoration", "line-through");
+
   // Remove the Uruk-Hai from the Baddies on the page
-  $("li:contains('The Uruk-Hai')").remove();
+  $("li:contains('The Uruk-hai')").remove();
+
   // Remove Boromir from the Fellowship
+  // $("li:contains('Boromir')").remove();
   // Put Boromir in the Footer
+  var footer = $("<footer>").appendTo("body");
+  $("li:contains('Boromir')").appendTo(footer);
 }
 hornOfGondor();
 
+function itsDangerousToGoAlone(){
+  // take Frodo and Sam out of the fellowship and move them to Mordor
+  // add a div with an id of 'mount-doom' to Mordor
+  $("<div>").attr("id", "mount-doom").appendTo("article:last-child");
 
+  $("li:contains('Frodo Baggins')").appendTo('#mount-doom');
+  $("li:contains('Samwise 'Sam' Gamgee')").appendTo('#mount-doom');
+}
+itsDangerousToGoAlone();
+
+function weWantsIt() {
+  // Create a div with an id of 'gollum' and add it to Mordor
+  $('<div>').attr("id", "gollum").appendTo('article:last-child');
+
+  // Remove the ring from Frodo and give it to Gollum
+  $("#the-ring").appendTo("#gollum");
+
+  // Move Gollum into Mount Doom
+  $("#gollum").appendTo("#mount-doom");
+}
+weWantsIt();
+
+function thereAndBackAgain() {
+  // remove Gollum and the Ring from the document
+  $("#gollum").remove();
+
+  // remove all the baddies from the document
+  $(".baddies").parent().remove();
+
+  // Move all the hobbits back to the shire
+  $(".hobbits").appendTo("article:first-child");
+}
+thereAndBackAgain();
