@@ -34,4 +34,9 @@ var setColor = function(e) {
   colorField.style.backgroundColor = newColor.value;
 }
 
+var setBrush = function() {
+  colorField.style.backgroundColor = colorSwatches.style.backgroundColor;
+}
+
 form.addEventListener("submit", setColor);
+colorField.addEventListener("click", setBrush);
