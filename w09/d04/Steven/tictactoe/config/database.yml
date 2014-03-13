@@ -1,0 +1,16 @@
+
+development:
+  adapter: postgresql
+  database: tictactoe_dev
+  pool: 5
+  timeout: 5000
+
+
+test:
+  adapter: postgresql
+  database: tictactoe_test
+  pool: 5
+  timeout: 5000
+
+
+
