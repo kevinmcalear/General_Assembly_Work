@@ -1,6 +1,8 @@
 Hangman::Application.routes.draw do
 
-  root'games#index' 
+  root'games#new' 
+
+  resources :games, only: [:create]
 
   resources :words, only: [] do
     collection do

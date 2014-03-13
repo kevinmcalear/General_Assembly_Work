@@ -1,4 +1,3 @@
-
 <section class="game-play">
 
   <figure>
@@ -26,16 +25,15 @@
 </section>
 
 <script>
-  
   (function(){
     var game;
 
     function startGame() {
-      $.getJSON("/words/random", function(response){
-      game = new Game(response.word, 8);
-      render();
-      })
-    }
+      $.getJSON("/words/random", function(response) {
+        game = new Game(response.word, 8);
+        render();
+      });
+    };
 
     startGame();
 
@@ -61,6 +59,7 @@
     giveUp.addEventListener("click", function() {
       wordDisplay.innerText = game.wordDisplay(true);
       game.gaveUp = true;
+      checkWon();
     });
 
     function render() {
@@ -68,11 +67,15 @@
       guessedLetters.innerText = game.guessedLetters.join(" ");
       wordDisplay.innerText    = game.wordDisplay();
 
+      checkWon();
+    };
+
+    function checkWon() {
       if (game.gameOver()) {
+        $.post( "/games", { won: game.won() } );
         alert("You " + (game.won() ? "won" : "lost"));
       };
     };
 
-    // render();
   })();
 </script>
