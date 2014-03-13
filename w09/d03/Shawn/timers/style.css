@@ -9,6 +9,10 @@ h1 {
   font-family: Josefin Slab;
   font-size: 72px;
   text-align: center;
+  display: block;
+  position: fixed;
+  top: 0px;
+
 }
 
 button {
@@ -22,6 +26,7 @@ button {
   padding: 15px 25px;
   border-radius: 10px;
   box-shadow: 2px 2px black;
+  display: inline-block;
 }
 
 button:hover{

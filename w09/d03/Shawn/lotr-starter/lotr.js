@@ -24,15 +24,15 @@ var baddies = [
 
 var lands = ["Shire", "Rivendell", "Mordor"];
 
-
 function makeMiddleEarth(lands) {
   $("<section id='middle-earth'></section>").appendTo("body");
   for(var i = 0; i < lands.length; i++) {
-    $("<article id="+lands[i].split(" ").join()+"><h1>"+lands[i]+"</h1></article>").appendTo("section#middle-earth");
+    var land = lands[i].split(" ").join()
+    $("<article id="+land+"><h1>"+land+"</h1></article>").appendTo("section#middle-earth");
+    // $("h1").css({'float': 'right'})
+       $("h1").animate({'left': '2500px'});
   }      
 }
-
-
 
 function makeHobbits(hobbits) {
 var lands = document.querySelectorAll("article");
@@ -42,14 +42,11 @@ var lands = document.querySelectorAll("article");
   }
 }
 
-
 function keepItSecretKeepItSafe() {
   // create a div with an id of 'the-ring'
   // add the ring as a child of Frodo
   $("<div id=the-ring></div>").appendTo("li#Frodo");
 }
-
-
 
 function makeBaddies(baddies) {
   // display an unordered list of baddies in Mordor
@@ -60,10 +57,9 @@ function makeBaddies(baddies) {
   }
 }
 
-
 function makeBuddies(buddies) {
   // create an aside tag
-  $("<aside><h1>"+"Buddies"+"</h1></aside").appendTo("body");
+  $("<aside><h1>"+"Buddies"+"</h1></aside").appendTo("#middle-earth");
   $("<ul id=buddies></ul>").appendTo("aside");
   for(var i = 0; i < buddies.length; i++) {
     $("<li class=buddy id="+buddies[i].split(" ").join("")+">"+buddies[i]+"</li>").appendTo("ul#buddies");
@@ -71,18 +67,15 @@ function makeBuddies(buddies) {
   $("li#GandalftheGrey").css("background","gray");
 }
 
-
 function leaveTheShire() {
   // assemble the hobbits and move them to Rivendell
   $("ul#hobbits").appendTo("article#Rivendell");
 }
 
-
 function beautifulStranger() {
   // change the buddy 'Strider' textnode to "Aragorn"
   $("li#Strider").text("Aragorn");
 }
-
 
 function forgeTheFellowShip() {
   // move the hobbits and the buddies to Rivendell
@@ -152,48 +145,7 @@ function thereAndBackAgain() {
   for(var i = 0; i < hobbits.length; i++) {
     $("li.hobbit").appendTo("article#Shire");
   }
-
 }
-$( document ).ready(function() {
-  
-  setTimeout( function() {
-    makeMiddleEarth(lands) } , 1000 );
 
-  setTimeout(function() {
-    makeHobbits(hobbits) } , 4000);
 
-  setTimeout(function() {
-    keepItSecretKeepItSafe() } , 6000);
-  
-  setTimeout(function() {
-    makeBaddies(baddies) }, 7000);
-    
-  
-  setTimeout( function() {
-    makeBuddies(buddies) } , 8000);
-
-  setTimeout( function() {
-    leaveTheShire(); }, 9000);
-  
-  setTimeout( function() {
-    beautifulStranger() }, 10000);
-  
-  setTimeout( function() {
-    forgeTheFellowShip() }, 12000);
-  
-  setTimeout( function() {
-    theBalrog() }, 14000);
-  
-  setTimeout( function() {
-    hornOfGondor() }, 16000);
-  
-  setTimeout( function() {
-    itsDangerousToGoAlone() }, 17000);
- 
-  setTimeout( function() {
-    weWantsIt() }, 19000);
-  
-  setTimeout( function() {  
-    thereAndBackAgain() }, 22000);
-});
 
