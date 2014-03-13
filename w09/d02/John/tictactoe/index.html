@@ -11,13 +11,62 @@
   </ul>
 
   <script type="text/javascript">
-    var board = document.querySelector("ul.board");
+    var game = new Game();
 
-    for (var i = 1; i <= 9; i++) {
-      var li = document.createElement("li");
-      li.className = (i % 2 ? "x" : "o");
-      board.appendChild(li);
+    var board = document.querySelector(".board");
+    var ul = document.querySelector("ul");
+    
+
+    board.addEventListener("click", function(e) {
+      var cellRow = e.target.id[0];
+      var cellCol = e.target.id[2];
+      // render();
+      game.mark(game.turn, {row: cellRow, column: cellCol});
+      render();
+    });
+
+    function render(){
+      var board = document.querySelector("ul.board");
+
+      board.innerHTML = "";
+
+      for (var i = 0; i < 9; i++) {
+        var li = document.createElement("li");
+        var winnerIndex = parseInt(i/3) + "-" + i%3;
+        li.className = game.board[parseInt(i/3)][i%3];
+        li.id = parseInt(i/3) + "-" + i%3;
+        if (game.gameOver() && !(game.winners.indexOf(winnerIndex) === -1)) {
+          li.classList.add("winning");
+        }
+
+        // li.addEventListener("click", function(){
+        //   var cellRow = parseInt(i/3);
+        //   var cellCol = i%3;
+        //   game.mark(game.turn, {row: cellRow, column: cellCol});
+        //   render();
+        // })
+        board.appendChild(li);  
+      }
+      whoseTurn();
     }
+
+    function whoseTurn(){
+      var display = document.createElement("h2");
+      if (!game.gameOver()) {
+        display.innerText = game.turn + "'s turn";
+      } else if (game.checkWinner() === "x" || game.checkWinner() === "o") {
+        display.innerText = game.checkWinner() + " wins!!!";
+      } else {
+        display.innerText = "Tie. Game Over.";
+      }
+      if (game.checkWinner() !== undefined) {
+      }
+      
+      ul.appendChild(display);
+    }
+
+    render();
+    
   </script>
 </body>
 </html>
