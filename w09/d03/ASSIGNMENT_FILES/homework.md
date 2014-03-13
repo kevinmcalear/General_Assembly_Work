@@ -11,4 +11,6 @@ OR
 * Increase the number of learning objectives you feel confident in by 10
 
 # Part 3 - Reading
-* Research window.onload vs $(document).ready();
+* Research window.onload vs $(document).ready():
+  1. write about when to use them, compare and contrast them and other methods of setting global events tied to the DOM lifecycle -- *add this to your pull request*,
+  2. and then utilize them in the TicTacToe and/or LOTR homeworks.
