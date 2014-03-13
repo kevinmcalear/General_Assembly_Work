@@ -26,51 +26,52 @@
   </section>
 
   <script>
-    var wordList = ['ruby', 'rails', 'javascript', 'array', 'hash', 'sinatra', 'model', 'controller', 'view', 'devise', 'authentication', 'capybara', 'jasmine', 'cache', 'sublime', 'terminal', 'system', 'twitter', 'facebook', 'function', 'google', 'amazon', 'development', 'data', 'design', 'inheritance', 'prototype', 'gist', 'github', 'agile', 'fizzbuzz', 'route', 'gem', 'deployment', 'database'];
-
-    function randomWord() {
-      return wordList[ Math.floor(Math.random() * (wordList.length + 1)) ]
-    }
-
     (function(){
-      var game = new Game(randomWord(), 8);
+        var game;
 
-      var guessesLeft    = document.querySelector(".guesses-left");
-      var guessInput     = document.querySelector("input[name='letter']");
-      var guessedLetters = document.querySelector(".guessed-letters");
-      var wordDisplay    = document.querySelector(".game-word");
-      var newGame        = document.querySelector("button.new-game");
-      var giveUp         = document.querySelector("button.give-up");
-
-      guessInput.addEventListener("keyup", function() {
-        var letter = this.value;
-        this.value = "";
-
-        game.guess(letter);
-        render();
-      });
-
-      newGame.addEventListener("click", function() {
-        game = new Game(randomWord(), 8);
-        render();
-      });
-
-      giveUp.addEventListener("click", function() {
-        wordDisplay.innerText = game.wordDisplay(true);
-        game.gaveUp = true;
-      });
-
-      function render() {
-        guessesLeft.innerText    = game.guessesLeft;
-        guessedLetters.innerText = game.guessedLetters.join(" ");
-        wordDisplay.innerText    = game.wordDisplay();
-
-        if (game.gameOver()) {
-          alert("You " + (game.won() ? "won" : "lost"));
+        function startGame() {
+          $.getJSON("/words/random", function(response) {
+            game = new Game(response.word, 8);
+            render();
+          });
         };
-      };
 
-      render();
-    })();
+        startGame();
+
+        var guessesLeft    = document.querySelector(".guesses-left");
+        var guessInput     = document.querySelector("input[name='letter']");
+        var guessedLetters = document.querySelector(".guessed-letters");
+        var wordDisplay    = document.querySelector(".game-word");
+        var newGame        = document.querySelector("button.new-game");
+        var giveUp         = document.querySelector("button.give-up");
+
+        guessInput.addEventListener("keyup", function() {
+          var letter = this.value;
+          this.value = "";
+
+          game.guess(letter);
+          render();
+        });
+
+        newGame.addEventListener("click", function() {
+          game = new Game(randomWord(), 8);
+          render();
+        });
+
+        giveUp.addEventListener("click", function() {
+          startGame();
+        });
+
+        function render() {
+          guessesLeft.innerText    = game.guessesLeft;
+          guessedLetters.innerText = game.guessedLetters.join(" ");
+          wordDisplay.innerText    = game.wordDisplay();
+
+          if (game.gameOver()) {
+            alert("You " + (game.won() ? "won" : "lost"));
+          };
+        };
+
+      })();
   </script>
 </body>

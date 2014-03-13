@@ -1,6 +1,12 @@
 Hangman::Application.routes.draw do
   root 'game#index'
 
+  resources :words, only: [] do
+    collection do
+      get "random"
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
