@@ -92,7 +92,7 @@ makeBuddies(buddies);
 
 function leaveTheShire() {
   // assemble the hobbits and move them to Rivendell
-  $(".hobbit").appendTo('h1:contains("Rivendell")');
+  $(".hobbit").appendTo('article#Rivendell');
 }
 
 leaveTheShire();
@@ -107,7 +107,7 @@ beautifulStranger();
 
 function forgeTheFellowShip() {
   // move the hobbits and the buddies to Rivendell
-  $(".buddy").appendTo('h1:contains("Rivendell")');
+  $(".buddy").appendTo('article#Rivendell');
 
   // create a new div called 'the-fellowship'
   var fellowshipDiv = $("<div>").attr("id", "the-fellowship").text("The Fellowship");
@@ -117,7 +117,7 @@ function forgeTheFellowShip() {
   // add each hobbit and buddy one at a time to 'the-fellowship'  
   $.each(hobbits, function(index, value) {
     $('li:contains(' + value + ')').appendTo("div#the-fellowship");
-    // alert(value + " was added to the party!");
+    alert(value + " was added to the party!");
   });
 
   $.each(buddies, function(index, value) {
