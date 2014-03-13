@@ -5,7 +5,7 @@ var h1 = document.querySelector("h1#timer");
 
 var i = 0;
 var intervalID;
-var colors = ['red', 'blue', 'teal', 'skyblue', 'purple', 'yellow']
+var colors = ['red', 'blue', 'teal', 'skyblue', 'purple', 'yellow'];
 
 var count = function(){
   var seconds = i;

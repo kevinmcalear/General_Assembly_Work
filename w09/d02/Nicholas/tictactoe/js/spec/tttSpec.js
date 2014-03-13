@@ -45,7 +45,16 @@ describe("Game", function() {
       expect( function() { game.mark("o", {row: 1, column: 1}); }).toThrowError("game over!");
     });
 
-    xit("increments the turn number", function(){});
+    it("increments the turn number", function(){
+      game.mark("o", {row: 1, column: 2});
+      expect(game.turnNumber).toBe(2);
+    });
+
+    it("doesn't increment the turn number if clicking on an already chosen square", function(){
+      game.mark("o", {row: 1, column: 2});
+      game.mark("o", {row: 1, column: 2});
+      expect(game.turnNumber).toBe(2);
+    });
   });
 
   describe("gameOver", function() {
