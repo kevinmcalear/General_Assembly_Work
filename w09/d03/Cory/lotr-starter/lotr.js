@@ -25,7 +25,7 @@ var baddies = [
 var lands = ["The Shire", "Rivendell", "Mordor"];
 
 
-var shire = $('h1:contains("The Shire")');
+
 
 function makeMiddleEarth(lands) {
   // create a section tag with an id of middle-earth
@@ -33,19 +33,23 @@ function makeMiddleEarth(lands) {
 
   // add each land as an article tag
   for(var i = 0; i < lands.length; i++) {
-  $( "section" ).append( "<article>" );
+    $( "section" ).append( "<article>" );
   }
 
-  $( "article" ).append( "<h1>" );
+    $( "article" ).append( "<h1>" );
 
-  $( "h1" ).each(function( i, h1 ){
-  $(h1).text(lands[i]);
+    $( "h1" ).each(function( i, h1 ){
+    $(h1).text(lands[i]);
   }); 
 
   // inside each article tag include an h1 with the name of the land      
 };
 
 makeMiddleEarth(lands);
+var article = $("article");
+var shire = article[0]
+var rivendell = article[1];
+var mordor = article[2];
 
 
 function makeHobbits(hobbits) {
@@ -117,6 +121,23 @@ $( "aside" ).append( "<ul class='buddies'>" );
 }
 
 makeBuddies(buddies);
+
+function leaveTheShire() {
+    // assemble the hobbits and move them to Rivendell
+    var hobbits = $(".hobbit");
+    $(rivendell).append(hobbits);
+
+}
+
+leaveTheShire();
+
+
+function beautifulStranger() {
+  // change the buddy 'Strider' textnode to "Aragorn"
+  $(".li-buddies").last().replaceWith("Aragorn");
+}
+
+beautifulStranger()
 
 
 
