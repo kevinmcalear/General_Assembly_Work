@@ -1,0 +1,13 @@
+<!-- /aliens.html.erb -->
+
+<h1><a href="/spaceships">The Spaceship Database</a></h1>
+
+<h1>Aliens on the <%= @spaceship.name %> Spaceship</h1>
+
+
+<ul><% @aliens.each do |alien| %>  
+  <li>Name:  <%= alien.name %></li>
+  <li>Origin:  <%= alien.origin %></li>
+  <li>Organic Composition:  <%= alien.organic_composition %></li>
+  <li>Vulnerbilities:  <%= alien.vulnerabilities %></li>
+  <% end %>

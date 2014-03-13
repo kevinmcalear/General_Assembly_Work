@@ -1,0 +1,65 @@
+<!-- /spaceships/new -->
+
+<h1><a href="/spaceships">The Spaceship Database</a></h1>
+
+<h2> Add a new Spaceship </h2>
+
+<form action="/spaceships" 
+  method="POST">
+<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <label>
+    Spaceship Name: 
+    <input type="text" name="name" />
+  </label>
+
+  <label>
+    Spaceship Capacity:
+    <input type="integer" name="capacity" />
+  </label>
+
+  <label>
+    Origin:
+    <input type="text" name="origin" />
+  </label>
+
+  <label>
+    Photo URL:
+    <input type="text" name="photo_url" />
+  </label>
+
+  <label>
+    Purpose:
+    <input type="string" name="purpose" />
+  </label>
+
+  <!-- <h2>Add Aliens to this Spaceship</h2>
+
+  <label>
+    Alien names:
+    <input type="strng" name="name" />
+  </label>
+
+  <label>
+    Alien origins:
+    <input type="string" name="origin" />
+  </label>
+
+  <label>
+    Alien organic composition:
+    <input type="string" name="organic_composition" />
+  </label>
+
+  <label>
+    Alien vulnerabilities:
+    <input type="string" name="vulnerabilities" />
+  </label>
+
+  <label>
+    Alien strength between 1-10:
+    <input type="integer" name="strength" />
+  </label> -->
+
+
+  <button>Add!</button>
+</form>

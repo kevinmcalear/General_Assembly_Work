@@ -1,0 +1,10 @@
+<!-- /movies/show -->
+
+<h1><a href="/movies">Welcome to MovieTrail.er </a></h1>
+
+<%@movies.each do |movie| %>
+<p><bold>Movie</bold>: <%= movie.title %></p>
+<p><bold>Year launched</bold>: <%= movie.year %></p>
+  
+  <a href="movies/<%=movie.id %>"><img src= "<%=movie.poster_url %>" width ="200"></a>
+  <%end%>

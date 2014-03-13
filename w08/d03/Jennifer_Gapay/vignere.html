@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vignere Cipher</title>
+  </head>
+  <body>
+    <h1>Vignere Cipher</h1>
+    <script type='text/javascript'>
+
+  var alph = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t", "u","v","w","x","y","z"];
+
+
+  function getCipherLetter(messageLetter,keywordLetter){
+    var keywordLetterIndex = alph.indexOf(keywordLetter);
+    var messageLetterIndex = alph.indexOf(messageLetter);
+    var newLetterIndex = keywordLetterIndex + messageLetterIndex;
+    if (newLetterIndex > 25) {
+      return alph[newLetterIndex - 26];
+    } else {
+      return alph[newLetterIndex];
+    };
+      
+  };
+
+
+  function replaceWord(message, keyword){
+    // create a new empty array of length word
+
+    
+
+    var emptyArray = new Array(message.length);
+
+    // fill in each space in that array with the correct cipher character
+    //...
+
+
+    //for the first letter of "word", let's figure out it's cipher character
+    getCipherLetter(message[0], keyword[0])
+  };
+
+</script>
+  </body>
+</html>

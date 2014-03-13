@@ -1,0 +1,18 @@
+<!-- /spaceships <- homepage -->
+
+<h1><a href="/spaceships">The Spaceship Database</a></h1>
+
+<h2><a href=spaceships/new>Add a Spaceship!</a></h2>
+
+
+<% @spaceships.each do |spaceship| %>
+  <a href="spaceships/<%= spaceship.id %>"><img src="<%=spaceship.photo_url %>" width ="300"></a>
+<ul>
+  <li>Name:  <%= spaceship.name %></li>
+  <li>Capacity: <%= spaceship.capacity%></li>
+  <li>Origin:  <%= spaceship.origin %></li>
+  <li>Purpose: <%= spaceship.purpose%></li>
+  </ul>
+
+
+<% end %>

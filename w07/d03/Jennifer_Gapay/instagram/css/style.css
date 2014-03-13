@@ -6,12 +6,8 @@ header {
 
 }
 
-.blue-border {
-
-}
-
-.white-border {
-
+.content {
+text-align: center;
 }
 
 .iphone {
@@ -47,5 +43,18 @@ p {
 }
 
 footer {
-  
+  border: 1px solid red;
+  display: inline;
+  margin: 0 auto;
+}
+
+.nav {
+  border: 1px solid green;
+  display: inline;
+}
+
+nav ul {
+  display: inline;
+  padding: 0;
+
 }
