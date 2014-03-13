@@ -1,0 +1,34 @@
+.column {
+	text-align: center;
+}
+.big {
+	background-color:orange;
+	display: inline-block;
+	
+
+	-webkit-animation: rotate 20s infinite linear;
+}
+@-webkit-keyframes rotate {
+	from {
+		-webkit-transform: rotate(390deg);
+	}
+	to { 
+		-webkit-transform: rotate(30deg);
+	}
+}
+
+.bigtwo {
+	background-color:orange;
+	display: inline-block;
+	
+
+	-webkit-animation: rotatetwo 20s infinite linear;
+}
+@-webkit-keyframes rotatetwo {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to { 
+		-webkit-transform: rotate(390deg);
+	}
+}
