@@ -10,8 +10,8 @@ test:
   database: hangman_test
   pool: 5
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: hangman_production
-  pool: 5
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: hangman_production
+#   pool: 5
