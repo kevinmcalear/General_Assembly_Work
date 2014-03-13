@@ -32,10 +32,17 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'ffaker'
+
 group :development, :test do
 	gem 'jasmine'
 	gem 'rspec-rails'
+	gem 'shoulda-matchers'
 end
+
+gem 'pg'
+
+
 
 
 # Use ActiveModel has_secure_password
