@@ -74,30 +74,33 @@ Game.prototype.checkWinner = function() {
 };
 
 Game.prototype.winningline = function(){
-  for(var i = 0; i <= 3; i++){
-    if( (this.board[i][0] === this.board[i][1]) &&
-        (this.board[i][1] === this.board[i][2]) ){
+  for(var i = 0; i < 3; i++){
+    if(( (this.board[i][0] === this.board[i][1]) &&
+        (this.board[i][1] === this.board[i][2]) ) &&
+      ( this.board[i][0] !== undefined )) {
       return [i,0,i,1,i,2];
     }
   }
   // FOR each column in the board
-  for(var i = 0; i <= 3; i++) {
-    if( (this.board[0][i] === this.board[1][i]) &&
-        (this.board[1][i] === this.board[2][i]) ){
+  for(var i = 0; i < 3; i++) {
+    if(( (this.board[0][i] === this.board[1][i]) &&
+        (this.board[1][i] === this.board[2][i]) ) &&
+      ( this.board[0][i] !== undefined )) {
       return [0,i,1,i,2,i];
     }
   }
   // diagonal top left
   if( (this.board[0][0] === this.board[1][1]) &&
-      (this.board[1][1] === this.board[2][2]) ){
+      (this.board[1][1] === this.board[2][2]) ) {
     return [0,0,1,1,2,2];
   }
   // diagonal top right
   if( (this.board[0][2] === this.board[1][1]) &&
-      (this.board[1][1] === this.board[2][0]) ){
+      (this.board[1][1] === this.board[2][0]) ) {
     return [0,2,1,1,2,0];
   }
 };
+
 
 Game.prototype.assignWinners = function(){
   var coordinates = game.winningline();
