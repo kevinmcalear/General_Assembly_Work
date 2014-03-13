@@ -33,6 +33,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'ffaker'
+
 group :development, :test do
   gem 'jasmine'
   gem 'rspec-rails'
