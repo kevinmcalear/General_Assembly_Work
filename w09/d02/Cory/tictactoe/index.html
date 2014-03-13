@@ -10,14 +10,6 @@
   <ul class="board">
   </ul>
 
-  <script type="text/javascript">
-    var board = document.querySelector("ul.board");
-
-    for (var i = 1; i <= 9; i++) {
-      var li = document.createElement("li");
-      li.className = (i % 2 ? "x" : "o");
-      board.appendChild(li);
-    }
-  </script>
+  <script type="text/javascript" src="js/src/controller.js"></script>
 </body>
 </html>
