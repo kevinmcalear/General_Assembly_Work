@@ -11,9 +11,9 @@ Game.prototype.mark = function(play, location) {
 
   if (!this.playAt(location) && play === this.turn) {
     this.board[location.row][location.column] = play;
+    this.turnNumber++;
     this.nextTurn();
   };
-  this.turnNumber++;
 }
 
 Game.prototype.playAt = function(location) {
@@ -40,7 +40,8 @@ Game.prototype.checkWinner = function() {
 
   // FOR each row in the board
   for(var i = 0; i < 3; i++){
-    if( (this.board[i][0] === ("x" || "o")) &&
+    if( (this.board[i][0] === "x" ||
+        this.board[i][0] === "o") &&
         (this.board[i][1] === this.board[i][2]) &&
         (this.board[i][1] === this.board[i][0]) ){
       return this.board[i][0];
@@ -48,20 +49,23 @@ Game.prototype.checkWinner = function() {
 }
   // FOR each column in the board
   for(var i = 0; i < 3; i++){
-    if( (this.board[0][i] === ("x" || "o")) &&
+    if( (this.board[0][i] === "x" ||
+        this.board[0][i] === "o") &&
         (this.board[0][i] === this.board[1][i]) &&
         (this.board[1][i] === this.board[2][i]) ){
       return this.board[0][i];
   }
 }
   // diagonal top left
-  if( (this.board[0][0] === ("x" || "o")) &&
+  if( (this.board[0][0] === "x" ||
+      this.board[0][0] === "o") &&
       (this.board[0][0] === this.board[1][1]) &&
       (this.board[1][1] === this.board[2][2]) ){
     return this.board[1][1];
 }
   // diagonal top right
-  if( (this.board[0][2] === ("x" || "o")) &&
+  if( (this.board[0][2] === "x" || 
+      this.board[0][2] === "o") &&
     (this.board[0][2] === this.board[1][1]) &&
     (this.board[1][1] === this.board[2][0]) ){
     return this.board[1][1];
@@ -69,9 +73,6 @@ Game.prototype.checkWinner = function() {
 
 }
 
-// Game.prototype.markO = function(location) {
-//   this.mark("o", location);
-// }
 
 
 
