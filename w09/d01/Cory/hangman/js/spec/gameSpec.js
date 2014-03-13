@@ -36,7 +36,7 @@ describe("Hangman", function(){
 
   it("adds correct letter to correctGuesses array", function(){
     game.guess("a");
-    expect(game.correctGuesses).toEqual(["*", "*", "*", "*","*","*", "*", "*", "a", "*", "*"]);
+    expect(game.correctGuesses).toEqual(["_", "_", "_", "_","_","_", "_", "_", "a", "_", "_"]);
   });
 
   it("adds incorrect letter to incorrecGuesses array", function(){
@@ -65,6 +65,7 @@ describe("Hangman", function(){
     game.guess("n");
     game.guess("c");
     game.guess("d");
+    game.guess("g");
     expect(game.end).toBe(true);
   });
 
