@@ -1,6 +1,12 @@
 class WelcomeController < ApplicationController
   def index
-    render :index
+    # notes = Note.all
+    # render json: @notes
+  end
+
+  def allnotes
+    @notes = Note.all
+    render json: @notes
   end
 
   def create

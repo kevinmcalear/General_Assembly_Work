@@ -8,3 +8,14 @@
     } );
     this.reset();
   }); 
+
+
+
+  function listTasks(){
+    $.getJSON("/welcome", function(response){
+     console.log(response);
+   });
+  }
+
+  listTasks();
+  
