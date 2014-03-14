@@ -65,16 +65,16 @@
 
     function whoseTurn(){
       var display = document.createElement("h2");
-      if (!game.gameOver()) {
-        display.innerText = game.turn + "'s turn";
-      } else if (game.checkWinner() === "x" || game.checkWinner() === "o") {
-        display.innerText = game.checkWinner() + " wins!!!";
-      } else {
-        display.innerText = "Tie. Game Over.";
-      }
-      if (game.checkWinner() !== undefined) {
-      }
       
+      if (game.checkWinner() !== undefined) {
+        display.innerText = game.checkWinner() + " wins!!!";
+      } else if (game.gameOver()) {
+        display.innerText = "Tie. Game Over."; 
+      } else {
+        display.innerText = game.turn + "'s turn";
+      }
+
+
       ul.appendChild(display);
     }
 
