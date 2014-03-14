@@ -13,16 +13,16 @@ Game.prototype.mark = function(play, location) {
     this.board[location.row][location.column] = play;
     this.turnNumber++;
     this.nextTurn();
-  };
+  }
   
 };
 
 Game.prototype.playAt = function(location) {
-  return this.board[location.row][location.column]; 
+  return this.board[location.row][location.column];
 };
 
 Game.prototype.nextTurn = function() {
-  this.turn = ( this.turn === "x" ? "o" : "x" )
+  this.turn = ( this.turn === "x" ? "o" : "x" );
 };
 
 Game.prototype.gameOver = function() {
