@@ -1,4 +1,5 @@
-
+  <h2>Wins: </h2>
+  <h2>Loses: </h2>
 
   <ul class="board">
   </ul>
@@ -34,14 +35,17 @@
           winners[i].classList.add("winning");
         };
           checkWon();
-      };
+      } 
     };
 
     function checkWon() { 
       if (game.gameOver()) {
         $.post("/games", {won: game.checkWinner() } );
-      };
+      } else if((game.turnNumber > 8)) {
+        $.post("/games", {won: "t"} );
+      }
     }
+
 
     render();
     
