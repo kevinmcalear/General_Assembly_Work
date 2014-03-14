@@ -1,5 +1,7 @@
 Tictactoe::Application.routes.draw do
 
-  root to: "game#new"
+  root 'games#new'
+
+  resources :games, only: [:create]
 
 end

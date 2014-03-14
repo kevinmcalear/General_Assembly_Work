@@ -2,6 +2,7 @@ var Game = function(){
   this.turn = "x";
   this.turnNumber = 0;
   this.board = new Array(new Array(3), new Array(3), new Array(3));
+
 }
 
 Game.prototype.mark = function(play, location) {
