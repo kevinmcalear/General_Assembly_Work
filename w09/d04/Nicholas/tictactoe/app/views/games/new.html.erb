@@ -1,0 +1,45 @@
+  <h2><%= link_to "New Game", root_path %></h2><br />
+  <ul class="board">
+  </ul>
+  <h1>X Wins: <%= @x_winner.to_s %></h1>
+  <h1>O Wins: <%= @o_winner.to_s %></h1>
+  <h1>Ties: <%= @tie_winner.to_s %></h1>
+
+  <script type="text/javascript">
+    var game = new Game();
+
+
+    var marksTheSpot = function(){
+      var row = parseInt(this.id/3);
+      var column = this.id%3;
+      game.mark(game.turn, {row: row, column: column})
+      render();
+    }
+
+    function render(){
+    var board = document.querySelector("ul.board");
+    board.innerHTML = "";
+
+    for (var i = 0; i < 9; i++) {
+      var li = document.createElement("li");
+      li.className = game.board[parseInt(i/3)][i%3];
+      li.id = i
+      board.appendChild(li);
+      li.addEventListener("click", marksTheSpot);
+      }
+      if (game.gameOver()){
+        $.post("/games", { winner: game.checkWinner()});
+        var finalNums = game.assignWinners();
+        if(finalNums){
+        for(var i = 0; i < finalNums.length; i++){
+          var change = document.getElementById(finalNums[i]); 
+          change.classList.add("winning");
+        };
+      }
+    }
+};
+  render();
+  
+ 
+
+  </script>
