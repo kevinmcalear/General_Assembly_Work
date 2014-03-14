@@ -10,10 +10,13 @@
   }); 
 
 
-
   function listTasks(){
-    $.getJSON("/welcome", function(response){
-     console.log(response);
+    data = $.getJSON("/welcome", function(response){
+    $.each(response, function(i, note) {
+      $("<li>").text(note.list).appendTo("ul");
+    })
+      $("<input type=checkbox>").appendTo("li");
+
    });
   }
 
