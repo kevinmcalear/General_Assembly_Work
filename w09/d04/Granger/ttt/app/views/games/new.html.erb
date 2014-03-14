@@ -1,11 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Tic Tac Toe</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
   <ul class="board">
   </ul>
 
@@ -20,6 +12,18 @@
         };
       };
     });
+
+    var xCounted = $.ajax({
+
+      data: obj
+    });
+
+    var xWins = "<div>Wins: " + xCounted + "</div>";
+
+    $("body").append(xWins);
+
+
+
 
     
 
@@ -39,11 +43,22 @@
         for(i = 0; i < winners.length; i++){
           winners[i].classList.add("winning");
         };
+        checkWon();
+      } else if (game.gameOver()) {
+        addTie();
+      }
+    };
+
+    function addTie() {
+      $.post( "/games", { winner: "tie" } );
+    };
+
+    function checkWon() {
+      if (game.gameOver()) {
+        $.post( "/games", { winner: game.checkWinner() } );
       };
     };
 
     render();
     
   </script>
-</body>
-</html>
