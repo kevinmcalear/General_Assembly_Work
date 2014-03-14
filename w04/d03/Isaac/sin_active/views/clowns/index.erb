@@ -2,6 +2,8 @@
 
 <ul>
   <% @clowns.each do |clown| %>
-    <li><%= clown.name %></li>
+    <li>
+      <a href="/clowns/<%= clown.id %>"><%= clown.name %></a>
+    </li>
   <% end %>
 </ul>

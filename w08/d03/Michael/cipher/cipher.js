@@ -12,6 +12,36 @@ var messageToCiph = function(message){
   };
 }
 
+var keywordToCiph = function(keyword, arg){
+  for (var i= 0; i<arg.length; i++){
+    this.ciphKeywordArray.push( alph.indexOf( keyword[(i % keyword.length)] ) ) 
+  };
+};
+
+var ciphIndex = function(ciphKeywordArray, ciphMessageArray) {
+  for (var i= 0; i<this.message.length; i++ ){
+    if(ciphKeywordArray[i] + ciphMessageArray[i] < 26)
+      this.ciphTextArray.push(ciphKeywordArray[i] + ciphMessageArray[i])
+    else 
+      this.ciphTextArray.push( (ciphKeywordArray[i] + ciphMessageArray[i]) -26 )
+  };
+};
+
+var ciphIndexFromCiph = function(ciphText){
+  for (var i= 0; i<ciphText.length; i++){
+    this.ciphTextArray.push( alph.indexOf( ciphText[i] ) ) 
+  };
+
+};
+
+
+var createCiphText = function(ciphTextArray){
+  for (var i=0 ; i<ciphTextArray.length; i++ )
+  {
+    this.ciphText.push( alph[ ciphTextArray[i] ] )
+  };
+};
+
 
 function Cipher(message,keyword) {
   this.message = message; 
@@ -21,38 +51,47 @@ function Cipher(message,keyword) {
   this.ciphKeywordArray = [];
   this.ciphTextArray = [];
 
-  this.messageToCiph = messageToCiph
-
-  this.messageToCiph(this.message)
-
   // Step 1: Create Array of Message Index
-  // for (var i= 0; i<message.length; i++){
-  //   this.ciphMessageArray.push( alph.indexOf( message[i] ) ) 
-  // };
-  
+  this.messageToCiph = messageToCiph
+  this.messageToCiph(this.message)
+ 
   // Step 2: Create Array of Keyword Index
-  for (var i= 0; i<message.length; i++){
-    this.ciphKeywordArray.push( alph.indexOf( keyword[(i % keyword.length)] ) ) 
-  };
+  this.keywordToCiph = keywordToCiph
+  this.keywordToCiph(this.keyword, this.message)
 
   // Step 3: Create Array of Cipher Index
-  for (var i= 0; i<message.length; i++ ){
-      if(this.ciphKeywordArray[i] + this.ciphMessageArray[i] < 26)
-        this.ciphTextArray.push(this.ciphKeywordArray[i] + this.ciphMessageArray[i])
-      else 
-        this.ciphTextArray.push( (this.ciphKeywordArray[i] + this.ciphMessageArray[i]) -26 )
-  };
-  // Step 4: Create Cipher
-  for (var i=0 ; i<this.ciphTextArray.length; i++ ){
-    this.ciphText.push( alph[ this.ciphTextArray[i] ] )
-  };
+  this.ciphIndex = ciphIndex
+  this.ciphIndex(this.ciphKeywordArray, this.ciphMessageArray)
 
+  // Step 4: Create Cipher
+  this.createCiphText = createCiphText
+  this.createCiphText(this.ciphTextArray)
   this.ciphText= this.ciphText.join("")
 
 };
 
-function deCipher(cipher,keyword){
+function deCipher(ciphText,keyword){
+  this.message = []; 
+  this.keyword = keyword; 
+  this.ciphText = ciphText;
+  this.ciphMessageArray = [];
+  this.ciphKeywordArray = [];
+  this.ciphTextArray = [];
+
+
+  // Step 1:  Create an Array of Keyword Index
+  this.keywordToCiph = keywordToCiph
+  this.keywordToCiph(this.keyword, this.ciphText)
+
+  // Step 2:  Create an Array of Cipher Index
+  this.ciphIndexFromCiph = ciphIndexFromCiph
+  this.ciphIndexFromCiph(this.ciphText)
+
+  // Step 3:  Create an Array of Message Index
+  
+  // Step 4:  Create a Message String
 
 }
 
 var x = new Cipher("attack","lem")
+var y = new deCipher("lxflgw","lem")

@@ -11,13 +11,101 @@
   </ul>
 
   <script type="text/javascript">
-    var board = document.querySelector("ul.board");
+    var game = new Game();
 
-    for (var i = 1; i <= 9; i++) {
-      var li = document.createElement("li");
-      li.className = (i % 2 ? "x" : "o");
-      board.appendChild(li);
+    function render(){
+      var board = document.querySelector("ul.board");
+
+      board.innerHTML = "";
+
+      for (var i = 0; i < 9; i++) {
+        var li = document.createElement("li");
+        // li.className = game.board[parseInt(i/3)][i%3];
+        li.className = "box"+(i+1);
+        board.appendChild(li);
+      }
     }
+
+    render();
+
+//     var boxes = document.querySelectorAll("li");
+
+//     for(var x = 0; x < 9; x++){
+//   boxes[x].addEventListener("click", function(event){
+//     // event.target.style.background = "red";
+//     var play = game.turn;
+//     event.target.innerText = play;
+//     // event.target.value = game.turn;
+//     game.nextTurn();
+//   // render();
+// } )
+//     };
+
+    var box1 = document.querySelector("li.box1");
+     box1.addEventListener("click", function(event){
+      event.target.innerText = game.turn;
+      game.nextTurn();
+    });
+
+    var box2 = document.querySelector("li.box2");
+
+     box2.addEventListener("click", function(event){
+      event.target.innerText = game.turn;
+      game.nextTurn();
+    });
+
+    var box3 = document.querySelector("li.box3");
+
+     box3.addEventListener("click", function(event){
+      event.target.innerText = game.turn;
+      game.nextTurn();
+    });
+
+    var box4 = document.querySelector("li.box4");
+
+     box4.addEventListener("click", function(event){
+      event.target.innerText = game.turn;
+      game.nextTurn();
+    });
+
+
+    var box5 = document.querySelector("li.box5");
+
+     box5.addEventListener("click", function(event){
+      event.target.innerText = game.turn;
+      game.nextTurn();
+    });
+
+    var box6 = document.querySelector("li.box6");
+
+     box6.addEventListener("click", function(event){
+      event.target.innerText = game.turn;
+      game.nextTurn();
+    });
+
+    var box7 = document.querySelector("li.box7");
+
+     box7.addEventListener("click", function(event){
+      event.target.innerText = game.turn;
+      game.nextTurn();
+    });
+
+    var box8 = document.querySelector("li.box8");
+     box8.addEventListener("click", function(event){
+      event.target.innerText = game.turn;
+      game.nextTurn();
+    });
+
+    var box9 = document.querySelector("li.box9");
+     box9.addEventListener("click", function(event){
+      event.target.innerText = game.turn;
+      game.nextTurn();
+    });
+
+     if((box1.innerText === "x") && (box2.innerText === "x") && (box3.innerText === "x")){
+      alert("x wins!");
+     };
+
   </script>
 </body>
 </html>
