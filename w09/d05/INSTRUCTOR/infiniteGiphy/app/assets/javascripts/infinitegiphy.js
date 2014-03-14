@@ -27,9 +27,8 @@ $("form").on('submit', function(e){
   counter = 0;
 });
 
-$("body").on('click', 'img', function(){
-    $(this).toggleClass('big');
-});
+
+// Inifinite Scroll
 
 $(window).on('scroll', function(){
   if($(window).scrollTop() + $(window).height() >= $(document).height()){
@@ -37,5 +36,8 @@ $(window).on('scroll', function(){
   }
 });
 
+// Delegated Events
 
-// <img src="www.google.com" />
+$("body").on('click', 'img', function(){
+    $(this).toggleClass('big');
+});
