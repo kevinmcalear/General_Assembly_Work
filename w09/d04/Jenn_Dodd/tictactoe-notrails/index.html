@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="js/src/ttt.js"></script>
+</head>
+<body>
+  <ul class="board">
+  </ul>
+
+  <script type="text/javascript">
+    var game = new Game();
+    var ul = document.querySelector("ul");
+
+    function render(){
+      var board = document.querySelector("ul.board");
+
+      board.innerHTML = "";
+
+      for (var i = 0; i < 9; i++) {
+        var li = document.createElement("li");
+        li.className = game.board[parseInt(i/3)][i%3];
+        li.id = "a"+parseInt(i/3) + "-" + i%3;
+        board.appendChild(li);
+      }
+      game.checkWinner();
+    }
+
+    render();
+
+    ul.addEventListener("click", function(eventObject) {
+      game.mark( game.turn , game.hashIt(eventObject.target.id));
+      render();
+    });
+    
+  </script>
+</body>
+</html>
