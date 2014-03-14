@@ -18,10 +18,12 @@ function Hangman(initialSettings){
   this.category = this.category + "";
   this.covered = cover(this.word);
   this.score = 5;
+  this.lettersGuessed = []
 };
 
 Hangman.prototype.guessLetter = function(letter){
   this.covered = this.covered.split("");
+  this.lettersGuessed.push(letter);
   for(i=0;i<this.word.length;i++){
     if(this.word[i]===letter){
       this.covered[i] = letter;

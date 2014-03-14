@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hangman</title>
+  <link rel="stylesheet" href="style.css">
+  <script type='text/javascript' src='js/src/hangman.js'></script>
+</head>
+<body>
+  <section class="game-play">
+
+    <figure>
+      <span>Guesses Left:</span> <span class="guesses-left"></span>
+    </figure>
+
+    <aside>
+      <div>
+        <span>Letters Guessed Already:</span>
+        <span class="guessed-letters"></span>
+      </div>
+
+      <div>
+        <label for="letter">Guess a Letter:</label>
+        <input type="text" name="letter" id="letter" />
+      </div>
+    </aside>
+  </section>
+
+  <div class="game-word">A B C D</div>
+
+  <section class="game-controls">
+    <button class="button give-up">Give Up</button>
+    <button class="button new-game">New Game</button>
+  </section>
+  <script>
+  var hangman = new Hangman();
+
+  var newGameButton = document.querySelector("button.new-game");  
+
+  var guessesLeft = document.querySelector(".guesses-left")
+
+
+  //guessesLeft.innerText = Hangman.guesses;
+  String.prototype.contains = function(word, letter){
+    var i = 0;
+    while (i < word.length){
+      if (word.indexOf(letter)!= (-1)){
+        return true
+      }
+      else{
+        return false
+      };
+      i++;
+    };
+
+  };
+
+  var wordSpace = document.querySelector(".game-word");
+  var input = document.querySelector("input");
+  var guessedLetters = document.querySelector(".guessed-letters");
+
+  input.addEventListener('keyup', function(){
+    //while(wordSpace.innerText != hangman.word)
+      hangman.guessLetter(input.value);
+      if((hangman.word).contains(hangman.word, input.value)){
+        wordSpace.innerText = hangman.correctLetters;}
+      else{
+      guessedLetters.innerText = hangman.guessedLetters;
+      guessesLeft.innerText = hangman.guesses;
+    };
+  });
+
+
+
+
+  </script>
+</body>
+</html>

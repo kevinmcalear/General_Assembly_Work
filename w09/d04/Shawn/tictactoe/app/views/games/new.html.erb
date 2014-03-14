@@ -1,0 +1,83 @@
+<!-- games.html.erb -->
+
+<body>
+  <ul class="board">
+  </ul>
+  <button id='new-game'>New Game</button>
+  <section id="wl">
+    <span id="x-wins">X: </span>
+    <span id="o-wins">O: </span>
+    <span id="ties">Tie: </span>
+  </ul>
+
+  <script type="text/javascript">
+
+    var game = new Game();
+    $('#new-game').on("click", function() {
+      game = new Game();
+      render();
+    })
+    document.querySelector('ul').addEventListener('click', function(e){
+      for(i = 0; i <e.target.parentElement.children.length; i++) {
+        if(e.target === e.target.parentElement.children[i]) {
+           game.mark(game.turn, {row: parseInt(i/3), column: i%3});
+           render(); 
+        };
+      };
+    });
+
+    
+
+    function render(){
+      var xWins=0;
+      var oWins = 0;
+      var ties = 0;
+
+      var board = document.querySelector("ul.board");
+
+
+      board.innerHTML = "";
+
+      for (var i = 0; i < 9; i++) {
+        var li = document.createElement("li");
+        li.className = game.board[parseInt(i/3)][i%3];
+        board.appendChild(li);
+      };
+
+      if(game.checkWinner() !== undefined) {
+        var winners = document.querySelectorAll("."+ game.checkWinner());
+        for(i = 0; i < winners.length; i++){
+          winners[i].classList.add("winning");
+        };
+      };
+      if(game.gameOver() === true) {
+        if(game.checkWinner() !== undefined) {
+          $.post("/games", { won: game.checkWinner() });
+        } else {
+          $.post("/games", { won: "tie" });
+        }
+      }
+      $.get("/games", function(response) {
+        for(var i = 0; i < response.length; i++) {
+          if(response[i].won === 'x') {
+            xWins++;
+          } if(response[i].won === 'o') {
+            oWins++;
+          } else {
+            ties++;
+          }
+        }
+
+        $("span#x-wins").text("X: "+xWins);
+        $("span#o-wins").text("O: "+oWins);
+        $("span#ties").text("Ties: "+ties);
+      });
+    };
+
+    render();
+    
+  </script>
+</body>
+</html>
+
+        
