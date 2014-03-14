@@ -1,14 +1,7 @@
-Hangman::Application.routes.draw do
-  root to: 'games#index'
+Tictactoe::Application.routes.draw do
 
-  resources :game, only: [:create]
-
-  resources :words, only: [] do 
-    collection do 
-      get "random"
-    end
-  end
-
+  root ('games#new')
+  resources :games, only: [:create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
