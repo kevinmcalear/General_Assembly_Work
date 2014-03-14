@@ -1,9 +1,11 @@
 var input = document.querySelector("input");
 var data;
 var i;
-// var form = document.querySelector("form");
-$("button#add");
-// $("input").value
+var docHt = $(document).height();
+var winHt = $(window).height();
+var scrollTop = $(window).scrollTop();
+
+
 $("form").submit(function(e) {
   e.preventDefault();
 
@@ -17,17 +19,12 @@ $("button#add").click(function() {
     var gif = $("<img>").attr("src", data[i].images.original.url);
     $("body").append(gif);
     i++;
-  // $.each(response.data, function(i,v) {
-    // var gif = $("<img>").attr("src", v.images.original.url);
-    // $("body").append(gif);
-  // });
 });
 
-// $(window).on("scroll", function() {
-//   $.getJSON("/search", {keyword: input.value}, function(response) {
-//     $.each(response.data, function(i,v) {
-//       var gif = $("<img>").attr("src", v.images.original.url);
-//       $("body").append(gif);
-//     });
-//   });
-// });
+$(window).on("scroll", function() {
+  if (scrollTop + winHt === docHt) {
+    var gif = $("<img>").attr("src", data[i].images.original.url);
+    $("body").append(gif);
+    i++;
+  }
+});
