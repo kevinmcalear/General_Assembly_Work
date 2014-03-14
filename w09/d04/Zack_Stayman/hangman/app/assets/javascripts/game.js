@@ -2,6 +2,7 @@ var Game = function(word, totalGuesses) {
   this.word = word.toUpperCase();
   this.guessesLeft = totalGuesses;
   this.guessedLetters = [];
+  this.gaveUp = false;
 };
 
 Game.prototype.guess = function(letter) {
@@ -54,4 +55,11 @@ Game.prototype.won = function() {
   };
 
   return true;
+};
+
+var randomWordAjax = function() {
+  //console.log random word from our api
+  $.getJSON("words/random", function(response){
+    console.log(response.word);
+  });
 };

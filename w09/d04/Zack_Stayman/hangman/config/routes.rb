@@ -53,5 +53,13 @@ Hangman::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  root to: 'games#index'
+  root to: 'games#new'
+
+  resources :words, only: [] do
+    collection do
+      get "random"
+    end
+  end
+
+  resources :games, only: [:create]
 end

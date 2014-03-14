@@ -19,13 +19,13 @@
    };
  });
 
-  $.getJSON("/games/history", function(response){
-    $(".wins-x").text(response.x);
-    $(".wins-o").text(response.o);
-    $(".ties").text(response.tie);
-  });
+  function newGame() {
+    game = new Game();
+    render();
+  };
+
   function render(){
-    
+
     var board = document.querySelector("ul.board");
 
     board.innerHTML = "";
@@ -55,11 +55,13 @@
 
 
 
-  $("#new-game").click(function(){
-    game = new Game();
-    render();
-  });
-  
+  $("#new-game").click(newGame);
+
+  $.getJSON("/games/history", function(response){
+    $(".wins-x").text(response.x);
+    $(".wins-o").text(response.o);
+    $(".ties").text(response.tie);
+  });  
 
   render();
 
