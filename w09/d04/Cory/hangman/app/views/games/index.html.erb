@@ -61,17 +61,20 @@
     giveUp.addEventListener("click", function() {
       wordDisplay.innerText = game.wordDisplay(true);
       game.gaveUp = true;
+      checkWon();
     });
 
     function render() {
       guessesLeft.innerText    = game.guessesLeft;
       guessedLetters.innerText = game.guessedLetters.join(" ");
       wordDisplay.innerText    = game.wordDisplay();
-
+      checkWon();
+    };
+     function checkWon() { 
       if (game.gameOver()) {
+        $.post("/games", {won: game.won() } );
         alert("You " + (game.won() ? "won" : "lost"));
       };
-    };
-
+    }
   })();
   </script>
