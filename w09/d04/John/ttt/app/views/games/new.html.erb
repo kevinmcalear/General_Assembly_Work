@@ -3,7 +3,6 @@
    <h2 class="wins-count" id="wins-x"></h2>
    <h2 class="wins-count" id="wins-o"></h2>
    <h2 class="wins-count" id="wins-t"></h2>
-   </h2>
  </div>
 
  <ul class="board">
@@ -23,7 +22,6 @@
     });
 
     
-
     function render(){
       var board = document.querySelector("ul.board");
 
@@ -40,26 +38,28 @@
         }
       };
 
+      postWinner();
+      winnerStats();
+      whoseTurn();
+    };
+
+    function postWinner() {
       if (game.gameOver()) {  
-        var winner = "";
         if (game.checkWinner() !== undefined) {
-          winner = game.checkWinner();
+          var winner = game.checkWinner();
         } else {
           winner = "t";
         }
         
         $.post( "/games", { won: winner } );
       };
-
-      winnerStats();
-      whoseTurn();
-    };
+    }
 
     function winnerStats() {
       $.getJSON("/games/all", function(response) {
-      $("h2#wins-x").text("x: " + response.x);
-      $("h2#wins-o").text("o: " + response.o);
-      $("h2#wins-t").text("ties: " + response.t);
+        $("h2#wins-x").text("x: " + response.x);
+        $("h2#wins-o").text("o: " + response.o);
+        $("h2#wins-t").text("ties: " + response.t);
       });
     }
 
@@ -73,7 +73,6 @@
       } else {
         display.innerText = game.turn + "'s turn";
       }
-
 
       ul.appendChild(display);
     }
