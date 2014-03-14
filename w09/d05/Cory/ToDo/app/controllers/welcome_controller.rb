@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   end
 
   def create
-    @note = Note.create(list: params[:list])  
+    @note = Note.create(list: params[:list], completed: false)  
     render json: @note
   end
 
