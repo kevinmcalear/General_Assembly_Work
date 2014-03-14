@@ -1,75 +1,165 @@
-var Game = function(){
-  this.turn = "x";
-  this.turnNumber = 0;
-  this.board = new Array(new Array(3), new Array(3), new Array(3));
-}
+describe("Game", function() {
+  var game;
 
-Game.prototype.mark = function(play, location) {
-  if ( this.gameOver() ) {
-    throw new Error("game over!");
-  }
+  beforeEach(function() {
+    game = new Game;
+  });
 
-  if (!this.playAt(location) && play === this.turn) {
-    this.board[location.row][location.column] = play;
-    this.turnNumber++;
-    this.nextTurn();
-  };
-  
-}
+  describe("mark", function(){
+    beforeEach(function(){
+      game.mark("x", {row: 0, column: 0} );
+    });
 
-Game.prototype.playAt = function(location) {
-  return this.board[location.row][location.column]; 
-}
+    it("places an x or an o on the board", function(){
+      expect(game.playAt( {row: 0, column: 0} )).toBe("x");
+    });
 
-Game.prototype.nextTurn = function() {
-  this.turn = ( this.turn === "x" ? "o" : "x" )
-};
+    it("cannot overwrite a play", function(){
+      game.mark("o", {row: 0, column: 0} );
+      expect(game.playAt( {row: 0, column: 0} )).toBe("x");
+      expect(game.turn).toBe("o");
+    });
 
-Game.prototype.gameOver = function() {
-  if (this.checkWinner() !== undefined) {
-    return true;
-  }
+    it("can't mark the same play twice in a row", function(){
+      game.mark("x", {row: 1, column: 1});
+      expect(game.playAt( {row: 1, column: 1})).toBe(undefined);
 
-  if (this.turnNumber > 8) {
-    return true;
-  }
+      game.mark("o", {row: 1, column: 1});
+      expect(game.playAt( {row: 1, column: 1})).toBe("o");
+    });
 
-  return false;
-}
+    it("only takes valid marks", function(){
+      game.mark("X", {row: 1, column: 1});
+      game.mark("xo", {row: 1, column: 1});
+      game.mark("O", {row: 1, column: 1});
+      game.mark("fds", {row: 1, column: 1});
+      expect(game.playAt( {row: 1, column: 1})).toBe(undefined);
+    });
 
-Game.prototype.checkWinner = function() {
+    it("doesn't play if the game is over", function(){
+      spyOn(game, 'gameOver').and.callFake(function(){
+        return true;
+      });
+      expect( function() {game.mark("o", {row: 1, column: 1}); }).toThrowError("game over!");
+    });
 
-  // FOR each row in the board
-  for(var i = 0; i < 3; i++){
-    if( (this.board[i][0] === "x" ||
-         this.board[i][0] === "o") &&
-        (this.board[i][1] === this.board[i][2]) &&
-        (this.board[i][1] === this.board[i][0]) ){
-      return this.board[i][0];
-    }
-  }
-  // FOR each column in the board
-  for(var i = 0; i < 3; i++){
-    if( (this.board[0][i] === "x" ||
-         this.board[0][i] === "o") &&
-        (this.board[0][i] === this.board[1][i]) &&
-        (this.board[1][i] === this.board[2][i]) ){
-      return this.board[0][i];
-    }
-  }
-  // diagonal top left
-  if( (this.board[0][0] === "x" ||
-       this.board[0][0] === "o") &&
-      (this.board[0][0] === this.board[1][1]) &&
-      (this.board[1][1] === this.board[2][2]) ){
-    return this.board[1][1];
-  }
-  // diagonal top right
-  if( (this.board[0][2] === "x" || 
-       this.board[0][2] === "o") &&
-      (this.board[0][2] === this.board[1][1]) &&
-      (this.board[1][1] === this.board[2][0]) ){
-    return this.board[1][1];
-  }
+    it("increments the turn number", function(){
+      expect(game.turnNumber).toBe(1);
 
-}
+      game.mark("o", {row: 0, column: 1});
+      expect(game.turnNumber).toBe(2);
+    });
+  });
+
+  describe("gameOver", function(){
+    it("is over if the game is won", function(){
+      spyOn(game, 'checkWinner').and.callFake(function(){
+        return "x";
+      });
+      expect(game.gameOver()).toBe(true);
+    });
+
+    it("is over if there have been 9 turns", function(){
+      game.turnNumber = 9;
+      expect(game.gameOver()).toBe(true)
+      });
+
+    it("is not over when the game starts", function(){
+      expect(game.gameOver()).toBe(false)
+    });
+  });
+
+
+  describe("checkWinner", function(){
+
+    it("is x if there are 3 x's in a row", function(){
+      game.board[0][0] = "x";
+      game.board[0][1] = "x";
+      game.board[0][2] = "x";
+      expect(game.checkWinner()).toBe("x");
+    });
+
+    it("is o if there are 3 o's in a row", function(){
+      game.board[0][0] = "o";
+      game.board[0][1] = "o";
+      game.board[0][2] = "o";
+      expect(game.checkWinner()).toBe("o");
+    });
+
+    it("is x if there are 3 x's in a column", function(){
+      game.board[0][0] = "x";
+      game.board[1][0] = "x";
+      game.board[2][0] = "x";
+      expect(game.checkWinner()).toBe("x");
+    });
+
+    it("is o if there are 3 o's in a column", function(){
+      game.board[0][0] = "o";
+      game.board[1][0] = "o";
+      game.board[2][0] = "o";
+      expect(game.checkWinner()).toBe("o");
+    });
+
+    it("is x if there are 3 x's on a diagonal", function(){
+      game.board[0][0] = "x";
+      game.board[1][1] = "x";
+      game.board[2][2] = "x";
+      expect(game.checkWinner()).toBe("x");
+
+      game.board[0][2] = "x";
+      game.board[1][1] = "x";
+      game.board[2][0] = "x";
+      expect(game.checkWinner()).toBe("x");
+    });
+
+    it("is o if there are 3 o's on a diagonal", function(){
+      game.board[0][0] = "o";
+      game.board[1][1] = "o";
+      game.board[2][2] = "o";
+      expect(game.checkWinner()).toBe("o");
+
+      game.board[0][2] = "o";
+      game.board[1][1] = "o";
+      game.board[2][0] = "o";
+      expect(game.checkWinner()).toBe("o");
+    });
+
+    it("is false if there are 3 undefined in a row", function(){
+      game.board[0][0] = undefined;
+      game.board[0][1] = undefined;
+      game.board[0][2] = undefined;
+      expect(game.checkWinner()).toBe(false);
+    });
+
+    it("is false if there are 3 undefined in a column", function(){
+      game.board[0][0] = undefined;
+      game.board[1][0] = undefined;
+      game.board[2][0] = undefined;
+      expect(game.checkWinner()).toBe(false);
+    });
+
+    it("is false if there are 3 undefined on a diagonal", function(){
+      game.board[0][0] = undefined;
+      game.board[1][1] = undefined;
+      game.board[2][2] = undefined;
+      expect(game.checkWinner()).toBe(false);
+
+      game.board[0][2] = undefined;
+      game.board[1][1] = undefined;
+      game.board[2][0] = undefined;
+      expect(game.checkWinner()).toBe(false);
+    });
+  });
+}); 
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,56 +3,81 @@
   <p id="x"></p>
   <p id="o"></p>
   <p id="c"></p>
+  <button>New Game</button>
   <ul class="board">
   </ul>
 
   <script type="text/javascript">
+  
+    document.querySelector("button").addEventListener("click", startGame);
+    
+    startGame();
 
-    var game = new Game();
+    var game = new Game()
 
-    function startGame() {
+     function startGame() {
       $.getJSON("/games/results", function(response) {
         $("#x").text("X: " + response.x );
         $("#o").text("O: " + response.o );
         $("#c").text("tie: " + response.c );
+        game = new Game();
         render();
       });
     };
 
-    document.querySelector('ul').addEventListener('click', function(e){
-      for(i = 0; i <e.target.parentElement.children.length; i++) {
-        if(e.target === e.target.parentElement.children[i]) {
-           game.mark(game.turn, {row: parseInt(i/3), column: i%3});
-           render(); 
-        };
-      };
-    });
+
+    var sendPlay = function(){
+      var row = parseInt(this.id/3);
+      var column = this.id%3;
+      game.mark(game.turn, {row:row, column:column});
+      render();
+    };
+
+    var winner = function(){
+      if (game.gameOver() === true) {
+        var numbers = game.winningCombo();
+        var locations = new Array;
+        for(i = 0 ; i < 5; ++i){
+          if(i%2 === 0){
+            if(numbers[i] === 1){
+              locations.push(numbers[i]+numbers[i+1]+2);
+            }
+            if(numbers[i] === 2){
+              locations.push(numbers[i]+numbers[i+1]+4);
+            }
+            if(numbers[i] === 0){
+              locations.push(numbers[i]+numbers[i+1]);
+            }
+          }
+        }
+        document.getElementById(locations[0]).classList.add("winning");
+        document.getElementById(locations[1]).classList.add("winning");
+        document.getElementById(locations[2]).classList.add("winning");
+      }
+    }
 
 
-
-    function render(){
+    function render(){  
       var board = document.querySelector("ul.board");
-
       board.innerHTML = "";
-
       for (var i = 0; i < 9; i++) {
         var li = document.createElement("li");
         li.className = game.board[parseInt(i/3)][i%3];
+        li.id = i;
+        li.addEventListener("click", sendPlay);
+        li.addEventListener("click", winner);
         board.appendChild(li);
-      };
-
+      }
       if(game.checkWinner() !== undefined) {
         $.post( "/games", { winner: game.checkWinner() } );
-        var winners = document.querySelectorAll("."+ game.checkWinner());
-        for(i = 0; i < winners.length; i++){
-          winners[i].classList.add("winning");
-        };
       } else if((game.turnNumber > 8)){
         $.post( "/games", { winner: "c" } );
       };
 
-    };
+    }
 
-    startGame();
-    
+
+
+
+
   </script>
