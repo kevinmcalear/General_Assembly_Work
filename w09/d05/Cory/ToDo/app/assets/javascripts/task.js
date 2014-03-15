@@ -7,11 +7,13 @@
       console.log(response);
     } );
     this.reset();
+
   }); 
 
+   
 
   function listTasks(){
-    data = $.getJSON("/welcome", function(response){
+    $.getJSON("/welcome", function(response){
     $.each(response, function(i, note) {
       $("<li>").text(note.list).appendTo("ul");
     })
@@ -21,4 +23,10 @@
   }
 
   listTasks();
+  
+
+ 
+    $("body").on('click', 'li', function(){
+    $(this).toggleClass('line');
+});
   
