@@ -8,6 +8,6 @@
 <ul>
 <% Note.all.each do |note|  %>
 
-<li id="<%= note.id %>" <%= note.done ? "class = done" : nil %>><%= note.content %><input type="checkbox" id="<%= note.id %>" checked=<%= note.done ? "true" : "false" %>></input></li>
+<li id="<%= note.id %>" <%= note.done ? "class = done" : nil %>><%= note.content %><input type="checkbox" id="<%= note.id %>" <%= note.done ? "checked='true'" : nil %>></input></li>
 <% end %>
 </ul>

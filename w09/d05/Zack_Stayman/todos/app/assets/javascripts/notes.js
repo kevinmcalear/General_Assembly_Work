@@ -8,10 +8,12 @@ var getId = function(){
     $("input").val(""); 
     $("ul li").on("click", "input", function(){
       $(this).parent().toggleClass("done");
+      var crossOut;
+      ($(this).parent().hasClass("done") == true) ? crossOut = true : crossOut = false;
       $.ajax({
         url: "/notes/"+$(this).parent().attr("id"),
         type: "PUT",
-        data: {done: true}
+        data: {done: crossOut}
       });
     });
   });
@@ -27,9 +29,11 @@ $("#new-note").on("submit", function(e){
 
 $("ul li").on("click", "input", function(){
   $(this).parent().toggleClass("done");
+  var crossOut;
+  ($(this).parent().hasClass("done") == true) ? crossOut = true : crossOut = false;
   $.ajax({
     url: "/notes/"+$(this).parent().attr("id"),
     type: "PUT",
-    data: {done: true}
+    data: {done: crossOut}
   });
 });
