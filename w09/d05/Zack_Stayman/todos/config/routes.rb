@@ -3,5 +3,5 @@ Todos::Application.routes.draw do
   post "/notes" => "notes#create"
   put "/notes/:id" => "notes#update"
   get "/notes/info" => "notes#latest"
-  delete "/notes" => "notes#destroy"
+  delete "/notes/:id" => "notes#destroy"
 end
