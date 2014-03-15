@@ -1,0 +1,29 @@
+class NotesController < ApplicationController
+  def index
+  end
+
+  def create
+    @note = Note.create(content: params[:content], done: false)
+    render json: @note
+  end
+
+  def update
+    @note = Note.find(params[:id])
+    puts params[:done]
+    @note.update(done: params[:done])
+    render json: @note
+  end
+
+  def destroy
+    @note = Note.find(params[:id])
+    render json: @note
+  end
+
+  def latest
+    @note = Note.last
+    render json: @note
+  end
+
+  private
+
+end
