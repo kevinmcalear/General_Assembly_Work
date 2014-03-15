@@ -25,8 +25,7 @@
   listTasks();
   
 
- 
-    $("body").on('click', 'li', function(){
+    $('ul').on('change', 'li', function(){
     $(this).toggleClass('line');
 });
   
