@@ -34,16 +34,24 @@ $('body').on('click', 'span', function() {
   })
 })
 
-var toggle; 
+
 $('body').on('change', 'input[type=checkbox]', function() {
   var id = $(this)[0].parentElement.id;
   $(this).parent().toggleClass('done');
-  // $(this)[0].parentElement.toggleClass('line-through')
-  $.ajax({
-    type: 'PUT',
-    url: 'lists/ '+ id +'',
-    data: {completed: true}
-  })
+  var parent = $(this).parent().attr('class');
+
+  if ( parent == "done" ) {
+    $.ajax({
+      type: 'PUT',
+      url: 'lists/ '+ id +'',
+      data: {completed: true}
+    })
+  } else {
+    $.ajax({
+      type: 'PUT',
+      url: 'lists/ '+ id +'',
+      data: {completed: false}
+  })}
 })
 
 
