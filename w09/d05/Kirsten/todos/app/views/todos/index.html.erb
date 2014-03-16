@@ -1,0 +1,18 @@
+<h1>ToDos</h1>
+
+<form id='task'>
+  <input type='text' id='todo'>
+  <button>Add</button>
+</form>
+
+<div id="list">
+  <ul>
+    <% @todos.each do |item| %>
+      <%if item.is_complete == true %>
+        <li id= <%=item.id%> class= "checked" ><%=item.todo%><input type="checkbox", checked ><span>x</span></li>
+      <% elsif item.is_complete != true %>
+        <li id= <%=item.id%> ><%=item.todo%><input type="checkbox" ><span>x</span></li>
+      <%end%>
+    <%end%>
+  </ul>
+</div>
