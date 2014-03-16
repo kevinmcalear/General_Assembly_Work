@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: infiniteGiphy_development
+  database: todo_development
   pool: 5
   username: itorresverdugo
   password:
@@ -46,7 +46,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: infiniteGiphy_test
+  database: todo_test
+  pool: 5
+  username: itorresverdugo
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: todo_production
   pool: 5
   username: itorresverdugo
   password:
