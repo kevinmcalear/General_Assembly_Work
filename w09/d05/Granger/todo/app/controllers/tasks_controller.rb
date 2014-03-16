@@ -12,6 +12,17 @@ class TasksController < ApplicationController
     render json: @tasks
   end
 
+  def cross_out
+    @task = Task.find(params[:id])
+    @task.update(crossed_out: true)
+    render json: @task
+  end
+
+  def show
+    @task = Task.find(params[:id])
+    render json: @task
+  end
+
 end
 
 
