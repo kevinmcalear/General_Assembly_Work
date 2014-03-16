@@ -1,19 +1,14 @@
-var counter;
 $('<ul>').appendTo('body');
-var loggedResponse
 
 var newTask = function(text) {
   $.post('/lists', {task: text}, function(response){
-    // console.log(response)
-    // console.log(response.id)
     $('ul').append($('<li>')
            .attr('id', response.id)
-           .addClass('todo')
+           // .addClass('todo')
            .append(response.task)
            .append('<input type="checkbox" />')
            .append('<span>x</span>'));
   })
-  
 };
 
 $('form').submit(function(e) {
@@ -23,17 +18,19 @@ $('form').submit(function(e) {
   this.reset();
 });
 
-
+// x delete item logic 
 $('body').on('click', 'span', function() {
   var id = $(this)[0].parentElement.id;
   // remove element from the DOM
   $(this)[0].parentElement.remove();
+  // delete from database
   $.ajax({
     type: 'DELETE',
     url: 'lists/ '+ id +'',
   })
 })
 
+// checkbox logic
 
 $('body').on('change', 'input[type=checkbox]', function() {
   var id = $(this)[0].parentElement.id;
@@ -59,13 +56,19 @@ $('body').on('change', 'input[type=checkbox]', function() {
 function renderList() {
   $.getJSON("/search", function(response) {
     $.each(response, function(index, value) {
+      var checkedString = '';
+      if ( value.completed == true){
+        checkedString = 'checked'
+      }
       $('ul').append($('<li>')
         .append(value.task)
         .attr('id', value.id)
-        // .addClass('todo')
-        .append('<input type="checkbox" />')
+        .attr('class', function(){
+          if (value.completed == true) {
+          return 'done'} })
+        .append('<input type="checkbox" ' + checkedString + '/>')
         .append('<span>x</span>'))
-    })   
+    })  
   });
 }
 
