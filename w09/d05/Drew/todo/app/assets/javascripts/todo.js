@@ -4,10 +4,9 @@ var newTask = function(text) {
   $.post('/lists', {task: text}, function(response){
     $('ul').append($('<li>')
            .attr('id', response.id)
-           // .addClass('todo')
            .append(response.task)
            .append('<input type="checkbox" />')
-           .append('<span>x</span>'));
+           .append('<span>Done</span>'));
   })
 };
 
@@ -56,6 +55,7 @@ $('body').on('change', 'input[type=checkbox]', function() {
 function renderList() {
   $.getJSON("/search", function(response) {
     $.each(response, function(index, value) {
+      // for figure out if task is completed to load with checked checkbox
       var checkedString = '';
       if ( value.completed == true){
         checkedString = 'checked'
@@ -67,7 +67,7 @@ function renderList() {
           if (value.completed == true) {
           return 'done'} })
         .append('<input type="checkbox" ' + checkedString + '/>')
-        .append('<span>x</span>'))
+        .append('<span>Done</span>'))
     })  
   });
 }
