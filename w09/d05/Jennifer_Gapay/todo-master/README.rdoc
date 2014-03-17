@@ -1,0 +1,20 @@
+++ TODO App, WDI January 2014 ++
+
+User Stories:
+
+* User can add a todo task
+- save to database
+
+* User can toggle checking off a task
+- clickable checkbox
+- strikethrough completed task
+
+* User can delete a task
+- delete from database
+
+
+ERD:
+
+Table = "tasks"
+Row1 = "todo"
+Row2 = "completed?"
