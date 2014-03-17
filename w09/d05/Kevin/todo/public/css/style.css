@@ -16,3 +16,7 @@ span {
   font-size: 15px;
   font-weight: bolder;
 }
+
+a {
+  text-decoration: none;
+}

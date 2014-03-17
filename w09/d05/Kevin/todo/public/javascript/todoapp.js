@@ -1,9 +1,8 @@
-$(document).ready(function() {
-this.allTodos;
+var allTodos;
 
 function addToDo(listItem) {
   $.post("/new?item="+ listItem);
-  showToDo();
+  
 };
 
 function showToDo() {
@@ -11,7 +10,7 @@ function showToDo() {
     allTodos = theListObject;
     $("ul").empty();
     for(i = 0; i < allTodos.length; i++) {
-     var currentItem = $("<li data-id='" + allTodos[i].id + "'><input type='checkbox' " + ((allTodos[i].complete === true) ? "checked" : "") + " data-complete='" + allTodos[i].complete + "'></input>  "+ allTodos[i].list_item + "<span> x</span></li>");
+     var currentItem = $("<li data-id='" + allTodos[i].id + "'><input type='checkbox' " + ((allTodos[i].complete === true) ? "checked" : "") + " data-complete='" + allTodos[i].complete + "'></input>  "+ allTodos[i].list_item + "<a href=''><span> x</span></a></li>");
      if(allTodos[i].complete === true) {
       currentItem.addClass("checked");
      }
@@ -25,7 +24,7 @@ function updateToDo(listItemId, completed) {
      url: '/update?id=' + listItemId + '&complete='+ completed,
      type: 'PUT',
      success: function(response) {
-       showToDo();
+       
      }
   });
 };
@@ -35,7 +34,6 @@ function deleteToDo(listItemId) {
     url: '/delete?id=' + listItemId,
     type: 'DELETE',
     success: function(result) {
-        showToDo();
     }
   });
 };
@@ -49,18 +47,20 @@ var addItem = $("form").on('submit', function(e){
   e.preventDefault();
   addToDo($("input").val());
   $("input").val("");
+  showToDo();
 });
 
 var deleteItem = $("li span").on('click', function() {
   deleteItemFromDom($(this));
+  $(this).parent().remove();
 });
 
 var updateItem = $("li input:checkbox").on('change', function() {
   $(this).data().complete = (($(this).data("complete") === true) ? false : true);
   $(this).toggleClass("checked");
   updateToDo(($(this).parent().data("id")), ($(this).data("complete")));
+  
 });
 
 
 showToDo();
-});
