@@ -9,7 +9,6 @@ class NotesController < ApplicationController
 
   def update
     @note = Note.find(params[:id])
-    puts params[:done]
     @note.update(done: params[:done])
     render json: @note
   end
@@ -24,7 +23,5 @@ class NotesController < ApplicationController
     @note = Note.last
     render json: @note
   end
-
-  private
 
 end

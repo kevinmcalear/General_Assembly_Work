@@ -25,9 +25,7 @@ var getId = function(){
     x = response["id"];
     $("<li id="+x+">").text($("input").val())
       .append("<input type='checkbox'>").append("<a>x</a>").appendTo("ul");
-    
     $("input").val(""); 
-
     $("ul li").on("click", "input", checkOff);
     $("ul li").on("click", "a", remove);
   });
@@ -42,6 +40,5 @@ $("#new-note").on("submit", function(e){
 });
 
 $("ul li").on("click", "input", checkOff);
-
 $("ul li").on("click", "a", remove);
 
