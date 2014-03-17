@@ -18,6 +18,8 @@
       $("<li>").text(note.list).appendTo("ul");
     })
       $("<input type=checkbox>").appendTo("li");
+      $("<a class='delete' href='#'>X</a>").appendTo("li");
+      
 
    });
   }
@@ -26,6 +28,16 @@
   
 
     $('ul').on('change', 'li', function(){
-    $(this).toggleClass('line');
-});
+    $(this).toggleClass('done');
+    $.ajax({
+    url: '/welcome/' + list.id, 
+    type: 'PUT',
+    data: {id: list.id, complete: !list.complete}
+  });
+
+
+  });
+
+
+
   

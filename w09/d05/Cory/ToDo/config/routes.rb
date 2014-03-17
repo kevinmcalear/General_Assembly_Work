@@ -6,4 +6,5 @@
 
   get '/welcome', to: 'welcome#allnotes', as: 'noteslist'
 
+
 end

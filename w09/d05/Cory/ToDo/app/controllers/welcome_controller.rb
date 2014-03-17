@@ -15,7 +15,9 @@ class WelcomeController < ApplicationController
   end
 
   def update
-
+    @note = Note.find(params[:id])
+    @note.update(complete: params[:complete])
+    render json: @note
   end
 
   def destroy
