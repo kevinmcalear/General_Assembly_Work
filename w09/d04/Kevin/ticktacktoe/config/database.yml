@@ -17,9 +17,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: infiniteGiphy_development
+  database: ticktacktoe_development
   pool: 5
-  username: 
+  username:
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -46,7 +46,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: infiniteGiphy_test
+  database: ticktacktoe_test
   pool: 5
-  username: 
+  username:
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: ticktacktoe_production
+  pool: 5
+  username:
   password:
