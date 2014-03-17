@@ -4,6 +4,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.create(todo: params[:task])
+    @task.update(crossed_out: false)
     render json: @task
   end
 
@@ -14,13 +15,19 @@ class TasksController < ApplicationController
 
   def cross_out
     @task = Task.find(params[:id])
-    @task.update(crossed_out: true)
+    @task.update(crossed_out: !@task.crossed_out)
     render json: @task
   end
 
   def show
     @task = Task.find(params[:id])
     render json: @task
+  end
+
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    render json: Task.all
   end
 
 end

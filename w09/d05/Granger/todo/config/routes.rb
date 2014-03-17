@@ -2,7 +2,7 @@ Todo::Application.routes.draw do
 
   root to: 'tasks#index'
 
-  resources :tasks, only: [:create, :new, :show]
+  resources :tasks, only: [:create, :new, :show, :destroy]
 
   get 'tasks/:id/cross_out' => 'tasks#cross_out'
 
