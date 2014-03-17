@@ -1,29 +1,38 @@
-var gif;
-counter = 0;
+var gifs;
+var counter = 0;
 
-$("form").on("submit", function(e){
-    e.preventDefault();
-    var searchterm = document.querySelector("form#search input")
-    var keyword = searchterm.value
-    data = $.getJSON("/search/?keyword=" + keyword, function(response){
-      for(var i = 0; i < 20; i++){
-        $("body").append($("<img src=" + data.responseJSON.data[i]["images"]["original"]["url"] +">") )
-      }
-    })
-  })
+function getGifs(keyword){
+  $.getJSON('/search?keyword='+keyword, function(response){
+    gifs = response;
 
-
-$('add').on('click', function() {
-  var img = $("<img src=" + data.responseJSON.data[i]["images"]["original"]["url"] +">");
-  $("body").append(img);
-  counter++;
-});
-
-
-$(window).on('scroll', function() {
-  if($(window).scrollTop() + $(window).height() >= $(document).height(){
+  $('#add').on('click', function(){
     appendGif();
-  })
-});
-      
+  });
 
+  });  
+}
+
+function appendGif(){
+  var img = $('<img src="' + gifs.data[counter].images.original.url + '" />');
+  $('body').append(img);
+  counter++;
+}
+
+
+$("form").on('submit', function(e){
+  e.preventDefault();
+  var keyword = $("input").val(); 
+  getGifs(keyword);
+  this.reset();
+  counter = 0;
+});
+
+$("body").on('click', 'img', function(){
+    $(this).toggleClass('big');
+});
+
+$(window).on('scroll', function(){
+  if($(window).scrollTop() + $(window).height() >= $(document).height()){
+    appendGif();
+  }
+});
