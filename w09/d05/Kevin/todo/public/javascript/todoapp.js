@@ -2,7 +2,7 @@ var allTodos;
 
 function addToDo(listItem) {
   $.post("/new?item="+ listItem);
-  
+  showToDo();
 };
 
 function showToDo() {
@@ -47,7 +47,6 @@ var addItem = $("form").on('submit', function(e){
   e.preventDefault();
   addToDo($("input").val());
   $("input").val("");
-  showToDo();
 });
 
 var deleteItem = $("li span").on('click', function() {
@@ -57,7 +56,7 @@ var deleteItem = $("li span").on('click', function() {
 
 var updateItem = $("li input:checkbox").on('change', function() {
   $(this).data().complete = (($(this).data("complete") === true) ? false : true);
-  $(this).toggleClass("checked");
+  $(this).parent().toggleClass("checked");
   updateToDo(($(this).parent().data("id")), ($(this).data("complete")));
   
 });
