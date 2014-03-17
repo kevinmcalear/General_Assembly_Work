@@ -7,7 +7,18 @@ class TasksController < ApplicationController
     render json: @task
   end
 
-  def list
+  def show
     render json: Task.all
   end
+
+  def destroy
+    @task.destroy
+    redirect_to "/"
+  end
+
+private
+  def load_task
+    return @task = Task.find(params[:id])
+  end
 end
+

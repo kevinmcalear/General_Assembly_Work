@@ -1,57 +1,52 @@
-var task;
-
-function appendTask(task){
-  li = $("<li class ="+task+">"+task+"</li>")
-  $("#todolist").append(li);
-  $('<input />', { type: 'checkbox', class: task }).appendTo("li");
-  var x="x";
-  $("<span class="+task+">x</span>").appendTo ("li");
-  $.post("/tasks", { name: task, check: checkboxStatus() })
-};
-
-function checkboxStatus(){
-  if($("task").checked){
-    return true
-  }
-  else{
-    return false
-  };
-};
-
 function getTasks(){
-  $.getJSON("/tasks/list", function(response){
-    $.each(response, function(index, task){
-    ($("<li>" + task.name + "</li>").append("<input type='checkbox'>").attr("id", index )).appendTo($("body"))    
-    })
-  });
-};
+    $.getJSON('/tasks/show', function(response){
+      console.log(response)
+      $("<ul>").appendTo($("div#list"))
+      //Why does #list work?
+      $.each(response, function(index, task){
+        var responseId = task.id
+          console.log(responseId)
+        var item = ($("<li id ="+ responseId +">" + task.name + "</li>")
+          .append("<input type='checkbox' id = "+ responseId +">")
+          .append("<img src='http://cerrawater.com/water-library/wp-content/uploads/2012/01/x1.png'>"))
+        item.appendTo("ul")
+      });
+
+
+      $("input[type='checkbox']").on("click", function(e) {
+    
+        $(this).parent().toggleClass("strikethrough")
+
+        var strikeThrough;
+        if ( $(this).parent().hasClass("strikethrough")==true ) {
+          var crossOut = true;
+        }
+        else {
+          var crossOut = false;
+        }
+        console.log("/tasks/"+ ($(this).parent().attr("id")).toString())
+
+        $.ajax({
+          type: "POST",
+          url: "/tasks/"+ ($(this).parent().attr("id")).toString(),
+          data: {check: crossOut},
+        });
+      });
+
+      $("img").on("click", function(){
+        $.ajax({
+          url:"/tasks/" + ($(this).parent().attr("id")),
+          type: "DELETE"
+        });
+      });
+    });
+  }  
 
 getTasks();
 
-//   $('span#'+task).prop('checked', true);
-//   $('span#'+task).prop('checked', false);
-// };
-
-$("form").on("submit", function(e){
-  e.preventDefault();
-  task = $("#textbox").val(); 
-  appendTask(task);
-  this.reset();
+$("form").on("submit", function(e) {
+    e.preventDefault()
+    var task = $("#textbox").val()
+    $.post("/task/create", {task: task } );
+    $("#textbox").val("")
 });
-
-//function d
-//make new custom path.  new route called something else.  map to controller.
-
-
-task = $("checkbox").class;
-
-$("input[type='checkbox']#"+ task).click(function () {
-if (this.checked) {
-    console.log("hi")
-    //$("li#"+ task).css('text-decoration', 'line-through');
-  }
-});
-
-
-
-

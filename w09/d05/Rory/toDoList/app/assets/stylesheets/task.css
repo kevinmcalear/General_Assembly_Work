@@ -12,3 +12,7 @@ span{
 .struck{
   text-decoration: line-through;
 }
+
+img{
+  height: 20px;
+}
