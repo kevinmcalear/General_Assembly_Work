@@ -1,0 +1,46 @@
+<!--
+Planning
+1. keyword, message to encrypted message
+2. Take keyword and repeat it enough times to be length of keyword
+3. For each char in the array, I want to input the req. character in the kw
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  
+</head>
+<body>
+  <script>
+  // we want to take a keyword and message, and return an encrypted message
+  function encrypt(keyword, message) {
+    var encryptedMessage = "";
+    return encryptedMessage;
+  }
+
+  // we want to repeat a word enough times that it is a certain length
+  function repeatUntil(keyword, length) {
+    //return a string that is length length
+    var keywordFullLengthArray = new Array(length);
+
+    var index = 0;
+    while(index < length) {
+      keywordFullLengthArray[index] = keyword[index];
+      index = index + 1; 
+    }
+    
+
+    var keywordFullLength = keywordFullLengthArray.join("");
+
+    //return a string that is length *length*, but it is
+    // the letters in keyword over and over
+
+    return keywordFullLength;
+  }
+
+
+  </script>
+</body>
+</html>

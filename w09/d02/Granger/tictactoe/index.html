@@ -4,20 +4,54 @@
   <meta charset="UTF-8">
   <title>Tic Tac Toe</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <script type="text/javascript" src="js/src/ttt.js"></script>
+
 </head>
 <body>
   <ul class="board">
   </ul>
-
+  <script type="text/javascript" src="js/src/ttt.js"></script>
   <script type="text/javascript">
-    var board = document.querySelector("ul.board");
+    var game = new Game();
+    var turn = game.turn;
 
-    for (var i = 1; i <= 9; i++) {
-      var li = document.createElement("li");
-      li.className = (i % 2 ? "x" : "o");
-      board.appendChild(li);
+    function render() {
+      var board = document.querySelector("ul.board");
+
+      board.innerHTML = "";
+
+      for (var i = 0; i < 9; i++) {
+        var li = document.createElement("li");
+        li.className = game.board[parseInt(i/3)][(i%3)];
+        li.id = i;
+        li.addEventListener('click', move)
+        board.appendChild(li);
+      }
+
+      function move() {
+        game.mark(turn, location(this))
+        render();
+        over();
+        turn = game.turn;
+      }
+
+      function location(space) {
+        var id = space.id;
+        var r = parseInt(id/3);
+        var c = (id%3);
+        return {row: r, column: c};
+      }
+
+      function over() {
+        if (game.gameOver() && game.checkWinner()) {
+          alert(turn.toUpperCase() + " won!");
+        }
+        else if (game.gameOver()) {
+          alert("tie");
+        };
+      }
     }
+
+    render(); 
   </script>
 </body>
 </html>
