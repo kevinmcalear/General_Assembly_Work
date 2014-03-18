@@ -1,0 +1,64 @@
+
+  <ul class="board">
+  </ul>
+
+  <script type="text/javascript">
+    var game = new Game();
+
+    document.querySelector('ul').addEventListener('click', function(e){
+      for(i = 0; i <e.target.parentElement.children.length; i++) {
+        if(e.target === e.target.parentElement.children[i]) {
+           game.mark(game.turn, {row: parseInt(i/3), column: i%3});
+           render(); 
+           xwinner();
+           owinner();
+           tie();
+        };
+      };
+    });
+
+    function xwinner(){
+      $.getJSON("/games/xwinner", function(response){
+        $("<div>").text("X Wins: "+response).appendTo("ul")
+      });
+    };
+    xwinner();
+
+    function owinner(){
+      $.getJSON("/games/owinner", function(response){
+        $("<div>").text("O Wins: "+response).appendTo("ul")
+      });
+    };
+    owinner();
+
+    function tie(){
+      $.getJSON("/games/tie", function(response){
+        $("<div>").text("Ties: "+response).appendTo("ul")
+      });
+    };
+    tie();
+
+    function render(){
+      var board = document.querySelector("ul.board");
+
+      board.innerHTML = "";
+
+      for (var i = 0; i < 9; i++) {
+        var li = document.createElement("li");
+        li.className = game.board[parseInt(i/3)][i%3];
+        board.appendChild(li);
+      };
+
+      if(game.checkWinner() !== undefined) {
+        $.post("/games", {winner: game.checkWinner() } );
+        var winners = document.querySelectorAll("."+ game.checkWinner());
+        for(i = 0; i < winners.length; i++){
+          winners[i].classList.add("winning");
+        };
+      };
+    };
+
+    render();
+
+    
+  </script>

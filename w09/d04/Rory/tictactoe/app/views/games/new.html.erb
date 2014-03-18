@@ -1,0 +1,76 @@
+<ul class="board"></ul>
+
+  <script>
+
+    var game = new Game();
+
+
+    document.querySelector('ul').addEventListener('click', function(e){
+      for(i = 0; i <e.target.parentElement.children.length; i++) {
+        if(e.target === e.target.parentElement.children[i]) {
+           game.mark(game.turn, {row: parseInt(i/3), column: i%3});
+           render(); 
+        };
+      };
+    });
+
+    
+    function render(){
+      var board = document.querySelector("ul.board");
+
+      board.innerHTML = "";
+
+      for (var i = 0; i < 9; i++) {
+        var li = document.createElement("li");
+        li.className = game.board[parseInt(i/3)][i%3];
+        board.appendChild(li);
+      };
+
+      if(game.checkWinner() !== undefined) {
+        var winners = document.querySelectorAll("."+ game.checkWinner());
+        for(i = 0; i < winners.length; i++){
+          winners[i].classList.add("winning");
+        };
+      };
+      whoWon();
+    };
+
+    
+
+    function whoWon(){
+      if (game.gameOver()) {
+        $.post( "/games", { winner: game.winner() } );
+      };
+
+    };
+
+    <%= all_Xs = Game.where("x", params[:winner]) %>
+    <%= all_Os = Game.where("o", params[:winner]) %>
+    <%= all_ties = Game.where("tie", params[:winner]) %>
+
+    var body = document.querySelector("body");
+
+    var ulPoints = document.createElement("ul");
+    ulPoints.id = "ulPoints";
+    body.appendChild("#ulPoints");
+
+    var x_li = document.createElement("li");
+    x_li.id = "x";
+    ulPoints.appendChild("#x");
+    x_li.innerText = "X: "+ all_Xs.length;
+
+    var o_li = document.createElement("li");
+    o_li.id = "o";
+    ulPoints.appendChild("#o");
+    o_li.innerText = "O: "+ all_Os.length;
+
+    var tie_li = document.createElement("li");
+    tie_li.id = "tie"
+    ulPoints.appendChild("#tie");
+    tie_li.innerText = "Tie: " + all_ties.length;
+
+
+    render();
+
+    
+  </script>

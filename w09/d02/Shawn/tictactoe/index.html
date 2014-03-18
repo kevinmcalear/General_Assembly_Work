@@ -1,3 +1,5 @@
+<!-- adding a line to make it so that i can commit -->
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,15 +11,62 @@
 <body>
   <ul class="board">
   </ul>
+  <button>New Game</button>
 
   <script type="text/javascript">
-    var board = document.querySelector("ul.board");
 
-    for (var i = 1; i <= 9; i++) {
-      var li = document.createElement("li");
-      li.className = (i % 2 ? "x" : "o");
-      board.appendChild(li);
+    var game = new Game();
+    var board = document.querySelector("ul.board");
+    var button = document.querySelector("button");
+    render(); 
+
+    
+    function render() {
+      board.innerHTML = "";
+
+
+      for (var i = 0; i < 9; i++) {
+        var li = document.createElement("li");
+        li.className = game.board[parseInt(i/3)][parseInt(i % 3)];
+        board.appendChild(li);
+      }
     }
+
+    board.addEventListener("click", function(e) {
+      var squares = document.querySelectorAll("li");
+      var indexSquares = Array.prototype.slice.call(squares);
+      var row = parseInt(indexSquares.indexOf(e.target)/3);
+      var column = parseInt(indexSquares.indexOf(e.target)%3);
+      game.mark( game.turn, { row: row, column: column } );
+      render();
+      
+
+      if(game.checkWinner() === undefined) {
+        game.nextTurn();
+      } else {
+        for(var i = 0; i < squares.length; i++){
+          if(squares[i].className === game.checkWinner()) {
+            squares[i].className = "winning";
+          }
+        }
+        alert(game.checkWinner() + "wins" )
+      }
+    });
+
+    var newGame = function() {
+      game = new Game();
+      board.innerHTML = "";
+      render();
+    }
+
+    button.addEventListener("click", function() {
+      newGame();
+    });
+
+
+
+    render();
+
   </script>
 </body>
 </html>

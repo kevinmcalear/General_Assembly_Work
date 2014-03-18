@@ -10,14 +10,37 @@
   <ul class="board">
   </ul>
 
-  <script type="text/javascript">
-    var board = document.querySelector("ul.board");
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js">
+    var game = new Game();
+    var board = $("ul.board");
 
-    for (var i = 1; i <= 9; i++) {
-      var li = document.createElement("li");
-      li.className = (i % 2 ? "x" : "o");
-      board.appendChild(li);
-    }
+
+    board.addEventListener('click', function(e){
+        game.mark(game.turn, {row: e.target.id[0], column: e.target.id[2]});
+        render(); 
+      });
+
+    function render(){
+
+      board.innerHTML = "";
+
+      for (var i = 0; i < 9; i++) {
+        var li = document.createElement("li");    
+        li.className = game.board[parseInt(i/3)][i%3];
+        li.id = parseInt(i/3) + " " + i%3;
+        board.appendChild(li);
+      }; //close for loop
+
+    if(game.checkWinner() !== undefined) {
+        var winners = $("."+ game.checkWinner()).get();
+        for(i = 0; i < winners.length; i++){
+          winners[i].classList.add("winning");
+        };//close for loop
+      }; // close  check winner defined
+    }; //close render function
+
+    render();
+
   </script>
 </body>
 </html>
