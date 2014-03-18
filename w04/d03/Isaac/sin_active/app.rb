@@ -4,46 +4,52 @@ require 'active_record'
 require_relative './models/config'
 require_relative './models/clown'
 
-Clown.create({
-  name: "Dozo",
-  happiness_level: 100,
-  creepiness_level: 0,
-  talent: "Bringing joy to children",
-  is_singer: true
-  })
+# Clown.create({
+#   name: "Shmozo",
+#   happiness_level: 100,
+#   creepiness_level: 0,
+#   talent: "Bringing joy to children.",
+#   is_singer: true
+# })
 
 get("/") do
-  @clowns = Clown.all
   erb(:index)
 end
 
-get("/clowns") do 
+# Read all the clowns
+# Index Action
+get("/clowns") do
+  @clowns = Clown.all
   erb(:'clowns/index')
 end
 
-#create a clown
-#create action 
-post("clowns") do 
+# Create a clown
+# Create Action
+post("/clowns") do
   erb(:'clowns/show')
 end
 
-#read a particular clown
-get("/clowns/:id") do 
-  @clown = Clown.fnd_by(id: params[:id])
+# Read a particular clown
+# Show Action
+get("/clowns/:id") do
+  @clown = Clown.find_by(id: params[:id])
   erb(:'clowns/show')
 end
 
-put("/clowns/:id") do 
+# Update a particular clown
+# Update Action
+put("/clowns/:id") do
   erb(:'clowns/show')
 end
 
-#delete that clown
-delete("/clowns/:id") do 
-  redirect to ("/clowns")
+# Delete that clown
+# Destroy Action
+delete("/clowns/:id") do
+  redirect to("/clowns")
 end
 
-#delete all clowns
-delete("/clowns") do 
-  redirect to("http://www.clowns.com")
+# Delete ALL clowns
+# Destroy Action
+delete("/clowns") do
+  redirect to("http://clowns.com")
 end
-

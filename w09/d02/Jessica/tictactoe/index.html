@@ -11,13 +11,33 @@
   </ul>
 
   <script type="text/javascript">
-    var board = document.querySelector("ul.board");
+    var game = new Game();
 
-    for (var i = 1; i <= 9; i++) {
-      var li = document.createElement("li");
-      li.className = (i % 2 ? "x" : "o");
-      board.appendChild(li);
-    }
+    function render(){
+      var board = document.querySelector("ul.board");
+
+      board.innerHTML = "";
+
+      for (var i = 0; i < 9; i++) {
+        var li = document.createElement("li");    
+        li.className = game.board[parseInt(i/3)][i%3];
+        li.id = [parseInt(i/3),parseInt(i%3)]
+        li.addEventListener("click", function(){
+          this.className = game.turn;
+          game.mark(game.turn, {row: parseInt(this.id[0]), column: parseInt(this.id[2])});
+        });
+
+        board.appendChild(li);
+      } //close for loop
+
+      
+    } //close render function
+
+    render();
+
+
+
+    
   </script>
 </body>
 </html>
