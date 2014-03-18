@@ -3,7 +3,7 @@
 # attributes (columns)
 # relationships (between tables)
 
-# data )rows)
+# data (rows)
 
 # PSQL
 # psql -d itorresverdugo  
@@ -55,6 +55,19 @@
 #   price money NOT NULL,
 #   date_bought date DEFAULT current_date
 # );
+
+
+INSERT INTO superheroes (superhero_name, alter_ego, has_cape, power, arch_nemesis) VALUES ('Superman','Clark Kent','true','strength','Lex Luthor'),
+('Wonder Woman','Diana Prince','false','strength','Cheetah'),
+('Batman','Bruce Wayne','true','intelligence','Joker'),
+('Mr Incredible','Robert Parr','false','strength','Syndrome'),
+('Professor X','Charles Xavier','false','psychic','Magneto'),
+('Spiderman','Peter Parker','false','wall climbing','Doctor Octopus'),
+('Captain America','Steve Rogers','false','super soldier','Red Skull'),
+('Iron Man','Tony Stark','false','iron suit','Mandarin'),
+('Wolverine','Logan','false','healing','Sabretooth');
+
+
 
 # INSERT INTO receipts (store, item, quantity, price, date_bought) VALUES
 #   ('Sears', 'VCR', 1, 180, 'December 21 1989'),

@@ -9,8 +9,31 @@
 
 
 // WORK HERE
+    var fruits = ["honeycrisp apples", "raspberries", "pomegranate", "granny smith apples"];
+    var fruitListing = function(){
+      for ( var counter=1; counter <= fruits.length; counter++ ) {
+        console.log("My #" + counter + " favorite fruit is " + fruits[counter-1]);
+      };
+    };
 
 
+    /*var initials = function(names){
+      split_names = names.split(" ");
+      var namesLength = split_names.length;
+
+      for (counter=0; counter < namesLength; counter++) {
+        console.log(split_names[counter][0]);
+      }
+    };*/
+
+    function initials(fullName) {
+      var names = fullName.split(" ");
+      var initials = "";
+      for( var i = 0; i < name.length; i++ ) {
+        initials += names[i][0];
+      }
+      console.log(initials.join(""));
+    }
     </script>
   </body>
 </html>

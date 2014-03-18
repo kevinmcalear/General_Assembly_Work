@@ -1,0 +1,12 @@
+.gray {
+  background-color: gray;
+}
+
+.white {
+  background-color: white;
+  border: 1px solid gray;
+}
+
+.deceased {
+  text-decoration: line-through;
+}
