@@ -7,9 +7,19 @@
     <h1>warmup</h1>
     <script type='text/javascript'>
 
+    var Favorite=new Array()
 
-// WORK HERE
+    Favorite[0] = "I <3 In 'N Out Burgers";
+    Favorite[1] = "I <3 ice cream";
+    Favorite[2] = "I <3 sees candy";
+    Favorite[3] = "I <3 scuba";
+    Favorite[4] = "I <3 PnJ sandwiches";
 
+    var Q = Favorite.length;
+var whichFavorite=Math.round(Math.random()*(Q-1));
+function showFavorite(){document.write(Favorite[whichFavorite]);}
+
+showFavorite();
 
     </script>
   </body>
