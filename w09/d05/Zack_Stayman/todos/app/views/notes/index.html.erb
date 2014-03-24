@@ -1,0 +1,17 @@
+<h1>TO DO</h1>
+
+<form id="new-note">
+  <input type="text"></input>
+  <button>Create A Note</button>
+</form>
+
+<ul>
+  <% Note.all.each do |note|  %>
+    <li id="<%= note.id %>" <%= note.done ? "class = done" : nil %>>
+      <%= note.content %>
+      <input type="checkbox" id="<%= note.id %>" <%= note.done ? "checked='true'" : nil %>>
+      </input>
+      <a>x</a>
+    </li>
+  <% end %>
+</ul>
