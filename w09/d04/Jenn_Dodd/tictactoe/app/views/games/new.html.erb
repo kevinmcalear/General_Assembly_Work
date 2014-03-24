@@ -1,0 +1,59 @@
+<div class="stats">
+  <span class="x-win">X wins: 12</span>
+  <span class="o-win">X wins: 12</span>
+  <span class="tie">X wins: 12</span>
+</div>
+
+<button>New Game</button>
+
+
+
+<ul class="board">
+</ul>
+
+
+
+<script type="text/javascript">
+  var game;
+  var ul = document.querySelector("ul");
+
+  function newGame() {
+    game = new Game();
+    render();
+  }
+  
+  function render(){
+    var board = document.querySelector("ul.board");
+
+    board.innerHTML = "";
+
+    for (var i = 0; i < 9; i++) {
+      var li = document.createElement("li");
+      li.className = game.board[parseInt(i/3)][i%3];
+      li.id = "a"+parseInt(i/3) + "-" + i%3;
+      board.appendChild(li);
+    }
+    game.checkWinner();
+    game.endGame();
+    game.updateStats();
+  }
+
+  newGame();
+
+  ul.addEventListener("click", function(eventObject) {
+    game.mark( game.turn , game.hashIt(eventObject.target.id));
+    render();
+  });
+
+  $("button").on("click", newGame);
+
+  
+</script>
+
+
+
+
+
+
+
+
