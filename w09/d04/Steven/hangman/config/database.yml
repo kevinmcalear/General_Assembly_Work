@@ -1,0 +1,15 @@
+
+development:
+  adapter: postgresql
+  database: hangman_dev
+  pool: 5
+  timeout: 5000
+
+
+test:
+  adapter: postgresql
+  database: hangman_tet
+  pool: 5
+  timeout: 5000
+
+
