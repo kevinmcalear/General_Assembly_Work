@@ -1,0 +1,54 @@
+li span{
+  cursor: pointer;
+  background-color: #696969;
+  display: inline-block;
+  width: 20px;
+  border-radius: 5px;
+
+}
+
+h1 {
+  color: white;
+}
+
+body {
+  background-color: #363636;
+  text-align: center;
+  font-family: 'Duru Sans', sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+div#list {
+  margin: 10px auto;
+  width: 400px;
+}
+
+li {
+  margin: 10px;
+  background-color: rgb(157,52,59);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+form#task {
+  margin: 0 auto;
+}
+
+input#todo {
+  border-radius: 5px;
+}
+
+button {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.checked {
+  background-color: rgb(28,80,27)
+}
+
+
