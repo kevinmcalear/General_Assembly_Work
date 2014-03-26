@@ -1,0 +1,102 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+
+ body {
+  padding: 20px 0;
+}
+
+ul {
+  width: 400px;
+  margin: 30px auto;
+  clear: both;
+}
+
+li {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  position: relative;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background-color: blue;
+  list-style: none;
+  font-size: 80px;
+  color: white;
+  font-family: sans-serif;
+}
+
+li.winning {
+  -webkit-animation: highlight 2s;
+  -webkit-animation-iteration-count: infinite;  
+  animation: highlight 2s;
+  animation-iteration-count: infinite;
+}
+
+li:before {
+  display: block;
+  position: absolute;
+  left: 20px;
+  top: 3px;
+}
+
+li.x:before {
+  content: "X";
+}
+
+li.o:before {
+  content: "O";
+}
+
+.stats {
+  float: left;
+}
+
+span {
+  padding-right: 20px;
+  display: inline-block;
+}
+
+button {
+  float: right;
+  margin-right: 50px;
+}
+
+@-webkit-keyframes highlight {
+  0% {
+    background: auto;
+  }
+
+  50% {
+    background: cornflowerblue;
+  }
+
+  100% {
+    background: auto;
+  }
+}
+
+@keyframes highlight {
+  0% {
+    background: auto;
+  }
+
+  50% {
+    background: cornflowerblue;
+  }
+
+  100% {
+    background: auto;
+  }
+}

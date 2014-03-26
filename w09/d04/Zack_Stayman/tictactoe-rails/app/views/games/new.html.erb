@@ -1,0 +1,71 @@
+  <h1>X Winners: <span class = "wins-x"></span></h1><br>
+  <h1>O Winners: <span class = "wins-o"></span></h1><br>
+  <h1>Ties: <span class = "ties"></span></h1><br>
+
+  <ul class="board">
+  </ul>
+
+  <button id="new-game">Reset Game</button>
+
+  <script type="text/javascript">
+  var game = new Game();
+
+  document.querySelector('ul').addEventListener('click', function(e){
+    for(i = 0; i <e.target.parentElement.children.length; i++) {
+      if(e.target === e.target.parentElement.children[i]) {
+       game.mark(game.turn, {row: parseInt(i/3), column: i%3});
+       render(); 
+     };   
+   };
+ });
+
+  function newGame() {
+    game = new Game();
+    render();
+  };
+
+  function render(){
+
+    var board = document.querySelector("ul.board");
+
+    board.innerHTML = "";
+
+    for (var i = 0; i < 9; i++) {
+      var li = document.createElement("li");
+      li.className = game.board[parseInt(i/3)][i%3];
+      board.appendChild(li);
+    };
+
+
+    if(game.checkWinner() !== undefined) {
+      var winners = document.querySelectorAll("."+ game.checkWinner());
+      for(i = 0; i < winners.length; i++){
+        winners[i].classList.add("winning");
+      };
+    };
+    if(game.gameOver()){
+      $.post("/games", { winner: result() });
+      $.getJSON("/games/history", function(response){
+        $(".wins-x").text(response.x);
+        $(".wins-o").text(response.o);
+        $(".ties").text(response.tie);
+      });
+    };
+  };
+
+
+
+  $("#new-game").click(newGame);
+
+  $.getJSON("/games/history", function(response){
+    $(".wins-x").text(response.x);
+    $(".wins-o").text(response.o);
+    $(".ties").text(response.tie);
+  });  
+
+  render();
+
+
+  
+
+  </script>
