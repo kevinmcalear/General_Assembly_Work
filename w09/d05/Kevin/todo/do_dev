@@ -1,0 +1,46 @@
+No relations found.
+ hangman_dev               | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ hangman_test              | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ infiniteGiphy_development | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ infiniteGiphy_test        | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ kevin                     | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ postgres                  | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ template0                 | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/kevin         +
+                           |       |          |             |             | kevin=CTc/kevin
+ template1                 | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/kevin         +
+                           |       |          |             |             | kevin=CTc/kevin
+ ticktacktoe_development   | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ ticktacktoe_test          | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ todo_dev                  | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+
+ hangman_dev               | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ hangman_test              | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ infiniteGiphy_development | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ infiniteGiphy_test        | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ kevin                     | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ postgres                  | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ template0                 | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/kevin         +
+                           |       |          |             |             | kevin=CTc/kevin
+ template1                 | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/kevin         +
+                           |       |          |             |             | kevin=CTc/kevin
+ ticktacktoe_development   | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ ticktacktoe_test          | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ todo_dev                  | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+
+DROP TABLE
+ public | schema_migrations | table | kevin
+
+ hangman_dev               | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ hangman_test              | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ infiniteGiphy_development | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ infiniteGiphy_test        | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ kevin                     | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ postgres                  | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ template0                 | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/kevin         +
+                           |       |          |             |             | kevin=CTc/kevin
+ template1                 | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/kevin         +
+                           |       |          |             |             | kevin=CTc/kevin
+ ticktacktoe_development   | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ ticktacktoe_test          | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ todo_dev                  | kevin | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+

@@ -19,7 +19,7 @@ development:
   encoding: unicode
   database: infiniteGiphy_development
   pool: 5
-  username: peterlai
+  username: 
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -48,5 +48,5 @@ test:
   encoding: unicode
   database: infiniteGiphy_test
   pool: 5
-  username: peterlai
+  username: 
   password:
