@@ -1,0 +1,18 @@
+div{
+  border: solid black;
+  border-width: 1px;
+  padding: 8px;
+  width: 40%;
+}
+
+span{
+  font-family: Arial, sans-serif;
+}
+
+.struck{
+  text-decoration: line-through;
+}
+
+img{
+  height: 20px;
+}
