@@ -1,0 +1,82 @@
+ <div class="wins">
+   <h1 class="wins-title">Wins:</h1>
+   <h2 class="wins-count" id="wins-x"></h2>
+   <h2 class="wins-count" id="wins-o"></h2>
+   <h2 class="wins-count" id="wins-t"></h2>
+ </div>
+
+ <ul class="board">
+  </ul>
+
+  <script type="text/javascript">
+    var game = new Game();
+
+    ul = document.querySelector('ul');
+    ul.addEventListener('click', function(e){
+      for(i = 0; i <e.target.parentElement.children.length; i++) {
+        if(e.target === e.target.parentElement.children[i]) {
+           game.mark(game.turn, {row: parseInt(i/3), column: i%3});
+           render(); 
+        };
+      };
+    });
+
+    
+    function render(){
+      var board = document.querySelector("ul.board");
+
+      board.innerHTML = "";
+
+      for (var i = 0; i < 9; i++) {
+        var winnerIndex = parseInt(i/3) + "-" + i%3;
+        var li = document.createElement("li");
+        li.className = game.board[parseInt(i/3)][i%3];
+        board.appendChild(li);
+
+        if (game.gameOver() && !(game.winners.indexOf(winnerIndex) === -1)) {
+          li.classList.add("winning");
+        }
+      };
+
+      postWinner();
+      winnerStats();
+      whoseTurn();
+    };
+
+    function postWinner() {
+      if (game.gameOver()) {  
+        if (game.checkWinner() !== undefined) {
+          var winner = game.checkWinner();
+        } else {
+          winner = "t";
+        }
+        
+        $.post( "/games", { won: winner } );
+      };
+    }
+
+    function winnerStats() {
+      $.getJSON("/games/all", function(response) {
+        $("h2#wins-x").text("x: " + response.x);
+        $("h2#wins-o").text("o: " + response.o);
+        $("h2#wins-t").text("ties: " + response.t);
+      });
+    }
+
+    function whoseTurn(){
+      var display = document.createElement("h2");
+      
+      if (game.checkWinner() !== undefined) {
+        display.innerText = game.checkWinner() + " wins!!!";
+      } else if (game.gameOver()) {
+        display.innerText = "Tie. Game Over."; 
+      } else {
+        display.innerText = game.turn + "'s turn";
+      }
+
+      ul.appendChild(display);
+    }
+
+    render();
+    
+  </script>

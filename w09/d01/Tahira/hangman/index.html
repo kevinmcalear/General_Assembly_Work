@@ -35,8 +35,24 @@
     <button class="button new-game">New Game</button>
   </section>
 
+  <div class="score">
+    <span>Wins:</span>
+    <span class="wins">0</span> 
+    <span>Loses:</span>
+    <span class="loses">0</span>
+  </div>
+
+  <div class="players">
+    <span>Player 1:</span>
+    <span class="player1">0</span> 
+    <span>Player 2:</span>
+    <span class="player2">0</span>
+  </div> 
+
   <script>
 
+    winScore = document.querySelector(".wins");
+    loseScore = document.querySelector(".loses");
     var wins = 0;
     var loses = 0;
 
@@ -63,18 +79,27 @@
         this.reset();
         if(game.correctGuesses.join("") === game.word) {
           alert("You win!");
+          wins += 1;
+          winScore.innerText = wins;
         }
         if(game.guessesLeft === -1) {
           alert("You lost. Please play again.");
+          loses += 1;
+          loseScore.innerText = loses;
         }
       }
       form.addEventListener("submit", addLetter);
+      giveUpButton.addEventListener("click", function() {
+        alert("You gave up!");
+        loses += 1;
+        loseScore.innerText = loses;
+        gameWord.innerText = game.word;
+      });
     };
 
     newGame();
-  
 
-    giveUpButton.addEventListener("click", function() {alert("You gave up!");} );
+    
 
     newGameButton.addEventListener("click", newGame);
 

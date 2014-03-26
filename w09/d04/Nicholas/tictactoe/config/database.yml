@@ -1,0 +1,24 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: tictactoe_development
+  pool: 5
+  username: nicholasbundy
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: tictactoe_test
+  pool: 5
+  username: nicholasbundy
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: tictactoe_production
+  pool: 5
+  username: nicholasbundy
+  password:
