@@ -15,6 +15,7 @@ function showToDo() {
       currentItem.addClass("checked");
      }
      $("ul").append(currentItem);
+
     };
   });
 };
