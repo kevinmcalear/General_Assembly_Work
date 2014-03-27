@@ -22,7 +22,7 @@ class TodosController < ApplicationController
     @todo = Todo.find(params[:id])
 
     if @todo.update(todo_params)
-      render status: 200, nothing: true
+      render json: @todo
     else
       render status: 400, nothing: true
     end
