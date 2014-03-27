@@ -103,3 +103,10 @@ $(document).ready(function(){
     this.reset();
   });
 });
+
+
+var Todo = Backbone.Model.extend()
+  this.task: task;
+  this.done: done;
+  this.id: id;
+  }
