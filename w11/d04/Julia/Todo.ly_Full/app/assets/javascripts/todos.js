@@ -1,10 +1,20 @@
 var Todos = [], ul;
 
-var Todo = function(todo) {
-  this.task = todo.task;
-  this.done = todo.done;
-  this.id = todo.id;
-};
+// var Todo = function(todo) {
+//   this.task = todo.task;
+//   this.done = todo.done;
+//   this.id = todo.id;
+// };
+
+//backbone's custom version of a constructor function
+var Todo = Backbone.Model.extend({
+  urlRoot: '/todos',
+  defaults: {
+    done: false,
+    task: ""
+  }
+});
+
 
 Todo.prototype.complete = function(bool) {
   this.done = bool;
