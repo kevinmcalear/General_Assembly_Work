@@ -1,0 +1,13 @@
+form {
+  border: 1px dashed black;
+  padding: 15px;
+  width: 500px;
+}
+
+li {
+
+}
+
+.done {
+  text-decoration: line-through;
+}

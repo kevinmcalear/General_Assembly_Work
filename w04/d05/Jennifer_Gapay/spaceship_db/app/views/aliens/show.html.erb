@@ -1,0 +1,12 @@
+<!-- /aliens/show -->
+
+<h1><a href="/spaceships">The Spaceship Database</a></h1>
+
+<ul><% @aliens.each do |alien| %>  
+  <li>Name:  <%= alien.name %></li>
+  <li>Origin:  <%= alien.origin %></li>
+  <li>Organic Composition:  <%= alien.organic_composition %></li>
+  <li>Vulnerbilities:  <%= alien.vulnerabilities %></li>
+  <li>Spaceship:  <%= alien.spaceship_id %></li>
+</ul>
+  <% end %>
