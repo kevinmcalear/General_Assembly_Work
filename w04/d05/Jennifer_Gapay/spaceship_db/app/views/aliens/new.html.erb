@@ -1,0 +1,38 @@
+<!-- /aliens/new -->
+
+<h1><a href="/spaceships">The Spaceship Database</a></h1>
+
+<h1> Add an alien! </h1>
+
+<form action="/spaceships/<%=@spaceship.id%>/aliens"
+  method="POST">
+<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+<label> 
+  Name:
+  <input type="string" name="name" />
+</label>
+
+<label>
+  Origin:
+  <input type="string" name="origin" />
+</label>
+
+<label>
+  Organic composition:
+  <input type="string" name="organic_composition" />
+</label>
+
+<label>
+  Vulnerabilities:
+  <input type="string" name="vulnerabilities" />
+</label>
+
+<label>
+  Strength from 1-10:
+  <input type="integer" name="strength" />
+</label>
+
+<button>Add!</button>
+
+</form>

@@ -47,3 +47,16 @@
 
 * Every group member participates in a retrospective.
 * The retrospective leader writes a blog post about the experience.
+
+### Additional Notes
+
+*Setup:*
+* master repo w/ instructors as collaborators
+* pivotal tracker project w/ instructors as collaborators
+
+*Reqs:*
+* fork/pull request model of collaboration
+* instructors will answer questions via GitHub issues on the master repo
+* Wednesday 3/19 is planning day. Decide on features and write user stories. Can start coding if stories are written
+
+*Project Presentations* - Wednesday, March 26, 2014

@@ -1,0 +1,24 @@
+<script>
+var fibonacci = function () {
+      var preSum = 0;
+      var currentSum = 1;
+      var previous;
+      var current
+      var result = 0;
+    
+      return function loop () {
+        while (currentSum <= 4000000) {
+          if (currentSum % 2 === 0) {
+            result += currentSum;
+          }
+    
+          previous = preSum;
+          current = currentSum;
+    
+          preSum = current;
+          currentSum = current + previous;
+          return loop;
+        } else {
+          return result;
+        }
+        </script>

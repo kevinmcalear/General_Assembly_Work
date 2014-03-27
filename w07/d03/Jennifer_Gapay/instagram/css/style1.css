@@ -1,0 +1,86 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  
+}
+#page-container {
+  text-align: center;
+  position: relative;
+}
+
+div.centered-content {
+  /*border: 1px solid orange;*/
+  width: 1100px;
+  margin: 50px auto;
+}
+
+div.centered-content div {
+  /*border: 1px solid black;*/
+}
+
+#main-content {
+  width: 50%;
+  display: inline-block;
+  padding: 20px 60px;
+  vertical-align: top;
+  position: relative;
+  top: 10px;
+}
+
+#main-content * {
+  line-height: 1.5em;
+}
+
+#main-content>img {
+  float: left;
+}
+#bg-color{
+  width: 100%;
+  height: 280px;
+  background: #517fa4;
+  position: absolute;
+  top: -50px;
+  z-index: -1;
+
+}
+
+
+#log-in {
+  display: inline-block;
+  float: right;
+}
+
+.text {
+  clear: both;
+  -webkit-box-shadow: 0px -3px 13px 1px rgba(50, 50, 50, 0.32);
+  -moz-box-shadow:    0px -3px 13px 1px rgba(50, 50, 50, 0.32);
+  box-shadow:        0px -3px 13px 1px rgba(50, 50, 50, 0.32);
+  border-radius: 8px;
+  text-align: left;
+  background: white;
+  padding: 5px 10px;
+}
+
+footer {
+  border: 1px solid red;
+  display: inline;
+}
+
+nav {
+  border: 1px solid green;
+  display: inline;
+}
+
+nav ul {
+  display: inline;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  margin: 0 0.6em;
+}
