@@ -10,20 +10,27 @@ Todo.prototype.complete = function(bool) {
   this.done = bool;
 }
 
-function buildLI(todo) {
-  var li = $("<li>" + todo.task + "</li>");
-  var checkbox = $("<input />", { type: "checkbox" });
-
-  li.append(checkbox);
-  li.append($("<span>&times;</span>"));
-
-  if (todo.done) {
-    checkbox.prop("checked", true);
-    li.addClass("done");
-  };
-
-  return li;
+function buildLI(todo){
+  var template = $("script.template").html();
+  var res = _.template(template, {todo: todo});
+  return $(rendered);
 };
+
+
+// function buildLI(todo) {
+//   var li = $("<li>" + todo.task + "</li>");
+//   var checkbox = $("<input />", { type: "checkbox" });
+
+//   li.append(checkbox);
+//   li.append($("<span>&times;</span>"));
+
+//   if (todo.done) {
+//     checkbox.prop("checked", true);
+//     li.addClass("done");
+//   };
+
+//   return li;
+// };
 
 function attachListeners(li, todo) {
   li.find("input[type='checkbox']").on("change", function() {
@@ -96,3 +103,10 @@ $(document).ready(function(){
     this.reset();
   });
 });
+
+
+var Todo = Backbone.Model.extend()
+  this.task: task;
+  this.done: done;
+  this.id: id;
+  }

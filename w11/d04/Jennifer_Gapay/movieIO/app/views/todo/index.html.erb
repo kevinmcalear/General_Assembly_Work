@@ -1,0 +1,22 @@
+<h1>Movies!</h1>
+<form>
+  <fieldset>
+    <legend>Movies to Watch</legend>
+    <label>
+      Title
+      <input type="text" name="title" />
+    </label>
+    <button>Add</button>
+  </fieldset>
+</form>
+
+<ul class="todos">
+</ul>
+
+<script type="template" class="template">
+  <li class="<%%= todo.done ? "done" : "" %>">
+    <%%= todo.task %>
+    <input type="checkbox" <%%= todo.done ? "checked" : "" %>/>
+    <span>&times;</span>
+  </li>
+</script>
