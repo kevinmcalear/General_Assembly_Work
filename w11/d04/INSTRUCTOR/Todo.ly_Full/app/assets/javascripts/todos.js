@@ -1,7 +1,10 @@
-var Todos = [], ul;
-
 var Todo = Backbone.Model.extend({ 
-  urlRoot: "/todos" 
+  urlRoot: "/todos"
+});
+
+var TodoCollection = Backbone.Collection.extend({
+  model: Todo,
+  url: "/todos"
 });
 
 var TodoView = Backbone.View.extend({
@@ -35,38 +38,42 @@ var TodoView = Backbone.View.extend({
   }
 });
 
-function render() {
-  ul.empty();
+var FormView = Backbone.View.extend({
+  el: "form",
 
-  Todos.map(function(todo) {
-    var view = new TodoView({model: todo});
-    var li = view.el;
-    return li;
-  }).forEach(function(li) {
-    ul.append(li);
-  });
-};
+  events: {
+    "submit": "createTodo"
+  },
 
-$(document).ready(function(){
-  ul = $("ul");
-  
-  $.getJSON("/todos", function(todos) {
-    todos.forEach(function(todo) {
-      Todos.push(new Todo(todo));
-    });
-    render();
-  });
-
-  $("form").on("submit", function(e) {
+  createTodo: function(e) {
     e.preventDefault();
+    var task = this.el.elements["task"].value;
+    this.collection.create({task: task});
+    this.el.reset();
+  }
+});
 
-    var todo = new Todo({
-      task: this.elements["task"].value,
-      done: false
-    });
-    todo.save()
-    Todos.push(todo);
-    this.reset();
-    render();
-  });
+var ListView = Backbone.View.extend({
+  el: "ul",
+
+  initialize: function() {
+    this.listenTo(this.collection, "reset", this.addAll);
+    this.listenTo(this.collection, "add", this.addOne);
+  },
+
+  addAll: function() {
+    this.collection.each(this.addOne.bind(this));
+  },
+
+  addOne: function(todo) {
+    var view = new TodoView({model: todo});
+    this.$el.append(view.el);
+  }
+});
+
+$(document).ready(function() {
+  var todos = new TodoCollection();
+  var listView = new ListView({collection: todos});
+  var formView = new FormView({collection: todos});
+  todos.fetch({ reset: true });
 });
