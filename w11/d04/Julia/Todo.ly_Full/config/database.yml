@@ -3,5 +3,5 @@ development:
   encoding: unicode
   database: Listly2_development
   pool: 5
-  username: <%= `whoami` %>
+  username: julia
   password:
