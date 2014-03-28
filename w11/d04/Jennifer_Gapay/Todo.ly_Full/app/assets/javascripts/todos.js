@@ -11,18 +11,23 @@ Todo.prototype.complete = function(bool) {
 }
 
 function buildLI(todo) {
-  var li = $("<li>" + todo.task + "</li>");
-  var checkbox = $("<input />", { type: "checkbox" });
+  var template = $("script.template").html();
+  var rendered = _.template(template, { todo: todo });
+    return $(rendered);
 
-  li.append(checkbox);
-  li.append($("<span>&times;</span>"));
+  // BEFORE
+  // var li = $("<li>" + todo.task + "</li>");
+  // var checkbox = $("<input />", { type: "checkbox" });
 
-  if (todo.done) {
-    checkbox.prop("checked", true);
-    li.addClass("done");
-  };
+  // li.append(checkbox);
+  // li.append($("<span>&times;</span>"));
 
-  return li;
+  // if (todo.done) {
+  //   checkbox.prop("checked", true);
+  //   li.addClass("done");
+  // };
+
+  // return li;
 };
 
 function attachListeners(li, todo) {

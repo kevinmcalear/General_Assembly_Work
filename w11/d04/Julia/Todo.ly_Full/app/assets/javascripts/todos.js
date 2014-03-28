@@ -1,28 +1,29 @@
 var Todos = [], ul;
 
-var Todo = function(todo) {
-  this.task = todo.task;
-  this.done = todo.done;
-  this.id = todo.id;
-};
+// var Todo = function(todo) {
+//   this.task = todo.task;
+//   this.done = todo.done;
+//   this.id = todo.id;
+// };
+
+//backbone's custom version of a constructor function
+var Todo = Backbone.Model.extend({
+  urlRoot: '/todos',
+  defaults: {
+    done: false,
+    task: ""
+  }
+});
+
 
 Todo.prototype.complete = function(bool) {
   this.done = bool;
 }
 
 function buildLI(todo) {
-  var li = $("<li>" + todo.task + "</li>");
-  var checkbox = $("<input />", { type: "checkbox" });
-
-  li.append(checkbox);
-  li.append($("<span>&times;</span>"));
-
-  if (todo.done) {
-    checkbox.prop("checked", true);
-    li.addClass("done");
-  };
-
-  return li;
+  var template = $("script.template").html(); 
+  var rendered = _.template(template, {todo: todo});
+  return $(rendered)
 };
 
 function attachListeners(li, todo) {
