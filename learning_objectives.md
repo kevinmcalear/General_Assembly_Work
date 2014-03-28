@@ -459,3 +459,44 @@
   - `remove`
 - Attach an event listener to a DOM element
 - Use a callback function in order to attach behavior to events.
+
+## JavaScript Timers
+
+### Mechanics
+- Use setTimeout to execute code after a specific delay
+- Use setinterval & clearinterval to repeatedly execute code at specific intervals
+
+## jQuery
+
+### Concepts
+- Explain what a namespace is
+- Explain what jQuery is used for
+- Explain the difference between a DOM element and a jQuery object
+- Explain the differenve between a DOM event and a jQuery event
+- Describe when anonymous functions are commonly used, and why
+- Explain what delegated events are
+- Explain what stopPropagation does in relation to events
+
+### Mechanics
+- Use namespaced JS objects to avoid polluting the global namespace
+- Reference the jQuery documentation to figure out things you don't know how to do
+- Create a jQuery object
+- Select DOM elements by: id, class name, tag, or using a query selector
+- Change the attributes or content of a DOM element
+- Append and remove elements from the DOM
+- Add event listeners using jQuery
+- Use method chaining with good style in JS
+
+## AJAX
+
+### Concepts
+- Explain what JSON is and what it is used for
+- Explain what AJAX is and why you would use it
+- Explain what a callback function is
+- Decide and defend what functionality should be implemented on the client-side with JavaScript and what should be implemented on the server-side with Rails
+- Explain what preventDefault does for a form
+
+### Mechanics
+- Include JavaScript files in a Rails app
+- Use AJAX to GET information from the server and handle the JSON response
+- Use AJAX to POST information to the server
