@@ -1,72 +1,49 @@
 var Todos = [], ul;
 
-var Todo = function(todo) {
-  this.task = todo.task;
-  this.done = todo.done;
-  this.id = todo.id;
-};
+var Todo = Backbone.Model.extend({ 
+  urlRoot: "/todos" 
+});
 
-Todo.prototype.complete = function(bool) {
-  this.done = bool;
-}
+var TodoView = Backbone.View.extend({
+  tagName: "li",
 
-function buildLI(todo) {
-  var template = $("script.template").html();
-  var rendered = _.template(template, { todo: todo });
-  return $(rendered);
-};
+  initialize: function() {
+    this.listenTo(this.model, "change", this.render);
+    this.render();
+  },
 
-function attachListeners(li, todo) {
-  li.find("input[type='checkbox']").on("change", function() {
-    todo.complete($(this).is(":checked"));
-    update(todo);
-    render();
-  });
+  events: {
+    "change input[type='checkbox']": "toggleDone",
+    "click span": "destroy"
+  },
 
-  li.find("span").on("click", function() {
-    Todos.splice(Todos.indexOf(todo), 1);
-    destroy(todo);
-    render();
-  });
+  toggleDone: function(e) {
+    var checked = $(e.target).is(":checked");
+    this.model.set('done', checked);
+    this.model.save();
+  },
 
-  return li;
-};
+  destroy: function() {
+    this.model.destroy();
+    this.remove();
+  },
+
+  render: function() {
+    var template = $("script.template").html();
+    var rendered = _.template(template, { todo: this.model });
+    this.$el.html(rendered);
+  }
+});
 
 function render() {
   ul.empty();
 
   Todos.map(function(todo) {
-    var li = buildLI(todo);
-    li = attachListeners(li, todo);
+    var view = new TodoView({model: todo});
+    var li = view.el;
     return li;
   }).forEach(function(li) {
     ul.append(li);
-  });
-};
-
-function update(todo) {
-  $.ajax({
-    type: "PUT",
-    url: "/todos/" + todo.id,
-    data: {todo: todo}
-  });
-};
-
-function destroy(todo) {
-  $.ajax({
-    type: "DELETE",
-    url: "/todos/" + todo.id
-  });
-};
-
-function create(todo) {
-  $.ajax({
-    type: "POST",
-    url: "/todos",
-    data: {todo: todo}
-  }).success(function(todo) {
-    Todos.push(new Todo(todo));
-    render();
   });
 };
 
@@ -83,7 +60,13 @@ $(document).ready(function(){
   $("form").on("submit", function(e) {
     e.preventDefault();
 
-    create(new Todo({task: this.elements["task"].value}));
+    var todo = new Todo({
+      task: this.elements["task"].value,
+      done: false
+    });
+    todo.save()
+    Todos.push(todo);
     this.reset();
+    render();
   });
 });

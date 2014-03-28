@@ -14,9 +14,9 @@
 </ul>
 
 <script type="template" class="template">
-  <li class="<%%= todo.done ? "done" : "" %>">
-    <%%= todo.task %>
-    <input type="checkbox" <%%= todo.done ? "checked" : "" %>/>
+  <li class="<%%= todo.get('done') ? "done" : "" %>">
+    <%%= todo.get('task') %>
+    <input type="checkbox" <%%= todo.get('done') ? "checked" : "" %>/>
     <span>&times;</span>
   </li>
 </script>
