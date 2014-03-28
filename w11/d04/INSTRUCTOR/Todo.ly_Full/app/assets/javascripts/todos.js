@@ -57,12 +57,7 @@ var ListView = Backbone.View.extend({
   el: "ul",
 
   initialize: function() {
-    this.listenTo(this.collection, "reset", this.addAll);
     this.listenTo(this.collection, "add", this.addOne);
-  },
-
-  addAll: function() {
-    this.collection.each(this.addOne.bind(this));
   },
 
   addOne: function(todo) {
@@ -75,5 +70,5 @@ $(document).ready(function() {
   var todos = new TodoCollection();
   var listView = new ListView({collection: todos});
   var formView = new FormView({collection: todos});
-  todos.fetch({ reset: true });
+  todos.fetch();
 });
