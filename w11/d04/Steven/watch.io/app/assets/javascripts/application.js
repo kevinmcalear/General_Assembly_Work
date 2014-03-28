@@ -17,14 +17,26 @@
 //= require backbone
 //= require_tree .
 
+
 var MovieModel = Backbone.Model.extend({
   urlRoot: '/movies'
 });
 
 var newMovie = new MovieModel({
-  title: 'Spinal Tap',
-  seen: true
+  title: 'Homeward Bound',
+  seen: false
 });
+
+var movies = Backbone.Collection.extend({
+  model: MovieModel,
+  url: '/movies'
+});
+
+newMovie.set({seen: true});
+
+
+
+// allMovies = 
 
 
 

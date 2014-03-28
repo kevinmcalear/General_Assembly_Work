@@ -1,4 +1,6 @@
 WatchIo::Application.routes.draw do
   resources :movies
-  root 'movies#index'
+
+  # get 'all_movies'
+  # root 'movies#index'
 end
