@@ -4,28 +4,29 @@ require 'benchmark'
 ### Setup!
 ###############
 
-def linear(n)
-  return n + 1
-end
+arr = (1..500).to_a.shuffle
 
-def single_loop(n)
-  total = 0
-  n.times do |number|
-    total += number
-  end
-  return total
-end
+class Array
 
-def nested_loop(n)
-  total = 0
-  n.times do |number|
-    n.times do |inner_num|
-      n.times do |way_inner_num|
-        total += way_inner_num
-      end
+  def bubble_sort
+    return self if self.size <= 1 # an array of size 1 is already sorted
+    swapped = true
+    while swapped do
+      swapped = false
+      1.upto(self.size-1) do |i|
+        if self[i-1] > self[i]
+          self[i-1], self[i] = self[i], self[i-1] #this swaps them
+          swapped = true #remember there was a swap
+        end
+      end    
     end
+    self
   end
-  return total
+
+  def quick_sort
+    #Paste your code here!
+  end
+
 end
 
 ###############
@@ -36,7 +37,6 @@ puts "Ready, steady, Go!"
 # http://rubylearning.com/blog/2013/06/19/how-do-i-benchmark-ruby-code/
 
 iterations = 10 # Run the test mutliple iterations to make sure we get a meaningful number.
-n = 100
 
 # (10) is padding for headers so we get nice looking output
 Benchmark.bmbm(10) do |bm|
@@ -46,21 +46,22 @@ Benchmark.bmbm(10) do |bm|
   # `bmbm` first runs the code as a 'rehearsal' to force any initialization that needs to happen and 
   # and ensure that the system is fully initialized and the benchmark is fair.
 
-  bm.report("Linear") do
+  bm.report("Bubble") do
     iterations.times do
-      linear(n)
+      arr.dup.bubble_sort #My bubble sort is destructive so I am using the .dup to make a duplicate before we sort
     end
   end
 
-  bm.report("Single Loop") do
-    iterations.times do
-      single_loop(n)
-    end
-  end
+# Uncomment the code below when you are ready!
+  # bm.report("Quick") do
+  #   iterations.times do
+  #     arr.dup.quick_sort
+  #   end
+  # end
 
-  bm.report("Nested Loop") do
+  bm.report("Ruby") do
     iterations.times do
-      nested_loop(n)
+      arr.dup.sort
     end
   end
 
