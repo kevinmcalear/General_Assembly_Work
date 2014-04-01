@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: rails-opt_development
+  pool: 5
+  username: jeff
+  password:
