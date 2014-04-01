@@ -1,8 +1,5 @@
-<% cache(@posts) do %>
-  <ul>
-    <% @posts.each do |post| %>
-      <li><%= post.content %><%= post.author.name %></li>
-    <% end %>
-  </ul>
-<% end %>
-<%= @movies %>
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= post.content %><%= post.author.name %></li>
+  <% end %>
+</ul>
