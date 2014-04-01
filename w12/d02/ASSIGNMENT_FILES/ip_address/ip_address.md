@@ -12,4 +12,5 @@ Make sure your code is
 * Named semantically
 * Small
 
+####Bonus:
 If you feel VERY satisfied with your code, implement the solution in another language
