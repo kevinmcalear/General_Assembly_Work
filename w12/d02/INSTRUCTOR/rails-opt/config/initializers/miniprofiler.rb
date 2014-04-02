@@ -1,0 +1,1 @@
+Rack::MiniProfiler.config.pre_authorize_cb = Proc.new { true }
