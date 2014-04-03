@@ -160,3 +160,15 @@ Ember.js ia an open source client-side JS front-end framework based on MVC. It's
 Use it if you want the MVC structure on the client-side. It's more structured than Backbone. It's very useful for having changes to models render real-time in the browser. It utilizes Handlebars for templating. 
 
 Alternatives are Backbone, Angular, and other MV* frameworks for JavaScript.
+
+### Python
+
+Python is the Swiss Army Knife of programming languages – it’s incredibly fast, powerful and an open-source solution that’s the right tool for many tasks from basic computational functions to web development for robust applications. Created slightly before Ruby in 1991, Python is still more popular. Python is coupled with Django to create web applications. 
+
+Problems solved: 
+  * need a versatile and scalable language and framework (Django)
+  * need something incredibly readable (BEWARE: strict indentation/white space rules!)
+
+Alternatives:
+  * Ruby
+  * PHP
