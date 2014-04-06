@@ -15,8 +15,25 @@ class Array
     self
   end
 
-  def quick_sort
-    #TO DO
-  end
+# def quick_sort
+    #TO DO 
+# end
 
+def quick_sort
+
+  return self if self.length <= 1
+
+  pivot = self.shift
+  numbers_greater = []
+  numbers_less = []
+
+  self.each do | number |
+    if number <= pivot
+      numbers_less << number
+    else
+      numbers_greater << number
+    end
+  end
+    return numbers_less.quick_sort + [pivot] + numbers_greater.quick_sort
+  end
 end

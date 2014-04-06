@@ -15,5 +15,34 @@ function recFactorial(n){
   }
 }
 
+
+// Fibonacci Functions
+
+function loopFibonacci(n){
+  var previous = 1;
+  var result = 0;
+
+  for(var i = 1; i<= n; i++) {
+    result += previous;
+    previous = result - previous;
+  }
+  return result;
+}
+
+
+function recFibonacci(n){
+  if (n < 3){
+    return 1;
+  }
+  else {
+    return recFibonacci(n-2) + recFibonacci(n-1);
+  }
+}
+
+
+
 console.log(loopFactorial(5));
 console.log(recFactorial(5));
+
+console.log(loopFibonacci(5));
+console.log(recFibonacci(5));

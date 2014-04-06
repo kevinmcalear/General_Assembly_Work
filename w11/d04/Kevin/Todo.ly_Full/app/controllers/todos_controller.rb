@@ -8,6 +8,15 @@ class TodosController < ApplicationController
     end
   end
 
+  def show
+    @todo = Todo.find(params[:id])
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @todo }
+    end
+  end
+
   def create
     @todo = Todo.new(todo_params)
 
